@@ -1,0 +1,27 @@
+今天比较整体性的完成了PA0的实验，这个实验目的是帮助我们准备好Linux系统和相关的开发环境，为后续的芯片设计工作作出充分的准备。
+
+个人的实验器材准备是一台8+256GB的M1 MacBook Air，由于系统策略，不能在本地直接运行Linux（虽然近期Asahi Linux可以直接在Mac实体机上运行，但是兼容性和性能非常差，而且很多系统基本组件（包括但不限于终端、浏览器）无法长期稳定运行）或者WIndows操作系统。于是使用Parallels Desktop 18分别创建了Ubuntu Linux 22.04和Windows 11两台虚拟机，为后续实验作出系统准备。
+
+首先对Ubuntu Linux系统进行操作。根据PA0的相关指导。
+    对当前Linux系统的APT源进行更新（apt-get update）
+    更新后对系统所有软件包进行升级（apt-get upgrade）
+    （以上两项操作的目的是保持系统所有软件包的版本都是最新，减少了后续安装软件包出现版本冲突问题）
+    使用apt安装了git gdb gcc-doc llvm libsdl2-dev libreadline等包，顺利完成
+    （前期进行实验中这块出现了一些问题，在进行libsdl2-dev的安装过程中发现系统会因为软件包版本不兼容触发保护机制，从而扰乱系统正常运行
+
+接下来对Windows系统也进行了环境的配置
+    由于Intel Quartus程序不兼容ARM版的Ubuntu系统（已经尝试过，安装失败），只能通过Windows ARM的转译功能将x86的程序运行在ARM虚拟机中。（当前观察软件功能运行正常，没有出现不兼容的情况）
+    由于Windows系统中并没有类似vim的编辑器，有需要搞笑的编写代码，便安装了Visual Studio Code，添加了Verilog HDL组件
+
+接下来对Ubuntu Linux进行更深度的配置（NEMU的安装）
+    NEMU是一生一芯项目中模拟处理器的重要组件，需要通过git从代码仓库中克隆项目代码并通过make进行安装
+    根据一生一芯官网的教程，把ysyx-workbench中的init.sh文件运行（需要后边加上nemu），系统会克隆相关代码
+    第一次运行系统报出了错误，但是讲义上也证明了这一点，所以需要STFW来找出答案
+    经过上网搜集问题，锁定问题的来源是没有配置环境变量（通过百度查询错误信息了解了相关的原理和问题）解决问题的办法是在终端命令行中使用指令（sudo gedit ～/.bashrc）对系统的环境变量配置进行了修改，经过这项操作，系统的环境变量中有了NEMU的目录，问题得到解决
+    后续系统成功的安装了NEMU组件，但是无法运行，使用make run指令运行NEMU，会发现这个程序在窗口出现后的瞬间闪退，系统提示core dump，表明运行中系统查询到了问题并杀死了进城，对内存数据进行了保存（会写出一个错误报告并上交给相关人员）
+
+对Ubuntu Linux系统的Git进行了配置
+    使用APT安装了git
+    在个人GitHub账号中添加了Ubuntu虚拟机的SSH-KEY
+    成功克隆一生一芯的workbench并修改了身份信息
+    吧Git的branch， checkout，log，status功能研究了一遍
