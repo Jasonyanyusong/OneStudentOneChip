@@ -3,8 +3,6 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/verilator_include_files",
                 "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream"
             ],
             "defines": [],
@@ -12,7 +10,49 @@
             "cStandard": "gnu17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64",
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "configurationProvider": "ms-vscode.makefile-tools",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream",
+                    "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream/obj_dir"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        },
+        {
+            "name": "Verilator_4210",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        },
+        {
+            "name": "DCE01A",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream",
+                "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream/obj_dir",
+                "/usr/local/share/verilator/include",
+                "${workspaceFolder}/DigitalCircuitsExperiments/DCE01/Datastream"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
         }
     ],
     "version": 4
