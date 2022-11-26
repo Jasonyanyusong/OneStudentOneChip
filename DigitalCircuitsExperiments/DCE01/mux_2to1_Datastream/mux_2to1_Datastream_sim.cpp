@@ -22,12 +22,18 @@ void step_and_dump_wave()
 
 void sim_init() // Initilize the simulator
 {
-
+    contextp = new VerilatedContext;
+    tfp = new VerilatedVcdC;
+    top = new Vmux_2to1_Datastream;
+    contextp -> traceEverOn(true);
+    top -> trace(tfp, 0);
+    tfp -> open("dump.vcd");
 }
 
 void sim_exit() // Terminate the simulator
 {
-
+    step_and_dump_wave();
+    tfp -> close();
 }
 
 int main()
