@@ -8,7 +8,7 @@
 #ifndef VERILATED_VMUX_2TO1_DATASTREAM_H_
 #define VERILATED_VMUX_2TO1_DATASTREAM_H_  // guard
 
-#include "verilated_heavy.h"
+#include "/usr/local/share/verilator/include/verilated_heavy.h"
 
 class Vmux_2to1_Datastream__Syms;
 class Vmux_2to1_Datastream___024root;
