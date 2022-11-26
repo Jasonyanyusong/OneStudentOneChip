@@ -7,7 +7,7 @@
 #ifndef VERILATED_VMUX_2TO1_DATASTREAM__SYMS_H_
 #define VERILATED_VMUX_2TO1_DATASTREAM__SYMS_H_  // guard
 
-#include "verilated_heavy.h"
+#include "/usr/local/share/verilator/include/verilated_heavy.h"
 
 // INCLUDE MODEL CLASS
 
