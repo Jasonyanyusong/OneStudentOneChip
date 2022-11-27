@@ -4,7 +4,7 @@
 
 #include "/usr/local/share/verilator/include/verilated.h"
 #include "/usr/local/share/verilator/include/verilated_vcd_c.h"
-#include "/home/ce/OneStudentOneChip/DigitalCircuitsExperiments/DCE01/mux_2to1_Structure/obj_dir/Vmux_2to1_Datastream.h"
+#include "/home/ce/OneStudentOneChip/DigitalCircuitsExperiments/DCE01/mux_2to1_Structure/obj_dir/Vmux_2to1_Structure.h"
 
 #include <iostream>
 
