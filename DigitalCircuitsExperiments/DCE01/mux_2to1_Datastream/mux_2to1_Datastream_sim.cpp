@@ -26,7 +26,7 @@ void sim_init() // Initilize the simulator
     tfp = new VerilatedVcdC;
     top = new Vmux_2to1_Datastream;
     contextp -> traceEverOn(true);
-    top -> trace(tfp, 0);
+    top -> trace (tfp, 0);
     tfp -> open("dump.vcd");
 }
 
@@ -46,5 +46,54 @@ int main()
 
     // Simulator Main Parts
     sim_init();
+
+    // Condition sab
+    top -> s = 0;
+    top -> a = 0;
+    top -> b = 0;
+    step_and_dump_wave();
+
+    // Condition saB
+    top -> s = 0;
+    top -> a = 0;
+    top -> b = 1;
+    step_and_dump_wave();
+
+    // Condition sAb
+    top -> s = 0;
+    top -> a = 1;
+    top -> b = 0;
+    step_and_dump_wave();
+
+    // Condition sAB
+    top -> s = 0;
+    top -> a = 1;
+    top -> b = 1;
+    step_and_dump_wave();
+
+    // Condition Sab
+    top -> s = 1;
+    top -> a = 0;
+    top -> b = 0;
+    step_and_dump_wave();
+
+    // Condition SaB
+    top -> s = 1;
+    top -> a = 0;
+    top -> b = 1;
+    step_and_dump_wave();
+
+    // Condition SAb
+    top -> s = 1;
+    top -> a = 1;
+    top -> b = 0;
+    step_and_dump_wave();
+
+    // Condition SAB
+    top -> s = 1;
+    top -> a = 1;
+    top -> b = 1;
+    step_and_dump_wave();
+
     sim_exit();
 }
