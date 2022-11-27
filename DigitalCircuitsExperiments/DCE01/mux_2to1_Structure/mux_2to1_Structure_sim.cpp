@@ -2,8 +2,8 @@
 //#include <verilated_vcd_c.h>
 //#include <obj_dir/Vmux_2to1_Datastream.h>
 
-#include "/usr/local/share/verilator/include/verilated.h"
-#include "/usr/local/share/verilator/include/verilated_vcd_c.h"
+#include "/home/ce/OneStudentOneChip/include/verilated.h"
+#include "/home/ce/OneStudentOneChip/include/verilated_vcd_c.h"
 #include "/home/ce/OneStudentOneChip/DigitalCircuitsExperiments/DCE01/mux_2to1_Structure/obj_dir/Vmux_2to1_Structure.h"
 
 #include <iostream>
@@ -24,7 +24,7 @@ void sim_init() // Initilize the simulator
 {
     contextp = new VerilatedContext;
     tfp = new VerilatedVcdC;
-    top = new Vmux_2to1_Datastream;
+    top = new Vmux_2to1_Structure;
     contextp -> traceEverOn(true);
     top -> trace (tfp, 0);
     tfp -> open("dump.vcd");
