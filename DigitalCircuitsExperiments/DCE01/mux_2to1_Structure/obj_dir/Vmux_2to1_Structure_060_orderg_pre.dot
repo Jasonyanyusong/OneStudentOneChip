@@ -1,0 +1,27 @@
+digraph v3graph {
+	graph	[label="obj_dir/Vmux_2to1_Structure_060_orderg_pre.dot",
+		 labelloc=t, labeljust=l,
+		 //size="7.5,10",
+		 rankdir=TB];
+	n0	[fontsize=8 label="*INPUTS*", color=green];
+	n0x555556b62ff0_1	[fontsize=8 label="0x555556b73930\n TOP->a", color=skyblue];
+	n0x555556b62ff0_2	[fontsize=8 label="0x555556b73a00\n TOP->b", color=skyblue];
+	n0x555556b62ff0_3	[fontsize=8 label="0x555556b73ad0\n TOP->s", color=skyblue];
+	n0x555556b62ff0_4	[fontsize=8 label="0x555556bed500\n ASSIGNW", color=yellow];
+	n0x555556b62ff0_5	[fontsize=8 label="0x555556b73ba0\n TOP->y", color=skyblue];
+	n0x555556b62ff0_6	[fontsize=8 label="0x555556b73ba0 POST\n TOP->y", color=CadetBlue];
+	n0x555556b62ff0_7	[fontsize=8 label="0x555556c0ac00\n ASSIGNW", color=yellow];
+	n0 -> n0x555556b62ff0_1 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n0x555556b62ff0_2 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n0x555556b62ff0_3 [fontsize=8 label="" weight=1 color=red];
+	n0x555556b62ff0_1 -> n0x555556b62ff0_4 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_1 -> n0x555556b62ff0_7 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_2 -> n0x555556b62ff0_4 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_2 -> n0x555556b62ff0_7 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_3 -> n0x555556b62ff0_4 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_3 -> n0x555556b62ff0_7 [fontsize=8 label="" weight=8 color=red];
+	n0x555556b62ff0_4 -> n0x555556b62ff0_5 [fontsize=8 label="" weight=1 color=yellowGreen style=dashed];
+	n0x555556b62ff0_6 -> n0x555556b62ff0_4 [fontsize=8 label="" weight=2 color=red];
+	n0x555556b62ff0_6 -> n0x555556b62ff0_7 [fontsize=8 label="" weight=2 color=red];
+	n0x555556b62ff0_7 -> n0x555556b62ff0_5 [fontsize=8 label="" weight=1 color=yellowGreen style=dashed];
+}
