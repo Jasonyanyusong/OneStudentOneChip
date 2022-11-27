@@ -3,6 +3,7 @@
 
 #include "Vmux_2to1_Datastream.h"
 #include "Vmux_2to1_Datastream__Syms.h"
+#include "verilated_vcd_c.h"
 
 //============================================================
 // Constructors
@@ -47,6 +48,7 @@ static void _eval_initial_loop(Vmux_2to1_Datastream__Syms* __restrict vlSymsp) {
     // Evaluate till stable
     int __VclockLoop = 0;
     QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Initial loop\n"););
         Vmux_2to1_Datastream___024root___eval_settle(&(vlSymsp->TOP));
@@ -78,6 +80,7 @@ void Vmux_2to1_Datastream::eval_step() {
     // Evaluate till stable
     int __VclockLoop = 0;
     QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
         Vmux_2to1_Datastream___024root___eval(&(vlSymsp->TOP));
@@ -113,4 +116,31 @@ VerilatedContext* Vmux_2to1_Datastream::contextp() const {
 
 const char* Vmux_2to1_Datastream::name() const {
     return vlSymsp->name();
+}
+
+//============================================================
+// Trace configuration
+
+void Vmux_2to1_Datastream___024root__traceInitTop(Vmux_2to1_Datastream___024root* vlSelf, VerilatedVcd* tracep);
+
+static void traceInit(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {
+    // Callback from tracep->open()
+    Vmux_2to1_Datastream___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<Vmux_2to1_Datastream___024root*>(voidSelf);
+    Vmux_2to1_Datastream__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    if (!vlSymsp->_vm_contextp__->calcUnusedSigs()) {
+        VL_FATAL_MT(__FILE__, __LINE__, __FILE__,
+            "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
+    }
+    vlSymsp->__Vm_baseCode = code;
+    tracep->module(vlSymsp->name());
+    tracep->scopeEscape(' ');
+    Vmux_2to1_Datastream___024root__traceInitTop(vlSelf, tracep);
+    tracep->scopeEscape('.');
+}
+
+void Vmux_2to1_Datastream___024root__traceRegister(Vmux_2to1_Datastream___024root* vlSelf, VerilatedVcd* tracep);
+
+void Vmux_2to1_Datastream::trace(VerilatedVcdC* tfp, int, int) {
+    tfp->spTrace()->addInitCb(&traceInit, &(vlSymsp->TOP));
+    Vmux_2to1_Datastream___024root__traceRegister(&(vlSymsp->TOP), tfp->spTrace());
 }

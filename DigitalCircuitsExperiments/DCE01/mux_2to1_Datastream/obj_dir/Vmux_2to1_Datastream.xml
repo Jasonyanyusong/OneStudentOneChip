@@ -1,0 +1,227 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="mux_2to1_Datastream.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="mux_2to1_Datastream.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell fl="c1" loc="c,1,8,1,27" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module fl="c1" loc="c,1,8,1,27" name="$root" origName="$root" topModule="1" public="true">
+      <var fl="c2" loc="c,2,11,2,12" name="a" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="a" public="true"/>
+      <var fl="c2" loc="c,2,14,2,15" name="b" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="b" public="true"/>
+      <var fl="c2" loc="c,2,17,2,18" name="s" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="s" public="true"/>
+      <var fl="c3" loc="c,3,12,3,13" name="y" dtype_id="1" dir="output" pinIndex="4" vartype="logic" origName="y" public="true"/>
+      <topscope fl="c1" loc="c,1,8,1,27">
+        <scope fl="c1" loc="c,1,8,1,27" name="TOP"/>
+      </topscope>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceInitTop">
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceInitSub0">
+        <tracedecl fl="c2" loc="c,2,11,2,12" name="a" dtype_id="1"/>
+        <tracedecl fl="c2" loc="c,2,14,2,15" name="b" dtype_id="1"/>
+        <tracedecl fl="c2" loc="c,2,17,2,18" name="s" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,12,3,13" name="y" dtype_id="1"/>
+        <tracedecl fl="c2" loc="c,2,11,2,12" name="mux_2to1_Datastream a" dtype_id="1"/>
+        <tracedecl fl="c2" loc="c,2,14,2,15" name="mux_2to1_Datastream b" dtype_id="1"/>
+        <tracedecl fl="c2" loc="c,2,17,2,18" name="mux_2to1_Datastream s" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,12,3,13" name="mux_2to1_Datastream y" dtype_id="1"/>
+      </cfunc>
+      <cfunc fl="c4" loc="c,4,14,4,15" name="_combo__TOP__1">
+        <contassign fl="c4" loc="c,4,14,4,15" dtype_id="2">
+          <or fl="c4" loc="c,4,25,4,26" dtype_id="2">
+            <and fl="c4" loc="c,4,20,4,21" dtype_id="2">
+              <not fl="c4" loc="c,4,17,4,18" dtype_id="2">
+                <ccast fl="c4" loc="c,4,18,4,19" dtype_id="2">
+                  <varref fl="c4" loc="c,4,18,4,19" name="s" dtype_id="2"/>
+                </ccast>
+              </not>
+              <ccast fl="c4" loc="c,4,22,4,23" dtype_id="2">
+                <varref fl="c4" loc="c,4,22,4,23" name="a" dtype_id="2"/>
+              </ccast>
+            </and>
+            <and fl="c4" loc="c,4,30,4,31" dtype_id="2">
+              <ccast fl="c4" loc="c,4,28,4,29" dtype_id="2">
+                <varref fl="c4" loc="c,4,28,4,29" name="s" dtype_id="2"/>
+              </ccast>
+              <ccast fl="c4" loc="c,4,32,4,33" dtype_id="2">
+                <varref fl="c4" loc="c,4,32,4,33" name="b" dtype_id="2"/>
+              </ccast>
+            </and>
+          </or>
+          <varref fl="c4" loc="c,4,12,4,13" name="y" dtype_id="2"/>
+        </contassign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval">
+        <ccall fl="c4" loc="c,4,14,4,15"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_initial"/>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_settle">
+        <ccall fl="c4" loc="c,4,14,4,15"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_final"/>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_change_request">
+        <creturn fl="c1" loc="c,1,8,1,27">
+          <ccall fl="c1" loc="c,1,8,1,27"/>
+        </creturn>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_change_request_1">
+        <changedet fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceRegister">
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="3"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="3"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="3"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceFullTop0">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceFullSub0">
+        <traceinc fl="c2" loc="c,2,11,2,12" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,12" name="a" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c2" loc="c,2,14,2,15" dtype_id="1">
+          <varref fl="c2" loc="c,2,14,2,15" name="b" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c2" loc="c,2,17,2,18" dtype_id="1">
+          <varref fl="c2" loc="c,2,17,2,18" name="s" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,12,3,13" dtype_id="1">
+          <varref fl="c3" loc="c,3,12,3,13" name="y" dtype_id="2"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceChgTop0">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceChgSub0">
+        <traceinc fl="c2" loc="c,2,11,2,12" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,12" name="a" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c2" loc="c,2,14,2,15" dtype_id="1">
+          <varref fl="c2" loc="c,2,14,2,15" name="b" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c2" loc="c,2,17,2,18" dtype_id="1">
+          <varref fl="c2" loc="c,2,17,2,18" name="s" dtype_id="2"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,12,3,13" dtype_id="1">
+          <varref fl="c3" loc="c,3,12,3,13" name="y" dtype_id="2"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceCleanup">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <var fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="4" vartype="" origName="__Vm_traceActivity"/>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <assign fl="c1" loc="c,1,8,1,27" dtype_id="5">
+          <const fl="c1" loc="c,1,8,1,27" name="1&apos;h0" dtype_id="5"/>
+          <arraysel fl="c1" loc="c,1,8,1,27" dtype_id="5">
+            <varref fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="4"/>
+            <const fl="c1" loc="c,1,8,1,27" name="32&apos;h0" dtype_id="6"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_debug_assertions">
+        <if fl="c2" loc="c,2,11,2,12">
+          <and fl="c2" loc="c,2,11,2,12" dtype_id="1">
+            <varref fl="c2" loc="c,2,11,2,12" name="a" dtype_id="1"/>
+            <const fl="c2" loc="c,2,11,2,12" name="8&apos;hfe" dtype_id="7"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,11,2,12">
+            <text fl="c2" loc="c,2,11,2,12"/>
+          </cstmt>
+        </if>
+        <if fl="c2" loc="c,2,14,2,15">
+          <and fl="c2" loc="c,2,14,2,15" dtype_id="1">
+            <varref fl="c2" loc="c,2,14,2,15" name="b" dtype_id="1"/>
+            <const fl="c2" loc="c,2,14,2,15" name="8&apos;hfe" dtype_id="7"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,14,2,15">
+            <text fl="c2" loc="c,2,14,2,15"/>
+          </cstmt>
+        </if>
+        <if fl="c2" loc="c,2,17,2,18">
+          <and fl="c2" loc="c,2,17,2,18" dtype_id="1">
+            <varref fl="c2" loc="c,2,17,2,18" name="s" dtype_id="1"/>
+            <const fl="c2" loc="c,2,17,2,18" name="8&apos;hfe" dtype_id="7"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,17,2,18">
+            <text fl="c2" loc="c,2,17,2,18"/>
+          </cstmt>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_ctor_var_reset">
+        <creset fl="c2" loc="c,2,11,2,12">
+          <varref fl="c2" loc="c,2,11,2,12" name="a" dtype_id="1"/>
+        </creset>
+        <creset fl="c2" loc="c,2,14,2,15">
+          <varref fl="c2" loc="c,2,14,2,15" name="b" dtype_id="1"/>
+        </creset>
+        <creset fl="c2" loc="c,2,17,2,18">
+          <varref fl="c2" loc="c,2,17,2,18" name="s" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,12,3,13">
+          <varref fl="c3" loc="c,3,12,3,13" name="y" dtype_id="1"/>
+        </creset>
+      </cfunc>
+      <cuse fl="c1" loc="c,1,8,1,27" name="VerilatedVcd"/>
+    </module>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream__Syms.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream__Syms.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream__Trace__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream__Trace.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream_$root.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream_$root__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vmux_2to1_Datastream_$root.cpp"/>
+    <typetable fl="a0" loc="a,0,0,0,0">
+      <basicdtype fl="c2" loc="c,2,11,2,12" id="1" name="logic"/>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="8" name="logic"/>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="6" name="logic" left="31" right="0"/>
+      <unpackarraydtype fl="c1" loc="c,1,8,1,27" id="4" sub_dtype_id="8">
+        <range fl="c1" loc="c,1,8,1,27">
+          <const fl="c1" loc="c,1,8,1,27" name="32&apos;h0" dtype_id="6"/>
+          <const fl="c1" loc="c,1,8,1,27" name="32&apos;h0" dtype_id="6"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="3" name="chandle" left="63" right="0"/>
+      <basicdtype fl="c4" loc="c,4,18,4,19" id="2" name="logic" left="31" right="0"/>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="5" name="logic" left="31" right="0"/>
+      <basicdtype fl="c2" loc="c,2,11,2,12" id="7" name="logic" left="7" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

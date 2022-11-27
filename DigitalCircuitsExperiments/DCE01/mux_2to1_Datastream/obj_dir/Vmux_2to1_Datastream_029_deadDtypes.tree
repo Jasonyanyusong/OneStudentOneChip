@@ -1,0 +1,40 @@
+Verilator Tree Dump (format 0x3900) from <e242> to <e257>
+     NETLIST 0x555556b62000 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556b6c280 <e147> {c1ai}  __024root  L1 [P] [1ps]
+    1:1: CELLINLINE 0x555556bbcfc0 <e174> {c1ai}  mux_2to1_Datastream -> mux_2to1_Datastream [scopep=0]
+    1:2: VAR 0x555556bb4600 <e151> {c2al} @dt=0x555556b72410@(G/w1)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4780 <e156> {c2ao} @dt=0x555556b72410@(G/w1)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4900 <e162> {c2ar} @dt=0x555556b72410@(G/w1)  s [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4a80 <e168> {c3am} @dt=0x555556b72410@(G/w1)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556bb6780 <e183> {c2al} @dt=0x555556b72410@(G/w1)
+    1:2:1: VARREF 0x555556bbd200 <e180> {c2al} @dt=0x555556b72410@(G/w1)  a [RV] <- VAR 0x555556bb4600 <e151> {c2al} @dt=0x555556b72410@(G/w1)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556bbd0e0 <e181> {c2al} @dt=0x555556b72410@(G/w1)  a [LV] => VAR 0x555556bb4c00 <e212> {c2al} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__a [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556bb6840 <e192> {c2ao} @dt=0x555556b72410@(G/w1)
+    1:2:1: VARREF 0x555556bbd440 <e189> {c2ao} @dt=0x555556b72410@(G/w1)  b [RV] <- VAR 0x555556bb4780 <e156> {c2ao} @dt=0x555556b72410@(G/w1)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556bbd320 <e190> {c2ao} @dt=0x555556b72410@(G/w1)  b [LV] => VAR 0x555556bb4d80 <e106> {c2ao} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__b [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556bb6900 <e201> {c2ar} @dt=0x555556b72410@(G/w1)
+    1:2:1: VARREF 0x555556bbd680 <e198> {c2ar} @dt=0x555556b72410@(G/w1)  s [RV] <- VAR 0x555556bb4900 <e162> {c2ar} @dt=0x555556b72410@(G/w1)  s [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556bbd560 <e199> {c2ar} @dt=0x555556b72410@(G/w1)  s [LV] => VAR 0x555556bb4f00 <e114> {c2ar} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__s [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556bb69c0 <e210> {c3am} @dt=0x555556b72410@(G/w1)
+    1:2:1: VARREF 0x555556bbd8c0 <e207> {c3am} @dt=0x555556b72410@(G/w1)  y [RV] <- VAR 0x555556bb4a80 <e168> {c3am} @dt=0x555556b72410@(G/w1)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556bbd7a0 <e208> {c3am} @dt=0x555556b72410@(G/w1)  y [LV] => VAR 0x555556bb5080 <e122> {c3am} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__y [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4c00 <e212> {c2al} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__a [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4d80 <e106> {c2ao} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__b [VSTATIC]  PORT
+    1:2: VAR 0x555556bb4f00 <e114> {c2ar} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__s [VSTATIC]  PORT
+    1:2: VAR 0x555556bb5080 <e122> {c3am} @dt=0x555556b72410@(G/w1)  mux_2to1_Datastream__DOT__y [VSTATIC]  PORT
+    1:2: ASSIGNW 0x555556bb63c0 <e124> {c4ao} @dt=0x555556b72410@(G/w1)
+    1:2:1: OR 0x555556bb6480 <e144> {c4az} @dt=0x555556b72410@(G/w1)
+    1:2:1:1: AND 0x555556bb6540 <e145> {c4au} @dt=0x555556b72410@(G/w1)
+    1:2:1:1:1: NOT 0x555556bb6600 <e126> {c4ar} @dt=0x555556b72410@(G/w1)
+    1:2:1:1:1:1: VARREF 0x555556bbca20 <e125> {c4as} @dt=0x555556b72410@(G/w1)  s [RV] <- VAR 0x555556bb4900 <e162> {c2ar} @dt=0x555556b72410@(G/w1)  s [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:1:1:2: VARREF 0x555556bbcb40 <e127> {c4aw} @dt=0x555556b72410@(G/w1)  a [RV] <- VAR 0x555556bb4600 <e151> {c2al} @dt=0x555556b72410@(G/w1)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:1:2: AND 0x555556bb66c0 <e146> {c4be} @dt=0x555556b72410@(G/w1)
+    1:2:1:2:1: VARREF 0x555556bbcc60 <e132> {c4bc} @dt=0x555556b72410@(G/w1)  s [RV] <- VAR 0x555556bb4900 <e162> {c2ar} @dt=0x555556b72410@(G/w1)  s [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:1:2:2: VARREF 0x555556bbcd80 <e133> {c4bg} @dt=0x555556b72410@(G/w1)  b [RV] <- VAR 0x555556bb4780 <e156> {c2ao} @dt=0x555556b72410@(G/w1)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556bbcea0 <e123> {c4am} @dt=0x555556b72410@(G/w1)  y [LV] => VAR 0x555556bb4a80 <e168> {c3am} @dt=0x555556b72410@(G/w1)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    3: TYPETABLE 0x555556b68000 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556b72410 <e97> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x555556b72410 <e97> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3: CONSTPOOL 0x555556b6a000 <e6> {a0aa}
+    3:1: MODULE 0x555556b6c000 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556b620f0 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556b6c000]

@@ -10,6 +10,8 @@
 //==========
 
 class Vmux_2to1_Datastream__Syms;
+class Vmux_2to1_Datastream_VerilatedVcd;
+
 
 //----------
 
