@@ -1,0 +1,20 @@
+`begin_keywords "1800-2017"
+`line 1 "mux_2to1_Behavior.v" 1
+module mux_2to1_Behavior (a, b, s, y);
+    input a, b, s;
+    output reg y;
+
+`line 5 "mux_2to1_Behavior.v" 0
+    always @(*) begin
+        if (s==0)
+        begin
+            y = a;
+        end
+        else
+        begin
+            y = b;
+        end
+    end
+endmodule
+
+`line 17 "mux_2to1_Behavior.v" 2
