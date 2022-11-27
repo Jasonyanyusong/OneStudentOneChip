@@ -1,0 +1,92 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e189>
+     NETLIST 0x555556b62000 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556b6c140 <e183#> {c1ai}  mux_2to1_Structure  L2 [1ps]
+    1:2: PORT 0x555556b8a2a0 <e8#> {c1bb}  a
+    1:2: PORT 0x555556b8a380 <e10#> {c1be}  b
+    1:2: PORT 0x555556b8a460 <e12#> {c1bh}  s
+    1:2: PORT 0x555556b8a540 <e14#> {c1bk}  y
+    1:2: VAR 0x555556bb4000 <e95#> {c2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b720d0 <e18#> {c2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4180 <e23#> {c2ao} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b721a0 <e22#> {c2ao} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4300 <e28#> {c2ar} @dt=0@  s INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72270 <e27#> {c2ar} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4480 <e33#> {c3am} @dt=0@  y OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72340 <e32#> {c3am} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4600 <e44#> {c4ak} @dt=0@  l WIRE
+    1:2:1: BASICDTYPE 0x555556b724e0 <e37#> {c4ak} @dt=this@(nw1)  logic kwd=logic
+    1:2: VAR 0x555556bb4780 <e40#> {c4an} @dt=0@  r WIRE
+    1:2:1: BASICDTYPE 0x555556b725b0 <e39#> {c4ak} @dt=this@(nw1)  logic kwd=logic
+    1:2: VAR 0x555556bb4900 <e43#> {c4aq} @dt=0@  s_n WIRE
+    1:2:1: BASICDTYPE 0x555556b72680 <e42#> {c4ak} @dt=this@(nw1)  logic kwd=logic
+    1:2: CELL 0x555556b6c280 <e55#> {c5am}  i1 -> MODULE 0x555556b6c780 <e187#> {d1ai}  my_not  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556b621e0 <e48#> {c5aq}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8a620 <e49#> {c5as}  s [TEXT]
+    1:2:1: PIN 0x555556b622d0 <e53#> {c5ax}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8a700 <e52#> {c5az}  s_n [TEXT]
+    1:2: CELL 0x555556b6c3c0 <e68#> {c6am}  i2 -> MODULE 0x555556b6c8c0 <e188#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556b623c0 <e57#> {c6ar}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8a7e0 <e58#> {c6at}  s_n [TEXT]
+    1:2:1: PIN 0x555556b624b0 <e62#> {c6ba}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8a8c0 <e61#> {c6bc}  a [TEXT]
+    1:2:1: PIN 0x555556b625a0 <e66#> {c6bh}  c ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8a9a0 <e65#> {c6bj}  a [TEXT]
+    1:2: CELL 0x555556b6c500 <e81#> {c7am}  i3 -> MODULE 0x555556b6c8c0 <e188#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556b62690 <e70#> {c7ar}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8aa80 <e71#> {c7at}  s [TEXT]
+    1:2:1: PIN 0x555556b62780 <e75#> {c7ay}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8ab60 <e74#> {c7ba}  b [TEXT]
+    1:2:1: PIN 0x555556b62870 <e79#> {c7bf}  c ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8ac40 <e78#> {c7bh}  r [TEXT]
+    1:2: CELL 0x555556b6c640 <e94#> {c8al}  i4 -> MODULE 0x555556b6ca00 <e189#> {f1ai}  my_or  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556b62960 <e83#> {c8aq}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8ad20 <e84#> {c8as}  l [TEXT]
+    1:2:1: PIN 0x555556b62a50 <e88#> {c8ax}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8ae00 <e87#> {c8az}  r [TEXT]
+    1:2:1: PIN 0x555556b62b40 <e92#> {c8be}  c ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556b8aee0 <e91#> {c8bg}  y [TEXT]
+    1: MODULE 0x555556b6c780 <e187#> {d1ai}  my_not  L3 [LIB] [1ps]
+    1:2: PORT 0x555556b8b180 <e98#> {d1aq}  a
+    1:2: PORT 0x555556b8b260 <e100#> {d1at}  b
+    1:2: VAR 0x555556bb4a80 <e118#> {d2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72750 <e104#> {d2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4c00 <e109#> {d3am} @dt=0@  b OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72820 <e108#> {d3am} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: ASSIGNW 0x555556bc20c0 <e117#> {d4ao} @dt=0@
+    1:2:1: NOT 0x555556bc2000 <e115#> {d4aq} @dt=0@
+    1:2:1:1: PARSEREF 0x555556b8b420 <e113#> {d4ar}  a [TEXT]
+    1:2:2: PARSEREF 0x555556b8b340 <e116#> {d4am}  b [TEXT]
+    1: MODULE 0x555556b6c8c0 <e188#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2: PORT 0x555556b8b6c0 <e121#> {e1aq}  a
+    1:2: PORT 0x555556b8b7a0 <e123#> {e1at}  b
+    1:2: PORT 0x555556b8b880 <e125#> {e1aw}  c
+    1:2: VAR 0x555556bb4d80 <e150#> {e2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b728f0 <e129#> {e2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb4f00 <e134#> {e2ao} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b729c0 <e133#> {e2ao} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb5080 <e139#> {e3am} @dt=0@  c OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72a90 <e138#> {e3am} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: ASSIGNW 0x555556bc2240 <e149#> {e4ao} @dt=0@
+    1:2:1: AND 0x555556bc2180 <e147#> {e4as} @dt=0@
+    1:2:1:1: PARSEREF 0x555556b8ba40 <e144#> {e4aq}  a [TEXT]
+    1:2:1:2: PARSEREF 0x555556b8bb20 <e145#> {e4au}  b [TEXT]
+    1:2:2: PARSEREF 0x555556b8b960 <e148#> {e4am}  c [TEXT]
+    1: MODULE 0x555556b6ca00 <e189#> {f1ai}  my_or  L3 [LIB] [1ps]
+    1:2: PORT 0x555556b8bdc0 <e153#> {f1ap}  a
+    1:2: PORT 0x555556b8bea0 <e155#> {f1as}  b
+    1:2: PORT 0x555556b9e000 <e157#> {f1av}  c
+    1:2: VAR 0x555556bb5200 <e182#> {f2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72b60 <e161#> {f2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb5380 <e166#> {f2ao} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72c30 <e165#> {f2ao} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556bb5500 <e171#> {f3am} @dt=0@  c OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556b72d00 <e170#> {f3am} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: ASSIGNW 0x555556bc23c0 <e181#> {f4ao} @dt=0@
+    1:2:1: OR 0x555556bc2300 <e179#> {f4as} @dt=0@
+    1:2:1:1: PARSEREF 0x555556b9e1c0 <e176#> {f4aq}  a [TEXT]
+    1:2:1:2: PARSEREF 0x555556b9e2a0 <e177#> {f4au}  b [TEXT]
+    1:2:2: PARSEREF 0x555556b9e0e0 <e180#> {f4am}  c [TEXT]
+    3: TYPETABLE 0x555556b68000 <e2#> {a0aa}
+    3: CONSTPOOL 0x555556b6a000 <e6#> {a0aa}
+    3:1: MODULE 0x555556b6c000 <e4#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556b620f0 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556b6c000]
