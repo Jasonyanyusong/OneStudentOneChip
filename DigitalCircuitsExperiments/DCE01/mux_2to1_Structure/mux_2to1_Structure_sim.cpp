@@ -11,7 +11,7 @@
 VerilatedContext* contextp = NULL;
 VerilatedVcdC* tfp = NULL;
 
-static Vmux_2to1_Datastream* top;
+static Vmux_2to1_Structure* top;
 
 void step_and_dump_wave()
 {
