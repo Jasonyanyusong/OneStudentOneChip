@@ -51,8 +51,8 @@ int main()
     top -> a = 0b0001;
     step_and_dump_wave();
 
-    top -> s = 0;
-    top -> a = 0;
+    top -> s = 0b00;
+    top -> a = 0b0001;
     step_and_dump_wave();
 
     top -> s = 0;
