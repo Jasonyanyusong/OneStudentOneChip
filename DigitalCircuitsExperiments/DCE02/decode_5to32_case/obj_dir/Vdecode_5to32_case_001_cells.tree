@@ -1,0 +1,207 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e673>
+     NETLIST 0x555556de8000 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de8240 <e673#> {c1ai}  decode_5to32_case  L0 [1ps]
+    1:2: PORT 0x555556dfa0d0 <e9#> {c1bb}  x
+    1:2: PORT 0x555556dfa1a0 <e11#> {c1be}  en
+    1:2: PORT 0x555556dfa270 <e13#> {c1bi}  y
+    1:2: VAR 0x555556df4180 <e667#> {c3ar} @dt=0@  x INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa680 <e34#> {c3al} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e400b0 <e32#> {c3al}
+    1:2:1:1:1: CONST 0x555556e16200 <e24#> {c3am} @dt=0x555556dfa340@(G/swu32/3)  ?32?sh4
+    1:2:1:1:2: CONST 0x555556e16300 <e25#> {c3ao} @dt=0x555556dfa410@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0x555556df4300 <e44#> {c4al} @dt=0@  en INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa750 <e43#> {c4al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4480 <e64#> {c5ax} @dt=0@  y OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfaa90 <e63#> {c5am} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e40210 <e61#> {c5aq}
+    1:2:1:1:1: CONST 0x555556e16600 <e59#> {c5ar} @dt=0x555556dfa8f0@(G/swu32/5)  ?32?sh1f
+    1:2:1:1:2: CONST 0x555556e16700 <e60#> {c5au} @dt=0x555556dfa410@(G/swu32/1)  ?32?sh0
+    1:2: ALWAYS 0x555556e4b290 <e666#> {c7af}
+    1:2:2: EVENTCONTROL 0x555556e4b1e0 <e663#> {c7am}
+    1:2:2:1: SENTREE 0x555556e40420 <e664#> {c7am}
+    1:2:2:1:1: SENITEM 0x555556e402c0 <e66#> {c7ap} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556dfab60 <e67#> {c7ap} @dt=0@  x [TEXT]
+    1:2:2:1:1: SENITEM 0x555556e40370 <e71#> {c7au} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556dfac30 <e70#> {c7au} @dt=0@  en [TEXT]
+    1:2:2:2: IF 0x555556e420c0 <e661#> {c9aj}
+    1:2:2:2:1: PARSEREF 0x555556dfad00 <e662#> {c9an} @dt=0@  en [TEXT]
+    1:2:2:2:2: BEGIN 0x555556e142a0 <e74#> {c10aj} [UNNAMED]
+    1:2:2:2:2:1: CASE 0x555556e42000 <e76#> {c11an}
+    1:2:2:2:2:1:1: PARSEREF 0x555556dfadd0 <e77#> {c11at} @dt=0@  x [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40580 <e92#> {c12ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e16800 <e82#> {c12ar} @dt=0x555556dfaea0@(G/w5)  5'h0
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e404d0 <e89#> {c12be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e16900 <e90#> {c12bg} @dt=0x555556dfb040@(G/w32)  32'h1
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfaf70 <e91#> {c12bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e406e0 <e110#> {c13ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e16a00 <e98#> {c13ar} @dt=0x555556dfaea0@(G/w5)  5'h1
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40630 <e106#> {c13be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e16b00 <e107#> {c13bg} @dt=0x555556dfb040@(G/w32)  32'h2
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfb1e0 <e108#> {c13bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40840 <e128#> {c14ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e16c00 <e116#> {c14ar} @dt=0x555556dfaea0@(G/w5)  5'h2
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40790 <e124#> {c14be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e16d00 <e125#> {c14bg} @dt=0x555556dfb040@(G/w32)  32'h4
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfb450 <e126#> {c14bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e409a0 <e146#> {c15ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e16e00 <e134#> {c15ar} @dt=0x555556dfaea0@(G/w5)  5'h3
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e408f0 <e142#> {c15be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e16f00 <e143#> {c15bg} @dt=0x555556dfb040@(G/w32)  32'h8
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfb6c0 <e144#> {c15bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40b00 <e164#> {c16ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17000 <e152#> {c16ar} @dt=0x555556dfaea0@(G/w5)  5'h4
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40a50 <e160#> {c16be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17100 <e161#> {c16bg} @dt=0x555556dfb040@(G/w32)  32'h10
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfb930 <e162#> {c16bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40c60 <e182#> {c17ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17200 <e170#> {c17ar} @dt=0x555556dfaea0@(G/w5)  5'h5
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40bb0 <e178#> {c17be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17300 <e179#> {c17bg} @dt=0x555556dfb040@(G/w32)  32'h20
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfbba0 <e180#> {c17bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40dc0 <e200#> {c18ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17400 <e188#> {c18ar} @dt=0x555556dfaea0@(G/w5)  5'h6
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40d10 <e196#> {c18be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17500 <e197#> {c18bg} @dt=0x555556dfb040@(G/w32)  32'h40
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556dfbe10 <e198#> {c18bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e40f20 <e218#> {c19ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17600 <e206#> {c19ar} @dt=0x555556dfaea0@(G/w5)  5'h7
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40e70 <e214#> {c19be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17700 <e215#> {c19bg} @dt=0x555556dfb040@(G/w32)  32'h80
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e440d0 <e216#> {c19bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41080 <e236#> {c20ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17800 <e224#> {c20ar} @dt=0x555556dfaea0@(G/w5)  5'h8
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e40fd0 <e232#> {c20be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17900 <e233#> {c20bg} @dt=0x555556dfb040@(G/w32)  32'h100
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e44340 <e234#> {c20bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e411e0 <e254#> {c21ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17a00 <e242#> {c21ar} @dt=0x555556dfaea0@(G/w5)  5'h9
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41130 <e250#> {c21be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17b00 <e251#> {c21bg} @dt=0x555556dfb040@(G/w32)  32'h200
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e445b0 <e252#> {c21bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41340 <e272#> {c22ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17c00 <e260#> {c22ar} @dt=0x555556dfaea0@(G/w5)  5'ha
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41290 <e268#> {c22be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17d00 <e269#> {c22bg} @dt=0x555556dfb040@(G/w32)  32'h400
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e44820 <e270#> {c22bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e414a0 <e290#> {c23ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e17e00 <e278#> {c23ar} @dt=0x555556dfaea0@(G/w5)  5'hb
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e413f0 <e286#> {c23be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e17f00 <e287#> {c23bg} @dt=0x555556dfb040@(G/w32)  32'h800
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e44a90 <e288#> {c23bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41600 <e308#> {c24ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48000 <e296#> {c24ar} @dt=0x555556dfaea0@(G/w5)  5'hc
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41550 <e304#> {c24be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48100 <e305#> {c24bg} @dt=0x555556dfb040@(G/w32)  32'h1000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e44d00 <e306#> {c24bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41760 <e326#> {c25ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48200 <e314#> {c25ar} @dt=0x555556dfaea0@(G/w5)  5'hd
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e416b0 <e322#> {c25be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48300 <e323#> {c25bg} @dt=0x555556dfb040@(G/w32)  32'h2000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e44f70 <e324#> {c25bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e418c0 <e344#> {c26ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48400 <e332#> {c26ar} @dt=0x555556dfaea0@(G/w5)  5'he
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41810 <e340#> {c26be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48500 <e341#> {c26bg} @dt=0x555556dfb040@(G/w32)  32'h4000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e451e0 <e342#> {c26bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41a20 <e362#> {c27ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48600 <e350#> {c27ar} @dt=0x555556dfaea0@(G/w5)  5'hf
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41970 <e358#> {c27be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48700 <e359#> {c27bg} @dt=0x555556dfb040@(G/w32)  32'h8000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e45450 <e360#> {c27bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41b80 <e380#> {c28ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48800 <e368#> {c28ar} @dt=0x555556dfaea0@(G/w5)  5'h10
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41ad0 <e376#> {c28be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48900 <e377#> {c28bg} @dt=0x555556dfb040@(G/w32)  32'h10000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e456c0 <e378#> {c28bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41ce0 <e398#> {c29ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48a00 <e386#> {c29ar} @dt=0x555556dfaea0@(G/w5)  5'h11
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41c30 <e394#> {c29be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48b00 <e395#> {c29bg} @dt=0x555556dfb040@(G/w32)  32'h20000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e45930 <e396#> {c29bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e41e40 <e416#> {c30ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48c00 <e404#> {c30ar} @dt=0x555556dfaea0@(G/w5)  5'h12
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41d90 <e412#> {c30be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48d00 <e413#> {c30bg} @dt=0x555556dfb040@(G/w32)  32'h40000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e45ba0 <e414#> {c30bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a000 <e434#> {c31ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e48e00 <e422#> {c31ar} @dt=0x555556dfaea0@(G/w5)  5'h13
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e41ef0 <e430#> {c31be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e48f00 <e431#> {c31bg} @dt=0x555556dfb040@(G/w32)  32'h80000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e45e10 <e432#> {c31bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a160 <e452#> {c32ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49000 <e440#> {c32ar} @dt=0x555556dfaea0@(G/w5)  5'h14
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a0b0 <e448#> {c32be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49100 <e449#> {c32bg} @dt=0x555556dfb040@(G/w32)  32'h100000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4c0d0 <e450#> {c32bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a2c0 <e470#> {c33ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49200 <e458#> {c33ar} @dt=0x555556dfaea0@(G/w5)  5'h15
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a210 <e466#> {c33be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49300 <e467#> {c33bg} @dt=0x555556dfb040@(G/w32)  32'h200000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4c340 <e468#> {c33bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a420 <e488#> {c34ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49400 <e476#> {c34ar} @dt=0x555556dfaea0@(G/w5)  5'h16
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a370 <e484#> {c34be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49500 <e485#> {c34bg} @dt=0x555556dfb040@(G/w32)  32'h400000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4c5b0 <e486#> {c34bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a580 <e506#> {c35ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49600 <e494#> {c35ar} @dt=0x555556dfaea0@(G/w5)  5'h17
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a4d0 <e502#> {c35be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49700 <e503#> {c35bg} @dt=0x555556dfb040@(G/w32)  32'h800000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4c820 <e504#> {c35bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a6e0 <e524#> {c36ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49800 <e512#> {c36ar} @dt=0x555556dfaea0@(G/w5)  5'h18
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a630 <e520#> {c36be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49900 <e521#> {c36bg} @dt=0x555556dfb040@(G/w32)  32'h1000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4ca90 <e522#> {c36bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a840 <e542#> {c37ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49a00 <e530#> {c37ar} @dt=0x555556dfaea0@(G/w5)  5'h19
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a790 <e538#> {c37be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49b00 <e539#> {c37bg} @dt=0x555556dfb040@(G/w32)  32'h2000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4cd00 <e540#> {c37bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4a9a0 <e560#> {c38ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49c00 <e548#> {c38ar} @dt=0x555556dfaea0@(G/w5)  5'h1a
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4a8f0 <e556#> {c38be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49d00 <e557#> {c38bg} @dt=0x555556dfb040@(G/w32)  32'h4000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4cf70 <e558#> {c38bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4ab00 <e578#> {c39ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e49e00 <e566#> {c39ar} @dt=0x555556dfaea0@(G/w5)  5'h1b
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4aa50 <e574#> {c39be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e49f00 <e575#> {c39bg} @dt=0x555556dfb040@(G/w32)  32'h8000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4d1e0 <e576#> {c39bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4ac60 <e596#> {c40ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e4e000 <e584#> {c40ar} @dt=0x555556dfaea0@(G/w5)  5'h1c
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4abb0 <e592#> {c40be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e4e100 <e593#> {c40bg} @dt=0x555556dfb040@(G/w32)  32'h10000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4d450 <e594#> {c40bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4adc0 <e614#> {c41ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e4e200 <e602#> {c41ar} @dt=0x555556dfaea0@(G/w5)  5'h1d
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4ad10 <e610#> {c41be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e4e300 <e611#> {c41bg} @dt=0x555556dfb040@(G/w32)  32'h20000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4d6c0 <e612#> {c41bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4af20 <e632#> {c42ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e4e400 <e620#> {c42ar} @dt=0x555556dfaea0@(G/w5)  5'h1e
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4ae70 <e628#> {c42be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e4e500 <e629#> {c42bg} @dt=0x555556dfb040@(G/w32)  32'h40000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4d930 <e630#> {c42bc} @dt=0@  y [TEXT]
+    1:2:2:2:2:1:2: CASEITEM 0x555556e4b080 <e650#> {c43ba}
+    1:2:2:2:2:1:2:1: CONST 0x555556e4e600 <e638#> {c43ar} @dt=0x555556dfaea0@(G/w5)  5'h1f
+    1:2:2:2:2:1:2:2: ASSIGN 0x555556e4afd0 <e646#> {c43be} @dt=0@
+    1:2:2:2:2:1:2:2:1: CONST 0x555556e4e700 <e647#> {c43bg} @dt=0x555556dfb040@(G/w32)  32'h80000000
+    1:2:2:2:2:1:2:2:2: PARSEREF 0x555556e4dba0 <e648#> {c43bc} @dt=0@  y [TEXT]
+    1:2:2:2:3: ASSIGN 0x555556e4b130 <e658#> {c46aq} @dt=0@
+    1:2:2:2:3:1: CONST 0x555556e4e800 <e659#> {c46ar} @dt=0x555556dfb040@(G/w32)  32'h0
+    1:2:2:2:3:2: PARSEREF 0x555556e4dd40 <e660#> {c46ao} @dt=0@  y [TEXT]
+    3: TYPETABLE 0x555556df2000 <e2#> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556dfaea0 <e81#> {c12ar} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+		detailed  ->  BASICDTYPE 0x555556dfa410 <e21#> {c3ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfa340 <e16#> {c3am} @dt=this@(G/swu32/3)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfa8f0 <e50#> {c5ar} @dt=this@(G/swu32/5)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfb040 <e87#> {c12bg} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa340 <e16#> {c3am} @dt=this@(G/swu32/3)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa410 <e21#> {c3ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa8f0 <e50#> {c5ar} @dt=this@(G/swu32/5)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfaea0 <e81#> {c12ar} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x555556dfb040 <e87#> {c12bg} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x555556df4000 <e7#> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
