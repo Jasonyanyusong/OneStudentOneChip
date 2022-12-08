@@ -1,0 +1,124 @@
+Verilator Tree Dump (format 0x3900) from <e2949> to <e2984>
+     NETLIST 0x555556de8000 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de9560 <e547> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4900 <e556> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4180 <e757> {c2ar} @dt=0x555556dfa680@(G/w3)  decode_3to8_for__DOT__x [VSTATIC]  PORT
+    1:2: VAR 0x555556df4300 <e287> {c3al} @dt=0x555556dfb1e0@(G/w1)  decode_3to8_for__DOT__en [VSTATIC]  PORT
+    1:2: VAR 0x555556df4480 <e295> {c4aw} @dt=0x555556dfaa90@(G/w8)  decode_3to8_for__DOT__y [VSTATIC]  PORT
+    1:2: VAR 0x555556df4600 <e298> {c5an} @dt=0x555556dfac30@(G/sw32)  decode_3to8_for__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2: TOPSCOPE 0x555556e3d600 <e827> {c1ai}
+    1:2:2: SCOPE 0x555556df60f0 <e906> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0x555556de9560]
+    1:2:2:1: VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e30410 <e832> {c3al} u4=0x1 @dt=0x555556dfb1e0@(G/w1)  TOP->en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4900 <e556> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e305b0 <e840> {c2ar} @dt=0x555556dfa680@(G/w3)  TOP->decode_3to8_for__DOT__x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4180 <e757> {c2ar} @dt=0x555556dfa680@(G/w3)  decode_3to8_for__DOT__x [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e30680 <e843> {c3al} @dt=0x555556dfb1e0@(G/w1)  TOP->decode_3to8_for__DOT__en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4300 <e287> {c3al} @dt=0x555556dfb1e0@(G/w1)  decode_3to8_for__DOT__en [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e30750 <e846> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->decode_3to8_for__DOT__y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4480 <e295> {c4aw} @dt=0x555556dfaa90@(G/w8)  decode_3to8_for__DOT__y [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x555556e30820 <e849> {c5an} @dt=0x555556dfac30@(G/sw32)  TOP->decode_3to8_for__DOT__i [T] [scopep=0x555556df60f0] -> VAR 0x555556df4600 <e298> {c5an} @dt=0x555556dfac30@(G/sw32)  decode_3to8_for__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2: ASSIGNALIAS 0x555556e3d6b0 <e737> {c2ar} @dt=0x555556dfa680@(G/w3)
+    1:2:2:2:1: VARREF 0x555556e2e240 <e734> {c2ar} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: VARREF 0x555556e2e360 <e735> {c2ar} @dt=0x555556dfa680@(G/w3)  decode_3to8_for__DOT__x [LV] => VARSCOPE 0x555556e305b0 <e840> {c2ar} @dt=0x555556dfa680@(G/w3)  TOP->decode_3to8_for__DOT__x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4180 <e757> {c2ar} @dt=0x555556dfa680@(G/w3)  decode_3to8_for__DOT__x [VSTATIC]  PORT
+    1:2:2:2: ASSIGNALIAS 0x555556e3d760 <e836> {c3al} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:1: VARREF 0x555556e2e480 <e743> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [RV] <- VARSCOPE 0x555556e30410 <e832> {c3al} u4=0x1 @dt=0x555556dfb1e0@(G/w1)  TOP->en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4900 <e556> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: VARREF 0x555556e2e5a0 <e744> {c3al} @dt=0x555556dfb1e0@(G/w1)  decode_3to8_for__DOT__en [LV] => VARSCOPE 0x555556e30680 <e843> {c3al} @dt=0x555556dfb1e0@(G/w1)  TOP->decode_3to8_for__DOT__en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4300 <e287> {c3al} @dt=0x555556dfb1e0@(G/w1)  decode_3to8_for__DOT__en [VSTATIC]  PORT
+    1:2:2:2: ASSIGNALIAS 0x555556e3d810 <e837> {c4aw} @dt=0x555556dfaa90@(G/w8)
+    1:2:2:2:1: VARREF 0x555556e2e6c0 <e752> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [RV] <- VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: VARREF 0x555556e2e7e0 <e753> {c4aw} @dt=0x555556dfaa90@(G/w8)  decode_3to8_for__DOT__y [LV] => VARSCOPE 0x555556e30750 <e846> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->decode_3to8_for__DOT__y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4480 <e295> {c4aw} @dt=0x555556dfaa90@(G/w8)  decode_3to8_for__DOT__y [VSTATIC]  PORT
+    1:2:2:2: ALWAYS 0x555556e3d8c0 <e850> {c7af}
+    1:2:2:2:1: SENTREE 0x555556e3d970 <e184> {c7am}
+    1:2:2:2:1:1: SENITEM 0x555556e3da20 <e797> {c7at} [CHANGED]
+    1:2:2:2:1:1:1: VARREF 0x555556e2e900 <e300> {c7at} @dt=0x555556dfb1e0@(G/w1)  en [RV] <- VARSCOPE 0x555556e30410 <e832> {c3al} u4=0x1 @dt=0x555556dfb1e0@(G/w1)  TOP->en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4900 <e556> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:1:1: SENITEM 0x555556e3dad0 <e799> {c7ao} [CHANGED]
+    1:2:2:2:1:1:1: VARREF 0x555556e2ea20 <e299> {c7ao} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: IF 0x555556e3e540 <e633> {c9aj}
+    1:2:2:2:2:1: VARREF 0x555556e2eb40 <e480> {c9an} @dt=0x555556dfb1e0@(G/w1)  en [RV] <- VARSCOPE 0x555556e30410 <e832> {c3al} u4=0x1 @dt=0x555556dfb1e0@(G/w1)  TOP->en [T] [scopep=0x555556df60f0] -> VAR 0x555556df4900 <e556> {c3al} @dt=0x555556dfb1e0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: ASSIGN 0x555556e34fd0 <e2346> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e35080 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e89500 <e2598> {c12an} @dt=0x555556dfa680@(G/w3)  3'h0
+    1:2:2:2:2:2:1:2: VARREF 0x555556e76d80 <e2590> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3e780 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e76fc0 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e89400 <e2609> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h0
+    1:2:2:2:2:2:2:3: CONST 0x555556e7a600 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e354a0 <e1717> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e35550 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e89700 <e2644> {c12an} @dt=0x555556dfa680@(G/w3)  3'h1
+    1:2:2:2:2:2:1:2: VARREF 0x555556e77680 <e2636> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3e900 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e778c0 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e89800 <e2655> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h1
+    1:2:2:2:2:2:2:3: CONST 0x555556e7b400 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e35970 <e1809> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e35a20 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e89a00 <e2690> {c12an} @dt=0x555556dfa680@(G/w3)  3'h2
+    1:2:2:2:2:2:1:2: VARREF 0x555556e7e000 <e2682> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3ea80 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e7e240 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e89b00 <e2701> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h2
+    1:2:2:2:2:2:2:3: CONST 0x555556e7c200 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e35e40 <e1901> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e35ef0 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e89d00 <e2736> {c12an} @dt=0x555556dfa680@(G/w3)  3'h3
+    1:2:2:2:2:2:1:2: VARREF 0x555556e7e900 <e2728> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3ec00 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e7eb40 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e89e00 <e2747> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h3
+    1:2:2:2:2:2:2:3: CONST 0x555556e7d000 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e82370 <e1993> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e82420 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e8e000 <e2782> {c12an} @dt=0x555556dfa680@(G/w3)  3'h4
+    1:2:2:2:2:2:1:2: VARREF 0x555556e7f200 <e2774> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3ed80 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e7f440 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e8e100 <e2793> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h4
+    1:2:2:2:2:2:2:3: CONST 0x555556e7de00 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e82840 <e2085> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e828f0 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e8e300 <e2828> {c12an} @dt=0x555556dfa680@(G/w3)  3'h5
+    1:2:2:2:2:2:1:2: VARREF 0x555556e7fb00 <e2820> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3ef00 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e7fd40 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e8e400 <e2839> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h5
+    1:2:2:2:2:2:2:3: CONST 0x555556e84c00 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e82d10 <e2177> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e82dc0 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e8e600 <e2874> {c12an} @dt=0x555556dfa680@(G/w3)  3'h6
+    1:2:2:2:2:2:1:2: VARREF 0x555556e86480 <e2866> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3f080 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e866c0 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e8e700 <e2885> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h6
+    1:2:2:2:2:2:2:3: CONST 0x555556e85a00 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e831e0 <e2269> {c14ba} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1: EQ 0x555556e83290 <e617> {c13ax} @dt=0x555556dfb1e0@(G/w1)
+    1:2:2:2:2:2:1:1: CONST 0x555556e8e900 <e2920> {c12an} @dt=0x555556dfa680@(G/w3)  3'h7
+    1:2:2:2:2:2:1:2: VARREF 0x555556e86d80 <e2912> {c13av} @dt=0x555556dfa680@(G/w3)  x [RV] <- VARSCOPE 0x555556e30340 <e829> {c2ar} u4=0x1 @dt=0x555556dfa680@(G/w3)  TOP->x [T] [scopep=0x555556df60f0] -> VAR 0x555556df4780 <e551> {c2ar} @dt=0x555556dfa680@(G/w3)  x [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: SEL 0x555556e3f200 <e339> {c14aw} @dt=0x555556dfb1e0@(G/w1) decl[7:0]]
+    1:2:2:2:2:2:2:1: VARREF 0x555556e86fc0 <e330> {c14av} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: CONST 0x555556e8ea00 <e2931> {c14ax} @dt=0x555556e640d0@(G/sw3)  3'h7
+    1:2:2:2:2:2:2:3: CONST 0x555556e88800 <e515> {c14aw} @dt=0x555556e641a0@(G/w32)  32'h1
+    1:2:2:2:2:2: ASSIGN 0x555556e833f0 <e1575> {c12bh} @dt=0x555556dfac30@(G/sw32)
+    1:2:2:2:2:2:1: CONST 0x555556e8eb00 <e2945> {c12bl} @dt=0x555556dfac30@(G/sw32)  32'h8
+    1:2:2:2:2:2:2: VARREF 0x555556e87320 <e469> {c12bf} @dt=0x555556dfac30@(G/sw32)  decode_3to8_for__DOT__i [LV] => VARSCOPE 0x555556e30820 <e849> {c5an} @dt=0x555556dfac30@(G/sw32)  TOP->decode_3to8_for__DOT__i [T] [scopep=0x555556df60f0] -> VAR 0x555556df4600 <e298> {c5an} @dt=0x555556dfac30@(G/sw32)  decode_3to8_for__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3: ASSIGN 0x555556e34160 <e479> {c20ap} @dt=0x555556dfaa90@(G/w8)
+    1:2:2:2:2:3:1: CONST 0x555556e1c900 <e536> {c20ar} @dt=0x555556dfaa90@(G/w8)  8'h0
+    1:2:2:2:2:3:2: VARREF 0x555556e2f560 <e478> {c20an} @dt=0x555556dfaa90@(G/w8)  y [LV] => VARSCOPE 0x555556e304e0 <e835> {c4aw} @dt=0x555556dfaa90@(G/w8)  TOP->y [T] [scopep=0x555556df60f0] -> VAR 0x555556df4a80 <e562> {c4aw} @dt=0x555556dfaa90@(G/w8)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    3: TYPETABLE 0x555556df2000 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556dfb1e0 <e108> {c12az} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556dfa680 <e278> {c2al} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0x555556e640d0 <e346> {c14aw} @dt=this@(G/sw3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0x555556dfaa90 <e294> {c4am} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+		detailed  ->  BASICDTYPE 0x555556e641a0 <e351> {c14ax} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfac30 <e297> {c5af} @dt=this@(G/sw32)  integer [GENERIC] kwd=integer range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556e64f70 <e490> {c12au} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfb1e0 <e108> {c12az} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x555556dfa680 <e278> {c2al} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x555556dfaa90 <e294> {c4am} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+    3:1: BASICDTYPE 0x555556dfac30 <e297> {c5af} @dt=this@(G/sw32)  integer [GENERIC] kwd=integer range=[31:0]
+    3:1: BASICDTYPE 0x555556e640d0 <e346> {c14aw} @dt=this@(G/sw3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x555556e641a0 <e351> {c14ax} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e64f70 <e490> {c12au} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x555556df4000 <e7> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e907> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0x555556de8120]

@@ -1,0 +1,27 @@
+`begin_keywords "1800-2017"
+`line 1 "decode_3to8_for.v" 1
+module decode_3to8_for (x, en, y);
+    input [2:0] x;
+    input en;
+    output reg [7:0] y;
+    integer i;
+
+`line 7 "decode_3to8_for.v" 0
+    always @(x or en)
+    begin
+        if (en)
+        begin
+            /*verilator lint_off WIDTH*/ 
+            for (i=0; i <= 7; i = i + 1)
+                if (x == i) 
+                    y[i] = 1;
+                else
+                    y[i] = 0;
+            /*verilator lint_on WIDTH*/ 
+        end
+        else
+            y = 8'b00000000;
+    end
+endmodule
+
+`line 24 "decode_3to8_for.v" 2
