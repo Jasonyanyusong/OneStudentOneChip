@@ -1,0 +1,23 @@
+`begin_keywords "1800-2017"
+`line 1 "encode_2to1_case.v" 1
+module encode_2to1_case (x, en, y);
+    input [1:0] x;
+    input en;
+    output reg [0:0] y;
+
+`line 6 "encode_2to1_case.v" 0
+    always @(x or en) 
+    begin
+        if (en) 
+        begin
+            case (x)
+                2'b01 : y = 1'b0;
+                2'b10 : y = 1'b1;
+                default : y = 1'b0;
+            endcase
+        end
+        else y = 1'b0;
+    end
+endmodule
+
+`line 20 "encode_2to1_case.v" 2
