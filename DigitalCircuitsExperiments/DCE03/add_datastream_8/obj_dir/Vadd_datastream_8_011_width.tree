@@ -1,0 +1,24 @@
+Verilator Tree Dump (format 0x3900) from <e115> to <e148>
+     NETLIST 0x555556de8000 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de8240 <e115#> {c1ai}  add_datastream_1  L0 [1ps]
+    1:2: VAR 0x555556df4180 <e123#> {c2ar} @dt=0x555556dfa680@(w8)  in_x INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4300 <e131#> {c2ax} @dt=0x555556dfa750@(w8)  in_y INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4480 <e139#> {c3as} @dt=0x555556dfab60@(w8)  out_s OUTPUT [VSTATIC]  PORT
+    1:2: ASSIGNW 0x555556e3c420 <e141#> {c5as} @dt=0x555556dfab60@(w8)
+    1:2:1: ADD 0x555556e3c370 <e148#> {c5az} @dt=0x555556dfab60@(w8)
+    1:2:1:1: VARREF 0x555556de8360 <e142#> {c5au} @dt=0x555556dfa680@(w8)  in_x [RV] <- VAR 0x555556df4180 <e123#> {c2ar} @dt=0x555556dfa680@(w8)  in_x INPUT [VSTATIC]  PORT
+    1:2:1:2: VARREF 0x555556de8480 <e143#> {c5bb} @dt=0x555556dfa750@(w8)  in_y [RV] <- VAR 0x555556df4300 <e131#> {c2ax} @dt=0x555556dfa750@(w8)  in_y INPUT [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556de85a0 <e140#> {c5am} @dt=0x555556dfab60@(w8)  out_s [LV] => VAR 0x555556df4480 <e139#> {c3as} @dt=0x555556dfab60@(w8)  out_s OUTPUT [VSTATIC]  PORT
+    3: TYPETABLE 0x555556df2000 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556dfaea0 <e146#> {c5az} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+		detailed  ->  BASICDTYPE 0x555556dfa410 <e21> {c2ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfa340 <e16> {c2am} @dt=this@(G/swu32/3)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa340 <e16> {c2am} @dt=this@(G/swu32/3)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa410 <e21> {c2ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa680 <e122#> {c2al} @dt=this@(w8)  logic kwd=logic range=[7:0]
+    3:1: BASICDTYPE 0x555556dfa750 <e130#> {c2al} @dt=this@(w8)  logic kwd=logic range=[7:0]
+    3:1: BASICDTYPE 0x555556dfab60 <e138#> {c3am} @dt=this@(w8)  logic kwd=logic range=[7:0]
+    3:1: BASICDTYPE 0x555556dfaea0 <e146#> {c5az} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+    3: CONSTPOOL 0x555556df4000 <e7> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
