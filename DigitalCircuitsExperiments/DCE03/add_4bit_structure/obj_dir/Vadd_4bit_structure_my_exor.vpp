@@ -1,0 +1,23 @@
+`begin_keywords "1800-2017"
+`line 1 "my_exor.v" 1
+module my_exor (a, b, y);
+    input a,b;
+    output reg y;
+
+`line 5 "my_exor.v" 0
+    always @(a or b) 
+    begin
+        case (a)
+        1 : case (b)
+            1 : y = 0;
+            0 : y = 1;
+        endcase
+        0 : case (b)
+            1 : y = 1;
+            0 : y = 0;
+        endcase
+        endcase
+    end
+endmodule
+
+`line 20 "my_exor.v" 2

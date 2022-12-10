@@ -1,0 +1,11 @@
+module my_add1bit(c_i, a_i, b_i, s_i, c_iplus1);
+    input c_i, a_i, b_i;
+    output s_i, c_iplus1;
+    wire a_iEXORb_i_A, a_iANDb_i_B, c_iANDA_D;
+
+    my_exor i1(.a(a_i), .b(b_i), .y(a_iEXORb_i_A));
+    my_and i2(.a(a_i), .b(b_i), .y(a_iANDb_i_B));
+    my_exor i3(.a(c_i), .b(a_iEXORb_i_A), .y(s_i));
+    my_and i4(.a(a_iEXORb_i_A), .b(c_i), .y(c_iANDA_D));
+    my_or i5(.a(c_iANDA_D), .b(a_iANDb_i_B), .y(c_iplus1));
+endmodule
