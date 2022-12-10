@@ -1,0 +1,43 @@
+Verilator Tree Dump (format 0x3900) from <e216> to <e232>
+     NETLIST 0x555556de8000 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de87e0 <e197> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: CELL 0x555556e62000 <e200> {c1ai}  my_not -> MODULE 0x555556de8240 <e199> {c1ai}  my_not  L0 [1ps]
+    1:2:1: PIN 0x555556df61e0 <e204> {c2al}  a -> VAR 0x555556df4180 <e114> {c2al} @dt=0x555556dfab60@(G/w1)  a INPUT [VSTATIC]  PORT
+    1:2:1:1: VARREF 0x555556de8900 <e205> {c2al} @dt=0x555556dfab60@(G/w1)  a [RV] <- VAR 0x555556df4480 <e201> {c2al} @dt=0x555556dfab60@(G/w1)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:1: PIN 0x555556df62d0 <e211> {c3aq}  y -> VAR 0x555556df4300 <e167> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y OUTPUT [VSTATIC]  PORT
+    1:2:1:1: VARREF 0x555556de8a20 <e210> {c3aq} @dt=0x555556dfab60@(G/w1)  y [LV] => VAR 0x555556df4600 <e206> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4480 <e201> {c2al} @dt=0x555556dfab60@(G/w1)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4600 <e206> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y [PO] OUTPUT [P] [VSTATIC]  PORT
+    1: MODULE 0x555556de8240 <e199> {c1ai}  my_not  L0 [1ps]
+    1:2: VAR 0x555556df4180 <e114> {c2al} @dt=0x555556dfab60@(G/w1)  a INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4300 <e167> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y OUTPUT [VSTATIC]  PORT
+    1:2: ALWAYS 0x555556e38580 <e65> {c5af}
+    1:2:1: SENTREE 0x555556e38160 <e71> {c5am}
+    1:2:1:1: SENITEM 0x555556e38000 <e22> {c5ao} [CHANGED]
+    1:2:1:1:1: VARREF 0x555556de8360 <e118> {c5ao} @dt=0x555556dfab60@(G/w1)  a [RV] <- VAR 0x555556df4180 <e114> {c2al} @dt=0x555556dfab60@(G/w1)  a INPUT [VSTATIC]  PORT
+    1:2:2: CASE 0x555556e3e000 <e214> {c7aj}
+    1:2:2:1: EXTEND 0x555556e380b0 <e162> {c7ap} @dt=0x555556dfaf70@(G/w32)
+    1:2:2:1:1: VARREF 0x555556de8480 <e160> {c7ap} @dt=0x555556dfab60@(G/w1)  a [RV] <- VAR 0x555556df4180 <e114> {c2al} @dt=0x555556dfab60@(G/w1)  a INPUT [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x555556e382c0 <e43> {c8al}
+    1:2:2:2:1: CONST 0x555556e16600 <e176> {c8aj} @dt=0x555556dfb110@(G/sw32)  32'sh1
+    1:2:2:2:2: ASSIGN 0x555556e38210 <e179> {c8ap} @dt=0x555556dfab60@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556e16400 <e177> {c8ar} @dt=0x555556dfab60@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556de85a0 <e178> {c8an} @dt=0x555556dfab60@(G/w1)  y [LV] => VAR 0x555556df4300 <e167> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y OUTPUT [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x555556e38420 <e61> {c9al}
+    1:2:2:2:1: CONST 0x555556e16700 <e189> {c9aj} @dt=0x555556dfb110@(G/sw32)  32'sh0
+    1:2:2:2:2: ASSIGN 0x555556e38370 <e192> {c9ap} @dt=0x555556dfab60@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556e16500 <e190> {c9ar} @dt=0x555556dfab60@(G/w1)  1'h1
+    1:2:2:2:2:2: VARREF 0x555556de86c0 <e191> {c9an} @dt=0x555556dfab60@(G/w1)  y [LV] => VAR 0x555556df4300 <e167> {c3aq} u3=0x1 @dt=0x555556dfab60@(G/w1)  y OUTPUT [VSTATIC]  PORT
+    3: TYPETABLE 0x555556df2000 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556dfab60 <e113> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556dfaf70 <e152> {c7aj} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfb110 <e171> {c8aj} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa680 <e31> {c8aj} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa270 <e109> {c2al} @dt=this@(w1)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    3:1: BASICDTYPE 0x555556dfab60 <e113> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x555556dfa410 <e116> {c3am} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556dfaf70 <e152> {c7aj} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfb110 <e171> {c8aj} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x555556df4000 <e7> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
