@@ -1,13 +1,13 @@
 #include "/usr/local/share/verilator/include/verilated.h"
 #include "/usr/local/share/verilator/include/verilated_vcd_c.h"
-#include "/home/yanyusong/OneStudentOneChip/DigitalCircuitsExperiments/DCE03/add_1bit_case/obj_dir/Vadd_1bit_case.h"
+#include "/home/yanyusong/OneStudentOneChip/DigitalCircuitsExperiments/DCE03/add_1bit_structure/obj_dir/Vadd_1bit_structure.h"
 
 #include <iostream>
 
 VerilatedContext* contextp = NULL;
 VerilatedVcdC* tfp = NULL;
 
-static Vadd_1bit_case* top;
+static Vadd_1bit_structure* top;
 
 void step_and_dump_wave()
 {
@@ -20,7 +20,7 @@ void sim_init() // Initilize the simulator
 {
     contextp = new VerilatedContext;
     tfp = new VerilatedVcdC;
-    top = new Vadd_1bit_case;
+    top = new Vadd_1bit_structure;
     contextp -> traceEverOn(true);
     top -> trace (tfp, 0);
     tfp -> open("dump.vcd");
@@ -37,7 +37,7 @@ int main()
     // Print the Experiment Informations
     printf("Verilator Generated File simulator");
     printf("\n");
-    printf("This is a 1-bit ADDER modeled by case");
+    printf("This is a 1-bit ADDER modeled by structure");
     printf("\n");
 
     // Simulator Main Parts

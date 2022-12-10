@@ -1,0 +1,209 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e518>
+     NETLIST 0x555556de8000 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de8240 <e512#> {c1ai}  add_1bit_structure  L2 [1ps]
+    1:2: PORT 0x555556dfa0d0 <e9#> {c1bb}  c_i
+    1:2: PORT 0x555556dfa1a0 <e11#> {c1bg}  a_i
+    1:2: PORT 0x555556dfa270 <e13#> {c1bl}  b_i
+    1:2: PORT 0x555556dfa340 <e15#> {c1bq}  s_i
+    1:2: PORT 0x555556dfa410 <e17#> {c1bv}  c_iplus1
+    1:2: VAR 0x555556df4180 <e120#> {c2al} @dt=0@  c_i INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa4e0 <e21#> {c2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4300 <e26#> {c2aq} @dt=0@  a_i INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa5b0 <e25#> {c2aq} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4480 <e31#> {c2av} @dt=0@  b_i INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa680 <e30#> {c2av} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4600 <e41#> {c3am} @dt=0@  s_i OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa750 <e35#> {c3am} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4780 <e40#> {c3ar} @dt=0@  c_iplus1 OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa820 <e39#> {c3ar} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4900 <e52#> {c4ak} @dt=0@  a_iEXORb_i_A WIRE
+    1:2:1: BASICDTYPE 0x555556dfa9c0 <e45#> {c4ak} @dt=this@(w1)  logic kwd=logic
+    1:2: VAR 0x555556df4a80 <e48#> {c4ay} @dt=0@  a_iANDb_i_B WIRE
+    1:2:1: BASICDTYPE 0x555556dfaa90 <e47#> {c4ak} @dt=this@(w1)  logic kwd=logic
+    1:2: VAR 0x555556df4c00 <e51#> {c4bl} @dt=0@  c_iANDA_D WIRE
+    1:2:1: BASICDTYPE 0x555556dfab60 <e50#> {c4ak} @dt=this@(w1)  logic kwd=logic
+    1:2: CELL 0x555556e3e000 <e67#> {c6an}  i1 -> MODULE 0x555556de8360 <e516#> {d1ai}  my_exor  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556df60f0 <e56#> {c6ar}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfac30 <e57#> {c6at} @dt=0@  a_i [TEXT]
+    1:2:1: PIN 0x555556df61e0 <e61#> {c6ba}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfad00 <e60#> {c6bc} @dt=0@  b_i [TEXT]
+    1:2:1: PIN 0x555556df62d0 <e65#> {c6bj}  y ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfadd0 <e64#> {c6bl} @dt=0@  a_iEXORb_i_A [TEXT]
+    1:2: CELL 0x555556e3e140 <e80#> {c7am}  i2 -> MODULE 0x555556de8480 <e517#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556df63c0 <e69#> {c7aq}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfaea0 <e70#> {c7as} @dt=0@  a_i [TEXT]
+    1:2:1: PIN 0x555556df64b0 <e74#> {c7az}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfaf70 <e73#> {c7bb} @dt=0@  b_i [TEXT]
+    1:2:1: PIN 0x555556df65a0 <e78#> {c7bi}  y ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb040 <e77#> {c7bk} @dt=0@  a_iANDb_i_B [TEXT]
+    1:2: CELL 0x555556e3e280 <e93#> {c8an}  i3 -> MODULE 0x555556de8360 <e516#> {d1ai}  my_exor  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556df6690 <e82#> {c8ar}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb110 <e83#> {c8at} @dt=0@  c_i [TEXT]
+    1:2:1: PIN 0x555556df6780 <e87#> {c8ba}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb1e0 <e86#> {c8bc} @dt=0@  a_iEXORb_i_A [TEXT]
+    1:2:1: PIN 0x555556df6870 <e91#> {c8bs}  y ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb2b0 <e90#> {c8bu} @dt=0@  s_i [TEXT]
+    1:2: CELL 0x555556e3e3c0 <e106#> {c9am}  i4 -> MODULE 0x555556de8480 <e517#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556df6960 <e95#> {c9aq}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb380 <e96#> {c9as} @dt=0@  a_iEXORb_i_A [TEXT]
+    1:2:1: PIN 0x555556df6a50 <e100#> {c9bi}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb450 <e99#> {c9bk} @dt=0@  c_i [TEXT]
+    1:2:1: PIN 0x555556df6b40 <e104#> {c9br}  y ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb520 <e103#> {c9bt} @dt=0@  c_iANDA_D [TEXT]
+    1:2: CELL 0x555556e3e500 <e119#> {c10al}  i5 -> MODULE 0x555556de85a0 <e518#> {f1ai}  my_or  L3 [LIB] [1ps]
+    1:2:1: PIN 0x555556df6c30 <e108#> {c10ap}  a ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb5f0 <e109#> {c10ar} @dt=0@  c_iANDA_D [TEXT]
+    1:2:1: PIN 0x555556df6d20 <e113#> {c10be}  b ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb6c0 <e112#> {c10bg} @dt=0@  a_iANDb_i_B [TEXT]
+    1:2:1: PIN 0x555556df6e10 <e117#> {c10bv}  y ->UNLINKED
+    1:2:1:1: PARSEREF 0x555556dfb790 <e116#> {c10bx} @dt=0@  c_iplus1 [TEXT]
+    1: MODULE 0x555556de8360 <e516#> {d1ai}  my_exor  L3 [LIB] [1ps]
+    1:2: PORT 0x555556dfb860 <e123#> {d1ar}  a
+    1:2: PORT 0x555556dfb930 <e125#> {d1au}  b
+    1:2: PORT 0x555556dfba00 <e127#> {d1ax}  y
+    1:2: VAR 0x555556df4d80 <e247#> {d2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfbad0 <e131#> {d2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4f00 <e136#> {d2an} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfbba0 <e135#> {d2an} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df5080 <e141#> {d3aq} @dt=0@  y OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfbd40 <e140#> {d3am} @dt=this@(w1)  logic kwd=logic
+    1:2: ALWAYS 0x555556e4c9a0 <e246#> {d5af}
+    1:2:2: EVENTCONTROL 0x555556e4c8f0 <e243#> {d5am}
+    1:2:2:1: SENTREE 0x555556e4c160 <e244#> {d5am}
+    1:2:2:1:1: SENITEM 0x555556e4c000 <e143#> {d5ao} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556dfbe10 <e144#> {d5ao} @dt=0@  a [TEXT]
+    1:2:2:1:1: SENITEM 0x555556e4c0b0 <e148#> {d5at} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556dfbee0 <e147#> {d5at} @dt=0@  b [TEXT]
+    1:2:2:2: BEGIN 0x555556e14460 <e150#> {d6af} [UNNAMED]
+    1:2:2:2:1: CASE 0x555556e50000 <e152#> {d7aj}
+    1:2:2:2:1:1: PARSEREF 0x555556e4e000 <e153#> {d7ap} @dt=0@  a [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4c4d0 <e196#> {d8al}
+    1:2:2:2:1:2:1: CONST 0x555556e16000 <e157#> {d8aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2: CASE 0x555556e500c0 <e159#> {d8an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e4e1a0 <e160#> {d8at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4c2c0 <e177#> {d9ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16100 <e166#> {d9an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4c210 <e174#> {d9at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16200 <e175#> {d9av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4e340 <e176#> {d9ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4c420 <e195#> {d10ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16300 <e183#> {d10an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4c370 <e191#> {d10at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16400 <e192#> {d10av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4e5b0 <e193#> {d10ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4c840 <e242#> {d12al}
+    1:2:2:2:1:2:1: CONST 0x555556e16500 <e202#> {d12aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2: CASE 0x555556e50180 <e204#> {d12an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e4e820 <e205#> {d12at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4c630 <e222#> {d13ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16600 <e211#> {d13an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4c580 <e219#> {d13at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16700 <e220#> {d13av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4e9c0 <e221#> {d13ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4c790 <e240#> {d14ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16800 <e228#> {d14an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4c6e0 <e236#> {d14at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16900 <e237#> {d14av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4ec30 <e238#> {d14ar} @dt=0@  y [TEXT]
+    1: MODULE 0x555556de8480 <e517#> {e1ai}  my_and  L3 [LIB] [1ps]
+    1:2: PORT 0x555556e4edd0 <e252#> {e1aq}  a
+    1:2: PORT 0x555556e4eea0 <e254#> {e1at}  b
+    1:2: PORT 0x555556e4ef70 <e256#> {e1aw}  y
+    1:2: VAR 0x555556df5200 <e378#> {e2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556e4f040 <e260#> {e2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df5380 <e265#> {e2an} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556e4f110 <e264#> {e2an} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df5500 <e270#> {e3aq} @dt=0@  y OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556e4f2b0 <e269#> {e3am} @dt=this@(w1)  logic kwd=logic
+    1:2: ALWAYS 0x555556e4d3f0 <e377#> {e5af}
+    1:2:2: EVENTCONTROL 0x555556e4d340 <e374#> {e5am}
+    1:2:2:1: SENTREE 0x555556e4cbb0 <e375#> {e5am}
+    1:2:2:1:1: SENITEM 0x555556e4ca50 <e272#> {e5ao} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556e4f380 <e273#> {e5ao} @dt=0@  a [TEXT]
+    1:2:2:1:1: SENITEM 0x555556e4cb00 <e277#> {e5at} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556e4f450 <e276#> {e5at} @dt=0@  b [TEXT]
+    1:2:2:2: BEGIN 0x555556e14700 <e279#> {e6af} [UNNAMED]
+    1:2:2:2:1: CASE 0x555556e50240 <e281#> {e7aj}
+    1:2:2:2:1:1: PARSEREF 0x555556e4f520 <e282#> {e7ap} @dt=0@  a [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4cf20 <e327#> {e8al}
+    1:2:2:2:1:2:1: CONST 0x555556e16b00 <e288#> {e8aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2: CASE 0x555556e50300 <e290#> {e8an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e4f6c0 <e291#> {e8at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4cd10 <e308#> {e9ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16c00 <e297#> {e9an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4cc60 <e305#> {e9at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16d00 <e306#> {e9av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4f860 <e307#> {e9ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4ce70 <e326#> {e10ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e16e00 <e314#> {e10an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4cdc0 <e322#> {e10at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e16f00 <e323#> {e10av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4fad0 <e324#> {e10ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4d290 <e373#> {e12al}
+    1:2:2:2:1:2:1: CONST 0x555556e17000 <e333#> {e12aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2: CASE 0x555556e503c0 <e335#> {e12an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e4fd40 <e336#> {e12at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4d080 <e353#> {e13ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17100 <e342#> {e13an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4cfd0 <e350#> {e13at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17200 <e351#> {e13av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e4fee0 <e352#> {e13ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4d1e0 <e371#> {e14ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17300 <e359#> {e14an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4d130 <e367#> {e14at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17400 <e368#> {e14av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e2a1a0 <e369#> {e14ar} @dt=0@  y [TEXT]
+    1: MODULE 0x555556de85a0 <e518#> {f1ai}  my_or  L3 [LIB] [1ps]
+    1:2: PORT 0x555556e2a340 <e383#> {f1ap}  a
+    1:2: PORT 0x555556e2a410 <e385#> {f1as}  b
+    1:2: PORT 0x555556e2a4e0 <e387#> {f1av}  y
+    1:2: VAR 0x555556df5680 <e509#> {f2al} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556e2a5b0 <e391#> {f2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df5800 <e396#> {f2an} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556e2a680 <e395#> {f2an} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df5980 <e401#> {f3aq} @dt=0@  y OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556e2a820 <e400#> {f3am} @dt=this@(w1)  logic kwd=logic
+    1:2: ALWAYS 0x555556e4de40 <e508#> {f5af}
+    1:2:2: EVENTCONTROL 0x555556e4dd90 <e505#> {f5am}
+    1:2:2:1: SENTREE 0x555556e4d600 <e506#> {f5am}
+    1:2:2:1:1: SENITEM 0x555556e4d4a0 <e403#> {f5ao} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556e2a8f0 <e404#> {f5ao} @dt=0@  a [TEXT]
+    1:2:2:1:1: SENITEM 0x555556e4d550 <e408#> {f5at} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556e2a9c0 <e407#> {f5at} @dt=0@  b [TEXT]
+    1:2:2:2: BEGIN 0x555556e149a0 <e410#> {f6af} [UNNAMED]
+    1:2:2:2:1: CASE 0x555556e50480 <e412#> {f7aj}
+    1:2:2:2:1:1: PARSEREF 0x555556e2aa90 <e413#> {f7ap} @dt=0@  a [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4d970 <e458#> {f8al}
+    1:2:2:2:1:2:1: CONST 0x555556e17500 <e419#> {f8aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2: CASE 0x555556e50540 <e421#> {f8an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e2ac30 <e422#> {f8at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4d760 <e439#> {f9ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17600 <e428#> {f9an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4d6b0 <e436#> {f9at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17700 <e437#> {f9av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e2add0 <e438#> {f9ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4d8c0 <e457#> {f10ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17800 <e445#> {f10an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4d810 <e453#> {f10at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17900 <e454#> {f10av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e2b040 <e455#> {f10ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2: CASEITEM 0x555556e4dce0 <e504#> {f12al}
+    1:2:2:2:1:2:1: CONST 0x555556e17a00 <e464#> {f12aj} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2: CASE 0x555556e50600 <e466#> {f12an}
+    1:2:2:2:1:2:2:1: PARSEREF 0x555556e2b2b0 <e467#> {f12at} @dt=0@  b [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4dad0 <e484#> {f13ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17b00 <e473#> {f13an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4da20 <e481#> {f13at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17c00 <e482#> {f13av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e2b450 <e483#> {f13ar} @dt=0@  y [TEXT]
+    1:2:2:2:1:2:2:2: CASEITEM 0x555556e4dc30 <e502#> {f14ap}
+    1:2:2:2:1:2:2:2:1: CONST 0x555556e17d00 <e490#> {f14an} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2: ASSIGN 0x555556e4db80 <e498#> {f14at} @dt=0@
+    1:2:2:2:1:2:2:2:2:1: CONST 0x555556e17e00 <e499#> {f14av} @dt=0x555556e4e0d0@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:2:2:2:2:2: PARSEREF 0x555556e2b6c0 <e500#> {f14ar} @dt=0@  y [TEXT]
+    3: TYPETABLE 0x555556df2000 <e2#> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556e4e0d0 <e156#> {d8aj} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e4e0d0 <e156#> {d8aj} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x555556df4000 <e7#> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
