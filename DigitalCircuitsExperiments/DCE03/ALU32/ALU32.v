@@ -7,6 +7,10 @@ module ALU32 (sub_add, a, b, carry, zero, overflow, result);
     output reg [31:0] result;
     reg [31:0] b_withCin;
 
+    reg [31:0] expected_result;
+    reg [0:0] expected_carry;
+    reg expected_zero, expected_overflow;
+
     always @(sub_add) 
     /* verilator lint_off WIDTH */
     begin
@@ -17,4 +21,10 @@ module ALU32 (sub_add, a, b, carry, zero, overflow, result);
         assign zero = ~(| result);
     end
     /* verilator lint_on WIDTH */
+
+    assign expected_result = 32'b0b00110011100000101001101110011100;
+    assign expected_carry = 1'b0;
+    assign expected_overflow = 0;
+    assign expected_zero = 0;
+    
 endmodule
