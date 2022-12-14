@@ -1,6 +1,6 @@
 #include "/usr/local/share/verilator/include/verilated.h"
 #include "/usr/local/share/verilator/include/verilated_vcd_c.h"
-#include "/Users/little_songsong/OneStudentOneChip/DigitalCircuitsExperiments/DCE03/ALU32/obj_dir/VALU32.h"
+#include "/home/yanyusong/OneStudentOneChip/DigitalCircuitsExperiments/DCE03/ALU32/obj_dir/VALU32.h"
 
 #include <iostream>
 

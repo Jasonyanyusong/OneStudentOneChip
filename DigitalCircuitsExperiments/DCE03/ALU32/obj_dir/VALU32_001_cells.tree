@@ -1,0 +1,111 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e339>
+     NETLIST 0x555556de8000 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556de8240 <e339#> {c1ai}  ALU32  L0 [1ps]
+    1:2: PORT 0x555556dfa0d0 <e9#> {c1ap}  sub_add
+    1:2: PORT 0x555556dfa1a0 <e11#> {c1ay}  a
+    1:2: PORT 0x555556dfa270 <e13#> {c1bb}  b
+    1:2: PORT 0x555556dfa340 <e15#> {c1be}  carry
+    1:2: PORT 0x555556dfa410 <e17#> {c1bl}  zero
+    1:2: PORT 0x555556dfa4e0 <e19#> {c1br}  overflow
+    1:2: PORT 0x555556dfa5b0 <e21#> {c1cb}  result
+    1:2: VAR 0x555556df4180 <e333#> {c2al} @dt=0@  sub_add INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfa680 <e25#> {c2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556df4300 <e47#> {c3as} @dt=0@  a INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfaa90 <e46#> {c3al} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e3c0b0 <e44#> {c3al}
+    1:2:1:1:1: CONST 0x555556e16200 <e36#> {c3am} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:1:1:2: CONST 0x555556e16300 <e37#> {c3ap} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0x555556df4480 <e77#> {c4as} @dt=0@  b INPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfaea0 <e76#> {c4al} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e3c210 <e74#> {c4al}
+    1:2:1:1:1: CONST 0x555556e16600 <e66#> {c4am} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:1:1:2: CONST 0x555556e16700 <e67#> {c4ap} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0x555556df4600 <e103#> {c5aw} @dt=0@  carry OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfb1e0 <e102#> {c5am} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e3c370 <e100#> {c5aq}
+    1:2:1:1:1: CONST 0x555556e16a00 <e98#> {c5ar} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2:1:1:2: CONST 0x555556e16b00 <e99#> {c5at} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0x555556df4780 <e116#> {c6aq} @dt=0@  zero OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfb380 <e112#> {c6am} @dt=this@(w1)  logic kwd=logic
+    1:2: VAR 0x555556df4900 <e115#> {c6aw} @dt=0@  overflow OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfb450 <e114#> {c6am} @dt=this@(w1)  logic kwd=logic
+    1:2: VAR 0x555556df4a80 <e139#> {c7ax} @dt=0@  result OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556dfb790 <e138#> {c7am} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e3c4d0 <e136#> {c7aq}
+    1:2:1:1:1: CONST 0x555556e16e00 <e134#> {c7ar} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:1:1:2: CONST 0x555556e16f00 <e135#> {c7au} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0x555556df4c00 <e165#> {c8aq} @dt=0@  b_withCin VAR
+    1:2:1: BASICDTYPE 0x555556dfbad0 <e164#> {c8af} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556e3c630 <e157#> {c8aj}
+    1:2:1:1:1: CONST 0x555556e17200 <e155#> {c8ak} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:1:1:2: CONST 0x555556e17300 <e156#> {c8an} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh0
+    1:2: ALWAYS 0x555556e3d8c0 <e332#> {c10af}
+    1:2:2: EVENTCONTROL 0x555556e3d810 <e329#> {c10am}
+    1:2:2:1: SENTREE 0x555556e3c790 <e330#> {c10am}
+    1:2:2:1:1: SENITEM 0x555556e3c6e0 <e167#> {c10ao} [CHANGED]
+    1:2:2:1:1:1: PARSEREF 0x555556dfbba0 <e168#> {c10ao} @dt=0@  sub_add [TEXT]
+    1:2:2:2: BEGIN 0x555556e122a0 <e170#> {c12af} [UNNAMED]
+    1:2:2:2:1: ASSIGN 0x555556e3ca50 <e195#> {c13aj} @dt=0@
+    1:2:2:2:1:1: ADD 0x555556e3c9a0 <e196#> {c13bu} @dt=0x555556dfbee0@(G/w0)
+    1:2:2:2:1:1:1: XOR 0x555556e3c8f0 <e192#> {c13bq} @dt=0x555556dfbee0@(G/w0)
+    1:2:2:2:1:1:1:1: REPLICATE 0x555556e3c840 <e187#> {c13bg} @dt=0x555556dfbee0@(G/w0)
+    1:2:2:2:1:1:1:1:1: PARSEREF 0x555556dfbe10 <e179#> {c13bh} @dt=0@  sub_add [TEXT]
+    1:2:2:2:1:1:1:1:2: CONST 0x555556e17400 <e180#> {c13be} @dt=0x555556dfbd40@(G/swu32/6)  ?32?sh20
+    1:2:2:2:1:1:1:2: PARSEREF 0x555556e3e000 <e188#> {c13br} @dt=0@  b [TEXT]
+    1:2:2:2:1:1:2: PARSEREF 0x555556e3e0d0 <e193#> {c13bw} @dt=0@  sub_add [TEXT]
+    1:2:2:2:1:2: PARSEREF 0x555556dfbc70 <e197#> {c13aq} @dt=0@  b_withCin [TEXT]
+    1:2:2:2:1: ASSIGN 0x555556e3cbb0 <e207#> {c14aj} @dt=0@
+    1:2:2:2:1:1: ADD 0x555556e3cb00 <e205#> {c14bb} @dt=0@
+    1:2:2:2:1:1:1: PARSEREF 0x555556e3e270 <e202#> {c14az} @dt=0@  a [TEXT]
+    1:2:2:2:1:1:2: PARSEREF 0x555556e3e340 <e203#> {c14bd} @dt=0@  b_withCin [TEXT]
+    1:2:2:2:1:2: PARSEREF 0x555556e3e1a0 <e206#> {c14aq} @dt=0@  result [TEXT]
+    1:2:2:2:1: ASSIGN 0x555556e3cfd0 <e259#> {c15aj} @dt=0@
+    1:2:2:2:1:1: LOGAND 0x555556e3cf20 <e257#> {c15bj} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1: EQ 0x555556e3cd10 <e253#> {c15be} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1:1: SELBIT 0x555556e3cc60 <e226#> {c15az} @dt=0@
+    1:2:2:2:1:1:1:1:1: PARSEREF 0x555556e3e4e0 <e217#> {c15ay} @dt=0@  a [TEXT]
+    1:2:2:2:1:1:1:1:2: CONST 0x555556e17500 <e218#> {c15ba} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1e
+    1:2:2:2:1:1:1:2: CONST 0x555556e17600 <e227#> {c15bh} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:1:2: EQ 0x555556e3ce70 <e254#> {c15bs} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:2:1: SELBIT 0x555556e3cdc0 <e249#> {c15bn} @dt=0@
+    1:2:2:2:1:1:2:1:1: PARSEREF 0x555556e3e820 <e240#> {c15bm} @dt=0@  b [TEXT]
+    1:2:2:2:1:1:2:1:2: CONST 0x555556e17700 <e241#> {c15bo} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1e
+    1:2:2:2:1:1:2:2: CONST 0x555556e17800 <e250#> {c15bv} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2: PARSEREF 0x555556e3e410 <e258#> {c15aq} @dt=0@  carry [TEXT]
+    1:2:2:2:1: ASSIGN 0x555556e3d550 <e316#> {c16aj} @dt=0@
+    1:2:2:2:1:1: LOGAND 0x555556e3d4a0 <e314#> {c16bz} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1: EQ 0x555556e3d1e0 <e310#> {c16bi} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1:1: SELBIT 0x555556e3d080 <e282#> {c16bd} @dt=0@
+    1:2:2:2:1:1:1:1:1: PARSEREF 0x555556e3eb60 <e269#> {c16bc} @dt=0@  a [TEXT]
+    1:2:2:2:1:1:1:1:2: CONST 0x555556e17900 <e270#> {c16be} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:2:2:1:1:1:2: SELBIT 0x555556e3d130 <e283#> {c16bu} @dt=0@
+    1:2:2:2:1:1:1:2:1: PARSEREF 0x555556e3ed00 <e279#> {c16bl} @dt=0@  b_withCin [TEXT]
+    1:2:2:2:1:1:1:2:2: CONST 0x555556e17a00 <e280#> {c16bv} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:2:2:1:1:2: NEQ 0x555556e3d3f0 <e311#> {c16cn} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:2:1: SELBIT 0x555556e3d290 <e306#> {c16ci} @dt=0@
+    1:2:2:2:1:1:2:1:1: PARSEREF 0x555556e3eea0 <e293#> {c16cc} @dt=0@  result [TEXT]
+    1:2:2:2:1:1:2:1:2: CONST 0x555556e17b00 <e294#> {c16cj} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:2:2:1:1:2:2: SELBIT 0x555556e3d340 <e307#> {c16cr} @dt=0@
+    1:2:2:2:1:1:2:2:1: PARSEREF 0x555556e3f040 <e303#> {c16cq} @dt=0@  a [TEXT]
+    1:2:2:2:1:1:2:2:2: CONST 0x555556e17c00 <e304#> {c16cs} @dt=0x555556dfa750@(G/swu32/5)  ?32?sh1f
+    1:2:2:2:1:2: PARSEREF 0x555556e3ea90 <e315#> {c16aq} @dt=0@  overflow [TEXT]
+    1:2:2:2:1: ASSIGN 0x555556e3d760 <e328#> {c17aj} @dt=0@
+    1:2:2:2:1:1: NOT 0x555556e3d6b0 <e326#> {c17ax} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1: REDOR 0x555556e3d600 <e324#> {c17az} @dt=0x555556e3e750@(G/w1)
+    1:2:2:2:1:1:1:1: PARSEREF 0x555556e3f2b0 <e320#> {c17bb} @dt=0@  result [TEXT]
+    1:2:2:2:1:2: PARSEREF 0x555556e3f1e0 <e327#> {c17aq} @dt=0@  zero [TEXT]
+    3: TYPETABLE 0x555556df2000 <e2#> {a0aa}
+		   logic  -> BASICDTYPE 0x555556e3e750 <e230#> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556dfbee0 <e183#> {c13bg} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556e3e750 <e230#> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556dfa820 <e33#> {c3ap} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfa750 <e28#> {c3am} @dt=this@(G/swu32/5)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfbd40 <e175#> {c13be} @dt=this@(G/swu32/6)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa750 <e28#> {c3am} @dt=this@(G/swu32/5)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfa820 <e33#> {c3ap} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfbd40 <e175#> {c13be} @dt=this@(G/swu32/6)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfbee0 <e183#> {c13bg} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x555556e3e750 <e230#> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3: CONSTPOOL 0x555556df4000 <e7#> {a0aa}
+    3:1: MODULE 0x555556de8120 <e6#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556df6000 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
