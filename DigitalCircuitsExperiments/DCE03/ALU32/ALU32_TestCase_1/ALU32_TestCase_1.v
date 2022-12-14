@@ -1,4 +1,4 @@
-module ALU32 (sub_add, a, b, carry, zero, overflow, result);
+module ALU32_TestCase_1 (sub_add, a, b, carry, zero, overflow, result);
     input sub_add;// This is a switch of Add(0) or Sub(1)
     input [31:0] a; // This is a Complement number
     input [31:0] b; // This is a Complement number
@@ -21,4 +21,10 @@ module ALU32 (sub_add, a, b, carry, zero, overflow, result);
         assign zero = ~(| result);
     end
     /* verilator lint_on WIDTH */
+
+    assign expected_result = 32'b00110011100000101001101110011100;
+    assign expected_carry = 1'b0;
+    assign expected_overflow = 0;
+    assign expected_zero = 0;
+
 endmodule

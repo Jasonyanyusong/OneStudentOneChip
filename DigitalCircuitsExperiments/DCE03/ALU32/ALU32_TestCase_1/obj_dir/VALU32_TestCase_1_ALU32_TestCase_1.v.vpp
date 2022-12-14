@@ -1,0 +1,38 @@
+`begin_keywords "1800-2017"
+`line 1 "ALU32_TestCase_1.v" 1
+module ALU32_TestCase_1 (sub_add, a, b, carry, zero, overflow, result);
+    input sub_add; 
+    input [31:0] a;  
+    input [31:0] b;  
+    output reg [0:0] carry;
+    output reg zero, overflow;
+    output reg [31:0] result;
+    reg [31:0] b_withCin;
+
+`line 10 "ALU32_TestCase_1.v" 0
+    reg [31:0] expected_result;
+    reg [0:0] expected_carry;
+    reg expected_zero, expected_overflow;
+
+`line 14 "ALU32_TestCase_1.v" 0
+    always @(sub_add) 
+    /*verilator lint_off WIDTH*/ 
+    begin
+        assign b_withCin = ({32{sub_add}}^b) + sub_add;
+        assign result = a + b_withCin;
+        assign carry = a[30] == 1 && b[30] == 1;
+        assign overflow = (a[31] == b_withCin[31] && result[31] != a[31]);
+        assign zero = ~(| result);
+    end
+    /*verilator lint_on WIDTH*/ 
+
+`line 25 "ALU32_TestCase_1.v" 0
+    assign expected_result = 32'b00110011100000101001101110011100;
+    assign expected_carry = 1'b0;
+    assign expected_overflow = 0;
+    assign expected_zero = 0;
+
+`line 30 "ALU32_TestCase_1.v" 0
+endmodule
+
+`line 32 "ALU32_TestCase_1.v" 2

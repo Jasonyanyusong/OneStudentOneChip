@@ -43,16 +43,16 @@ int main()
     // Simulator Main Parts
     sim_init();
 
-    top -> sub_add = 0b0;
-    top -> a = 0b00111010110111100110100010110001; // + 987654321
-    top -> b = 0b11111000101001000011001011101011; // - 123456789
-    std :: cout << "This test bench is designed for testing the ability to calculate A + B where A > 0 > B" << std :: endl;
-    std :: cout << "Sub_Add: " << top -> sub_add << " A: " << top -> a << " B: " << top -> b << std :: endl;
-    std :: cout << "Actual Result: " << std :: endl;
-    std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
-    std :: cout << "Expected Result:" << std :: endl;
-    std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b00110011100000101001101110011100" << std :: endl;
-    step_and_dump_wave();
+    //top -> sub_add = 0b0;
+    //top -> a = 0b00111010110111100110100010110001; // + 987654321
+    //top -> b = 0b11111000101001000011001011101011; // - 123456789
+    //std :: cout << "This test bench is designed for testing the ability to calculate A + B where A > 0 > B" << std :: endl;
+    //std :: cout << "Sub_Add: " << top -> sub_add << " A: " << top -> a << " B: " << top -> b << std :: endl;
+    //std :: cout << "Actual Result: " << std :: endl;
+    //std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
+    //std :: cout << "Expected Result:" << std :: endl;
+    //std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b00110011100000101001101110011100" << std :: endl;
+    //step_and_dump_wave();
 
     sim_exit();
 }
