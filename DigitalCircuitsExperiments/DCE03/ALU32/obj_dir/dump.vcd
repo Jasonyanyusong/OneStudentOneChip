@@ -14,6 +14,10 @@ $timescale 1s $end
    $var wire 32 % b [31:0] $end
    $var wire 32 * b_withCin [31:0] $end
    $var wire  1 & carry [0:0] $end
+   $var wire  1 , expected_carry [0:0] $end
+   $var wire  1 , expected_overflow $end
+   $var wire 32 + expected_result [31:0] $end
+   $var wire  1 , expected_zero $end
    $var wire  1 ( overflow $end
    $var wire 32 ) result [31:0] $end
    $var wire  1 # sub_add $end
@@ -32,4 +36,6 @@ b11111000101001000011001011101011 %
 0(
 b00110011100000101001101110011100 )
 b11111000101001000011001011101011 *
+b00110011100000101001101110011100 +
+0,
 #2

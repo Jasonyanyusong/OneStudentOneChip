@@ -27,6 +27,10 @@ VL_ATTR_COLD void VALU32___024root__trace_init_sub__TOP__0(VALU32___024root* vlS
     tracep->declBit(c+6,"overflow", false,-1);
     tracep->declBus(c+7,"result", false,-1, 31,0);
     tracep->declBus(c+8,"b_withCin", false,-1, 31,0);
+    tracep->declBus(c+9,"expected_result", false,-1, 31,0);
+    tracep->declBus(c+10,"expected_carry", false,-1, 0,0);
+    tracep->declBit(c+10,"expected_zero", false,-1);
+    tracep->declBit(c+10,"expected_overflow", false,-1);
     tracep->popNamePrefix(1);
 }
 
@@ -78,4 +82,6 @@ VL_ATTR_COLD void VALU32___024root__trace_full_sub_0(VALU32___024root* vlSelf, V
     bufp->fullBit(oldp+6,(vlSelf->overflow));
     bufp->fullIData(oldp+7,(vlSelf->result),32);
     bufp->fullIData(oldp+8,(vlSelf->ALU32__DOT__b_withCin),32);
+    bufp->fullIData(oldp+9,(0x33829b9cU),32);
+    bufp->fullBit(oldp+10,(0U));
 }

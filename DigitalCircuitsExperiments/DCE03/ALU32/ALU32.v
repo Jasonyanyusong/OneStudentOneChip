@@ -22,9 +22,9 @@ module ALU32 (sub_add, a, b, carry, zero, overflow, result);
     end
     /* verilator lint_on WIDTH */
 
-    assign expected_result = 32'b0b00110011100000101001101110011100;
+    assign expected_result = 32'b00110011100000101001101110011100;
     assign expected_carry = 1'b0;
     assign expected_overflow = 0;
     assign expected_zero = 0;
-    
+
 endmodule

@@ -51,6 +51,10 @@
         <tracedecl loc="c,6,22,6,30" name="overflow" dtype_id="1"/>
         <tracedecl loc="c,7,23,7,29" name="result" dtype_id="4"/>
         <tracedecl loc="c,8,16,8,25" name="b_withCin" dtype_id="4"/>
+        <tracedecl loc="c,10,16,10,31" name="expected_result" dtype_id="4"/>
+        <tracedecl loc="c,11,15,11,29" name="expected_carry" dtype_id="2"/>
+        <tracedecl loc="c,12,9,12,22" name="expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,12,24,12,41" name="expected_overflow" dtype_id="1"/>
         <tracepopnameprefix loc="c,1,8,1,13"/>
       </cfunc>
       <cfunc loc="c,1,8,1,13" name="trace_init_top">
@@ -60,21 +64,21 @@
       </cfunc>
       <cfunc loc="a,0,0,0,0" name="_eval_static"/>
       <cfunc loc="a,0,0,0,0" name="_eval_initial">
-        <assign loc="c,10,14,10,21" dtype_id="8">
-          <varref loc="c,10,14,10,21" name="sub_add" dtype_id="8"/>
-          <varref loc="c,10,14,10,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
+        <assign loc="c,14,14,14,21" dtype_id="8">
+          <varref loc="c,14,14,14,21" name="sub_add" dtype_id="8"/>
+          <varref loc="c,14,14,14,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
         </assign>
       </cfunc>
       <cfunc loc="a,0,0,0,0" name="_eval_final"/>
       <cfunc loc="a,0,0,0,0" name="_eval_settle"/>
       <cfunc loc="a,0,0,0,0" name="_eval_triggers__act">
         <assign loc="c,1,8,1,13" dtype_id="8">
-          <neq loc="c,10,14,10,21" dtype_id="8">
-            <ccast loc="c,10,14,10,21" dtype_id="8">
-              <varref loc="c,10,14,10,21" name="sub_add" dtype_id="8"/>
+          <neq loc="c,14,14,14,21" dtype_id="8">
+            <ccast loc="c,14,14,14,21" dtype_id="8">
+              <varref loc="c,14,14,14,21" name="sub_add" dtype_id="8"/>
             </ccast>
-            <ccast loc="c,10,14,10,21" dtype_id="8">
-              <varref loc="c,10,14,10,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
+            <ccast loc="c,14,14,14,21" dtype_id="8">
+              <varref loc="c,14,14,14,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
             </ccast>
           </neq>
           <cmethodhard loc="c,1,8,1,13" name="at" dtype_id="8">
@@ -82,9 +86,9 @@
             <const loc="c,1,8,1,13" name="32&apos;h0" dtype_id="4"/>
           </cmethodhard>
         </assign>
-        <assign loc="c,10,14,10,21" dtype_id="8">
-          <varref loc="c,10,14,10,21" name="sub_add" dtype_id="8"/>
-          <varref loc="c,10,14,10,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
+        <assign loc="c,14,14,14,21" dtype_id="8">
+          <varref loc="c,14,14,14,21" name="sub_add" dtype_id="8"/>
+          <varref loc="c,14,14,14,21" name="__Vtrigrprev__TOP__sub_add" dtype_id="8"/>
         </assign>
         <if loc="c,1,8,1,13">
           <and loc="c,1,8,1,13" dtype_id="8">
@@ -172,83 +176,83 @@
         </if>
       </cfunc>
       <cfunc loc="a,0,0,0,0" name="_eval_act"/>
-      <cfunc loc="c,15,9,15,15" name="_nba_sequent__TOP__0">
-        <assign loc="c,15,9,15,15" dtype_id="8">
-          <and loc="c,15,35,15,37" dtype_id="8">
-            <const loc="c,15,35,15,37" name="32&apos;h1" dtype_id="4"/>
-            <shiftr loc="c,15,25,15,26" dtype_id="8">
-              <and loc="c,15,35,15,37" dtype_id="4">
-                <varref loc="c,15,24,15,25" name="a" dtype_id="4"/>
-                <varref loc="c,15,38,15,39" name="b" dtype_id="4"/>
+      <cfunc loc="c,19,9,19,15" name="_nba_sequent__TOP__0">
+        <assign loc="c,19,9,19,15" dtype_id="8">
+          <and loc="c,19,35,19,37" dtype_id="8">
+            <const loc="c,19,35,19,37" name="32&apos;h1" dtype_id="4"/>
+            <shiftr loc="c,19,25,19,26" dtype_id="8">
+              <and loc="c,19,35,19,37" dtype_id="4">
+                <varref loc="c,19,24,19,25" name="a" dtype_id="4"/>
+                <varref loc="c,19,38,19,39" name="b" dtype_id="4"/>
               </and>
-              <const loc="c,15,26,15,28" name="5&apos;h1e" dtype_id="9"/>
+              <const loc="c,19,26,19,28" name="5&apos;h1e" dtype_id="9"/>
             </shiftr>
           </and>
-          <varref loc="c,15,16,15,21" name="carry" dtype_id="8"/>
+          <varref loc="c,19,16,19,21" name="carry" dtype_id="8"/>
         </assign>
-        <assign loc="c,13,9,13,15" dtype_id="4">
-          <add loc="c,13,46,13,47" dtype_id="4">
-            <xor loc="c,13,42,13,43" dtype_id="4">
-              <negate loc="c,13,32,13,33" dtype_id="4">
-                <ccast loc="c,13,33,13,40" dtype_id="8">
-                  <ccast loc="c,13,33,13,40" dtype_id="8">
-                    <varref loc="c,13,33,13,40" name="sub_add" dtype_id="8"/>
+        <assign loc="c,17,9,17,15" dtype_id="4">
+          <add loc="c,17,46,17,47" dtype_id="4">
+            <xor loc="c,17,42,17,43" dtype_id="4">
+              <negate loc="c,17,32,17,33" dtype_id="4">
+                <ccast loc="c,17,33,17,40" dtype_id="8">
+                  <ccast loc="c,17,33,17,40" dtype_id="8">
+                    <varref loc="c,17,33,17,40" name="sub_add" dtype_id="8"/>
                   </ccast>
                 </ccast>
               </negate>
-              <varref loc="c,13,43,13,44" name="b" dtype_id="4"/>
+              <varref loc="c,17,43,17,44" name="b" dtype_id="4"/>
             </xor>
-            <ccast loc="c,13,48,13,55" dtype_id="4">
-              <varref loc="c,13,48,13,55" name="sub_add" dtype_id="4"/>
+            <ccast loc="c,17,48,17,55" dtype_id="4">
+              <varref loc="c,17,48,17,55" name="sub_add" dtype_id="4"/>
             </ccast>
           </add>
-          <varref loc="c,13,16,13,25" name="ALU32.b_withCin" dtype_id="4"/>
+          <varref loc="c,17,16,17,25" name="ALU32.b_withCin" dtype_id="4"/>
         </assign>
-        <assign loc="c,14,9,14,15" dtype_id="4">
-          <add loc="c,14,27,14,28" dtype_id="4">
-            <varref loc="c,14,25,14,26" name="a" dtype_id="4"/>
-            <varref loc="c,14,29,14,38" name="ALU32.b_withCin" dtype_id="4"/>
+        <assign loc="c,18,9,18,15" dtype_id="4">
+          <add loc="c,18,27,18,28" dtype_id="4">
+            <varref loc="c,18,25,18,26" name="a" dtype_id="4"/>
+            <varref loc="c,18,29,18,38" name="ALU32.b_withCin" dtype_id="4"/>
           </add>
-          <varref loc="c,14,16,14,22" name="result" dtype_id="4"/>
+          <varref loc="c,18,16,18,22" name="result" dtype_id="4"/>
         </assign>
-        <assign loc="c,16,9,16,15" dtype_id="8">
-          <and loc="c,16,51,16,53" dtype_id="8">
-            <eq loc="c,16,34,16,36" dtype_id="8">
-              <shiftr loc="c,16,29,16,30" dtype_id="8">
-                <varref loc="c,16,28,16,29" name="a" dtype_id="4"/>
-                <const loc="c,16,30,16,32" name="5&apos;h1f" dtype_id="9"/>
+        <assign loc="c,20,9,20,15" dtype_id="8">
+          <and loc="c,20,51,20,53" dtype_id="8">
+            <eq loc="c,20,34,20,36" dtype_id="8">
+              <shiftr loc="c,20,29,20,30" dtype_id="8">
+                <varref loc="c,20,28,20,29" name="a" dtype_id="4"/>
+                <const loc="c,20,30,20,32" name="5&apos;h1f" dtype_id="9"/>
               </shiftr>
-              <shiftr loc="c,16,46,16,47" dtype_id="8">
-                <varref loc="c,16,37,16,46" name="ALU32.b_withCin" dtype_id="4"/>
-                <const loc="c,16,47,16,49" name="5&apos;h1f" dtype_id="9"/>
+              <shiftr loc="c,20,46,20,47" dtype_id="8">
+                <varref loc="c,20,37,20,46" name="ALU32.b_withCin" dtype_id="4"/>
+                <const loc="c,20,47,20,49" name="5&apos;h1f" dtype_id="9"/>
               </shiftr>
             </eq>
-            <neq loc="c,16,65,16,67" dtype_id="8">
-              <shiftr loc="c,16,60,16,61" dtype_id="8">
-                <varref loc="c,16,54,16,60" name="result" dtype_id="4"/>
-                <const loc="c,16,61,16,63" name="5&apos;h1f" dtype_id="9"/>
+            <neq loc="c,20,65,20,67" dtype_id="8">
+              <shiftr loc="c,20,60,20,61" dtype_id="8">
+                <varref loc="c,20,54,20,60" name="result" dtype_id="4"/>
+                <const loc="c,20,61,20,63" name="5&apos;h1f" dtype_id="9"/>
               </shiftr>
-              <shiftr loc="c,16,69,16,70" dtype_id="8">
-                <varref loc="c,16,68,16,69" name="a" dtype_id="4"/>
-                <const loc="c,16,70,16,72" name="5&apos;h1f" dtype_id="9"/>
+              <shiftr loc="c,20,69,20,70" dtype_id="8">
+                <varref loc="c,20,68,20,69" name="a" dtype_id="4"/>
+                <const loc="c,20,70,20,72" name="5&apos;h1f" dtype_id="9"/>
               </shiftr>
             </neq>
           </and>
-          <varref loc="c,16,16,16,24" name="overflow" dtype_id="8"/>
+          <varref loc="c,20,16,20,24" name="overflow" dtype_id="8"/>
         </assign>
-        <assign loc="c,17,9,17,15" dtype_id="8">
-          <and loc="c,17,23,17,24" dtype_id="8">
-            <const loc="c,17,23,17,24" name="32&apos;h1" dtype_id="4"/>
-            <not loc="c,17,23,17,24" dtype_id="8">
-              <ccast loc="c,17,25,17,26" dtype_id="8">
-                <neq loc="c,17,25,17,26" dtype_id="1">
-                  <const loc="c,17,25,17,26" name="32&apos;h0" dtype_id="4"/>
-                  <varref loc="c,17,27,17,33" name="result" dtype_id="4"/>
+        <assign loc="c,21,9,21,15" dtype_id="8">
+          <and loc="c,21,23,21,24" dtype_id="8">
+            <const loc="c,21,23,21,24" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,21,23,21,24" dtype_id="8">
+              <ccast loc="c,21,25,21,26" dtype_id="8">
+                <neq loc="c,21,25,21,26" dtype_id="1">
+                  <const loc="c,21,25,21,26" name="32&apos;h0" dtype_id="4"/>
+                  <varref loc="c,21,27,21,33" name="result" dtype_id="4"/>
                 </neq>
               </ccast>
             </not>
           </and>
-          <varref loc="c,17,16,17,20" name="zero" dtype_id="8"/>
+          <varref loc="c,21,16,21,20" name="zero" dtype_id="8"/>
         </assign>
       </cfunc>
       <cfunc loc="a,0,0,0,0" name="_eval_nba">
@@ -258,8 +262,8 @@
             <const loc="c,1,8,1,13" name="32&apos;h0" dtype_id="4"/>
           </cmethodhard>
           <begin>
-            <stmtexpr loc="c,15,9,15,15">
-              <ccall loc="c,15,9,15,15" dtype_id="7" func="_nba_sequent__TOP__0"/>
+            <stmtexpr loc="c,19,9,19,15">
+              <ccall loc="c,19,9,19,15" dtype_id="7" func="_nba_sequent__TOP__0"/>
             </stmtexpr>
           </begin>
         </if>
@@ -464,6 +468,12 @@
         <traceinc loc="c,8,16,8,25" dtype_id="4">
           <varref loc="c,8,16,8,25" name="ALU32.b_withCin" dtype_id="4"/>
         </traceinc>
+        <traceinc loc="c,10,16,10,31" dtype_id="4">
+          <const loc="c,25,30,25,66" name="32&apos;h33829b9c" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,11,15,11,29" dtype_id="2">
+          <const loc="c,26,29,26,33" name="1&apos;h0" dtype_id="8"/>
+        </traceinc>
       </cfunc>
       <cfunc loc="c,1,8,1,13" name="trace_chg_top_0">
         <cstmt loc="c,1,8,1,13">
@@ -591,7 +601,7 @@
     <cfile loc="a,0,0,0,0" name="obj_dir/VALU32__Trace__0__Slow.cpp"/>
     <cfile loc="a,0,0,0,0" name="obj_dir/VALU32__Trace__0.cpp"/>
     <typetable loc="a,0,0,0,0">
-      <basicdtype loc="c,15,30,15,32" id="1" name="logic"/>
+      <basicdtype loc="c,19,30,19,32" id="1" name="logic"/>
       <basicdtype loc="c,3,11,3,12" id="4" name="logic" left="31" right="0"/>
       <basicdtype loc="c,5,12,5,15" id="2" name="logic" left="0" right="0"/>
       <voiddtype loc="a,0,0,0,0" id="7"/>
@@ -606,8 +616,8 @@
         </range>
       </unpackarraydtype>
       <basicdtype loc="c,1,8,1,13" id="10" name="chandle" left="63" right="0"/>
-      <basicdtype loc="c,10,14,10,21" id="8" name="logic" left="31" right="0"/>
-      <basicdtype loc="c,15,26,15,28" id="9" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="c,14,14,14,21" id="8" name="logic" left="31" right="0"/>
+      <basicdtype loc="c,19,26,19,28" id="9" name="logic" left="31" right="0" signed="true"/>
       <basicdtype loc="c,2,11,2,18" id="12" name="logic" left="7" right="0"/>
     </typetable>
     <constpool>
