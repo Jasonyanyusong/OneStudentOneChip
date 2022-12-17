@@ -117,7 +117,7 @@ int main()
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
     step_and_dump_wave();
 
-    top -> sub_add = 0b0;
+    top -> sub_add = 0b1;
     top -> a = 0b11111000101001000011001011101011; // - 123456789
     top -> b = 0b11000101001000011001011101001111; // - 987654321
     std :: cout << "This test bench is designed for testing the ability to calculate A + B where A <= 0 and B <= 0, A + B > 0" << std :: endl;
