@@ -1,0 +1,809 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="ALU32_Test.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="ALU32_Test.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell loc="c,1,8,1,18" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module loc="c,1,8,1,18" name="$root" origName="$root" topModule="1" public="true">
+      <var loc="c,2,11,2,18" name="sub_add" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="sub_add" public="true"/>
+      <var loc="c,5,22,5,27" name="carry" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="carry" public="true"/>
+      <var loc="c,6,16,6,20" name="zero" dtype_id="1" dir="output" pinIndex="5" vartype="logic" origName="zero" public="true"/>
+      <var loc="c,6,22,6,30" name="overflow" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="overflow" public="true"/>
+      <var loc="c,1,8,1,18" name="__VactContinue" dtype_id="3" vartype="bit" origName="__VactContinue"/>
+      <var loc="c,3,18,3,19" name="a" dtype_id="4" dir="input" pinIndex="2" vartype="logic" origName="a" public="true"/>
+      <var loc="c,4,18,4,19" name="b" dtype_id="4" dir="input" pinIndex="3" vartype="logic" origName="b" public="true"/>
+      <var loc="c,7,23,7,29" name="result" dtype_id="4" dir="output" pinIndex="7" vartype="logic" origName="result" public="true"/>
+      <var loc="c,8,16,8,25" name="ALU32_Test.b_withCin" dtype_id="4" vartype="logic" origName="b_withCin"/>
+      <var loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5" vartype="bit" origName="__VstlIterCount"/>
+      <var loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5" vartype="bit" origName="__VicoIterCount"/>
+      <var loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5" vartype="bit" origName="__VactIterCount"/>
+      <var loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="6" vartype="VlTriggerVec" origName="__VstlTriggered"/>
+      <var loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="7" vartype="VlTriggerVec" origName="__VicoTriggered"/>
+      <var loc="c,1,8,1,18" name="__VactTriggered" dtype_id="8" vartype="VlTriggerVec" origName="__VactTriggered"/>
+      <var loc="c,1,8,1,18" name="__VnbaTriggered" dtype_id="8" vartype="VlTriggerVec" origName="__VnbaTriggered"/>
+      <topscope loc="c,1,8,1,18">
+        <scope loc="c,1,8,1,18" name="TOP"/>
+      </topscope>
+      <cfunc loc="c,1,8,1,18" name="trace_init_sub__TOP__0">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <tracedecl loc="c,2,11,2,18" name="sub_add" dtype_id="1"/>
+        <tracedecl loc="c,3,18,3,19" name="a" dtype_id="4"/>
+        <tracedecl loc="c,4,18,4,19" name="b" dtype_id="4"/>
+        <tracedecl loc="c,5,22,5,27" name="carry" dtype_id="2"/>
+        <tracedecl loc="c,6,16,6,20" name="zero" dtype_id="1"/>
+        <tracedecl loc="c,6,22,6,30" name="overflow" dtype_id="1"/>
+        <tracedecl loc="c,7,23,7,29" name="result" dtype_id="4"/>
+        <tracepushnameprefix loc="c,1,8,1,18"/>
+        <tracedecl loc="c,2,11,2,18" name="sub_add" dtype_id="1"/>
+        <tracedecl loc="c,3,18,3,19" name="a" dtype_id="4"/>
+        <tracedecl loc="c,4,18,4,19" name="b" dtype_id="4"/>
+        <tracedecl loc="c,5,22,5,27" name="carry" dtype_id="2"/>
+        <tracedecl loc="c,6,16,6,20" name="zero" dtype_id="1"/>
+        <tracedecl loc="c,6,22,6,30" name="overflow" dtype_id="1"/>
+        <tracedecl loc="c,7,23,7,29" name="result" dtype_id="4"/>
+        <tracedecl loc="c,8,16,8,25" name="b_withCin" dtype_id="4"/>
+        <tracedecl loc="c,22,16,22,44" name="testF1S2B1T1_expected_result" dtype_id="4"/>
+        <tracedecl loc="c,23,15,23,42" name="testF1S2B1T1_expected_carry" dtype_id="2"/>
+        <tracedecl loc="c,24,9,24,35" name="testF1S2B1T1_expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,24,37,24,67" name="testF1S2B1T1_expected_overflow" dtype_id="1"/>
+        <tracepopnameprefix loc="c,1,8,1,18"/>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_init_top">
+        <stmtexpr loc="a,0,0,0,0">
+          <ccall loc="a,0,0,0,0" dtype_id="9" func="trace_init_sub__TOP__0"/>
+        </stmtexpr>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_static"/>
+      <cfunc loc="a,0,0,0,0" name="_eval_initial"/>
+      <cfunc loc="a,0,0,0,0" name="_eval_final"/>
+      <cfunc loc="a,0,0,0,0" name="_eval_settle">
+        <var loc="c,1,8,1,18" name="__VstlContinue" dtype_id="3" vartype="bit" origName="__VstlContinue"/>
+        <assign loc="c,1,8,1,18" dtype_id="5">
+          <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+        </assign>
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+          <varref loc="c,1,8,1,18" name="__VstlContinue" dtype_id="10"/>
+        </assign>
+        <while loc="c,1,8,1,18">
+          <begin>
+          </begin>
+          <begin>
+            <varref loc="c,1,8,1,18" name="__VstlContinue" dtype_id="10"/>
+          </begin>
+          <begin>
+            <assign loc="c,1,8,1,18" dtype_id="10">
+              <const loc="c,1,8,1,18" name="1&apos;h0" dtype_id="10"/>
+              <varref loc="c,1,8,1,18" name="__VstlContinue" dtype_id="10"/>
+            </assign>
+            <stmtexpr loc="a,0,0,0,0">
+              <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_triggers__stl"/>
+            </stmtexpr>
+            <if loc="c,1,8,1,18">
+              <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                <varref loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="10"/>
+              </cmethodhard>
+              <begin>
+                <assign loc="c,1,8,1,18" dtype_id="10">
+                  <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+                  <varref loc="c,1,8,1,18" name="__VstlContinue" dtype_id="10"/>
+                </assign>
+                <if loc="c,1,8,1,18">
+                  <lt loc="c,1,8,1,18" dtype_id="10">
+                    <const loc="c,1,8,1,18" name="32&apos;h64" dtype_id="4"/>
+                    <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+                  </lt>
+                  <begin>
+                    <textblock loc="c,1,8,1,18">
+                      <text loc="c,1,8,1,18"/>
+                      <stmtexpr loc="c,1,8,1,18">
+                        <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__stl"/>
+                      </stmtexpr>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                    </textblock>
+                  </begin>
+                </if>
+                <assign loc="c,1,8,1,18" dtype_id="5">
+                  <add loc="c,1,8,1,18" dtype_id="5">
+                    <ccast loc="c,1,8,1,18" dtype_id="4">
+                      <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+                    </ccast>
+                    <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+                  </add>
+                  <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+                </assign>
+                <stmtexpr loc="a,0,0,0,0">
+                  <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_stl"/>
+                </stmtexpr>
+              </begin>
+            </if>
+          </begin>
+        </while>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_triggers__stl">
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <eq loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+            <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+          </eq>
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+        </assign>
+        <textblock loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+          <stmtexpr loc="c,1,8,1,18">
+            <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__stl"/>
+          </stmtexpr>
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+        </textblock>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_dump_triggers__stl">
+        <if loc="c,1,8,1,18">
+          <and loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,1,8,1,18" dtype_id="10">
+              <ccast loc="c,1,8,1,18" dtype_id="10">
+                <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                  <varref loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="10"/>
+                </cmethodhard>
+              </ccast>
+            </not>
+          </and>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+        <if loc="c,1,8,1,18">
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_stl">
+        <if loc="c,1,8,1,18">
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VstlTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+          <begin>
+            <stmtexpr loc="c,15,9,15,15">
+              <ccall loc="c,15,9,15,15" dtype_id="9" func="_ico_sequent__TOP__0"/>
+            </stmtexpr>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_triggers__ico">
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <eq loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+            <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+          </eq>
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+        </assign>
+        <textblock loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+          <stmtexpr loc="c,1,8,1,18">
+            <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__ico"/>
+          </stmtexpr>
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+        </textblock>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_dump_triggers__ico">
+        <if loc="c,1,8,1,18">
+          <and loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,1,8,1,18" dtype_id="10">
+              <ccast loc="c,1,8,1,18" dtype_id="10">
+                <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                  <varref loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="10"/>
+                </cmethodhard>
+              </ccast>
+            </not>
+          </and>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+        <if loc="c,1,8,1,18">
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="c,15,9,15,15" name="_ico_sequent__TOP__0">
+        <assign loc="c,15,9,15,15" dtype_id="10">
+          <and loc="c,15,35,15,37" dtype_id="10">
+            <const loc="c,15,35,15,37" name="32&apos;h1" dtype_id="4"/>
+            <shiftr loc="c,15,25,15,26" dtype_id="10">
+              <and loc="c,15,35,15,37" dtype_id="4">
+                <varref loc="c,15,24,15,25" name="a" dtype_id="4"/>
+                <varref loc="c,15,38,15,39" name="b" dtype_id="4"/>
+              </and>
+              <const loc="c,15,26,15,28" name="5&apos;h1e" dtype_id="11"/>
+            </shiftr>
+          </and>
+          <varref loc="c,15,16,15,21" name="carry" dtype_id="10"/>
+        </assign>
+        <assign loc="c,13,9,13,15" dtype_id="4">
+          <add loc="c,13,46,13,47" dtype_id="4">
+            <xor loc="c,13,42,13,43" dtype_id="4">
+              <negate loc="c,13,32,13,33" dtype_id="4">
+                <ccast loc="c,13,33,13,40" dtype_id="10">
+                  <ccast loc="c,13,33,13,40" dtype_id="10">
+                    <varref loc="c,13,33,13,40" name="sub_add" dtype_id="10"/>
+                  </ccast>
+                </ccast>
+              </negate>
+              <varref loc="c,13,43,13,44" name="b" dtype_id="4"/>
+            </xor>
+            <ccast loc="c,13,48,13,55" dtype_id="4">
+              <varref loc="c,13,48,13,55" name="sub_add" dtype_id="4"/>
+            </ccast>
+          </add>
+          <varref loc="c,13,16,13,25" name="ALU32_Test.b_withCin" dtype_id="4"/>
+        </assign>
+        <assign loc="c,14,9,14,15" dtype_id="4">
+          <add loc="c,14,27,14,28" dtype_id="4">
+            <varref loc="c,14,25,14,26" name="a" dtype_id="4"/>
+            <varref loc="c,14,29,14,38" name="ALU32_Test.b_withCin" dtype_id="4"/>
+          </add>
+          <varref loc="c,14,16,14,22" name="result" dtype_id="4"/>
+        </assign>
+        <assign loc="c,16,9,16,15" dtype_id="10">
+          <and loc="c,16,51,16,53" dtype_id="10">
+            <eq loc="c,16,34,16,36" dtype_id="10">
+              <shiftr loc="c,16,29,16,30" dtype_id="10">
+                <varref loc="c,16,28,16,29" name="a" dtype_id="4"/>
+                <const loc="c,16,30,16,32" name="5&apos;h1f" dtype_id="11"/>
+              </shiftr>
+              <shiftr loc="c,16,46,16,47" dtype_id="10">
+                <varref loc="c,16,37,16,46" name="ALU32_Test.b_withCin" dtype_id="4"/>
+                <const loc="c,16,47,16,49" name="5&apos;h1f" dtype_id="11"/>
+              </shiftr>
+            </eq>
+            <neq loc="c,16,65,16,67" dtype_id="10">
+              <shiftr loc="c,16,60,16,61" dtype_id="10">
+                <varref loc="c,16,54,16,60" name="result" dtype_id="4"/>
+                <const loc="c,16,61,16,63" name="5&apos;h1f" dtype_id="11"/>
+              </shiftr>
+              <shiftr loc="c,16,69,16,70" dtype_id="10">
+                <varref loc="c,16,68,16,69" name="a" dtype_id="4"/>
+                <const loc="c,16,70,16,72" name="5&apos;h1f" dtype_id="11"/>
+              </shiftr>
+            </neq>
+          </and>
+          <varref loc="c,16,16,16,24" name="overflow" dtype_id="10"/>
+        </assign>
+        <assign loc="c,17,9,17,15" dtype_id="10">
+          <and loc="c,17,23,17,24" dtype_id="10">
+            <const loc="c,17,23,17,24" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,17,23,17,24" dtype_id="10">
+              <ccast loc="c,17,25,17,26" dtype_id="10">
+                <neq loc="c,17,25,17,26" dtype_id="1">
+                  <const loc="c,17,25,17,26" name="32&apos;h0" dtype_id="4"/>
+                  <varref loc="c,17,27,17,33" name="result" dtype_id="4"/>
+                </neq>
+              </ccast>
+            </not>
+          </and>
+          <varref loc="c,17,16,17,20" name="zero" dtype_id="10"/>
+        </assign>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_ico">
+        <if loc="c,1,8,1,18">
+          <cmethodhard loc="c,1,8,1,18" name="at" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="10"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </cmethodhard>
+          <begin>
+            <stmtexpr loc="c,15,9,15,15">
+              <ccall loc="c,15,9,15,15" dtype_id="9" func="_ico_sequent__TOP__0"/>
+            </stmtexpr>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_triggers__act">
+        <textblock loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+          <stmtexpr loc="c,1,8,1,18">
+            <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__act"/>
+          </stmtexpr>
+          <text loc="c,1,8,1,18"/>
+          <text loc="c,1,8,1,18"/>
+        </textblock>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_dump_triggers__act">
+        <if loc="c,1,8,1,18">
+          <and loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,1,8,1,18" dtype_id="10">
+              <ccast loc="c,1,8,1,18" dtype_id="10">
+                <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                  <varref loc="c,1,8,1,18" name="__VactTriggered" dtype_id="4"/>
+                </cmethodhard>
+              </ccast>
+            </not>
+          </and>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_dump_triggers__nba">
+        <if loc="c,1,8,1,18">
+          <and loc="c,1,8,1,18" dtype_id="10">
+            <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+            <not loc="c,1,8,1,18" dtype_id="10">
+              <ccast loc="c,1,8,1,18" dtype_id="10">
+                <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                  <varref loc="c,1,8,1,18" name="__VnbaTriggered" dtype_id="4"/>
+                </cmethodhard>
+              </ccast>
+            </not>
+          </and>
+          <begin>
+            <text loc="c,1,8,1,18"/>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="a,0,0,0,0" name="_eval_act"/>
+      <cfunc loc="a,0,0,0,0" name="_eval_nba"/>
+      <cfunc loc="a,0,0,0,0" name="_eval">
+        <var loc="c,1,8,1,18" name="__VicoContinue" dtype_id="3" vartype="bit" origName="__VicoContinue"/>
+        <var loc="c,1,8,1,18" name="__VpreTriggered" dtype_id="8" vartype="VlTriggerVec" origName="__VpreTriggered"/>
+        <var loc="c,1,8,1,18" name="__VnbaIterCount" dtype_id="5" vartype="bit" origName="__VnbaIterCount"/>
+        <var loc="c,1,8,1,18" name="__VnbaContinue" dtype_id="3" vartype="bit" origName="__VnbaContinue"/>
+        <assign loc="c,1,8,1,18" dtype_id="5">
+          <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+        </assign>
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+          <varref loc="c,1,8,1,18" name="__VicoContinue" dtype_id="10"/>
+        </assign>
+        <while loc="c,1,8,1,18">
+          <begin>
+          </begin>
+          <begin>
+            <varref loc="c,1,8,1,18" name="__VicoContinue" dtype_id="10"/>
+          </begin>
+          <begin>
+            <assign loc="c,1,8,1,18" dtype_id="10">
+              <const loc="c,1,8,1,18" name="1&apos;h0" dtype_id="10"/>
+              <varref loc="c,1,8,1,18" name="__VicoContinue" dtype_id="10"/>
+            </assign>
+            <stmtexpr loc="a,0,0,0,0">
+              <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_triggers__ico"/>
+            </stmtexpr>
+            <if loc="c,1,8,1,18">
+              <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                <varref loc="c,1,8,1,18" name="__VicoTriggered" dtype_id="10"/>
+              </cmethodhard>
+              <begin>
+                <assign loc="c,1,8,1,18" dtype_id="10">
+                  <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+                  <varref loc="c,1,8,1,18" name="__VicoContinue" dtype_id="10"/>
+                </assign>
+                <if loc="c,1,8,1,18">
+                  <lt loc="c,1,8,1,18" dtype_id="10">
+                    <const loc="c,1,8,1,18" name="32&apos;h64" dtype_id="4"/>
+                    <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+                  </lt>
+                  <begin>
+                    <textblock loc="c,1,8,1,18">
+                      <text loc="c,1,8,1,18"/>
+                      <stmtexpr loc="c,1,8,1,18">
+                        <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__ico"/>
+                      </stmtexpr>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                    </textblock>
+                  </begin>
+                </if>
+                <assign loc="c,1,8,1,18" dtype_id="5">
+                  <add loc="c,1,8,1,18" dtype_id="5">
+                    <ccast loc="c,1,8,1,18" dtype_id="4">
+                      <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+                    </ccast>
+                    <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+                  </add>
+                  <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+                </assign>
+                <stmtexpr loc="a,0,0,0,0">
+                  <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_ico"/>
+                </stmtexpr>
+              </begin>
+            </if>
+          </begin>
+        </while>
+        <assign loc="c,1,8,1,18" dtype_id="5">
+          <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          <varref loc="c,1,8,1,18" name="__VnbaIterCount" dtype_id="5"/>
+        </assign>
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+          <varref loc="c,1,8,1,18" name="__VnbaContinue" dtype_id="10"/>
+        </assign>
+        <while loc="c,1,8,1,18">
+          <begin>
+          </begin>
+          <begin>
+            <varref loc="c,1,8,1,18" name="__VnbaContinue" dtype_id="10"/>
+          </begin>
+          <begin>
+            <assign loc="c,1,8,1,18" dtype_id="10">
+              <const loc="c,1,8,1,18" name="1&apos;h0" dtype_id="10"/>
+              <varref loc="c,1,8,1,18" name="__VnbaContinue" dtype_id="10"/>
+            </assign>
+            <stmtexpr loc="a,0,0,0,0">
+              <cmethodhard loc="a,0,0,0,0" name="clear" dtype_id="9">
+                <varref loc="a,0,0,0,0" name="__VnbaTriggered" dtype_id="4"/>
+              </cmethodhard>
+            </stmtexpr>
+            <assign loc="c,1,8,1,18" dtype_id="5">
+              <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+              <varref loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5"/>
+            </assign>
+            <assign loc="c,1,8,1,18" dtype_id="10">
+              <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+              <varref loc="c,1,8,1,18" name="__VactContinue" dtype_id="10"/>
+            </assign>
+            <while loc="c,1,8,1,18">
+              <begin>
+              </begin>
+              <begin>
+                <varref loc="c,1,8,1,18" name="__VactContinue" dtype_id="10"/>
+              </begin>
+              <begin>
+                <assign loc="c,1,8,1,18" dtype_id="10">
+                  <const loc="c,1,8,1,18" name="1&apos;h0" dtype_id="10"/>
+                  <varref loc="c,1,8,1,18" name="__VactContinue" dtype_id="10"/>
+                </assign>
+                <stmtexpr loc="a,0,0,0,0">
+                  <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_triggers__act"/>
+                </stmtexpr>
+                <if loc="c,1,8,1,18">
+                  <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                    <varref loc="c,1,8,1,18" name="__VactTriggered" dtype_id="4"/>
+                  </cmethodhard>
+                  <begin>
+                    <assign loc="c,1,8,1,18" dtype_id="10">
+                      <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+                      <varref loc="c,1,8,1,18" name="__VactContinue" dtype_id="10"/>
+                    </assign>
+                    <if loc="c,1,8,1,18">
+                      <lt loc="c,1,8,1,18" dtype_id="10">
+                        <const loc="c,1,8,1,18" name="32&apos;h64" dtype_id="4"/>
+                        <varref loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5"/>
+                      </lt>
+                      <begin>
+                        <textblock loc="c,1,8,1,18">
+                          <text loc="c,1,8,1,18"/>
+                          <stmtexpr loc="c,1,8,1,18">
+                            <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__act"/>
+                          </stmtexpr>
+                          <text loc="c,1,8,1,18"/>
+                          <text loc="c,1,8,1,18"/>
+                          <text loc="c,1,8,1,18"/>
+                        </textblock>
+                      </begin>
+                    </if>
+                    <assign loc="c,1,8,1,18" dtype_id="5">
+                      <add loc="c,1,8,1,18" dtype_id="5">
+                        <ccast loc="c,1,8,1,18" dtype_id="4">
+                          <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+                        </ccast>
+                        <varref loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5"/>
+                      </add>
+                      <varref loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5"/>
+                    </assign>
+                    <stmtexpr loc="a,0,0,0,0">
+                      <cmethodhard loc="a,0,0,0,0" name="andNot" dtype_id="9">
+                        <varref loc="a,0,0,0,0" name="__VpreTriggered" dtype_id="4"/>
+                        <varref loc="a,0,0,0,0" name="__VactTriggered" dtype_id="4"/>
+                        <varref loc="a,0,0,0,0" name="__VnbaTriggered" dtype_id="4"/>
+                      </cmethodhard>
+                    </stmtexpr>
+                    <stmtexpr loc="a,0,0,0,0">
+                      <cmethodhard loc="a,0,0,0,0" name="set" dtype_id="9">
+                        <varref loc="a,0,0,0,0" name="__VnbaTriggered" dtype_id="4"/>
+                        <varref loc="a,0,0,0,0" name="__VactTriggered" dtype_id="4"/>
+                      </cmethodhard>
+                    </stmtexpr>
+                    <stmtexpr loc="a,0,0,0,0">
+                      <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_act"/>
+                    </stmtexpr>
+                  </begin>
+                </if>
+              </begin>
+            </while>
+            <if loc="c,1,8,1,18">
+              <cmethodhard loc="c,1,8,1,18" name="any" dtype_id="10">
+                <varref loc="c,1,8,1,18" name="__VnbaTriggered" dtype_id="4"/>
+              </cmethodhard>
+              <begin>
+                <assign loc="c,1,8,1,18" dtype_id="10">
+                  <const loc="c,1,8,1,18" name="1&apos;h1" dtype_id="10"/>
+                  <varref loc="c,1,8,1,18" name="__VnbaContinue" dtype_id="10"/>
+                </assign>
+                <if loc="c,1,8,1,18">
+                  <lt loc="c,1,8,1,18" dtype_id="10">
+                    <const loc="c,1,8,1,18" name="32&apos;h64" dtype_id="4"/>
+                    <varref loc="c,1,8,1,18" name="__VnbaIterCount" dtype_id="5"/>
+                  </lt>
+                  <begin>
+                    <textblock loc="c,1,8,1,18">
+                      <text loc="c,1,8,1,18"/>
+                      <stmtexpr loc="c,1,8,1,18">
+                        <ccall loc="c,1,8,1,18" dtype_id="9" func="_dump_triggers__nba"/>
+                      </stmtexpr>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                      <text loc="c,1,8,1,18"/>
+                    </textblock>
+                  </begin>
+                </if>
+                <assign loc="c,1,8,1,18" dtype_id="5">
+                  <add loc="c,1,8,1,18" dtype_id="5">
+                    <ccast loc="c,1,8,1,18" dtype_id="4">
+                      <const loc="c,1,8,1,18" name="32&apos;h1" dtype_id="4"/>
+                    </ccast>
+                    <varref loc="c,1,8,1,18" name="__VnbaIterCount" dtype_id="5"/>
+                  </add>
+                  <varref loc="c,1,8,1,18" name="__VnbaIterCount" dtype_id="5"/>
+                </assign>
+                <stmtexpr loc="a,0,0,0,0">
+                  <ccall loc="a,0,0,0,0" dtype_id="9" func="_eval_nba"/>
+                </stmtexpr>
+              </begin>
+            </if>
+          </begin>
+        </while>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_register">
+        <text loc="c,1,8,1,18"/>
+        <addrofcfunc loc="c,1,8,1,18" dtype_id="12"/>
+        <text loc="c,1,8,1,18"/>
+        <text loc="c,1,8,1,18"/>
+        <text loc="c,1,8,1,18"/>
+        <addrofcfunc loc="c,1,8,1,18" dtype_id="12"/>
+        <text loc="c,1,8,1,18"/>
+        <text loc="c,1,8,1,18"/>
+        <text loc="c,1,8,1,18"/>
+        <addrofcfunc loc="c,1,8,1,18" dtype_id="12"/>
+        <text loc="c,1,8,1,18"/>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_full_top_0">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <stmtexpr loc="c,1,8,1,18">
+          <ccall loc="c,1,8,1,18" dtype_id="9" func="trace_full_sub_0"/>
+        </stmtexpr>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_full_sub_0">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <traceinc loc="c,2,11,2,18" dtype_id="1">
+          <varref loc="c,2,11,2,18" name="sub_add" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,3,18,3,19" dtype_id="4">
+          <varref loc="c,3,18,3,19" name="a" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,4,18,4,19" dtype_id="4">
+          <varref loc="c,4,18,4,19" name="b" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,5,22,5,27" dtype_id="2">
+          <varref loc="c,5,22,5,27" name="carry" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,6,16,6,20" dtype_id="1">
+          <varref loc="c,6,16,6,20" name="zero" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,6,22,6,30" dtype_id="1">
+          <varref loc="c,6,22,6,30" name="overflow" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,7,23,7,29" dtype_id="4">
+          <varref loc="c,7,23,7,29" name="result" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,8,16,8,25" dtype_id="4">
+          <varref loc="c,8,16,8,25" name="ALU32_Test.b_withCin" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,22,16,22,44" dtype_id="4">
+          <const loc="c,25,43,25,79" name="32&apos;h46aea154" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,23,15,23,42" dtype_id="2">
+          <const loc="c,26,42,26,46" name="1&apos;h0" dtype_id="10"/>
+        </traceinc>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_chg_top_0">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <stmtexpr loc="c,1,8,1,18">
+          <ccall loc="c,1,8,1,18" dtype_id="9" func="trace_chg_sub_0"/>
+        </stmtexpr>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_chg_sub_0">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <traceinc loc="c,2,11,2,18" dtype_id="1">
+          <varref loc="c,2,11,2,18" name="sub_add" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,3,18,3,19" dtype_id="4">
+          <varref loc="c,3,18,3,19" name="a" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,4,18,4,19" dtype_id="4">
+          <varref loc="c,4,18,4,19" name="b" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,5,22,5,27" dtype_id="2">
+          <varref loc="c,5,22,5,27" name="carry" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,6,16,6,20" dtype_id="1">
+          <varref loc="c,6,16,6,20" name="zero" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,6,22,6,30" dtype_id="1">
+          <varref loc="c,6,22,6,30" name="overflow" dtype_id="10"/>
+        </traceinc>
+        <traceinc loc="c,7,23,7,29" dtype_id="4">
+          <varref loc="c,7,23,7,29" name="result" dtype_id="4"/>
+        </traceinc>
+        <traceinc loc="c,8,16,8,25" dtype_id="4">
+          <varref loc="c,8,16,8,25" name="ALU32_Test.b_withCin" dtype_id="4"/>
+        </traceinc>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="trace_cleanup">
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <var loc="c,1,8,1,18" name="__Vm_traceActivity" dtype_id="13" vartype="" origName="__Vm_traceActivity"/>
+        <cstmt loc="c,1,8,1,18">
+          <text loc="c,1,8,1,18"/>
+        </cstmt>
+        <assign loc="c,1,8,1,18" dtype_id="10">
+          <const loc="c,1,8,1,18" name="1&apos;h0" dtype_id="10"/>
+          <arraysel loc="c,1,8,1,18" dtype_id="10">
+            <varref loc="c,1,8,1,18" name="__Vm_traceActivity" dtype_id="13"/>
+            <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="_eval_debug_assertions">
+        <if loc="c,2,11,2,18">
+          <and loc="c,2,11,2,18" dtype_id="1">
+            <varref loc="c,2,11,2,18" name="sub_add" dtype_id="1"/>
+            <const loc="c,2,11,2,18" name="8&apos;hfe" dtype_id="14"/>
+          </and>
+          <begin>
+            <cstmt loc="c,2,11,2,18">
+              <text loc="c,2,11,2,18"/>
+            </cstmt>
+          </begin>
+        </if>
+      </cfunc>
+      <cfunc loc="c,1,8,1,18" name="_ctor_var_reset">
+        <creset loc="c,2,11,2,18">
+          <varref loc="c,2,11,2,18" name="sub_add" dtype_id="1"/>
+        </creset>
+        <creset loc="c,3,18,3,19">
+          <varref loc="c,3,18,3,19" name="a" dtype_id="4"/>
+        </creset>
+        <creset loc="c,4,18,4,19">
+          <varref loc="c,4,18,4,19" name="b" dtype_id="4"/>
+        </creset>
+        <creset loc="c,5,22,5,27">
+          <varref loc="c,5,22,5,27" name="carry" dtype_id="2"/>
+        </creset>
+        <creset loc="c,6,16,6,20">
+          <varref loc="c,6,16,6,20" name="zero" dtype_id="1"/>
+        </creset>
+        <creset loc="c,6,22,6,30">
+          <varref loc="c,6,22,6,30" name="overflow" dtype_id="1"/>
+        </creset>
+        <creset loc="c,7,23,7,29">
+          <varref loc="c,7,23,7,29" name="result" dtype_id="4"/>
+        </creset>
+        <creset loc="c,8,16,8,25">
+          <varref loc="c,8,16,8,25" name="ALU32_Test.b_withCin" dtype_id="4"/>
+        </creset>
+        <creset loc="c,1,8,1,18">
+          <varref loc="c,1,8,1,18" name="__VstlIterCount" dtype_id="5"/>
+        </creset>
+        <creset loc="c,1,8,1,18">
+          <varref loc="c,1,8,1,18" name="__VicoIterCount" dtype_id="5"/>
+        </creset>
+        <creset loc="c,1,8,1,18">
+          <varref loc="c,1,8,1,18" name="__VactIterCount" dtype_id="5"/>
+        </creset>
+        <creset loc="c,1,8,1,18">
+          <varref loc="c,1,8,1,18" name="__VactContinue" dtype_id="3"/>
+        </creset>
+      </cfunc>
+    </module>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test__Syms.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test__Syms.h"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test.h"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root.h"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root__Slow.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root__DepSet_h1c083781__0__Slow.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root__DepSet_h4d95eac9__0__Slow.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root__DepSet_h1c083781__0.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test_$root__DepSet_h4d95eac9__0.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test__Trace__0__Slow.cpp"/>
+    <cfile loc="a,0,0,0,0" name="obj_dir/VALU32_Test__Trace__0.cpp"/>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="c,15,30,15,32" id="1" name="logic"/>
+      <basicdtype loc="c,3,11,3,12" id="4" name="logic" left="31" right="0"/>
+      <basicdtype loc="c,5,12,5,15" id="2" name="logic" left="0" right="0"/>
+      <voiddtype loc="a,0,0,0,0" id="9"/>
+      <basicdtype loc="c,1,8,1,18" id="6" name="VlTriggerVec"/>
+      <basicdtype loc="c,1,8,1,18" id="5" name="bit" left="31" right="0"/>
+      <basicdtype loc="c,1,8,1,18" id="3" name="bit"/>
+      <basicdtype loc="c,1,8,1,18" id="7" name="VlTriggerVec"/>
+      <basicdtype loc="c,1,8,1,18" id="8" name="VlTriggerVec"/>
+      <basicdtype loc="c,1,8,1,18" id="15" name="bit"/>
+      <unpackarraydtype loc="c,1,8,1,18" id="13" sub_dtype_id="15">
+        <range loc="c,1,8,1,18">
+          <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+          <const loc="c,1,8,1,18" name="32&apos;h0" dtype_id="4"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="c,1,8,1,18" id="12" name="chandle" left="63" right="0"/>
+      <basicdtype loc="c,1,8,1,18" id="10" name="logic" left="31" right="0"/>
+      <basicdtype loc="c,15,26,15,28" id="11" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="c,2,11,2,18" id="14" name="logic" left="7" right="0"/>
+    </typetable>
+    <constpool>
+      <module loc="a,0,0,0,0" name="@CONST-POOL@" origName="@CONST-POOL@">
+        <scope loc="a,0,0,0,0" name="TOP"/>
+      </module>
+    </constpool>
+  </netlist>
+</verilator_xml>
