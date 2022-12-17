@@ -69,17 +69,13 @@ VL_ATTR_COLD void VALU32_TestAll___024root__trace_init_sub__TOP__0(VALU32_TestAl
     tracep->declBit(c+10,"testF2S1B2T1_expected_overflow", false,-1);
     tracep->declBus(c+11,"testF2S1B2T2_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF2S1B2T2_expected_carry", false,-1, 0,0);
-    tracep->declBit(c+16,"testF2S1B1T2_expected_zero", false,-1);
-    tracep->declBit(c+17,"testF2S1B1T2_expected_overflow", false,-1);
-    tracep->declBit(c+10,"testF2S1B2T2_expected_overflow", false,-1);
     tracep->declBit(c+10,"testF2S1B2T2_expected_zero", false,-1);
-    tracep->declBus(c+18,"testF2S1B2T3_expected_result", false,-1, 31,0);
+    tracep->declBit(c+10,"testF2S1B2T2_expected_overflow", false,-1);
+    tracep->declBus(c+16,"testF2S1B2T3_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF2S1B2T3_expected_carry", false,-1, 0,0);
-    tracep->declBit(c+19,"testF2S1B1T3_expected_zero", false,-1);
-    tracep->declBit(c+20,"testF2S1B1T3_expected_overflow", false,-1);
-    tracep->declBit(c+10,"testF2S1B2T3_expected_overflow", false,-1);
     tracep->declBit(c+10,"testF2S1B2T3_expected_zero", false,-1);
-    tracep->declBus(c+18,"testF2S1B3T1_expected_result", false,-1, 31,0);
+    tracep->declBit(c+10,"testF2S1B2T3_expected_overflow", false,-1);
+    tracep->declBus(c+16,"testF2S1B3T1_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF2S1B3T1_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF2S1B3T1_expected_zero", false,-1);
     tracep->declBit(c+10,"testF2S1B3T1_expected_overflow", false,-1);
@@ -149,9 +145,5 @@ VL_ATTR_COLD void VALU32_TestAll___024root__trace_full_sub_0(VALU32_TestAll___02
     bufp->fullIData(oldp+13,(0x423a35c6U),32);
     bufp->fullIData(oldp+14,(0xbdc5ca3aU),32);
     bufp->fullIData(oldp+15,(0x46aea154U),32);
-    bufp->fullBit(oldp+16,(vlSelf->ALU32_TestAll__DOT__testF2S1B1T2_expected_zero));
-    bufp->fullBit(oldp+17,(vlSelf->ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow));
-    bufp->fullIData(oldp+18,(0xcc7d6464U),32);
-    bufp->fullBit(oldp+19,(vlSelf->ALU32_TestAll__DOT__testF2S1B1T3_expected_zero));
-    bufp->fullBit(oldp+20,(vlSelf->ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow));
+    bufp->fullIData(oldp+16,(0xcc7d6464U),32);
 }

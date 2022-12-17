@@ -17,10 +17,6 @@ class VALU32_TestAll___024root final : public VerilatedModule {
     VL_OUT8(carry,0,0);
     VL_OUT8(zero,0,0);
     VL_OUT8(overflow,0,0);
-    CData/*0:0*/ ALU32_TestAll__DOT__testF2S1B1T2_expected_zero;
-    CData/*0:0*/ ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow;
-    CData/*0:0*/ ALU32_TestAll__DOT__testF2S1B1T3_expected_zero;
-    CData/*0:0*/ ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow;
     CData/*0:0*/ __VactContinue;
     VL_IN(a,31,0);
     VL_IN(b,31,0);

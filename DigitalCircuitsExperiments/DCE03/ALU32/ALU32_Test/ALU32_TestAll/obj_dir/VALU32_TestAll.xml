@@ -18,10 +18,6 @@
       <var loc="c,5,22,5,27" name="carry" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="carry" public="true"/>
       <var loc="c,6,16,6,20" name="zero" dtype_id="1" dir="output" pinIndex="5" vartype="logic" origName="zero" public="true"/>
       <var loc="c,6,22,6,30" name="overflow" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="overflow" public="true"/>
-      <var loc="c,116,9,116,35" name="ALU32_TestAll.testF2S1B1T2_expected_zero" dtype_id="1" vartype="logic" origName="testF2S1B1T2_expected_zero"/>
-      <var loc="c,116,37,116,67" name="ALU32_TestAll.testF2S1B1T2_expected_overflow" dtype_id="1" vartype="logic" origName="testF2S1B1T2_expected_overflow"/>
-      <var loc="c,125,9,125,35" name="ALU32_TestAll.testF2S1B1T3_expected_zero" dtype_id="1" vartype="logic" origName="testF2S1B1T3_expected_zero"/>
-      <var loc="c,125,37,125,67" name="ALU32_TestAll.testF2S1B1T3_expected_overflow" dtype_id="1" vartype="logic" origName="testF2S1B1T3_expected_overflow"/>
       <var loc="c,1,8,1,21" name="__VactContinue" dtype_id="3" vartype="bit" origName="__VactContinue"/>
       <var loc="c,3,18,3,19" name="a" dtype_id="4" dir="input" pinIndex="2" vartype="logic" origName="a" public="true"/>
       <var loc="c,4,18,4,19" name="b" dtype_id="4" dir="input" pinIndex="3" vartype="logic" origName="b" public="true"/>
@@ -99,16 +95,12 @@
         <tracedecl loc="c,107,37,107,67" name="testF2S1B2T1_expected_overflow" dtype_id="1"/>
         <tracedecl loc="c,114,16,114,44" name="testF2S1B2T2_expected_result" dtype_id="4"/>
         <tracedecl loc="c,115,15,115,42" name="testF2S1B2T2_expected_carry" dtype_id="2"/>
-        <tracedecl loc="c,116,9,116,35" name="testF2S1B1T2_expected_zero" dtype_id="1"/>
-        <tracedecl loc="c,116,37,116,67" name="testF2S1B1T2_expected_overflow" dtype_id="1"/>
-        <tracedecl loc="c,119,12,119,42" name="testF2S1B2T2_expected_overflow" dtype_id="1"/>
-        <tracedecl loc="c,120,12,120,38" name="testF2S1B2T2_expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,116,9,116,35" name="testF2S1B2T2_expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,116,37,116,67" name="testF2S1B2T2_expected_overflow" dtype_id="1"/>
         <tracedecl loc="c,123,16,123,44" name="testF2S1B2T3_expected_result" dtype_id="4"/>
         <tracedecl loc="c,124,15,124,42" name="testF2S1B2T3_expected_carry" dtype_id="2"/>
-        <tracedecl loc="c,125,9,125,35" name="testF2S1B1T3_expected_zero" dtype_id="1"/>
-        <tracedecl loc="c,125,37,125,67" name="testF2S1B1T3_expected_overflow" dtype_id="1"/>
-        <tracedecl loc="c,128,12,128,42" name="testF2S1B2T3_expected_overflow" dtype_id="1"/>
-        <tracedecl loc="c,129,12,129,38" name="testF2S1B2T3_expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,125,9,125,35" name="testF2S1B2T3_expected_zero" dtype_id="1"/>
+        <tracedecl loc="c,125,37,125,67" name="testF2S1B2T3_expected_overflow" dtype_id="1"/>
         <tracedecl loc="c,132,16,132,44" name="testF2S1B3T1_expected_result" dtype_id="4"/>
         <tracedecl loc="c,133,15,133,42" name="testF2S1B3T1_expected_carry" dtype_id="2"/>
         <tracedecl loc="c,134,9,134,35" name="testF2S1B3T1_expected_zero" dtype_id="1"/>
@@ -730,20 +722,8 @@
         <traceinc loc="c,87,16,87,44" dtype_id="4">
           <const loc="c,90,43,90,79" name="32&apos;h46aea154" dtype_id="4"/>
         </traceinc>
-        <traceinc loc="c,116,9,116,35" dtype_id="1">
-          <varref loc="c,116,9,116,35" name="ALU32_TestAll.testF2S1B1T2_expected_zero" dtype_id="10"/>
-        </traceinc>
-        <traceinc loc="c,116,37,116,67" dtype_id="1">
-          <varref loc="c,116,37,116,67" name="ALU32_TestAll.testF2S1B1T2_expected_overflow" dtype_id="10"/>
-        </traceinc>
         <traceinc loc="c,123,16,123,44" dtype_id="4">
           <const loc="c,126,43,126,79" name="32&apos;hcc7d6464" dtype_id="4"/>
-        </traceinc>
-        <traceinc loc="c,125,9,125,35" dtype_id="1">
-          <varref loc="c,125,9,125,35" name="ALU32_TestAll.testF2S1B1T3_expected_zero" dtype_id="10"/>
-        </traceinc>
-        <traceinc loc="c,125,37,125,67" dtype_id="1">
-          <varref loc="c,125,37,125,67" name="ALU32_TestAll.testF2S1B1T3_expected_overflow" dtype_id="10"/>
         </traceinc>
       </cfunc>
       <cfunc loc="c,1,8,1,21" name="trace_chg_top_0">
@@ -845,18 +825,6 @@
         </creset>
         <creset loc="c,8,16,8,25">
           <varref loc="c,8,16,8,25" name="ALU32_TestAll.b_withCin" dtype_id="4"/>
-        </creset>
-        <creset loc="c,116,9,116,35">
-          <varref loc="c,116,9,116,35" name="ALU32_TestAll.testF2S1B1T2_expected_zero" dtype_id="1"/>
-        </creset>
-        <creset loc="c,116,37,116,67">
-          <varref loc="c,116,37,116,67" name="ALU32_TestAll.testF2S1B1T2_expected_overflow" dtype_id="1"/>
-        </creset>
-        <creset loc="c,125,9,125,35">
-          <varref loc="c,125,9,125,35" name="ALU32_TestAll.testF2S1B1T3_expected_zero" dtype_id="1"/>
-        </creset>
-        <creset loc="c,125,37,125,67">
-          <varref loc="c,125,37,125,67" name="ALU32_TestAll.testF2S1B1T3_expected_overflow" dtype_id="1"/>
         </creset>
         <creset loc="c,1,8,1,21">
           <varref loc="c,1,8,1,21" name="__VstlIterCount" dtype_id="5"/>

@@ -1,618 +1,602 @@
-Verilator Tree Dump (format 0x3900) from <e10532> to <e10678>
+Verilator Tree Dump (format 0x3900) from <e10448> to <e10582>
      NETLIST 0x555556de8000 <e1> {a0aa}  $root [1ps/1ps]
-    1: MODULE 0x555556e7a240 <e4032> {c1ai}  __024root  L1 [P] [1ps]
-    1:2: VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77380 <e4053> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77500 <e4059> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77680 <e4065> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2: VAR 0x555556e64d80 <e3953> {c116aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64f00 <e3954> {c116bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow [VSTATIC]  VAR
-    1:2: VAR 0x555556e65380 <e3962> {c125aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e65500 <e3963> {c125bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow [VSTATIC]  VAR
-    1:2: TOPSCOPE 0x555556ebefd0 <e5954> {c1ai}
-    1:2:2: SCOPE 0x555556df6780 <e6711> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0x555556e7a240]
-    1:2: VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2: VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2: VAR 0x555556e42c00 <e8981> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue MODULETEMP
-    1:2: VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2: VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2: VAR 0x555556e43680 <e9267> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue MODULETEMP
-    1:2: VAR 0x555556e43800 <e9411> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered MODULETEMP
-    1:2: VAR 0x555556e43c80 <e9442> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VpreTriggered MODULETEMP
-    1:2: VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2: VAR 0x555556eb0600 <e9579> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount MODULETEMP
-    1:2: VAR 0x555556eb0780 <e9601> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue MODULETEMP
-    1:2: VAR 0x555556eb0900 <e9741> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount MODULETEMP
-    1:2: VAR 0x555556eb0a80 <e9763> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue MODULETEMP
-    1:2: VAR 0x555556eb0c00 <e10080> {c1ai} @dt=0x555556e7f5f0@(w1)u[0:0]  __Vm_traceActivity MODULETEMP
-    1:2: CFUNC 0x555556e77980 <e10588#> {c1ai}  trace_init_sub__TOP__0 [SLOW]
-    1:2:2: CSTMT 0x555556f08580 <e6936> {c1ai}
-    1:2:2:1: TEXT 0x555556f06b60 <e6937> {c1ai} "const int c = vlSymsp->__Vm_baseCode;..."
-    1:2:3: TRACEDECL 0x555556df6870 <e6932> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
-    1:2:3: TRACEDECL 0x555556df6960 <e6945> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
-    1:2:3: TRACEDECL 0x555556df6a50 <e6953> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
-    1:2:3: TRACEDECL 0x555556df6b40 <e6961> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
-    1:2:3: TRACEDECL 0x555556df6c30 <e6969> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
-    1:2:3: TRACEDECL 0x555556df6d20 <e6977> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
-    1:2:3: TRACEDECL 0x555556df6e10 <e6985> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
-    1:2:3: TRACEPUSHNAMEPREFIX 0x555556ef41a0 <e6989> {c1ai}
-    1:2:3: TRACEDECL 0x555556df6f00 <e6995> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
-    1:2:3: TRACEDECL 0x555556df6ff0 <e7003> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
-    1:2:3: TRACEDECL 0x555556df70e0 <e7011> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
-    1:2:3: TRACEDECL 0x555556df71d0 <e7019> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
-    1:2:3: TRACEDECL 0x555556df72c0 <e7027> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
-    1:2:3: TRACEDECL 0x555556df73b0 <e7035> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
-    1:2:3: TRACEDECL 0x555556df74a0 <e7043> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
-    1:2:3: TRACEDECL 0x555556df7590 <e7051> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
-    1:2:3: TRACEDECL 0x555556df7680 <e7059> {c24aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T1_expected_result [code=9]
-    1:2:3: TRACEDECL 0x555556df7770 <e7067> {c25ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556df7860 <e7075> {c26aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556df7950 <e7083> {c26bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556df7a40 <e7091> {c33aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T2_expected_result [code=11]
-    1:2:3: TRACEDECL 0x555556df7b30 <e7099> {c34ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T2_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556df7c20 <e7107> {c35aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T2_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556df7d10 <e7115> {c35bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T2_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556df7e00 <e7123> {c42aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T3_expected_result [code=12]
-    1:2:3: TRACEDECL 0x555556df7ef0 <e7131> {c43ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T3_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1e000 <e7139> {c44aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T3_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1e0f0 <e7147> {c44bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T3_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1e1e0 <e7155> {c51aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T1_expected_result [code=13]
-    1:2:3: TRACEDECL 0x555556f1e2d0 <e7163> {c52ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B2T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1e3c0 <e7171> {c53aj} @dt=0x555556e46680@(G/w1)  testF1S1B2T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1e4b0 <e7179> {c53bl} @dt=0x555556e46680@(G/w1)  testF1S1B2T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1e5a0 <e7187> {c60aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T2_expected_result [code=11]
-    1:2:3: TRACEDECL 0x555556f1e690 <e7195> {c61ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B2T2_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1e780 <e7203> {c62aj} @dt=0x555556e46680@(G/w1)  testF1S1B2T2_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1e870 <e7211> {c62bl} @dt=0x555556e46680@(G/w1)  testF1S1B2T2_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1e960 <e7219> {c69aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T1_expected_result [code=14]
-    1:2:3: TRACEDECL 0x555556f1ea50 <e7227> {c70ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B3T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1eb40 <e7235> {c71aj} @dt=0x555556e46680@(G/w1)  testF1S1B3T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1ec30 <e7243> {c71bl} @dt=0x555556e46680@(G/w1)  testF1S1B3T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1ed20 <e7251> {c78aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T2_expected_result [code=11]
-    1:2:3: TRACEDECL 0x555556f1ee10 <e7259> {c79ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B3T2_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1ef00 <e7267> {c80aj} @dt=0x555556e46680@(G/w1)  testF1S1B3T2_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1eff0 <e7275> {c80bl} @dt=0x555556e46680@(G/w1)  testF1S1B3T2_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1f0e0 <e7283> {c87aq} @dt=0x555556dfaa90@(G/w32)  testF1S2B1T1_expected_result [code=15]
-    1:2:3: TRACEDECL 0x555556f1f1d0 <e7291> {c88ap} @dt=0x555556dfb1e0@(G/w1)  testF1S2B1T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1f2c0 <e7299> {c89aj} @dt=0x555556e46680@(G/w1)  testF1S2B1T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1f3b0 <e7307> {c89bl} @dt=0x555556e46680@(G/w1)  testF1S2B1T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1f4a0 <e7315> {c96aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B1T1_expected_result [code=13]
-    1:2:3: TRACEDECL 0x555556f1f590 <e7323> {c97ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B1T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1f680 <e7331> {c98aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1f770 <e7339> {c98bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1f860 <e7347> {c105aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T1_expected_result [code=9]
-    1:2:3: TRACEDECL 0x555556f1f950 <e7355> {c106ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1fa40 <e7363> {c107aj} @dt=0x555556e46680@(G/w1)  testF2S1B2T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f1fb30 <e7371> {c107bl} @dt=0x555556e46680@(G/w1)  testF2S1B2T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f1fc20 <e7379> {c114aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T2_expected_result [code=11]
-    1:2:3: TRACEDECL 0x555556f1fd10 <e7387> {c115ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T2_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f1fe00 <e7395> {c116aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T2_expected_zero [code=16]
-    1:2:3: TRACEDECL 0x555556f1fef0 <e7403> {c116bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T2_expected_overflow [code=17]
-    1:2:3: TRACEDECL 0x555556f24000 <e7411> {c119am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f240f0 <e7419> {c120am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f241e0 <e7427> {c123aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T3_expected_result [code=18]
-    1:2:3: TRACEDECL 0x555556f242d0 <e7435> {c124ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T3_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f243c0 <e7443> {c125aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T3_expected_zero [code=19]
-    1:2:3: TRACEDECL 0x555556f244b0 <e7451> {c125bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T3_expected_overflow [code=20]
-    1:2:3: TRACEDECL 0x555556f245a0 <e7459> {c128am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f24690 <e7467> {c129am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f24780 <e7475> {c132aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T1_expected_result [code=18]
-    1:2:3: TRACEDECL 0x555556f24870 <e7483> {c133ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T1_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f24960 <e7491> {c134aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T1_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f24a50 <e7499> {c134bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T1_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f24b40 <e7507> {c141aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T2_expected_result [code=11]
-    1:2:3: TRACEDECL 0x555556f24c30 <e7515> {c142ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T2_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f24d20 <e7523> {c143aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T2_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f24e10 <e7531> {c143bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T2_expected_overflow [code=10]
-    1:2:3: TRACEDECL 0x555556f24f00 <e7539> {c150aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T3_expected_result [code=9]
-    1:2:3: TRACEDECL 0x555556f24ff0 <e7547> {c151ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T3_expected_carry [code=10]
-    1:2:3: TRACEDECL 0x555556f250e0 <e7555> {c152aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T3_expected_zero [code=10]
-    1:2:3: TRACEDECL 0x555556f251d0 <e7563> {c152bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T3_expected_overflow [code=10]
-    1:2:3: TRACEPOPNAMEPREFIX 0x555556f08630 <e7567> {c1ai}
-    1:2: CFUNC 0x555556e77b00 <e10590#> {c1ai}  trace_init_top [SLOW]
-    1:2:3: STMTEXPR 0x555556f086e0 <e7573> {a0aa}
-    1:2:3:1: CCALL 0x555556f0ab00 <e7574> {a0aa} @dt=0x555556e9ed80@(w0)void trace_init_sub__TOP__0 => CFUNC 0x555556e77980 <e10588#> {c1ai}  trace_init_sub__TOP__0 [SLOW]
-    1:2: CFUNC 0x555556e77e00 <e10592#> {a0aa}  _eval_static [SLOW]
-    1:2: CFUNC 0x555556e77c80 <e10594#> {a0aa}  _eval_initial [SLOW]
-    1:2: CFUNC 0x555556e42000 <e10596#> {a0aa}  _eval_final [SLOW]
-    1:2: CFUNC 0x555556e42180 <e10598#> {a0aa}  _eval_settle [SLOW]
-    1:2:2: VAR 0x555556eb1680 <e10535#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [FUNC] MODULETEMP
-    1:2:3: ASSIGN 0x555556f09ad0 <e8975> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:1: CONST 0x555556f3b500 <e8973> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: VARREF 0x555556e79200 <e8974> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount [LV] => VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2:3: ASSIGN 0x555556f09b80 <e9091> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:1: CONST 0x555556f3b600 <e8994> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:2: VARREF 0x555556e79320 <e8995> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [LV] => VAR 0x555556eb1680 <e10535#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [FUNC] MODULETEMP
-    1:2:3: WHILE 0x555556f09c30 <e9001> {c1ai}
-    1:2:3:2: VARREF 0x555556e79440 <e9000> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [RV] <- VAR 0x555556eb1680 <e10535#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [FUNC] MODULETEMP
-    1:2:3:3: ASSIGN 0x555556f09ce0 <e9013> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:1: CONST 0x555556f3b700 <e9011> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3:3:2: VARREF 0x555556e79560 <e9012> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [LV] => VAR 0x555556eb1680 <e10535#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [FUNC] MODULETEMP
-    1:2:3:3: STMTEXPR 0x555556f09d90 <e9018> {a0aa}
-    1:2:3:3:1: CCALL 0x555556f3b800 <e9017> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_triggers__stl => CFUNC 0x555556e42480 <e10600#> {a0aa}  _eval_triggers__stl [SLOW]
-    1:2:3:3: IF 0x555556e9f440 <e9026> {c1ai}
-    1:2:3:3:1: CMETHODHARD 0x555556f07ce0 <e9025> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:3:1:1: VARREF 0x555556e79680 <e9022> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2:3:3:2: ASSIGN 0x555556f09e40 <e9038> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:2:1: CONST 0x555556f3b900 <e9036> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:3:2:2: VARREF 0x555556e797a0 <e9037> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [LV] => VAR 0x555556eb1680 <e10535#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VstlContinue [FUNC] MODULETEMP
-    1:2:3:3:2: IF 0x555556e9f500 <e9053> {c1ai}
-    1:2:3:3:2:1: LT 0x555556eaf600 <e9943> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:3:2:1:1: CONST 0x555556f3ba00 <e9939> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
-    1:2:3:3:2:1:2: VARREF 0x555556e798c0 <e9940> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2:3:3:2:2: TEXTBLOCK 0x555556f07dc0 <e9054> {c1ai} ""
-    1:2:3:3:2:2:1: TEXT 0x555556f07ea0 <e9055> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:3:2:2:1: STMTEXPR 0x555556e2c000 <e9060> {c1ai}
-    1:2:3:3:2:2:1:1: CCALL 0x555556f3bb00 <e9059> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__stl => CFUNC 0x555556e42600 <e10602#> {a0aa}  _dump_triggers__stl [SLOW]
-    1:2:3:3:2:2:1: TEXT 0x555556e36000 <e9062> {c1ai} "#endif..."
-    1:2:3:3:2:2:1: TEXT 0x555556e360e0 <e9064> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
-    1:2:3:3:2:2:1: TEXT 0x555556e361c0 <e9066> {c1ai} ""Settle region did not converge.");..."
-    1:2:3:3:2: ASSIGN 0x555556e2c160 <e9085> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1: ADD 0x555556e2c0b0 <e9082> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1:1: CONST 0x555556f3bc00 <e9948> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:3:2:1:2: VARREF 0x555556e79b00 <e9949> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2:3:3:2:2: VARREF 0x555556e799e0 <e9083> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount [LV] => VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2:3:3:2: STMTEXPR 0x555556e2c210 <e9090> {a0aa}
-    1:2:3:3:2:1: CCALL 0x555556f3bd00 <e9089> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_stl => CFUNC 0x555556e42900 <e10606#> {a0aa}  _eval_stl [SLOW]
-    1:2: CFUNC 0x555556e42480 <e10600#> {a0aa}  _eval_triggers__stl [SLOW]
-    1:2:3: ASSIGN 0x555556e2c370 <e9118> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: EQ 0x555556e2c2c0 <e9116> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CONST 0x555556f3bf00 <e9952> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:1:2: VARREF 0x555556e79d40 <e9953> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556e42a80 <e8960> {c1ai} @dt=0x555556ef4680@(G/w32)  __VstlIterCount MODULETEMP
-    1:2:3:2: CMETHODHARD 0x555556e362a0 <e9117> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:2:1: VARREF 0x555556e79c20 <e9101> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered [LV] => VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2:3:2:2: CONST 0x555556f3be00 <e9099> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3: TEXTBLOCK 0x555556f076c0 <e9119> {c1ai} ""
-    1:2:3:1: TEXT 0x555556f077a0 <e8897> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:1: TEXT 0x555556f07880 <e8899> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
-    1:2:3:1: STMTEXPR 0x555556f096b0 <e8904> {c1ai}
-    1:2:3:1:1: CCALL 0x555556f3b200 <e8903> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__stl => CFUNC 0x555556e42600 <e10602#> {a0aa}  _dump_triggers__stl [SLOW]
-    1:2:3:1: TEXT 0x555556f07960 <e8906> {c1ai} "}..."
-    1:2:3:1: TEXT 0x555556f07a40 <e8908> {c1ai} "#endif..."
-    1:2: CFUNC 0x555556e42600 <e10602#> {a0aa}  _dump_triggers__stl [SLOW]
-    1:2:3: IF 0x555556e9f2c0 <e8878> {c1ai}
-    1:2:3:1: NOT 0x555556eafb80 <e10029> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CMETHODHARD 0x555556f07340 <e10027> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:1:1:1: VARREF 0x555556e78ea0 <e8872> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2:3:2: TEXT 0x555556f07420 <e9955> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
-    1:2:3: IF 0x555556e9f380 <e8894> {c1ai}
-    1:2:3:1: CMETHODHARD 0x555556f07500 <e8893> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:1:1: VARREF 0x555556e78fc0 <e8890> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2:3:1:2: CONST 0x555556f3b100 <e8888> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: TEXT 0x555556f075e0 <e8895> {c1ai} "VL_DBG_MSGF("         'stl' region trigger index 0 is active: Internal 'stl' trigger - first iteration\n");..."
-    1:2: CFUNC 0x555556e42780 <e10604#> {c15aj}  _stl_sequent__TOP__0 [SLOW]
-    1:2:3: ASSIGN 0x555556f09550 <e8934> {c15aj} @dt=0x555556dfb1e0@(G/w1)
-    1:2:3:1: AND 0x555556f09600 <e4122> {c15bj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: SEL 0x555556e9f140 <e4127> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:1: VARREF 0x555556e78b40 <e2504> {c15ay} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:2: CONST 0x555556f3ad00 <e2528> {c15ba} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:3:1:1:3: CONST 0x555556f3ae00 <e3719> {c15az} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2: SEL 0x555556e9f200 <e4133> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:1: VARREF 0x555556e78c60 <e3731> {c15bm} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:2: CONST 0x555556f3af00 <e2584> {c15bo} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:3:1:2:3: CONST 0x555556f3b000 <e3741> {c15bn} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:2: VARREF 0x555556e78d80 <e2492> {c15aq} @dt=0x555556dfb1e0@(G/w1)  carry [LV] => VAR 0x555556e77380 <e4053> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556f08b00 <e8937> {c13aj} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1: ADD 0x555556f08bb0 <e3703> {c13bu} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1: XOR 0x555556f08c60 <e3701> {c13bq} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1:1: REPLICATE 0x555556f08d10 <e3699> {c13bg} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1:1:1: VARREF 0x555556f29b00 <e2456> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:1:2: CONST 0x555556f36800 <e3698> {c13be} @dt=0x555556ea51e0@(G/sw32)  32'sh20
-    1:2:3:1:1:2: VARREF 0x555556f29c20 <e3700> {c13br} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2: EXTEND 0x555556f08dc0 <e3702> {c13bw} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:2:1: VARREF 0x555556f29d40 <e2479> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:2: VARREF 0x555556f29e60 <e3704> {c13aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [LV] => VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3: ASSIGN 0x555556f08e70 <e8939> {c14aj} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1: ADD 0x555556f08f20 <e3707> {c14bb} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1: VARREF 0x555556e78000 <e2484> {c14az} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2: VARREF 0x555556e78120 <e3706> {c14bd} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3:2: VARREF 0x555556e78240 <e3708> {c14aq} @dt=0x555556dfaa90@(G/w32)  result [LV] => VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556f08fd0 <e8941> {c16aj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: AND 0x555556f09080 <e4144> {c16bz} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: EQ 0x555556f09130 <e4140> {c16bi} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1:1: SEL 0x555556e9ee40 <e2621> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:1:1: VARREF 0x555556e78360 <e2612> {c16bc} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:1:2: CONST 0x555556f3a500 <e2638> {c16be} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:1:1:3: CONST 0x555556f3a600 <e3762> {c16bd} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:1:2: SEL 0x555556e9ef00 <e2663> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:2:1: VARREF 0x555556e78480 <e3763> {c16bl} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3:1:1:2:2: CONST 0x555556f3a700 <e2680> {c16bv} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:1:2:3: CONST 0x555556f3a800 <e3773> {c16bu} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2: NEQ 0x555556f091e0 <e4141> {c16cn} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:2:1: SEL 0x555556e9efc0 <e2709> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:1:1: VARREF 0x555556e785a0 <e3774> {c16cc} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:1:2: CONST 0x555556f3a900 <e2726> {c16cj} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:2:1:3: CONST 0x555556f3aa00 <e3784> {c16ci} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2:2: SEL 0x555556e9f080 <e2751> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:2:1: VARREF 0x555556e786c0 <e2742> {c16cq} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:2:2: CONST 0x555556f3ab00 <e2768> {c16cs} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:2:2:3: CONST 0x555556f3ac00 <e3794> {c16cr} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:2: VARREF 0x555556e787e0 <e3795> {c16aq} @dt=0x555556e46680@(G/w1)  overflow [LV] => VAR 0x555556e77680 <e4065> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556f09290 <e8943> {c17aj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: NOT 0x555556f09340 <e3798> {c17ax} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: REDOR 0x555556f093f0 <e320> {c17az} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1:1: VARREF 0x555556e78900 <e3797> {c17bb} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: VARREF 0x555556e78a20 <e3799> {c17aq} @dt=0x555556e46680@(G/w1)  zero [LV] => VAR 0x555556e77500 <e4059> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: CFUNC 0x555556e42900 <e10606#> {a0aa}  _eval_stl [SLOW]
-    1:2:3: IF 0x555556e88240 <e9890> {c1ai}
-    1:2:3:1: CMETHODHARD 0x555556e86e00 <e9889> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:1:1: VARREF 0x555556e8a480 <e8918> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e42300 <e8861> {c1ai} @dt=0x555556ef4270@(G/w1)  __VstlTriggered MODULETEMP
-    1:2:3:1:2: CONST 0x555556eb3100 <e8916> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: STMTEXPR 0x555556f09a20 <e9887> {c15aj}
-    1:2:3:2:1: CCALL 0x555556f3b400 <e8933> {c15aj} @dt=0x555556e9ed80@(w0)void _stl_sequent__TOP__0 => CFUNC 0x555556e42780 <e10604#> {c15aj}  _stl_sequent__TOP__0 [SLOW]
-    1:2: CFUNC 0x555556e42f00 <e10608#> {a0aa}  _eval_triggers__ico
-    1:2:3: ASSIGN 0x555556e2de40 <e9404> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: EQ 0x555556e2dd90 <e9402> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CONST 0x555556e25c00 <e9962> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:1:2: VARREF 0x555556e7c240 <e9963> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2:3:2: CMETHODHARD 0x555556e37500 <e9403> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:2:1: VARREF 0x555556e7c120 <e9387> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered [LV] => VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2:3:2:2: CONST 0x555556e25b00 <e9385> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3: TEXTBLOCK 0x555556e368c0 <e9405> {c1ai} ""
-    1:2:3:1: TEXT 0x555556e369a0 <e9166> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:1: TEXT 0x555556e36a80 <e9168> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
-    1:2:3:1: STMTEXPR 0x555556e2d080 <e9173> {c1ai}
-    1:2:3:1:1: CCALL 0x555556e24e00 <e9172> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__ico => CFUNC 0x555556e43080 <e10610#> {a0aa}  _dump_triggers__ico [SLOW]
-    1:2:3:1: TEXT 0x555556e36b60 <e9175> {c1ai} "}..."
-    1:2:3:1: TEXT 0x555556e36c40 <e9177> {c1ai} "#endif..."
-    1:2: CFUNC 0x555556e43080 <e10610#> {a0aa}  _dump_triggers__ico [SLOW]
-    1:2:3: IF 0x555556e9fa40 <e9147> {c1ai}
-    1:2:3:1: NOT 0x555556eafc30 <e10037> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CMETHODHARD 0x555556e36540 <e10035> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:1:1:1: VARREF 0x555556e27200 <e9145> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered [RV] <- VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2:3:2: TEXT 0x555556e36620 <e9965> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
-    1:2:3: IF 0x555556e9fb00 <e9163> {c1ai}
-    1:2:3:1: CMETHODHARD 0x555556e36700 <e9162> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:1:1: VARREF 0x555556e27320 <e9159> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered [RV] <- VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2:3:1:2: CONST 0x555556e24d00 <e9157> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: TEXT 0x555556e367e0 <e9164> {c1ai} "VL_DBG_MSGF("         'ico' region trigger index 0 is active: Internal 'ico' trigger - first iteration\n");..."
-    1:2: CFUNC 0x555556e43200 <e10612#> {c15aj}  _ico_sequent__TOP__0
-    1:2:3: ASSIGN 0x555556e2cf20 <e9218> {c15aj} @dt=0x555556dfb1e0@(G/w1)
-    1:2:3:1: AND 0x555556e2cfd0 <e4122> {c15bj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: SEL 0x555556e9f8c0 <e4127> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:1: VARREF 0x555556e26ea0 <e2504> {c15ay} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:2: CONST 0x555556e24900 <e2528> {c15ba} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:3:1:1:3: CONST 0x555556e24a00 <e3719> {c15az} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2: SEL 0x555556e9f980 <e4133> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:1: VARREF 0x555556e26fc0 <e3731> {c15bm} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:2: CONST 0x555556e24b00 <e2584> {c15bo} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:3:1:2:3: CONST 0x555556e24c00 <e3741> {c15bn} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:2: VARREF 0x555556e270e0 <e2492> {c15aq} @dt=0x555556dfb1e0@(G/w1)  carry [LV] => VAR 0x555556e77380 <e4053> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556e2c4d0 <e9221> {c13aj} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1: ADD 0x555556e2c580 <e3703> {c13bu} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1: XOR 0x555556e2c630 <e3701> {c13bq} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1:1: REPLICATE 0x555556e2c6e0 <e3699> {c13bg} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1:1:1: VARREF 0x555556e79e60 <e2456> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:1:2: CONST 0x555556e24000 <e3698> {c13be} @dt=0x555556ea51e0@(G/sw32)  32'sh20
-    1:2:3:1:1:2: VARREF 0x555556e26000 <e3700> {c13br} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2: EXTEND 0x555556e2c790 <e3702> {c13bw} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:2:1: VARREF 0x555556e26120 <e2479> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:2: VARREF 0x555556e26240 <e3704> {c13aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [LV] => VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3: ASSIGN 0x555556e2c840 <e9223> {c14aj} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1: ADD 0x555556e2c8f0 <e3707> {c14bb} @dt=0x555556dfaa90@(G/w32)
-    1:2:3:1:1: VARREF 0x555556e26360 <e2484> {c14az} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2: VARREF 0x555556e26480 <e3706> {c14bd} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3:2: VARREF 0x555556e265a0 <e3708> {c14aq} @dt=0x555556dfaa90@(G/w32)  result [LV] => VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556e2c9a0 <e9225> {c16aj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: AND 0x555556e2ca50 <e4144> {c16bz} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: EQ 0x555556e2cb00 <e4140> {c16bi} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1:1: SEL 0x555556e9f5c0 <e2621> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:1:1: VARREF 0x555556e266c0 <e2612> {c16bc} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:1:1:2: CONST 0x555556e24100 <e2638> {c16be} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:1:1:3: CONST 0x555556e24200 <e3762> {c16bd} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:1:2: SEL 0x555556e9f680 <e2663> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:1:2:1: VARREF 0x555556e267e0 <e3763> {c16bl} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3:1:1:2:2: CONST 0x555556e24300 <e2680> {c16bv} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:1:2:3: CONST 0x555556e24400 <e3773> {c16bu} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2: NEQ 0x555556e2cbb0 <e4141> {c16cn} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:2:1: SEL 0x555556e9f740 <e2709> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:1:1: VARREF 0x555556e26900 <e3774> {c16cc} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:1:2: CONST 0x555556e24500 <e2726> {c16cj} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:2:1:3: CONST 0x555556e24600 <e3784> {c16ci} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:1:2:2: SEL 0x555556e9f800 <e2751> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:3:1:2:2:1: VARREF 0x555556e26a20 <e2742> {c16cq} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:1:2:2:2: CONST 0x555556e24700 <e2768> {c16cs} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:3:1:2:2:3: CONST 0x555556e24800 <e3794> {c16cr} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:2: VARREF 0x555556e26b40 <e3795> {c16aq} @dt=0x555556e46680@(G/w1)  overflow [LV] => VAR 0x555556e77680 <e4065> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: ASSIGN 0x555556e2cc60 <e9227> {c17aj} @dt=0x555556e46680@(G/w1)
-    1:2:3:1: NOT 0x555556e2cd10 <e3798> {c17ax} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: REDOR 0x555556e2cdc0 <e320> {c17az} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1:1: VARREF 0x555556e26c60 <e3797> {c17bb} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: VARREF 0x555556e26d80 <e3799> {c17aq} @dt=0x555556e46680@(G/w1)  zero [LV] => VAR 0x555556e77500 <e4059> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2: CFUNC 0x555556e43380 <e10614#> {a0aa}  _eval_ico
-    1:2:3: IF 0x555556e88300 <e9897> {c1ai}
-    1:2:3:1: CMETHODHARD 0x555556e86ee0 <e9896> {c1ai} @dt=0x555556e46680@(G/w1)  at
-    1:2:3:1:1: VARREF 0x555556e8a5a0 <e9187> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered [RV] <- VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2:3:1:2: CONST 0x555556eb3200 <e9185> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: STMTEXPR 0x555556e2d550 <e9894> {c15aj}
-    1:2:3:2:1: CCALL 0x555556e25100 <e9217> {c15aj} @dt=0x555556e9ed80@(w0)void _ico_sequent__TOP__0 => CFUNC 0x555556e43200 <e10612#> {c15aj}  _ico_sequent__TOP__0
-    1:2: CFUNC 0x555556e43980 <e10616#> {a0aa}  _eval_triggers__act
-    1:2:3: TEXTBLOCK 0x555556e377a0 <e9427> {c1ai} ""
-    1:2:3:1: TEXT 0x555556e37880 <e9428> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:1: TEXT 0x555556e37960 <e9430> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
-    1:2:3:1: STMTEXPR 0x555556e2def0 <e9435> {c1ai}
-    1:2:3:1:1: CCALL 0x555556e25d00 <e9434> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__act => CFUNC 0x555556e43b00 <e10618#> {a0aa}  _dump_triggers__act [SLOW]
-    1:2:3:1: TEXT 0x555556e37a40 <e9437> {c1ai} "}..."
-    1:2:3:1: TEXT 0x555556e37b20 <e9439> {c1ai} "#endif..."
-    1:2: CFUNC 0x555556e43b00 <e10618#> {a0aa}  _dump_triggers__act [SLOW]
-    1:2:3: IF 0x555556e9fd40 <e9424> {c1ai}
-    1:2:3:1: NOT 0x555556eafce0 <e10045> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CMETHODHARD 0x555556e375e0 <e10043> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:1:1:1: VARREF 0x555556e7c360 <e9422> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered [RV] <- VAR 0x555556e43800 <e9411> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered MODULETEMP
-    1:2:3:2: TEXT 0x555556e376c0 <e9971> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
-    1:2: CFUNC 0x555556eb0480 <e10620#> {a0aa}  _dump_triggers__nba [SLOW]
-    1:2:3: IF 0x555556e9fe00 <e9424> {c1ai}
-    1:2:3:1: NOT 0x555556eafd90 <e10053> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:1:1: CMETHODHARD 0x555556e37dc0 <e10051> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:1:1:1: VARREF 0x555556e7c7e0 <e9572> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2:3:2: TEXT 0x555556e37ea0 <e9977> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
-    1:2: CFUNC 0x555556eb0000 <e10622#> {a0aa}  _eval_act
-    1:2: CFUNC 0x555556eb0180 <e10624#> {a0aa}  _eval_nba
-    1:2: CFUNC 0x555556eb0300 <e10626#> {a0aa}  _eval
-    1:2:2: VAR 0x555556eb1800 <e10538#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [FUNC] MODULETEMP
-    1:2:2: VAR 0x555556eb1980 <e10542#> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VpreTriggered [FUNC] MODULETEMP
-    1:2:2: VAR 0x555556eb1b00 <e10546#> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
-    1:2:2: VAR 0x555556eb1c80 <e10550#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
-    1:2:3: ASSIGN 0x555556e2d600 <e9260> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:1: CONST 0x555556e25200 <e9258> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: VARREF 0x555556e27680 <e9259> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount [LV] => VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2:3: ASSIGN 0x555556e2d6b0 <e9377> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:1: CONST 0x555556e25300 <e9280> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:2: VARREF 0x555556e277a0 <e9281> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [LV] => VAR 0x555556eb1800 <e10538#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [FUNC] MODULETEMP
-    1:2:3: WHILE 0x555556e2d760 <e9287> {c1ai}
-    1:2:3:2: VARREF 0x555556e278c0 <e9286> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [RV] <- VAR 0x555556eb1800 <e10538#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [FUNC] MODULETEMP
-    1:2:3:3: ASSIGN 0x555556e2d810 <e9299> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:1: CONST 0x555556e25400 <e9297> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3:3:2: VARREF 0x555556e279e0 <e9298> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [LV] => VAR 0x555556eb1800 <e10538#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [FUNC] MODULETEMP
-    1:2:3:3: STMTEXPR 0x555556e2d8c0 <e9304> {a0aa}
-    1:2:3:3:1: CCALL 0x555556e25500 <e9303> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_triggers__ico => CFUNC 0x555556e42f00 <e10608#> {a0aa}  _eval_triggers__ico
-    1:2:3:3: IF 0x555556e9fbc0 <e9312> {c1ai}
-    1:2:3:3:1: CMETHODHARD 0x555556e36fc0 <e9311> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:3:1:1: VARREF 0x555556e27b00 <e9308> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered [RV] <- VAR 0x555556e42d80 <e9134> {c1ai} @dt=0x555556ef5040@(w1)  __VicoTriggered MODULETEMP
-    1:2:3:3:2: ASSIGN 0x555556e2d970 <e9324> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:2:1: CONST 0x555556e25600 <e9322> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:3:2:2: VARREF 0x555556e27c20 <e9323> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [LV] => VAR 0x555556eb1800 <e10538#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VicoContinue [FUNC] MODULETEMP
-    1:2:3:3:2: IF 0x555556e9fc80 <e9339> {c1ai}
-    1:2:3:3:2:1: LT 0x555556eaf970 <e9989> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:3:2:1:1: CONST 0x555556e25700 <e9985> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
-    1:2:3:3:2:1:2: VARREF 0x555556e27d40 <e9986> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2:3:3:2:2: TEXTBLOCK 0x555556e370a0 <e9340> {c1ai} ""
-    1:2:3:3:2:2:1: TEXT 0x555556e37180 <e9341> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:3:2:2:1: STMTEXPR 0x555556e2dad0 <e9346> {c1ai}
-    1:2:3:3:2:2:1:1: CCALL 0x555556e25800 <e9345> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__ico => CFUNC 0x555556e43080 <e10610#> {a0aa}  _dump_triggers__ico [SLOW]
-    1:2:3:3:2:2:1: TEXT 0x555556e37260 <e9348> {c1ai} "#endif..."
-    1:2:3:3:2:2:1: TEXT 0x555556e37340 <e9350> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
-    1:2:3:3:2:2:1: TEXT 0x555556e37420 <e9352> {c1ai} ""Input combinational region did not converge.");..."
-    1:2:3:3:2: ASSIGN 0x555556e2dc30 <e9371> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1: ADD 0x555556e2db80 <e9368> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1:1: CONST 0x555556e25900 <e9994> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:3:2:1:2: VARREF 0x555556e7c000 <e9995> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2:3:3:2:2: VARREF 0x555556e27e60 <e9369> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount [LV] => VAR 0x555556e43500 <e9245> {c1ai} @dt=0x555556ef4680@(G/w32)  __VicoIterCount MODULETEMP
-    1:2:3:3:2: STMTEXPR 0x555556e2dce0 <e9376> {a0aa}
-    1:2:3:3:2:1: CCALL 0x555556e25a00 <e9375> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_ico => CFUNC 0x555556e43380 <e10614#> {a0aa}  _eval_ico
-    1:2:3: ASSIGN 0x555556eaee70 <e9878> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:1: CONST 0x555556eb2900 <e9754> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:2: VARREF 0x555556e7d8c0 <e9755> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [LV] => VAR 0x555556eb1b00 <e10546#> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
-    1:2:3: ASSIGN 0x555556eaef20 <e9877> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:1: CONST 0x555556eb2a00 <e9776> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:2: VARREF 0x555556e7d9e0 <e9777> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [LV] => VAR 0x555556eb1c80 <e10550#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
-    1:2:3: WHILE 0x555556eaefd0 <e9783> {c1ai}
-    1:2:3:2: VARREF 0x555556e7db00 <e9782> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [RV] <- VAR 0x555556eb1c80 <e10550#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
-    1:2:3:3: ASSIGN 0x555556eaf080 <e9795> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:1: CONST 0x555556eb2b00 <e9793> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3:3:2: VARREF 0x555556e7dc20 <e9794> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [LV] => VAR 0x555556eb1c80 <e10550#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
-    1:2:3:3: STMTEXPR 0x555556eaf130 <e9804> {a0aa}
-    1:2:3:3:1: CMETHODHARD 0x555556e86700 <e9802> {a0aa} @dt=0x555556e9ed80@(w0)void  clear
-    1:2:3:3:1:1: VARREF 0x555556e7dd40 <e9799> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered [LV] => VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2:3:3: ASSIGN 0x555556eae580 <e9803> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:1: CONST 0x555556eb2000 <e9592> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3:3:2: VARREF 0x555556e7c900 <e9593> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount [LV] => VAR 0x555556eb0600 <e9579> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount MODULETEMP
-    1:2:3:3: ASSIGN 0x555556eae630 <e9734> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:1: CONST 0x555556eb2100 <e9614> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:3:2: VARREF 0x555556e7ca20 <e9615> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue [LV] => VAR 0x555556eb0780 <e9601> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue MODULETEMP
-    1:2:3:3: WHILE 0x555556eae6e0 <e9621> {c1ai}
-    1:2:3:3:2: VARREF 0x555556e7cb40 <e9620> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue [RV] <- VAR 0x555556eb0780 <e9601> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue MODULETEMP
-    1:2:3:3:3: ASSIGN 0x555556eae790 <e9633> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:3:1: CONST 0x555556eb2200 <e9631> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3:3:3:2: VARREF 0x555556e7cc60 <e9632> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue [LV] => VAR 0x555556eb0780 <e9601> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue MODULETEMP
-    1:2:3:3:3: STMTEXPR 0x555556eae840 <e9638> {a0aa}
-    1:2:3:3:3:1: CCALL 0x555556eb2300 <e9637> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_triggers__act => CFUNC 0x555556e43980 <e10616#> {a0aa}  _eval_triggers__act
-    1:2:3:3:3: IF 0x555556e9fec0 <e9646> {c1ai}
-    1:2:3:3:3:1: CMETHODHARD 0x555556e86000 <e9645> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:3:3:1:1: VARREF 0x555556e7cd80 <e9642> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered [RV] <- VAR 0x555556e43800 <e9411> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered MODULETEMP
-    1:2:3:3:3:2: ASSIGN 0x555556eae8f0 <e9658> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:3:2:1: CONST 0x555556eb2400 <e9656> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:3:3:2:2: VARREF 0x555556e7cea0 <e9657> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue [LV] => VAR 0x555556eb0780 <e9601> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VactContinue MODULETEMP
-    1:2:3:3:3:2: IF 0x555556e88000 <e9673> {c1ai}
-    1:2:3:3:3:2:1: LT 0x555556eafa20 <e10003> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:3:3:2:1:1: CONST 0x555556eb2500 <e9999> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
-    1:2:3:3:3:2:1:2: VARREF 0x555556e7cfc0 <e10000> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount [RV] <- VAR 0x555556eb0600 <e9579> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount MODULETEMP
-    1:2:3:3:3:2:2: TEXTBLOCK 0x555556e860e0 <e9674> {c1ai} ""
-    1:2:3:3:3:2:2:1: TEXT 0x555556e861c0 <e9675> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:3:3:2:2:1: STMTEXPR 0x555556eaea50 <e9680> {c1ai}
-    1:2:3:3:3:2:2:1:1: CCALL 0x555556eb2600 <e9679> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__act => CFUNC 0x555556e43b00 <e10618#> {a0aa}  _dump_triggers__act [SLOW]
-    1:2:3:3:3:2:2:1: TEXT 0x555556e862a0 <e9682> {c1ai} "#endif..."
-    1:2:3:3:3:2:2:1: TEXT 0x555556e86380 <e9684> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
-    1:2:3:3:3:2:2:1: TEXT 0x555556e86460 <e9686> {c1ai} ""Active region did not converge.");..."
-    1:2:3:3:3:2: ASSIGN 0x555556eaebb0 <e9705> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:3:2:1: ADD 0x555556eaeb00 <e9702> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:3:2:1:1: CONST 0x555556eb2700 <e10008> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:3:3:2:1:2: VARREF 0x555556e7d200 <e10009> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount [RV] <- VAR 0x555556eb0600 <e9579> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount MODULETEMP
-    1:2:3:3:3:2:2: VARREF 0x555556e7d0e0 <e9703> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount [LV] => VAR 0x555556eb0600 <e9579> {c1ai} @dt=0x555556ef4680@(G/w32)  __VactIterCount MODULETEMP
-    1:2:3:3:3:2: STMTEXPR 0x555556eaec60 <e9733> {a0aa}
-    1:2:3:3:3:2:1: CMETHODHARD 0x555556e86540 <e9717> {a0aa} @dt=0x555556e9ed80@(w0)void  andNot
-    1:2:3:3:3:2:1:1: VARREF 0x555556e7d320 <e9714> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VpreTriggered [LV] => VAR 0x555556eb1980 <e10542#> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VpreTriggered [FUNC] MODULETEMP
-    1:2:3:3:3:2:1:2: VARREF 0x555556e7d440 <e9709> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VactTriggered [RV] <- VAR 0x555556e43800 <e9411> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered MODULETEMP
-    1:2:3:3:3:2:1:2: VARREF 0x555556e7d560 <e9712> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2:3:3:3:2: STMTEXPR 0x555556eaed10 <e9727> {a0aa}
-    1:2:3:3:3:2:1: CMETHODHARD 0x555556e86620 <e9726> {a0aa} @dt=0x555556e9ed80@(w0)void  set
-    1:2:3:3:3:2:1:1: VARREF 0x555556e7d680 <e9723> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered [LV] => VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2:3:3:3:2:1:2: VARREF 0x555556e7d7a0 <e9721> {a0aa} @dt=0x555556ef5e10@(G/w0)  __VactTriggered [RV] <- VAR 0x555556e43800 <e9411> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VactTriggered MODULETEMP
-    1:2:3:3:3:2: STMTEXPR 0x555556eaedc0 <e9732> {a0aa}
-    1:2:3:3:3:2:1: CCALL 0x555556eb2800 <e9731> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_act => CFUNC 0x555556eb0000 <e10622#> {a0aa}  _eval_act
-    1:2:3:3: IF 0x555556e880c0 <e9812> {c1ai}
-    1:2:3:3:1: CMETHODHARD 0x555556e867e0 <e9811> {c1ai} @dt=0x555556e46680@(G/w1)  any
-    1:2:3:3:1:1: VARREF 0x555556e7de60 <e9808> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556e43e00 <e9448> {c1ai} @dt=0x555556ef5e10@(G/w0)  __VnbaTriggered MODULETEMP
-    1:2:3:3:2: ASSIGN 0x555556eaf1e0 <e9824> {c1ai} @dt=0x555556ef48f0@(G/w1)
-    1:2:3:3:2:1: CONST 0x555556eb2c00 <e9822> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
-    1:2:3:3:2:2: VARREF 0x555556e8a000 <e9823> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [LV] => VAR 0x555556eb1c80 <e10550#> {c1ai} @dt=0x555556ef48f0@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
-    1:2:3:3:2: IF 0x555556e88180 <e9839> {c1ai}
-    1:2:3:3:2:1: LT 0x555556eafad0 <e10017> {c1ai} @dt=0x555556e46680@(G/w1)
-    1:2:3:3:2:1:1: CONST 0x555556eb2d00 <e10013> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
-    1:2:3:3:2:1:2: VARREF 0x555556e8a120 <e10014> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [RV] <- VAR 0x555556eb1b00 <e10546#> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
-    1:2:3:3:2:2: TEXTBLOCK 0x555556e868c0 <e9840> {c1ai} ""
-    1:2:3:3:2:2:1: TEXT 0x555556e869a0 <e9841> {c1ai} "#ifdef VL_DEBUG..."
-    1:2:3:3:2:2:1: STMTEXPR 0x555556eaf340 <e9846> {c1ai}
-    1:2:3:3:2:2:1:1: CCALL 0x555556eb2e00 <e9845> {c1ai} @dt=0x555556e9ed80@(w0)void _dump_triggers__nba => CFUNC 0x555556eb0480 <e10620#> {a0aa}  _dump_triggers__nba [SLOW]
-    1:2:3:3:2:2:1: TEXT 0x555556e86a80 <e9848> {c1ai} "#endif..."
-    1:2:3:3:2:2:1: TEXT 0x555556e86b60 <e9850> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
-    1:2:3:3:2:2:1: TEXT 0x555556e86c40 <e9852> {c1ai} ""NBA region did not converge.");..."
-    1:2:3:3:2: ASSIGN 0x555556eaf4a0 <e9871> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1: ADD 0x555556eaf3f0 <e9868> {c1ai} @dt=0x555556ef4680@(G/w32)
-    1:2:3:3:2:1:1: CONST 0x555556eb2f00 <e10022> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:3:2:1:2: VARREF 0x555556e8a360 <e10023> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [RV] <- VAR 0x555556eb1b00 <e10546#> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
-    1:2:3:3:2:2: VARREF 0x555556e8a240 <e9869> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [LV] => VAR 0x555556eb1b00 <e10546#> {c1ai} @dt=0x555556ef4680@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
-    1:2:3:3:2: STMTEXPR 0x555556eaf550 <e9876> {a0aa}
-    1:2:3:3:2:1: CCALL 0x555556eb3000 <e9875> {a0aa} @dt=0x555556e9ed80@(w0)void _eval_nba => CFUNC 0x555556eb0180 <e10624#> {a0aa}  _eval_nba
-    1:2: CFUNC 0x555556eb0d80 <e10628#> {c1ai}  trace_register [SLOW]
-    1:2:3: TEXT 0x555556e876c0 <e10093> {c1ai} "tracep->addFullCb("
-    1:2:3: ADDROFCFUNC 0x555556e883c0 <e10099> {c1ai} @dt=0x555556e7f790@(G/w64)
-    1:2:3: TEXT 0x555556e877a0 <e10101> {c1ai} ", vlSelf"
-    1:2:3: TEXT 0x555556e87880 <e10103> {c1ai} ");..."
-    1:2:3: TEXT 0x555556e87ce0 <e10202> {c1ai} "tracep->addChgCb("
-    1:2:3: ADDROFCFUNC 0x555556e89380 <e10205> {c1ai} @dt=0x555556e7f790@(G/w64)
-    1:2:3: TEXT 0x555556e87dc0 <e10207> {c1ai} ", vlSelf"
-    1:2:3: TEXT 0x555556e87ea0 <e10209> {c1ai} ");..."
-    1:2:3: TEXT 0x555556e902a0 <e10502> {c1ai} "tracep->addCleanupCb("
-    1:2:3: ADDROFCFUNC 0x555556e89b00 <e10505> {c1ai} @dt=0x555556e7f790@(G/w64)
-    1:2:3: TEXT 0x555556e90380 <e10507> {c1ai} ", vlSelf);..."
-    1:2: CFUNC 0x555556eb0f00 <e10630#> {c1ai}  trace_full_top_0 [SLOW] [STATIC]
-    1:2:2: CSTMT 0x555556eafef0 <e10088> {c1ai}
-    1:2:2:1: TEXT 0x555556e87500 <e10089> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
-    1:2:2: CSTMT 0x555556e8e000 <e10092> {c1ai}
-    1:2:2:1: TEXT 0x555556e875e0 <e10091> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
-    1:2:3: STMTEXPR 0x555556e8e160 <e10110> {c1ai}
-    1:2:3:1: CCALL 0x555556eb3500 <e10111> {c1ai} @dt=0x555556e9ed80@(w0)void trace_full_sub_0 => CFUNC 0x555556eb1080 <e10632#> {c1ai}  trace_full_sub_0 [SLOW]
-    1:2: CFUNC 0x555556eb1080 <e10632#> {c1ai}  trace_full_sub_0 [SLOW]
-    1:2:2: CSTMT 0x555556e8e0b0 <e10106> {c1ai}
-    1:2:2:1: TEXT 0x555556e87960 <e10107> {c1ai} "uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);..."
-    1:2:3: TRACEINC 0x555556e88480 <e10113> {c2al} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6870 <e6932> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
-    1:2:3:2: VARREF 0x555556e8a6c0 <e10114> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e88540 <e10118> {c3as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6960 <e6945> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
-    1:2:3:2: VARREF 0x555556e8a7e0 <e10117> {c3as} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e88600 <e10122> {c4as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6a50 <e6953> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
-    1:2:3:2: VARREF 0x555556e8a900 <e10121> {c4as} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e886c0 <e10126> {c5aw} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df6b40 <e6961> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
-    1:2:3:2: VARREF 0x555556e8aa20 <e10125> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [RV] <- VAR 0x555556e77380 <e4053> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e88780 <e10130> {c6aq} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6c30 <e6969> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
-    1:2:3:2: VARREF 0x555556e8ab40 <e10129> {c6aq} @dt=0x555556e46680@(G/w1)  zero [RV] <- VAR 0x555556e77500 <e4059> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e88840 <e10134> {c6aw} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6d20 <e6977> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
-    1:2:3:2: VARREF 0x555556e8ac60 <e10133> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [RV] <- VAR 0x555556e77680 <e4065> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e88900 <e10138> {c7ax} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6e10 <e6985> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
-    1:2:3:2: VARREF 0x555556e8ad80 <e10137> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3: TRACEINC 0x555556e889c0 <e10142> {c8aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7590 <e7051> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
-    1:2:3:2: VARREF 0x555556e8aea0 <e10141> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2:3: TRACEINC 0x555556e88a80 <e10146> {c24aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7680 <e7059> {c24aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T1_expected_result [code=9]
-    1:2:3:2: CONST 0x555556eb3600 <e10145> {c27br} @dt=0x555556dfaa90@(G/w32)  32'h33829b9c
-    1:2:3: TRACEINC 0x555556e88b40 <e10150> {c25ap} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df7770 <e7067> {c25ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T1_expected_carry [code=10]
-    1:2:3:2: CONST 0x555556eb3700 <e10149> {c28bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3: TRACEINC 0x555556e88c00 <e10154> {c33aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7a40 <e7091> {c33aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T2_expected_result [code=11]
-    1:2:3:2: CONST 0x555556eb3800 <e10153> {c36br} @dt=0x555556dfaa90@(G/w32)  32'h0
-    1:2:3: TRACEINC 0x555556e88cc0 <e10158> {c42aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7e00 <e7123> {c42aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T3_expected_result [code=12]
-    1:2:3:2: CONST 0x555556eb3900 <e10157> {c45br} @dt=0x555556dfaa90@(G/w32)  32'hf14865df
-    1:2:3: TRACEINC 0x555556e88d80 <e10162> {c51aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f1e1e0 <e7155> {c51aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T1_expected_result [code=13]
-    1:2:3:2: CONST 0x555556eb3a00 <e10161> {c54br} @dt=0x555556dfaa90@(G/w32)  32'h423a35c6
-    1:2:3: TRACEINC 0x555556e88e40 <e10166> {c69aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f1e960 <e7219> {c69aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T1_expected_result [code=14]
-    1:2:3:2: CONST 0x555556eb3b00 <e10165> {c72br} @dt=0x555556dfaa90@(G/w32)  32'hbdc5ca3a
-    1:2:3: TRACEINC 0x555556e88f00 <e10170> {c87aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f1f0e0 <e7283> {c87aq} @dt=0x555556dfaa90@(G/w32)  testF1S2B1T1_expected_result [code=15]
-    1:2:3:2: CONST 0x555556eb3c00 <e10169> {c90br} @dt=0x555556dfaa90@(G/w32)  32'h46aea154
-    1:2:3: TRACEINC 0x555556e88fc0 <e10174> {c116aj} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556f1fe00 <e7395> {c116aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T2_expected_zero [code=16]
-    1:2:3:2: VARREF 0x555556e8afc0 <e10173> {c116aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_zero [RV] <- VAR 0x555556e64d80 <e3953> {c116aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_zero [VSTATIC]  VAR
-    1:2:3: TRACEINC 0x555556e89080 <e10178> {c116bl} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556f1fef0 <e7403> {c116bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T2_expected_overflow [code=17]
-    1:2:3:2: VARREF 0x555556e8b0e0 <e10177> {c116bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow [RV] <- VAR 0x555556e64f00 <e3954> {c116bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow [VSTATIC]  VAR
-    1:2:3: TRACEINC 0x555556e89140 <e10182> {c123aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f241e0 <e7427> {c123aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T3_expected_result [code=18]
-    1:2:3:2: CONST 0x555556eb3d00 <e10181> {c126br} @dt=0x555556dfaa90@(G/w32)  32'hcc7d6464
-    1:2:3: TRACEINC 0x555556e89200 <e10186> {c125aj} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556f243c0 <e7443> {c125aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T3_expected_zero [code=19]
-    1:2:3:2: VARREF 0x555556e8b200 <e10185> {c125aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_zero [RV] <- VAR 0x555556e65380 <e3962> {c125aj} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_zero [VSTATIC]  VAR
-    1:2:3: TRACEINC 0x555556e892c0 <e10190> {c125bl} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556f244b0 <e7451> {c125bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T3_expected_overflow [code=20]
-    1:2:3:2: VARREF 0x555556e8b320 <e10189> {c125bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow [RV] <- VAR 0x555556e65500 <e3963> {c125bl} @dt=0x555556e46680@(G/w1)  ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow [VSTATIC]  VAR
-    1:2: CFUNC 0x555556eb1200 <e10634#> {c1ai}  trace_chg_top_0 [STATIC]
-    1:2:2: CSTMT 0x555556e8e210 <e10193> {c1ai}
-    1:2:2:1: TEXT 0x555556e87a40 <e10194> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
-    1:2:2: CSTMT 0x555556e8e2c0 <e10197> {c1ai}
-    1:2:2:1: TEXT 0x555556e87b20 <e10196> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
-    1:2:2: CSTMT 0x555556e8e370 <e10200> {c1ai}
-    1:2:2:1: TEXT 0x555556e87c00 <e10199> {c1ai} "if (VL_UNLIKELY(!vlSymsp->__Vm_activity)) return;..."
-    1:2:3: STMTEXPR 0x555556e8e4d0 <e10216> {c1ai}
-    1:2:3:1: CCALL 0x555556eb3e00 <e10217> {c1ai} @dt=0x555556e9ed80@(w0)void trace_chg_sub_0 => CFUNC 0x555556eb1380 <e10636#> {c1ai}  trace_chg_sub_0
-    1:2: CFUNC 0x555556eb1380 <e10636#> {c1ai}  trace_chg_sub_0
-    1:2:2: CSTMT 0x555556e8e420 <e10212> {c1ai}
-    1:2:2:1: TEXT 0x555556e90000 <e10213> {c1ai} "uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);..."
-    1:2:3: IF 0x555556e89440 <e10224> {c1ai}
-    1:2:3:1: CONST 0x555556eb3f00 <e10225> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
-    1:2:3:2: TRACEINC 0x555556e89500 <e10227> {c2al} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6870 <e6932> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
-    1:2:3:2:2: VARREF 0x555556e8b440 <e10228> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76f00 <e4036> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e895c0 <e10232> {c3as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6960 <e6945> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
-    1:2:3:2:2: VARREF 0x555556e8b560 <e10231> {c3as} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e77080 <e4041> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e89680 <e10236> {c4as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6a50 <e6953> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
-    1:2:3:2:2: VARREF 0x555556e8b680 <e10235> {c4as} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e77200 <e4047> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e89740 <e10240> {c5aw} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df6b40 <e6961> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
-    1:2:3:2:2: VARREF 0x555556e8b7a0 <e10239> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [RV] <- VAR 0x555556e77380 <e4053> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e89800 <e10244> {c6aq} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6c30 <e6969> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
-    1:2:3:2:2: VARREF 0x555556e8b8c0 <e10243> {c6aq} @dt=0x555556e46680@(G/w1)  zero [RV] <- VAR 0x555556e77500 <e4059> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e898c0 <e10248> {c6aw} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6d20 <e6977> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
-    1:2:3:2:2: VARREF 0x555556e8b9e0 <e10247> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [RV] <- VAR 0x555556e77680 <e4065> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e89980 <e10252> {c7ax} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6e10 <e6985> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
-    1:2:3:2:2: VARREF 0x555556e8bb00 <e10251> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77800 <e4071> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
-    1:2:3:2: TRACEINC 0x555556e89a40 <e10256> {c8aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7590 <e7051> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
-    1:2:3:2:2: VARREF 0x555556e8bc20 <e10255> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3689> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
-    1:2: CFUNC 0x555556eb1500 <e10638#> {c1ai}  trace_cleanup [STATIC]
-    1:2:2: CSTMT 0x555556e8e580 <e10496> {c1ai}
-    1:2:2:1: TEXT 0x555556e900e0 <e10497> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
-    1:2:2: CSTMT 0x555556e8e630 <e10500> {c1ai}
-    1:2:2:1: TEXT 0x555556e901c0 <e10499> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
-    1:2:2: VAR 0x555556eb1e00 <e10554#> {c1ai} @dt=0x555556e7f5f0@(w1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
-    1:2:3: CSTMT 0x555556e8e6e0 <e10508> {c1ai}
-    1:2:3:1: TEXT 0x555556e90460 <e10509> {c1ai} "vlSymsp->__Vm_activity = false;..."
-    1:2:3: ASSIGN 0x555556e8e840 <e10532#> {c1ai} @dt=0x555556e7f380@(w1)
-    1:2:3:1: CONST 0x555556e92100 <e10529> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:3:2: ARRAYSEL 0x555556e8e790 <e10530> {c1ai} @dt=0x555556e7f380@(w1)
-    1:2:3:2:1: VARREF 0x555556e8bd40 <e10519> {c1ai} @dt=0x555556e7f5f0@(w1)u[0:0]  __Vm_traceActivity [LV] => VAR 0x555556eb1e00 <e10554#> {c1ai} @dt=0x555556e7f5f0@(w1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
-    1:2:3:2:2: CONST 0x555556e92000 <e10520> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1: MODULE 0x555556e84240 <e4020> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e76d80 <e4041> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e76f00 <e4047> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e77080 <e4053> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2: TOPSCOPE 0x555556ec4fd0 <e5942> {c1ai}
+    1:2:2: SCOPE 0x555556df6780 <e6687> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0x555556e84240]
+    1:2: VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2: VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2: VAR 0x555556f4a600 <e8925> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue MODULETEMP
+    1:2: VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2: VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2: VAR 0x555556f4b080 <e9211> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue MODULETEMP
+    1:2: VAR 0x555556f4b200 <e9355> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered MODULETEMP
+    1:2: VAR 0x555556f4b680 <e9386> {c1ai} @dt=0x555556f4d790@(G/w0)  __VpreTriggered MODULETEMP
+    1:2: VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2: VAR 0x555556f5a000 <e9523> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount MODULETEMP
+    1:2: VAR 0x555556f5a180 <e9545> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue MODULETEMP
+    1:2: VAR 0x555556f5a300 <e9685> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount MODULETEMP
+    1:2: VAR 0x555556f5a480 <e9707> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue MODULETEMP
+    1:2: VAR 0x555556f5a600 <e10024> {c1ai} @dt=0x555556f5ef70@(w1)u[0:0]  __Vm_traceActivity MODULETEMP
+    1:2: CFUNC 0x555556e77380 <e10500#> {c1ai}  trace_init_sub__TOP__0 [SLOW]
+    1:2:2: CSTMT 0x555556f00580 <e6912> {c1ai}
+    1:2:2:1: TEXT 0x555556efeb60 <e6913> {c1ai} "const int c = vlSymsp->__Vm_baseCode;..."
+    1:2:3: TRACEDECL 0x555556df6870 <e6908> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
+    1:2:3: TRACEDECL 0x555556df6960 <e6921> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
+    1:2:3: TRACEDECL 0x555556df6a50 <e6929> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
+    1:2:3: TRACEDECL 0x555556df6b40 <e6937> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
+    1:2:3: TRACEDECL 0x555556df6c30 <e6945> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
+    1:2:3: TRACEDECL 0x555556df6d20 <e6953> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
+    1:2:3: TRACEDECL 0x555556df6e10 <e6961> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
+    1:2:3: TRACEPUSHNAMEPREFIX 0x555556eefad0 <e6965> {c1ai}
+    1:2:3: TRACEDECL 0x555556df6f00 <e6971> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
+    1:2:3: TRACEDECL 0x555556df6ff0 <e6979> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
+    1:2:3: TRACEDECL 0x555556df70e0 <e6987> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
+    1:2:3: TRACEDECL 0x555556df71d0 <e6995> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
+    1:2:3: TRACEDECL 0x555556df72c0 <e7003> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
+    1:2:3: TRACEDECL 0x555556df73b0 <e7011> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
+    1:2:3: TRACEDECL 0x555556df74a0 <e7019> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
+    1:2:3: TRACEDECL 0x555556df7590 <e7027> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
+    1:2:3: TRACEDECL 0x555556df7680 <e7035> {c24aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T1_expected_result [code=9]
+    1:2:3: TRACEDECL 0x555556df7770 <e7043> {c25ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556df7860 <e7051> {c26aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556df7950 <e7059> {c26bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556df7a40 <e7067> {c33aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T2_expected_result [code=11]
+    1:2:3: TRACEDECL 0x555556df7b30 <e7075> {c34ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T2_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556df7c20 <e7083> {c35aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T2_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556df7d10 <e7091> {c35bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T2_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556df7e00 <e7099> {c42aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T3_expected_result [code=12]
+    1:2:3: TRACEDECL 0x555556df7ef0 <e7107> {c43ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T3_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f12000 <e7115> {c44aj} @dt=0x555556e46680@(G/w1)  testF1S1B1T3_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f120f0 <e7123> {c44bl} @dt=0x555556e46680@(G/w1)  testF1S1B1T3_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f121e0 <e7131> {c51aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T1_expected_result [code=13]
+    1:2:3: TRACEDECL 0x555556f122d0 <e7139> {c52ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B2T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f123c0 <e7147> {c53aj} @dt=0x555556e46680@(G/w1)  testF1S1B2T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f124b0 <e7155> {c53bl} @dt=0x555556e46680@(G/w1)  testF1S1B2T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f125a0 <e7163> {c60aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T2_expected_result [code=11]
+    1:2:3: TRACEDECL 0x555556f12690 <e7171> {c61ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B2T2_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f12780 <e7179> {c62aj} @dt=0x555556e46680@(G/w1)  testF1S1B2T2_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f12870 <e7187> {c62bl} @dt=0x555556e46680@(G/w1)  testF1S1B2T2_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f12960 <e7195> {c69aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T1_expected_result [code=14]
+    1:2:3: TRACEDECL 0x555556f12a50 <e7203> {c70ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B3T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f12b40 <e7211> {c71aj} @dt=0x555556e46680@(G/w1)  testF1S1B3T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f12c30 <e7219> {c71bl} @dt=0x555556e46680@(G/w1)  testF1S1B3T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f12d20 <e7227> {c78aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T2_expected_result [code=11]
+    1:2:3: TRACEDECL 0x555556f12e10 <e7235> {c79ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B3T2_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f12f00 <e7243> {c80aj} @dt=0x555556e46680@(G/w1)  testF1S1B3T2_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f12ff0 <e7251> {c80bl} @dt=0x555556e46680@(G/w1)  testF1S1B3T2_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f130e0 <e7259> {c87aq} @dt=0x555556dfaa90@(G/w32)  testF1S2B1T1_expected_result [code=15]
+    1:2:3: TRACEDECL 0x555556f131d0 <e7267> {c88ap} @dt=0x555556dfb1e0@(G/w1)  testF1S2B1T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f132c0 <e7275> {c89aj} @dt=0x555556e46680@(G/w1)  testF1S2B1T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f133b0 <e7283> {c89bl} @dt=0x555556e46680@(G/w1)  testF1S2B1T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f134a0 <e7291> {c96aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B1T1_expected_result [code=13]
+    1:2:3: TRACEDECL 0x555556f13590 <e7299> {c97ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B1T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f13680 <e7307> {c98aj} @dt=0x555556e46680@(G/w1)  testF2S1B1T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f13770 <e7315> {c98bl} @dt=0x555556e46680@(G/w1)  testF2S1B1T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f13860 <e7323> {c105aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T1_expected_result [code=9]
+    1:2:3: TRACEDECL 0x555556f13950 <e7331> {c106ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f13a40 <e7339> {c107aj} @dt=0x555556e46680@(G/w1)  testF2S1B2T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f13b30 <e7347> {c107bl} @dt=0x555556e46680@(G/w1)  testF2S1B2T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f13c20 <e7355> {c114aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T2_expected_result [code=11]
+    1:2:3: TRACEDECL 0x555556f13d10 <e7363> {c115ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T2_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f13e00 <e7371> {c116aj} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f13ef0 <e7379> {c116bl} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f18000 <e7387> {c123aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T3_expected_result [code=16]
+    1:2:3: TRACEDECL 0x555556f180f0 <e7395> {c124ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B2T3_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f181e0 <e7403> {c125aj} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f182d0 <e7411> {c125bl} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f183c0 <e7419> {c132aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T1_expected_result [code=16]
+    1:2:3: TRACEDECL 0x555556f184b0 <e7427> {c133ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T1_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f185a0 <e7435> {c134aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T1_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f18690 <e7443> {c134bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T1_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f18780 <e7451> {c141aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T2_expected_result [code=11]
+    1:2:3: TRACEDECL 0x555556f18870 <e7459> {c142ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T2_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f18960 <e7467> {c143aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T2_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f18a50 <e7475> {c143bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T2_expected_overflow [code=10]
+    1:2:3: TRACEDECL 0x555556f18b40 <e7483> {c150aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B3T3_expected_result [code=9]
+    1:2:3: TRACEDECL 0x555556f18c30 <e7491> {c151ap} @dt=0x555556dfb1e0@(G/w1)  testF2S1B3T3_expected_carry [code=10]
+    1:2:3: TRACEDECL 0x555556f18d20 <e7499> {c152aj} @dt=0x555556e46680@(G/w1)  testF2S1B3T3_expected_zero [code=10]
+    1:2:3: TRACEDECL 0x555556f18e10 <e7507> {c152bl} @dt=0x555556e46680@(G/w1)  testF2S1B3T3_expected_overflow [code=10]
+    1:2:3: TRACEPOPNAMEPREFIX 0x555556f00630 <e7511> {c1ai}
+    1:2: CFUNC 0x555556e77500 <e10502#> {c1ai}  trace_init_top [SLOW]
+    1:2:3: STMTEXPR 0x555556f006e0 <e7517> {a0aa}
+    1:2:3:1: CCALL 0x555556f02b00 <e7518> {a0aa} @dt=0x555556ea6d80@(w0)void trace_init_sub__TOP__0 => CFUNC 0x555556e77380 <e10500#> {c1ai}  trace_init_sub__TOP__0 [SLOW]
+    1:2: CFUNC 0x555556e77680 <e10504#> {a0aa}  _eval_static [SLOW]
+    1:2: CFUNC 0x555556e77800 <e10506#> {a0aa}  _eval_initial [SLOW]
+    1:2: CFUNC 0x555556e77980 <e10508#> {a0aa}  _eval_final [SLOW]
+    1:2: CFUNC 0x555556e77b00 <e10510#> {a0aa}  _eval_settle [SLOW]
+    1:2:2: VAR 0x555556f5b080 <e10451#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [FUNC] MODULETEMP
+    1:2:3: ASSIGN 0x555556f01ad0 <e8919> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:1: CONST 0x555556f2f500 <e8917> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: VARREF 0x555556f48900 <e8918> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount [LV] => VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2:3: ASSIGN 0x555556f01b80 <e9035> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:1: CONST 0x555556f2f600 <e8938> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:2: VARREF 0x555556f48a20 <e8939> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [LV] => VAR 0x555556f5b080 <e10451#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [FUNC] MODULETEMP
+    1:2:3: WHILE 0x555556f01c30 <e8945> {c1ai}
+    1:2:3:2: VARREF 0x555556f48b40 <e8944> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [RV] <- VAR 0x555556f5b080 <e10451#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [FUNC] MODULETEMP
+    1:2:3:3: ASSIGN 0x555556f01ce0 <e8957> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:1: CONST 0x555556f2f700 <e8955> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3:3:2: VARREF 0x555556f48c60 <e8956> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [LV] => VAR 0x555556f5b080 <e10451#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [FUNC] MODULETEMP
+    1:2:3:3: STMTEXPR 0x555556f01d90 <e8962> {a0aa}
+    1:2:3:3:1: CCALL 0x555556f2f800 <e8961> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_triggers__stl => CFUNC 0x555556e77e00 <e10512#> {a0aa}  _eval_triggers__stl [SLOW]
+    1:2:3:3: IF 0x555556ea7440 <e8970> {c1ai}
+    1:2:3:3:1: CMETHODHARD 0x555556effce0 <e8969> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:3:1:1: VARREF 0x555556f48d80 <e8966> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2:3:3:2: ASSIGN 0x555556f01e40 <e8982> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:2:1: CONST 0x555556f2f900 <e8980> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:3:2:2: VARREF 0x555556f48ea0 <e8981> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [LV] => VAR 0x555556f5b080 <e10451#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VstlContinue [FUNC] MODULETEMP
+    1:2:3:3:2: IF 0x555556ea7500 <e8997> {c1ai}
+    1:2:3:3:2:1: LT 0x555556f57600 <e9887> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:3:2:1:1: CONST 0x555556f2fa00 <e9883> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
+    1:2:3:3:2:1:2: VARREF 0x555556f48fc0 <e9884> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2:3:3:2:2: TEXTBLOCK 0x555556effdc0 <e8998> {c1ai} ""
+    1:2:3:3:2:2:1: TEXT 0x555556effea0 <e8999> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:3:2:2:1: STMTEXPR 0x555556f4e000 <e9004> {c1ai}
+    1:2:3:3:2:2:1:1: CCALL 0x555556f2fb00 <e9003> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__stl => CFUNC 0x555556f4a000 <e10514#> {a0aa}  _dump_triggers__stl [SLOW]
+    1:2:3:3:2:2:1: TEXT 0x555556f50000 <e9006> {c1ai} "#endif..."
+    1:2:3:3:2:2:1: TEXT 0x555556f500e0 <e9008> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
+    1:2:3:3:2:2:1: TEXT 0x555556f501c0 <e9010> {c1ai} ""Settle region did not converge.");..."
+    1:2:3:3:2: ASSIGN 0x555556f4e160 <e9029> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1: ADD 0x555556f4e0b0 <e9026> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1:1: CONST 0x555556f2fc00 <e9892> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:3:2:1:2: VARREF 0x555556f49200 <e9893> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2:3:3:2:2: VARREF 0x555556f490e0 <e9027> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount [LV] => VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2:3:3:2: STMTEXPR 0x555556f4e210 <e9034> {a0aa}
+    1:2:3:3:2:1: CCALL 0x555556f2fd00 <e9033> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_stl => CFUNC 0x555556f4a300 <e10518#> {a0aa}  _eval_stl [SLOW]
+    1:2: CFUNC 0x555556e77e00 <e10512#> {a0aa}  _eval_triggers__stl [SLOW]
+    1:2:3: ASSIGN 0x555556f4e370 <e9062> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: EQ 0x555556f4e2c0 <e9060> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CONST 0x555556f2ff00 <e9896> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:1:2: VARREF 0x555556f49440 <e9897> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount [RV] <- VAR 0x555556f4a480 <e8904> {c1ai} @dt=0x555556f4c000@(G/w32)  __VstlIterCount MODULETEMP
+    1:2:3:2: CMETHODHARD 0x555556f502a0 <e9061> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:2:1: VARREF 0x555556f49320 <e9045> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered [LV] => VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2:3:2:2: CONST 0x555556f2fe00 <e9043> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3: TEXTBLOCK 0x555556eff6c0 <e9063> {c1ai} ""
+    1:2:3:1: TEXT 0x555556eff7a0 <e8841> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:1: TEXT 0x555556eff880 <e8843> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
+    1:2:3:1: STMTEXPR 0x555556f016b0 <e8848> {c1ai}
+    1:2:3:1:1: CCALL 0x555556f2f200 <e8847> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__stl => CFUNC 0x555556f4a000 <e10514#> {a0aa}  _dump_triggers__stl [SLOW]
+    1:2:3:1: TEXT 0x555556eff960 <e8850> {c1ai} "}..."
+    1:2:3:1: TEXT 0x555556effa40 <e8852> {c1ai} "#endif..."
+    1:2: CFUNC 0x555556f4a000 <e10514#> {a0aa}  _dump_triggers__stl [SLOW]
+    1:2:3: IF 0x555556ea72c0 <e8822> {c1ai}
+    1:2:3:1: NOT 0x555556f57b80 <e9973> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CMETHODHARD 0x555556eff340 <e9971> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:1:1:1: VARREF 0x555556f485a0 <e8816> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2:3:2: TEXT 0x555556eff420 <e9899> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
+    1:2:3: IF 0x555556ea7380 <e8838> {c1ai}
+    1:2:3:1: CMETHODHARD 0x555556eff500 <e8837> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:1:1: VARREF 0x555556f486c0 <e8834> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2:3:1:2: CONST 0x555556f2f100 <e8832> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: TEXT 0x555556eff5e0 <e8839> {c1ai} "VL_DBG_MSGF("         'stl' region trigger index 0 is active: Internal 'stl' trigger - first iteration\n");..."
+    1:2: CFUNC 0x555556f4a180 <e10516#> {c15aj}  _stl_sequent__TOP__0 [SLOW]
+    1:2:3: ASSIGN 0x555556f01550 <e8878> {c15aj} @dt=0x555556dfb1e0@(G/w1)
+    1:2:3:1: AND 0x555556f01600 <e4110> {c15bj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: SEL 0x555556ea7140 <e4115> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:1: VARREF 0x555556f48240 <e2472> {c15ay} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:2: CONST 0x555556f2ed00 <e2496> {c15ba} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:3:1:1:3: CONST 0x555556f2ee00 <e3695> {c15az} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2: SEL 0x555556ea7200 <e4121> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:1: VARREF 0x555556f48360 <e3707> {c15bm} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:2: CONST 0x555556f2ef00 <e2552> {c15bo} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:3:1:2:3: CONST 0x555556f2f000 <e3717> {c15bn} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:2: VARREF 0x555556f48480 <e2460> {c15aq} @dt=0x555556dfb1e0@(G/w1)  carry [LV] => VAR 0x555556e76d80 <e4041> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f00b00 <e8881> {c13aj} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1: ADD 0x555556f00bb0 <e3679> {c13bu} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1: XOR 0x555556f00c60 <e3677> {c13bq} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1:1: REPLICATE 0x555556f00d10 <e3675> {c13bg} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1:1:1: VARREF 0x555556f1d200 <e2424> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:1:2: CONST 0x555556f2a800 <e3674> {c13be} @dt=0x555556eaeea0@(G/sw32)  32'sh20
+    1:2:3:1:1:2: VARREF 0x555556f1d320 <e3676> {c13br} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: EXTEND 0x555556f00dc0 <e3678> {c13bw} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:2:1: VARREF 0x555556f1d440 <e2447> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:2: VARREF 0x555556f1d560 <e3680> {c13aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [LV] => VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3: ASSIGN 0x555556f00e70 <e8883> {c14aj} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1: ADD 0x555556f00f20 <e3683> {c14bb} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1: VARREF 0x555556f1d680 <e2452> {c14az} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: VARREF 0x555556f1d7a0 <e3682> {c14bd} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3:2: VARREF 0x555556f1d8c0 <e3684> {c14aq} @dt=0x555556dfaa90@(G/w32)  result [LV] => VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f00fd0 <e8885> {c16aj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: AND 0x555556f01080 <e4132> {c16bz} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: EQ 0x555556f01130 <e4128> {c16bi} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1:1: SEL 0x555556ea6e40 <e2589> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:1:1: VARREF 0x555556f1d9e0 <e2580> {c16bc} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:1:2: CONST 0x555556f2e500 <e2606> {c16be} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:1:1:3: CONST 0x555556f2e600 <e3738> {c16bd} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:1:2: SEL 0x555556ea6f00 <e2631> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:2:1: VARREF 0x555556f1db00 <e3739> {c16bl} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3:1:1:2:2: CONST 0x555556f2e700 <e2648> {c16bv} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:1:2:3: CONST 0x555556f2e800 <e3749> {c16bu} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2: NEQ 0x555556f011e0 <e4129> {c16cn} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:2:1: SEL 0x555556ea6fc0 <e2677> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:1:1: VARREF 0x555556f1dc20 <e3750> {c16cc} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:1:2: CONST 0x555556f2e900 <e2694> {c16cj} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:2:1:3: CONST 0x555556f2ea00 <e3760> {c16ci} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2:2: SEL 0x555556ea7080 <e2719> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:2:1: VARREF 0x555556f1dd40 <e2710> {c16cq} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:2:2: CONST 0x555556f2eb00 <e2736> {c16cs} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:2:2:3: CONST 0x555556f2ec00 <e3770> {c16cr} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:2: VARREF 0x555556f1de60 <e3771> {c16aq} @dt=0x555556e46680@(G/w1)  overflow [LV] => VAR 0x555556e77080 <e4053> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f01290 <e8887> {c17aj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: NOT 0x555556f01340 <e3774> {c17ax} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: REDOR 0x555556f013f0 <e320> {c17az} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1:1: VARREF 0x555556f48000 <e3773> {c17bb} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: VARREF 0x555556f48120 <e3775> {c17aq} @dt=0x555556e46680@(G/w1)  zero [LV] => VAR 0x555556e76f00 <e4047> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CFUNC 0x555556f4a300 <e10518#> {a0aa}  _eval_stl [SLOW]
+    1:2:3: IF 0x555556f62240 <e9834> {c1ai}
+    1:2:3:1: CMETHODHARD 0x555556f60e00 <e9833> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:1:1: VARREF 0x555556f5db00 <e8862> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered [RV] <- VAR 0x555556e77c80 <e8805> {c1ai} @dt=0x555556eefba0@(G/w1)  __VstlTriggered MODULETEMP
+    1:2:3:1:2: CONST 0x555556f59100 <e8860> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: STMTEXPR 0x555556f01a20 <e9831> {c15aj}
+    1:2:3:2:1: CCALL 0x555556f2f400 <e8877> {c15aj} @dt=0x555556ea6d80@(w0)void _stl_sequent__TOP__0 => CFUNC 0x555556f4a180 <e10516#> {c15aj}  _stl_sequent__TOP__0 [SLOW]
+    1:2: CFUNC 0x555556f4a900 <e10520#> {a0aa}  _eval_triggers__ico
+    1:2:3: ASSIGN 0x555556f4fe40 <e9348> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: EQ 0x555556f4fd90 <e9346> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CONST 0x555556f53c00 <e9906> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:1:2: VARREF 0x555556f558c0 <e9907> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2:3:2: CMETHODHARD 0x555556f51500 <e9347> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:2:1: VARREF 0x555556f557a0 <e9331> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered [LV] => VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2:3:2:2: CONST 0x555556f53b00 <e9329> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3: TEXTBLOCK 0x555556f508c0 <e9349> {c1ai} ""
+    1:2:3:1: TEXT 0x555556f509a0 <e9110> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:1: TEXT 0x555556f50a80 <e9112> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
+    1:2:3:1: STMTEXPR 0x555556f4f080 <e9117> {c1ai}
+    1:2:3:1:1: CCALL 0x555556f52e00 <e9116> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__ico => CFUNC 0x555556f4aa80 <e10522#> {a0aa}  _dump_triggers__ico [SLOW]
+    1:2:3:1: TEXT 0x555556f50b60 <e9119> {c1ai} "}..."
+    1:2:3:1: TEXT 0x555556f50c40 <e9121> {c1ai} "#endif..."
+    1:2: CFUNC 0x555556f4aa80 <e10522#> {a0aa}  _dump_triggers__ico [SLOW]
+    1:2:3: IF 0x555556ea7a40 <e9091> {c1ai}
+    1:2:3:1: NOT 0x555556f57c30 <e9981> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CMETHODHARD 0x555556f50540 <e9979> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:1:1:1: VARREF 0x555556f54900 <e9089> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered [RV] <- VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2:3:2: TEXT 0x555556f50620 <e9909> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
+    1:2:3: IF 0x555556ea7b00 <e9107> {c1ai}
+    1:2:3:1: CMETHODHARD 0x555556f50700 <e9106> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:1:1: VARREF 0x555556f54a20 <e9103> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered [RV] <- VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2:3:1:2: CONST 0x555556f52d00 <e9101> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: TEXT 0x555556f507e0 <e9108> {c1ai} "VL_DBG_MSGF("         'ico' region trigger index 0 is active: Internal 'ico' trigger - first iteration\n");..."
+    1:2: CFUNC 0x555556f4ac00 <e10524#> {c15aj}  _ico_sequent__TOP__0
+    1:2:3: ASSIGN 0x555556f4ef20 <e9162> {c15aj} @dt=0x555556dfb1e0@(G/w1)
+    1:2:3:1: AND 0x555556f4efd0 <e4110> {c15bj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: SEL 0x555556ea78c0 <e4115> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:1: VARREF 0x555556f545a0 <e2472> {c15ay} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:2: CONST 0x555556f52900 <e2496> {c15ba} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:3:1:1:3: CONST 0x555556f52a00 <e3695> {c15az} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2: SEL 0x555556ea7980 <e4121> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:1: VARREF 0x555556f546c0 <e3707> {c15bm} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:2: CONST 0x555556f52b00 <e2552> {c15bo} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:3:1:2:3: CONST 0x555556f52c00 <e3717> {c15bn} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:2: VARREF 0x555556f547e0 <e2460> {c15aq} @dt=0x555556dfb1e0@(G/w1)  carry [LV] => VAR 0x555556e76d80 <e4041> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f4e4d0 <e9165> {c13aj} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1: ADD 0x555556f4e580 <e3679> {c13bu} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1: XOR 0x555556f4e630 <e3677> {c13bq} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1:1: REPLICATE 0x555556f4e6e0 <e3675> {c13bg} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1:1:1: VARREF 0x555556f49560 <e2424> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:1:2: CONST 0x555556f52000 <e3674> {c13be} @dt=0x555556eaeea0@(G/sw32)  32'sh20
+    1:2:3:1:1:2: VARREF 0x555556f49680 <e3676> {c13br} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: EXTEND 0x555556f4e790 <e3678> {c13bw} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:2:1: VARREF 0x555556f497a0 <e2447> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:2: VARREF 0x555556f498c0 <e3680> {c13aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [LV] => VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3: ASSIGN 0x555556f4e840 <e9167> {c14aj} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1: ADD 0x555556f4e8f0 <e3683> {c14bb} @dt=0x555556dfaa90@(G/w32)
+    1:2:3:1:1: VARREF 0x555556f499e0 <e2452> {c14az} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: VARREF 0x555556f49b00 <e3682> {c14bd} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3:2: VARREF 0x555556f49c20 <e3684> {c14aq} @dt=0x555556dfaa90@(G/w32)  result [LV] => VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f4e9a0 <e9169> {c16aj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: AND 0x555556f4ea50 <e4132> {c16bz} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: EQ 0x555556f4eb00 <e4128> {c16bi} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1:1: SEL 0x555556ea75c0 <e2589> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:1:1: VARREF 0x555556f49d40 <e2580> {c16bc} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:1:1:2: CONST 0x555556f52100 <e2606> {c16be} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:1:1:3: CONST 0x555556f52200 <e3738> {c16bd} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:1:2: SEL 0x555556ea7680 <e2631> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:1:2:1: VARREF 0x555556f49e60 <e3739> {c16bl} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3:1:1:2:2: CONST 0x555556f52300 <e2648> {c16bv} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:1:2:3: CONST 0x555556f52400 <e3749> {c16bu} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2: NEQ 0x555556f4ebb0 <e4129> {c16cn} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:2:1: SEL 0x555556ea7740 <e2677> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:1:1: VARREF 0x555556f54000 <e3750> {c16cc} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:1:2: CONST 0x555556f52500 <e2694> {c16cj} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:2:1:3: CONST 0x555556f52600 <e3760> {c16ci} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:1:2:2: SEL 0x555556ea7800 <e2719> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:3:1:2:2:1: VARREF 0x555556f54120 <e2710> {c16cq} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2:2:2: CONST 0x555556f52700 <e2736> {c16cs} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:3:1:2:2:3: CONST 0x555556f52800 <e3770> {c16cr} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:2: VARREF 0x555556f54240 <e3771> {c16aq} @dt=0x555556e46680@(G/w1)  overflow [LV] => VAR 0x555556e77080 <e4053> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: ASSIGN 0x555556f4ec60 <e9171> {c17aj} @dt=0x555556e46680@(G/w1)
+    1:2:3:1: NOT 0x555556f4ed10 <e3774> {c17ax} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: REDOR 0x555556f4edc0 <e320> {c17az} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1:1: VARREF 0x555556f54360 <e3773> {c17bb} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: VARREF 0x555556f54480 <e3775> {c17aq} @dt=0x555556e46680@(G/w1)  zero [LV] => VAR 0x555556e76f00 <e4047> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CFUNC 0x555556f4ad80 <e10526#> {a0aa}  _eval_ico
+    1:2:3: IF 0x555556f62300 <e9841> {c1ai}
+    1:2:3:1: CMETHODHARD 0x555556f60ee0 <e9840> {c1ai} @dt=0x555556e46680@(G/w1)  at
+    1:2:3:1:1: VARREF 0x555556f5dc20 <e9131> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered [RV] <- VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2:3:1:2: CONST 0x555556f59200 <e9129> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: STMTEXPR 0x555556f4f550 <e9838> {c15aj}
+    1:2:3:2:1: CCALL 0x555556f53100 <e9161> {c15aj} @dt=0x555556ea6d80@(w0)void _ico_sequent__TOP__0 => CFUNC 0x555556f4ac00 <e10524#> {c15aj}  _ico_sequent__TOP__0
+    1:2: CFUNC 0x555556f4b380 <e10528#> {a0aa}  _eval_triggers__act
+    1:2:3: TEXTBLOCK 0x555556f517a0 <e9371> {c1ai} ""
+    1:2:3:1: TEXT 0x555556f51880 <e9372> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:1: TEXT 0x555556f51960 <e9374> {c1ai} "if (VL_UNLIKELY(vlSymsp->_vm_contextp__->debug())) {..."
+    1:2:3:1: STMTEXPR 0x555556f4fef0 <e9379> {c1ai}
+    1:2:3:1:1: CCALL 0x555556f53d00 <e9378> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__act => CFUNC 0x555556f4b500 <e10530#> {a0aa}  _dump_triggers__act [SLOW]
+    1:2:3:1: TEXT 0x555556f51a40 <e9381> {c1ai} "}..."
+    1:2:3:1: TEXT 0x555556f51b20 <e9383> {c1ai} "#endif..."
+    1:2: CFUNC 0x555556f4b500 <e10530#> {a0aa}  _dump_triggers__act [SLOW]
+    1:2:3: IF 0x555556ea7d40 <e9368> {c1ai}
+    1:2:3:1: NOT 0x555556f57ce0 <e9989> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CMETHODHARD 0x555556f515e0 <e9987> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:1:1:1: VARREF 0x555556f559e0 <e9366> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered [RV] <- VAR 0x555556f4b200 <e9355> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered MODULETEMP
+    1:2:3:2: TEXT 0x555556f516c0 <e9915> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
+    1:2: CFUNC 0x555556f4be00 <e10532#> {a0aa}  _dump_triggers__nba [SLOW]
+    1:2:3: IF 0x555556ea7e00 <e9368> {c1ai}
+    1:2:3:1: NOT 0x555556f57d90 <e9997> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:1:1: CMETHODHARD 0x555556f51dc0 <e9995> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:1:1:1: VARREF 0x555556f55e60 <e9516> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2:3:2: TEXT 0x555556f51ea0 <e9921> {c1ai} "VL_DBG_MSGF("         No triggers active\n");..."
+    1:2: CFUNC 0x555556f4b980 <e10534#> {a0aa}  _eval_act
+    1:2: CFUNC 0x555556f4bb00 <e10536#> {a0aa}  _eval_nba
+    1:2: CFUNC 0x555556f4bc80 <e10538#> {a0aa}  _eval
+    1:2:2: VAR 0x555556f5b200 <e10454#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [FUNC] MODULETEMP
+    1:2:2: VAR 0x555556f5b380 <e10458#> {c1ai} @dt=0x555556f4d790@(G/w0)  __VpreTriggered [FUNC] MODULETEMP
+    1:2:2: VAR 0x555556f5b500 <e10462#> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
+    1:2:2: VAR 0x555556f5b680 <e10466#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
+    1:2:3: ASSIGN 0x555556f4f600 <e9204> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:1: CONST 0x555556f53200 <e9202> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: VARREF 0x555556f54d80 <e9203> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount [LV] => VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2:3: ASSIGN 0x555556f4f6b0 <e9321> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:1: CONST 0x555556f53300 <e9224> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:2: VARREF 0x555556f54ea0 <e9225> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [LV] => VAR 0x555556f5b200 <e10454#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [FUNC] MODULETEMP
+    1:2:3: WHILE 0x555556f4f760 <e9231> {c1ai}
+    1:2:3:2: VARREF 0x555556f54fc0 <e9230> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [RV] <- VAR 0x555556f5b200 <e10454#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [FUNC] MODULETEMP
+    1:2:3:3: ASSIGN 0x555556f4f810 <e9243> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:1: CONST 0x555556f53400 <e9241> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3:3:2: VARREF 0x555556f550e0 <e9242> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [LV] => VAR 0x555556f5b200 <e10454#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [FUNC] MODULETEMP
+    1:2:3:3: STMTEXPR 0x555556f4f8c0 <e9248> {a0aa}
+    1:2:3:3:1: CCALL 0x555556f53500 <e9247> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_triggers__ico => CFUNC 0x555556f4a900 <e10520#> {a0aa}  _eval_triggers__ico
+    1:2:3:3: IF 0x555556ea7bc0 <e9256> {c1ai}
+    1:2:3:3:1: CMETHODHARD 0x555556f50fc0 <e9255> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:3:1:1: VARREF 0x555556f55200 <e9252> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered [RV] <- VAR 0x555556f4a780 <e9078> {c1ai} @dt=0x555556f4c9c0@(w1)  __VicoTriggered MODULETEMP
+    1:2:3:3:2: ASSIGN 0x555556f4f970 <e9268> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:2:1: CONST 0x555556f53600 <e9266> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:3:2:2: VARREF 0x555556f55320 <e9267> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [LV] => VAR 0x555556f5b200 <e10454#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VicoContinue [FUNC] MODULETEMP
+    1:2:3:3:2: IF 0x555556ea7c80 <e9283> {c1ai}
+    1:2:3:3:2:1: LT 0x555556f57970 <e9933> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:3:2:1:1: CONST 0x555556f53700 <e9929> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
+    1:2:3:3:2:1:2: VARREF 0x555556f55440 <e9930> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2:3:3:2:2: TEXTBLOCK 0x555556f510a0 <e9284> {c1ai} ""
+    1:2:3:3:2:2:1: TEXT 0x555556f51180 <e9285> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:3:2:2:1: STMTEXPR 0x555556f4fad0 <e9290> {c1ai}
+    1:2:3:3:2:2:1:1: CCALL 0x555556f53800 <e9289> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__ico => CFUNC 0x555556f4aa80 <e10522#> {a0aa}  _dump_triggers__ico [SLOW]
+    1:2:3:3:2:2:1: TEXT 0x555556f51260 <e9292> {c1ai} "#endif..."
+    1:2:3:3:2:2:1: TEXT 0x555556f51340 <e9294> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
+    1:2:3:3:2:2:1: TEXT 0x555556f51420 <e9296> {c1ai} ""Input combinational region did not converge.");..."
+    1:2:3:3:2: ASSIGN 0x555556f4fc30 <e9315> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1: ADD 0x555556f4fb80 <e9312> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1:1: CONST 0x555556f53900 <e9938> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:3:2:1:2: VARREF 0x555556f55680 <e9939> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount [RV] <- VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2:3:3:2:2: VARREF 0x555556f55560 <e9313> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount [LV] => VAR 0x555556f4af00 <e9189> {c1ai} @dt=0x555556f4c000@(G/w32)  __VicoIterCount MODULETEMP
+    1:2:3:3:2: STMTEXPR 0x555556f4fce0 <e9320> {a0aa}
+    1:2:3:3:2:1: CCALL 0x555556f53a00 <e9319> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_ico => CFUNC 0x555556f4ad80 <e10526#> {a0aa}  _eval_ico
+    1:2:3: ASSIGN 0x555556f56e70 <e9822> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:1: CONST 0x555556f58900 <e9698> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:2: VARREF 0x555556f5cfc0 <e9699> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [LV] => VAR 0x555556f5b500 <e10462#> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
+    1:2:3: ASSIGN 0x555556f56f20 <e9821> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:1: CONST 0x555556f58a00 <e9720> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:2: VARREF 0x555556f5d0e0 <e9721> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [LV] => VAR 0x555556f5b680 <e10466#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
+    1:2:3: WHILE 0x555556f56fd0 <e9727> {c1ai}
+    1:2:3:2: VARREF 0x555556f5d200 <e9726> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [RV] <- VAR 0x555556f5b680 <e10466#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
+    1:2:3:3: ASSIGN 0x555556f57080 <e9739> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:1: CONST 0x555556f58b00 <e9737> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3:3:2: VARREF 0x555556f5d320 <e9738> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [LV] => VAR 0x555556f5b680 <e10466#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
+    1:2:3:3: STMTEXPR 0x555556f57130 <e9748> {a0aa}
+    1:2:3:3:1: CMETHODHARD 0x555556f60700 <e9746> {a0aa} @dt=0x555556ea6d80@(w0)void  clear
+    1:2:3:3:1:1: VARREF 0x555556f5d440 <e9743> {a0aa} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered [LV] => VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2:3:3: ASSIGN 0x555556f56580 <e9747> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:1: CONST 0x555556f58000 <e9536> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3:3:2: VARREF 0x555556f5c000 <e9537> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount [LV] => VAR 0x555556f5a000 <e9523> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount MODULETEMP
+    1:2:3:3: ASSIGN 0x555556f56630 <e9678> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:1: CONST 0x555556f58100 <e9558> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:3:2: VARREF 0x555556f5c120 <e9559> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue [LV] => VAR 0x555556f5a180 <e9545> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue MODULETEMP
+    1:2:3:3: WHILE 0x555556f566e0 <e9565> {c1ai}
+    1:2:3:3:2: VARREF 0x555556f5c240 <e9564> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue [RV] <- VAR 0x555556f5a180 <e9545> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue MODULETEMP
+    1:2:3:3:3: ASSIGN 0x555556f56790 <e9577> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:3:1: CONST 0x555556f58200 <e9575> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3:3:3:2: VARREF 0x555556f5c360 <e9576> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue [LV] => VAR 0x555556f5a180 <e9545> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue MODULETEMP
+    1:2:3:3:3: STMTEXPR 0x555556f56840 <e9582> {a0aa}
+    1:2:3:3:3:1: CCALL 0x555556f58300 <e9581> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_triggers__act => CFUNC 0x555556f4b380 <e10528#> {a0aa}  _eval_triggers__act
+    1:2:3:3:3: IF 0x555556ea7ec0 <e9590> {c1ai}
+    1:2:3:3:3:1: CMETHODHARD 0x555556f60000 <e9589> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:3:3:1:1: VARREF 0x555556f5c480 <e9586> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered [RV] <- VAR 0x555556f4b200 <e9355> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered MODULETEMP
+    1:2:3:3:3:2: ASSIGN 0x555556f568f0 <e9602> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:3:2:1: CONST 0x555556f58400 <e9600> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:3:3:2:2: VARREF 0x555556f5c5a0 <e9601> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue [LV] => VAR 0x555556f5a180 <e9545> {c1ai} @dt=0x555556f4c270@(G/w1)  __VactContinue MODULETEMP
+    1:2:3:3:3:2: IF 0x555556f62000 <e9617> {c1ai}
+    1:2:3:3:3:2:1: LT 0x555556f57a20 <e9947> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:3:3:2:1:1: CONST 0x555556f58500 <e9943> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
+    1:2:3:3:3:2:1:2: VARREF 0x555556f5c6c0 <e9944> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount [RV] <- VAR 0x555556f5a000 <e9523> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount MODULETEMP
+    1:2:3:3:3:2:2: TEXTBLOCK 0x555556f600e0 <e9618> {c1ai} ""
+    1:2:3:3:3:2:2:1: TEXT 0x555556f601c0 <e9619> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:3:3:2:2:1: STMTEXPR 0x555556f56a50 <e9624> {c1ai}
+    1:2:3:3:3:2:2:1:1: CCALL 0x555556f58600 <e9623> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__act => CFUNC 0x555556f4b500 <e10530#> {a0aa}  _dump_triggers__act [SLOW]
+    1:2:3:3:3:2:2:1: TEXT 0x555556f602a0 <e9626> {c1ai} "#endif..."
+    1:2:3:3:3:2:2:1: TEXT 0x555556f60380 <e9628> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
+    1:2:3:3:3:2:2:1: TEXT 0x555556f60460 <e9630> {c1ai} ""Active region did not converge.");..."
+    1:2:3:3:3:2: ASSIGN 0x555556f56bb0 <e9649> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:3:2:1: ADD 0x555556f56b00 <e9646> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:3:2:1:1: CONST 0x555556f58700 <e9952> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:3:3:2:1:2: VARREF 0x555556f5c900 <e9953> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount [RV] <- VAR 0x555556f5a000 <e9523> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount MODULETEMP
+    1:2:3:3:3:2:2: VARREF 0x555556f5c7e0 <e9647> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount [LV] => VAR 0x555556f5a000 <e9523> {c1ai} @dt=0x555556f4c000@(G/w32)  __VactIterCount MODULETEMP
+    1:2:3:3:3:2: STMTEXPR 0x555556f56c60 <e9677> {a0aa}
+    1:2:3:3:3:2:1: CMETHODHARD 0x555556f60540 <e9661> {a0aa} @dt=0x555556ea6d80@(w0)void  andNot
+    1:2:3:3:3:2:1:1: VARREF 0x555556f5ca20 <e9658> {a0aa} @dt=0x555556f4d790@(G/w0)  __VpreTriggered [LV] => VAR 0x555556f5b380 <e10458#> {c1ai} @dt=0x555556f4d790@(G/w0)  __VpreTriggered [FUNC] MODULETEMP
+    1:2:3:3:3:2:1:2: VARREF 0x555556f5cb40 <e9653> {a0aa} @dt=0x555556f4d790@(G/w0)  __VactTriggered [RV] <- VAR 0x555556f4b200 <e9355> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered MODULETEMP
+    1:2:3:3:3:2:1:2: VARREF 0x555556f5cc60 <e9656> {a0aa} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2:3:3:3:2: STMTEXPR 0x555556f56d10 <e9671> {a0aa}
+    1:2:3:3:3:2:1: CMETHODHARD 0x555556f60620 <e9670> {a0aa} @dt=0x555556ea6d80@(w0)void  set
+    1:2:3:3:3:2:1:1: VARREF 0x555556f5cd80 <e9667> {a0aa} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered [LV] => VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2:3:3:3:2:1:2: VARREF 0x555556f5cea0 <e9665> {a0aa} @dt=0x555556f4d790@(G/w0)  __VactTriggered [RV] <- VAR 0x555556f4b200 <e9355> {c1ai} @dt=0x555556f4d790@(G/w0)  __VactTriggered MODULETEMP
+    1:2:3:3:3:2: STMTEXPR 0x555556f56dc0 <e9676> {a0aa}
+    1:2:3:3:3:2:1: CCALL 0x555556f58800 <e9675> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_act => CFUNC 0x555556f4b980 <e10534#> {a0aa}  _eval_act
+    1:2:3:3: IF 0x555556f620c0 <e9756> {c1ai}
+    1:2:3:3:1: CMETHODHARD 0x555556f607e0 <e9755> {c1ai} @dt=0x555556e46680@(G/w1)  any
+    1:2:3:3:1:1: VARREF 0x555556f5d560 <e9752> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered [RV] <- VAR 0x555556f4b800 <e9392> {c1ai} @dt=0x555556f4d790@(G/w0)  __VnbaTriggered MODULETEMP
+    1:2:3:3:2: ASSIGN 0x555556f571e0 <e9768> {c1ai} @dt=0x555556f4c270@(G/w1)
+    1:2:3:3:2:1: CONST 0x555556f58c00 <e9766> {c1ai} @dt=0x555556e46680@(G/w1)  1'h1
+    1:2:3:3:2:2: VARREF 0x555556f5d680 <e9767> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [LV] => VAR 0x555556f5b680 <e10466#> {c1ai} @dt=0x555556f4c270@(G/w1)  __VnbaContinue [FUNC] MODULETEMP
+    1:2:3:3:2: IF 0x555556f62180 <e9783> {c1ai}
+    1:2:3:3:2:1: LT 0x555556f57ad0 <e9961> {c1ai} @dt=0x555556e46680@(G/w1)
+    1:2:3:3:2:1:1: CONST 0x555556f58d00 <e9957> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h64
+    1:2:3:3:2:1:2: VARREF 0x555556f5d7a0 <e9958> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [RV] <- VAR 0x555556f5b500 <e10462#> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
+    1:2:3:3:2:2: TEXTBLOCK 0x555556f608c0 <e9784> {c1ai} ""
+    1:2:3:3:2:2:1: TEXT 0x555556f609a0 <e9785> {c1ai} "#ifdef VL_DEBUG..."
+    1:2:3:3:2:2:1: STMTEXPR 0x555556f57340 <e9790> {c1ai}
+    1:2:3:3:2:2:1:1: CCALL 0x555556f58e00 <e9789> {c1ai} @dt=0x555556ea6d80@(w0)void _dump_triggers__nba => CFUNC 0x555556f4be00 <e10532#> {a0aa}  _dump_triggers__nba [SLOW]
+    1:2:3:3:2:2:1: TEXT 0x555556f60a80 <e9792> {c1ai} "#endif..."
+    1:2:3:3:2:2:1: TEXT 0x555556f60b60 <e9794> {c1ai} "VL_FATAL_MT("ALU32_TestAll.v", 1, "", "
+    1:2:3:3:2:2:1: TEXT 0x555556f60c40 <e9796> {c1ai} ""NBA region did not converge.");..."
+    1:2:3:3:2: ASSIGN 0x555556f574a0 <e9815> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1: ADD 0x555556f573f0 <e9812> {c1ai} @dt=0x555556f4c000@(G/w32)
+    1:2:3:3:2:1:1: CONST 0x555556f58f00 <e9966> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:3:2:1:2: VARREF 0x555556f5d9e0 <e9967> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [RV] <- VAR 0x555556f5b500 <e10462#> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
+    1:2:3:3:2:2: VARREF 0x555556f5d8c0 <e9813> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [LV] => VAR 0x555556f5b500 <e10462#> {c1ai} @dt=0x555556f4c000@(G/w32)  __VnbaIterCount [FUNC] MODULETEMP
+    1:2:3:3:2: STMTEXPR 0x555556f57550 <e9820> {a0aa}
+    1:2:3:3:2:1: CCALL 0x555556f59000 <e9819> {a0aa} @dt=0x555556ea6d80@(w0)void _eval_nba => CFUNC 0x555556f4bb00 <e10536#> {a0aa}  _eval_nba
+    1:2: CFUNC 0x555556f5a780 <e10540#> {c1ai}  trace_register [SLOW]
+    1:2:3: TEXT 0x555556f616c0 <e10037> {c1ai} "tracep->addFullCb("
+    1:2:3: ADDROFCFUNC 0x555556f623c0 <e10043> {c1ai} @dt=0x555556f5f110@(G/w64)
+    1:2:3: TEXT 0x555556f617a0 <e10045> {c1ai} ", vlSelf"
+    1:2:3: TEXT 0x555556f61880 <e10047> {c1ai} ");..."
+    1:2:3: TEXT 0x555556f61ce0 <e10130> {c1ai} "tracep->addChgCb("
+    1:2:3: ADDROFCFUNC 0x555556f63080 <e10133> {c1ai} @dt=0x555556f5f110@(G/w64)
+    1:2:3: TEXT 0x555556f61dc0 <e10135> {c1ai} ", vlSelf"
+    1:2:3: TEXT 0x555556f61ea0 <e10137> {c1ai} ");..."
+    1:2:3: TEXT 0x555556e862a0 <e10418> {c1ai} "tracep->addCleanupCb("
+    1:2:3: ADDROFCFUNC 0x555556f63800 <e10421> {c1ai} @dt=0x555556f5f110@(G/w64)
+    1:2:3: TEXT 0x555556e86380 <e10423> {c1ai} ", vlSelf);..."
+    1:2: CFUNC 0x555556f5a900 <e10542#> {c1ai}  trace_full_top_0 [SLOW] [STATIC]
+    1:2:2: CSTMT 0x555556f57ef0 <e10032> {c1ai}
+    1:2:2:1: TEXT 0x555556f61500 <e10033> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0x555556e82000 <e10036> {c1ai}
+    1:2:2:1: TEXT 0x555556f615e0 <e10035> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:3: STMTEXPR 0x555556e82160 <e10054> {c1ai}
+    1:2:3:1: CCALL 0x555556f59500 <e10055> {c1ai} @dt=0x555556ea6d80@(w0)void trace_full_sub_0 => CFUNC 0x555556f5aa80 <e10544#> {c1ai}  trace_full_sub_0 [SLOW]
+    1:2: CFUNC 0x555556f5aa80 <e10544#> {c1ai}  trace_full_sub_0 [SLOW]
+    1:2:2: CSTMT 0x555556e820b0 <e10050> {c1ai}
+    1:2:2:1: TEXT 0x555556f61960 <e10051> {c1ai} "uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode);..."
+    1:2:3: TRACEINC 0x555556f62480 <e10057> {c2al} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6870 <e6908> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
+    1:2:3:2: VARREF 0x555556f5dd40 <e10058> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f62540 <e10062> {c3as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6960 <e6921> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
+    1:2:3:2: VARREF 0x555556f5de60 <e10061> {c3as} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f62600 <e10066> {c4as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6a50 <e6929> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
+    1:2:3:2: VARREF 0x555556e36000 <e10065> {c4as} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f626c0 <e10070> {c5aw} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df6b40 <e6937> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
+    1:2:3:2: VARREF 0x555556e36120 <e10069> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [RV] <- VAR 0x555556e76d80 <e4041> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f62780 <e10074> {c6aq} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6c30 <e6945> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
+    1:2:3:2: VARREF 0x555556e36240 <e10073> {c6aq} @dt=0x555556e46680@(G/w1)  zero [RV] <- VAR 0x555556e76f00 <e4047> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f62840 <e10078> {c6aw} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6d20 <e6953> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
+    1:2:3:2: VARREF 0x555556e36360 <e10077> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [RV] <- VAR 0x555556e77080 <e4053> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f62900 <e10082> {c7ax} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6e10 <e6961> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
+    1:2:3:2: VARREF 0x555556e36480 <e10081> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0x555556f629c0 <e10086> {c8aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7590 <e7027> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
+    1:2:3:2: VARREF 0x555556e365a0 <e10085> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2:3: TRACEINC 0x555556f62a80 <e10090> {c24aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7680 <e7035> {c24aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T1_expected_result [code=9]
+    1:2:3:2: CONST 0x555556f59600 <e10089> {c27br} @dt=0x555556dfaa90@(G/w32)  32'h33829b9c
+    1:2:3: TRACEINC 0x555556f62b40 <e10094> {c25ap} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df7770 <e7043> {c25ap} @dt=0x555556dfb1e0@(G/w1)  testF1S1B1T1_expected_carry [code=10]
+    1:2:3:2: CONST 0x555556f59700 <e10093> {c28bq} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3: TRACEINC 0x555556f62c00 <e10098> {c33aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7a40 <e7067> {c33aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T2_expected_result [code=11]
+    1:2:3:2: CONST 0x555556f59800 <e10097> {c36br} @dt=0x555556dfaa90@(G/w32)  32'h0
+    1:2:3: TRACEINC 0x555556f62cc0 <e10102> {c42aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7e00 <e7099> {c42aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B1T3_expected_result [code=12]
+    1:2:3:2: CONST 0x555556f59900 <e10101> {c45br} @dt=0x555556dfaa90@(G/w32)  32'hf14865df
+    1:2:3: TRACEINC 0x555556f62d80 <e10106> {c51aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f121e0 <e7131> {c51aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B2T1_expected_result [code=13]
+    1:2:3:2: CONST 0x555556f59a00 <e10105> {c54br} @dt=0x555556dfaa90@(G/w32)  32'h423a35c6
+    1:2:3: TRACEINC 0x555556f62e40 <e10110> {c69aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f12960 <e7195> {c69aq} @dt=0x555556dfaa90@(G/w32)  testF1S1B3T1_expected_result [code=14]
+    1:2:3:2: CONST 0x555556f59b00 <e10109> {c72br} @dt=0x555556dfaa90@(G/w32)  32'hbdc5ca3a
+    1:2:3: TRACEINC 0x555556f62f00 <e10114> {c87aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f130e0 <e7259> {c87aq} @dt=0x555556dfaa90@(G/w32)  testF1S2B1T1_expected_result [code=15]
+    1:2:3:2: CONST 0x555556f59c00 <e10113> {c90br} @dt=0x555556dfaa90@(G/w32)  32'h46aea154
+    1:2:3: TRACEINC 0x555556f62fc0 <e10118> {c123aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556f18000 <e7387> {c123aq} @dt=0x555556dfaa90@(G/w32)  testF2S1B2T3_expected_result [code=16]
+    1:2:3:2: CONST 0x555556f59d00 <e10117> {c126br} @dt=0x555556dfaa90@(G/w32)  32'hcc7d6464
+    1:2: CFUNC 0x555556f5ac00 <e10546#> {c1ai}  trace_chg_top_0 [STATIC]
+    1:2:2: CSTMT 0x555556e82210 <e10121> {c1ai}
+    1:2:2:1: TEXT 0x555556f61a40 <e10122> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0x555556e822c0 <e10125> {c1ai}
+    1:2:2:1: TEXT 0x555556f61b20 <e10124> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2: CSTMT 0x555556e82370 <e10128> {c1ai}
+    1:2:2:1: TEXT 0x555556f61c00 <e10127> {c1ai} "if (VL_UNLIKELY(!vlSymsp->__Vm_activity)) return;..."
+    1:2:3: STMTEXPR 0x555556e824d0 <e10144> {c1ai}
+    1:2:3:1: CCALL 0x555556f59e00 <e10145> {c1ai} @dt=0x555556ea6d80@(w0)void trace_chg_sub_0 => CFUNC 0x555556f5ad80 <e10548#> {c1ai}  trace_chg_sub_0
+    1:2: CFUNC 0x555556f5ad80 <e10548#> {c1ai}  trace_chg_sub_0
+    1:2:2: CSTMT 0x555556e82420 <e10140> {c1ai}
+    1:2:2:1: TEXT 0x555556e86000 <e10141> {c1ai} "uint32_t* const oldp VL_ATTR_UNUSED = bufp->oldp(vlSymsp->__Vm_baseCode + 1);..."
+    1:2:3: IF 0x555556f63140 <e10152> {c1ai}
+    1:2:3:1: CONST 0x555556f59f00 <e10153> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h1
+    1:2:3:2: TRACEINC 0x555556f63200 <e10155> {c2al} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6870 <e6908> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [code=1]
+    1:2:3:2:2: VARREF 0x555556e366c0 <e10156> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556e76900 <e4024> {c2al} @dt=0x555556e46680@(G/w1)  sub_add [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f632c0 <e10160> {c3as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6960 <e6921> {c3as} @dt=0x555556dfaa90@(G/w32)  a [code=2]
+    1:2:3:2:2: VARREF 0x555556e367e0 <e10159> {c3as} @dt=0x555556dfaa90@(G/w32)  a [RV] <- VAR 0x555556e76a80 <e4029> {c3as} @dt=0x555556dfaa90@(G/w32)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f63380 <e10164> {c4as} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6a50 <e6929> {c4as} @dt=0x555556dfaa90@(G/w32)  b [code=3]
+    1:2:3:2:2: VARREF 0x555556e36900 <e10163> {c4as} @dt=0x555556dfaa90@(G/w32)  b [RV] <- VAR 0x555556e76c00 <e4035> {c4as} @dt=0x555556dfaa90@(G/w32)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f63440 <e10168> {c5aw} @dt=0x555556dfb1e0@(G/w1) -> TRACEDECL 0x555556df6b40 <e6937> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [code=4]
+    1:2:3:2:2: VARREF 0x555556e36a20 <e10167> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [RV] <- VAR 0x555556e76d80 <e4041> {c5aw} @dt=0x555556dfb1e0@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f63500 <e10172> {c6aq} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6c30 <e6945> {c6aq} @dt=0x555556e46680@(G/w1)  zero [code=5]
+    1:2:3:2:2: VARREF 0x555556e36b40 <e10171> {c6aq} @dt=0x555556e46680@(G/w1)  zero [RV] <- VAR 0x555556e76f00 <e4047> {c6aq} @dt=0x555556e46680@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f635c0 <e10176> {c6aw} @dt=0x555556e46680@(G/w1) -> TRACEDECL 0x555556df6d20 <e6953> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [code=6]
+    1:2:3:2:2: VARREF 0x555556e36c60 <e10175> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [RV] <- VAR 0x555556e77080 <e4053> {c6aw} @dt=0x555556e46680@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f63680 <e10180> {c7ax} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df6e10 <e6961> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [code=7]
+    1:2:3:2:2: VARREF 0x555556e36d80 <e10179> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [RV] <- VAR 0x555556e77200 <e4059> {c7ax} @dt=0x555556dfaa90@(G/w32)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:3:2: TRACEINC 0x555556f63740 <e10184> {c8aq} @dt=0x555556dfaa90@(G/w32) -> TRACEDECL 0x555556df7590 <e7027> {c8aq} @dt=0x555556dfaa90@(G/w32)  b_withCin [code=8]
+    1:2:3:2:2: VARREF 0x555556e36ea0 <e10183> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [RV] <- VAR 0x555556df4c00 <e3665> {c8aq} @dt=0x555556dfaa90@(G/w32)  ALU32_TestAll__DOT__b_withCin [VSTATIC]  VAR
+    1:2: CFUNC 0x555556f5af00 <e10550#> {c1ai}  trace_cleanup [STATIC]
+    1:2:2: CSTMT 0x555556e82580 <e10412> {c1ai}
+    1:2:2:1: TEXT 0x555556e860e0 <e10413> {c1ai} "VALU32_TestAll___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VALU32_TestAll___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0x555556e82630 <e10416> {c1ai}
+    1:2:2:1: TEXT 0x555556e861c0 <e10415> {c1ai} "VALU32_TestAll__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2: VAR 0x555556f5b800 <e10470#> {c1ai} @dt=0x555556f5ef70@(w1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
+    1:2:3: CSTMT 0x555556e826e0 <e10424> {c1ai}
+    1:2:3:1: TEXT 0x555556e86460 <e10425> {c1ai} "vlSymsp->__Vm_activity = false;..."
+    1:2:3: ASSIGN 0x555556e82840 <e10448#> {c1ai} @dt=0x555556f5ed00@(w1)
+    1:2:3:1: CONST 0x555556e88100 <e10445> {c1ai} @dt=0x555556e46680@(G/w1)  1'h0
+    1:2:3:2: ARRAYSEL 0x555556e82790 <e10446> {c1ai} @dt=0x555556f5ed00@(w1)
+    1:2:3:2:1: VARREF 0x555556e36fc0 <e10435> {c1ai} @dt=0x555556f5ef70@(w1)u[0:0]  __Vm_traceActivity [LV] => VAR 0x555556f5b800 <e10470#> {c1ai} @dt=0x555556f5ef70@(w1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
+    1:2:3:2:2: CONST 0x555556e88000 <e10436> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
     3: TYPETABLE 0x555556df2000 <e2> {a0aa}
-		 chandle  -> BASICDTYPE 0x555556e7f790 <e10097> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+		 chandle  -> BASICDTYPE 0x555556f5f110 <e10041> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
 		   logic  -> BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
-		detailed  ->  BASICDTYPE 0x555556ef5e10 <e9408> {c1ai} @dt=this@(G/w0)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
-		detailed  ->  BASICDTYPE 0x555556ef48f0 <e8979> {c1ai} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
+		detailed  ->  BASICDTYPE 0x555556f4d790 <e9352> {c1ai} @dt=this@(G/w0)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
+		detailed  ->  BASICDTYPE 0x555556f4c270 <e8923> {c1ai} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
 		detailed  ->  BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
-		detailed  ->  BASICDTYPE 0x555556dfb1e0 <e2430> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
-		detailed  ->  BASICDTYPE 0x555556ef4270 <e8858> {c1ai} @dt=this@(G/w1)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
-		detailed  ->  BASICDTYPE 0x555556e9c5b0 <e2520> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
-		detailed  ->  BASICDTYPE 0x555556ef4680 <e8958> {c1ai} @dt=this@(G/w32)  bit [GENERIC] kwd=bit range=[31:0]
-		detailed  ->  BASICDTYPE 0x555556dfaa90 <e2414> {c3al} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
-		detailed  ->  BASICDTYPE 0x555556ea51e0 <e3693> {c13be} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
-		detailed  ->  BASICDTYPE 0x555556e7f790 <e10097> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+		detailed  ->  BASICDTYPE 0x555556dfb1e0 <e2398> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
+		detailed  ->  BASICDTYPE 0x555556eefba0 <e8802> {c1ai} @dt=this@(G/w1)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
+		detailed  ->  BASICDTYPE 0x555556ea8270 <e2488> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
+		detailed  ->  BASICDTYPE 0x555556f4c000 <e8902> {c1ai} @dt=this@(G/w32)  bit [GENERIC] kwd=bit range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556dfaa90 <e2382> {c3al} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556eaeea0 <e3669> {c13be} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556f5f110 <e10041> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
     3:1: BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
-    3:1: BASICDTYPE 0x555556dfaa90 <e2414> {c3al} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556dfb1e0 <e2430> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e9c5b0 <e2520> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
-    3:1: BASICDTYPE 0x555556ea51e0 <e3693> {c13be} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
-    3:1: VOIDDTYPE 0x555556e9ed80 <e7571> {a0aa} @dt=this@(w0)void
-    3:1: BASICDTYPE 0x555556ef4270 <e8858> {c1ai} @dt=this@(G/w1)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
-    3:1: BASICDTYPE 0x555556ef4680 <e8958> {c1ai} @dt=this@(G/w32)  bit [GENERIC] kwd=bit range=[31:0]
-    3:1: BASICDTYPE 0x555556ef48f0 <e8979> {c1ai} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
-    3:1: BASICDTYPE 0x555556ef5040 <e9131> {c1ai} @dt=this@(w1)  VlTriggerVec kwd=VlTriggerVec
-    3:1: BASICDTYPE 0x555556ef5e10 <e9408> {c1ai} @dt=this@(G/w0)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
-    3:1: BASICDTYPE 0x555556e7f380 <e10058> {c1ai} @dt=this@(w1)  bit kwd=bit
-    3:1: UNPACKARRAYDTYPE 0x555556e7f5f0 <e10077> {c1ai} @dt=this@(w1)u[0:0] refdt=0x555556e7f380(w1) [0:0]
-    3:1:2: RANGE 0x555556eafe40 <e10075> {c1ai}
-    3:1:2:1: CONST 0x555556eb3400 <e10066> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    3:1:2:2: CONST 0x555556eb3300 <e10073> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
-    3:1: BASICDTYPE 0x555556e7f790 <e10097> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+    3:1: BASICDTYPE 0x555556dfaa90 <e2382> {c3al} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfb1e0 <e2398> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556ea8270 <e2488> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x555556eaeea0 <e3669> {c13be} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: VOIDDTYPE 0x555556ea6d80 <e7515> {a0aa} @dt=this@(w0)void
+    3:1: BASICDTYPE 0x555556eefba0 <e8802> {c1ai} @dt=this@(G/w1)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
+    3:1: BASICDTYPE 0x555556f4c000 <e8902> {c1ai} @dt=this@(G/w32)  bit [GENERIC] kwd=bit range=[31:0]
+    3:1: BASICDTYPE 0x555556f4c270 <e8923> {c1ai} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
+    3:1: BASICDTYPE 0x555556f4c9c0 <e9075> {c1ai} @dt=this@(w1)  VlTriggerVec kwd=VlTriggerVec
+    3:1: BASICDTYPE 0x555556f4d790 <e9352> {c1ai} @dt=this@(G/w0)  VlTriggerVec [GENERIC] kwd=VlTriggerVec
+    3:1: BASICDTYPE 0x555556f5ed00 <e10002> {c1ai} @dt=this@(w1)  bit kwd=bit
+    3:1: UNPACKARRAYDTYPE 0x555556f5ef70 <e10021> {c1ai} @dt=this@(w1)u[0:0] refdt=0x555556f5ed00(w1) [0:0]
+    3:1:2: RANGE 0x555556f57e40 <e10019> {c1ai}
+    3:1:2:1: CONST 0x555556f59300 <e10010> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    3:1:2:2: CONST 0x555556f59400 <e10017> {c1ai} @dt=0x555556dfaa90@(G/w32)  32'h0
+    3:1: BASICDTYPE 0x555556f5f110 <e10041> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
     3: CONSTPOOL 0x555556df4000 <e7> {a0aa}
     3:1: MODULE 0x555556de8120 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
-    3:1:2: SCOPE 0x555556df6000 <e6712> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0x555556de8120]
+    3:1:2: SCOPE 0x555556df6000 <e6688> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0x555556de8120]

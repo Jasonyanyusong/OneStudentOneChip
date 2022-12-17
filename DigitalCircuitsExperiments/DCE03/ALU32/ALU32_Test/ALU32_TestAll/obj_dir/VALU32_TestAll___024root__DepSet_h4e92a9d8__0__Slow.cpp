@@ -136,10 +136,6 @@ VL_ATTR_COLD void VALU32_TestAll___024root___ctor_var_reset(VALU32_TestAll___024
     vlSelf->overflow = VL_RAND_RESET_I(1);
     vlSelf->result = VL_RAND_RESET_I(32);
     vlSelf->ALU32_TestAll__DOT__b_withCin = VL_RAND_RESET_I(32);
-    vlSelf->ALU32_TestAll__DOT__testF2S1B1T2_expected_zero = VL_RAND_RESET_I(1);
-    vlSelf->ALU32_TestAll__DOT__testF2S1B1T2_expected_overflow = VL_RAND_RESET_I(1);
-    vlSelf->ALU32_TestAll__DOT__testF2S1B1T3_expected_zero = VL_RAND_RESET_I(1);
-    vlSelf->ALU32_TestAll__DOT__testF2S1B1T3_expected_overflow = VL_RAND_RESET_I(1);
     vlSelf->__VstlIterCount = 0;
     vlSelf->__VicoIterCount = 0;
     vlSelf->__VactIterCount = 0;

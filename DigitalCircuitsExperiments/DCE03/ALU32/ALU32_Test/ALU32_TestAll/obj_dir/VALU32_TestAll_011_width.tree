@@ -1,325 +1,321 @@
-Verilator Tree Dump (format 0x3900) from <e2399> to <e3684>
+Verilator Tree Dump (format 0x3900) from <e2367> to <e3660>
      NETLIST 0x555556de8000 <e1> {a0aa}  $root [1ps/1ps]
-    1: MODULE 0x555556de8240 <e2399#> {c1ai}  ALU32_TestAll  L0 [1ps]
-    1:2: VAR 0x555556df4180 <e2407#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4300 <e2415#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4480 <e2423#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4600 <e2431#> {c5aw} @dt=0x555556dfb1e0@(w1)  carry OUTPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4780 <e2434#> {c6aq} @dt=0x555556dfb380@(w1)  zero OUTPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4900 <e2437#> {c6aw} @dt=0x555556dfb450@(w1)  overflow OUTPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4a80 <e2445#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4c00 <e2453#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
+    1: MODULE 0x555556de8240 <e2367#> {c1ai}  ALU32_TestAll  L0 [1ps]
+    1:2: VAR 0x555556df4180 <e2375#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4300 <e2383#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4480 <e2391#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4600 <e2399#> {c5aw} @dt=0x555556dfb1e0@(w1)  carry OUTPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4780 <e2402#> {c6aq} @dt=0x555556dfb380@(w1)  zero OUTPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4900 <e2405#> {c6aw} @dt=0x555556dfb450@(w1)  overflow OUTPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4a80 <e2413#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4c00 <e2421#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
     1:2: ALWAYS 0x555556e45760 <e327> {c10af}
     1:2:2: BEGIN 0x555556e142a0 <e1925> {c12af} [UNNAMED]
-    1:2:2:1: ASSIGN 0x555556e448f0 <e2455#> {c13aj} @dt=0x555556dfbad0@(w32)
-    1:2:2:1:1: ADD 0x555556e44840 <e2474#> {c13bu} @dt=0x555556dfbad0@(w32)
-    1:2:2:1:1:1: XOR 0x555556e44790 <e2475#> {c13bq} @dt=0x555556dfbad0@(w32)
-    1:2:2:1:1:1:1: REPLICATE 0x555556e446e0 <e2461#> {c13bg} @dt=0x555556e47c70@(G/w32)
-    1:2:2:1:1:1:1:1: VARREF 0x555556de8360 <e2456#> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556df4180 <e2407#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
+    1:2:2:1: ASSIGN 0x555556e448f0 <e2423#> {c13aj} @dt=0x555556dfbad0@(w32)
+    1:2:2:1:1: ADD 0x555556e44840 <e2442#> {c13bu} @dt=0x555556dfbad0@(w32)
+    1:2:2:1:1:1: XOR 0x555556e44790 <e2443#> {c13bq} @dt=0x555556dfbad0@(w32)
+    1:2:2:1:1:1:1: REPLICATE 0x555556e446e0 <e2429#> {c13bg} @dt=0x555556e47c70@(G/w32)
+    1:2:2:1:1:1:1:1: VARREF 0x555556de8360 <e2424#> {c13bh} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556df4180 <e2375#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
     1:2:2:1:1:1:1:2: CONST 0x555556e17400 <e176> {c13be} @dt=0x555556dfbc70@(G/swu32/6)  ?32?sh20
-    1:2:2:1:1:1:2: VARREF 0x555556de8480 <e2462#> {c13br} @dt=0x555556dfaea0@(w32)  b [RV] <- VAR 0x555556df4480 <e2423#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
-    1:2:2:1:1:2: EXTEND 0x555556e70fd0 <e2481#> {c13bw} @dt=0x555556dfbad0@(w32)
-    1:2:2:1:1:2:1: VARREF 0x555556de85a0 <e2479#> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556df4180 <e2407#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
-    1:2:2:1:2: VARREF 0x555556de86c0 <e2454#> {c13aq} @dt=0x555556dfbad0@(w32)  b_withCin [LV] => VAR 0x555556df4c00 <e2453#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
-    1:2:2:1: ASSIGN 0x555556e44a50 <e2483#> {c14aj} @dt=0x555556dfb790@(w32)
-    1:2:2:1:1: ADD 0x555556e449a0 <e2491#> {c14bb} @dt=0x555556dfb790@(w32)
-    1:2:2:1:1:1: VARREF 0x555556de87e0 <e2484#> {c14az} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2415#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
-    1:2:2:1:1:2: VARREF 0x555556de8900 <e2485#> {c14bd} @dt=0x555556dfbad0@(w32)  b_withCin [RV] <- VAR 0x555556df4c00 <e2453#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
-    1:2:2:1:2: VARREF 0x555556de8a20 <e2482#> {c14aq} @dt=0x555556dfb790@(w32)  result [LV] => VAR 0x555556df4a80 <e2445#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
-    1:2:2:1: ASSIGN 0x555556e44e70 <e2493#> {c15aj} @dt=0x555556dfb1e0@(w1)
+    1:2:2:1:1:1:2: VARREF 0x555556de8480 <e2430#> {c13br} @dt=0x555556dfaea0@(w32)  b [RV] <- VAR 0x555556df4480 <e2391#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
+    1:2:2:1:1:2: EXTEND 0x555556e70fd0 <e2449#> {c13bw} @dt=0x555556dfbad0@(w32)
+    1:2:2:1:1:2:1: VARREF 0x555556de85a0 <e2447#> {c13bw} @dt=0x555556e46680@(G/w1)  sub_add [RV] <- VAR 0x555556df4180 <e2375#> {c2al} @dt=0x555556e46680@(G/w1)  sub_add INPUT [VSTATIC]  PORT
+    1:2:2:1:2: VARREF 0x555556de86c0 <e2422#> {c13aq} @dt=0x555556dfbad0@(w32)  b_withCin [LV] => VAR 0x555556df4c00 <e2421#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
+    1:2:2:1: ASSIGN 0x555556e44a50 <e2451#> {c14aj} @dt=0x555556dfb790@(w32)
+    1:2:2:1:1: ADD 0x555556e449a0 <e2459#> {c14bb} @dt=0x555556dfb790@(w32)
+    1:2:2:1:1:1: VARREF 0x555556de87e0 <e2452#> {c14az} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2383#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
+    1:2:2:1:1:2: VARREF 0x555556de8900 <e2453#> {c14bd} @dt=0x555556dfbad0@(w32)  b_withCin [RV] <- VAR 0x555556df4c00 <e2421#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
+    1:2:2:1:2: VARREF 0x555556de8a20 <e2450#> {c14aq} @dt=0x555556dfb790@(w32)  result [LV] => VAR 0x555556df4a80 <e2413#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
+    1:2:2:1: ASSIGN 0x555556e44e70 <e2461#> {c15aj} @dt=0x555556dfb1e0@(w1)
     1:2:2:1:1: LOGAND 0x555556e44dc0 <e253> {c15bj} @dt=0x555556e46680@(G/w1)
     1:2:2:1:1:1: EQ 0x555556e44bb0 <e249> {c15be} @dt=0x555556e46680@(G/w1)
-    1:2:2:1:1:1:1: EXTEND 0x555556e71080 <e2542#> {c15az} @dt=0x555556e9c410@(G/wu32/1)
-    1:2:2:1:1:1:1:1: SEL 0x555556e9e000 <e2540#> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:1:1:1:1: VARREF 0x555556de8b40 <e2504#> {c15ay} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2415#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
-    1:2:2:1:1:1:1:1:2: CONST 0x555556e75200 <e2528#> {c15ba} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:2:1:1:1:1:1:3: CONST 0x555556e75100 <e2506#> {c15az} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
+    1:2:2:1:1:1:1: EXTEND 0x555556e71080 <e2510#> {c15az} @dt=0x555556ea80d0@(G/wu32/1)
+    1:2:2:1:1:1:1:1: SEL 0x555556ea6000 <e2508#> {c15az} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:1:1:1:1: VARREF 0x555556de8b40 <e2472#> {c15ay} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2383#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
+    1:2:2:1:1:1:1:1:2: CONST 0x555556e75200 <e2496#> {c15ba} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:2:1:1:1:1:1:3: CONST 0x555556e75100 <e2474#> {c15az} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
     1:2:2:1:1:1:2: CONST 0x555556e17600 <e223> {c15bh} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh1
     1:2:2:1:1:2: EQ 0x555556e44d10 <e250> {c15bs} @dt=0x555556e46680@(G/w1)
-    1:2:2:1:1:2:1: EXTEND 0x555556e71130 <e2598#> {c15bn} @dt=0x555556e9c410@(G/wu32/1)
-    1:2:2:1:1:2:1:1: SEL 0x555556e9e0c0 <e2596#> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:2:1:1:1: VARREF 0x555556de8c60 <e2558#> {c15bm} @dt=0x555556dfaea0@(w32)  b [RV] <- VAR 0x555556df4480 <e2423#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
-    1:2:2:1:1:2:1:1:2: CONST 0x555556e75400 <e2584#> {c15bo} @dt=0x555556e9c5b0@(G/sw5)  5'h1e
-    1:2:2:1:1:2:1:1:3: CONST 0x555556e75300 <e2560#> {c15bn} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
+    1:2:2:1:1:2:1: EXTEND 0x555556e71130 <e2566#> {c15bn} @dt=0x555556ea80d0@(G/wu32/1)
+    1:2:2:1:1:2:1:1: SEL 0x555556ea60c0 <e2564#> {c15bn} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:2:1:1:1: VARREF 0x555556de8c60 <e2526#> {c15bm} @dt=0x555556dfaea0@(w32)  b [RV] <- VAR 0x555556df4480 <e2391#> {c4as} @dt=0x555556dfaea0@(w32)  b INPUT [VSTATIC]  PORT
+    1:2:2:1:1:2:1:1:2: CONST 0x555556e75400 <e2552#> {c15bo} @dt=0x555556ea8270@(G/sw5)  5'h1e
+    1:2:2:1:1:2:1:1:3: CONST 0x555556e75300 <e2528#> {c15bn} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
     1:2:2:1:1:2:2: CONST 0x555556e17800 <e246> {c15bv} @dt=0x555556dfa820@(G/swu32/1)  ?32?sh1
-    1:2:2:1:2: VARREF 0x555556de8d80 <e2492#> {c15aq} @dt=0x555556dfb1e0@(w1)  carry [LV] => VAR 0x555556df4600 <e2431#> {c5aw} @dt=0x555556dfb1e0@(w1)  carry OUTPUT [VSTATIC]  PORT
-    1:2:2:1: ASSIGN 0x555556e453f0 <e2600#> {c16aj} @dt=0x555556dfb450@(w1)
+    1:2:2:1:2: VARREF 0x555556de8d80 <e2460#> {c15aq} @dt=0x555556dfb1e0@(w1)  carry [LV] => VAR 0x555556df4600 <e2399#> {c5aw} @dt=0x555556dfb1e0@(w1)  carry OUTPUT [VSTATIC]  PORT
+    1:2:2:1: ASSIGN 0x555556e453f0 <e2568#> {c16aj} @dt=0x555556dfb450@(w1)
     1:2:2:1:1: LOGAND 0x555556e45340 <e310> {c16bz} @dt=0x555556e46680@(G/w1)
     1:2:2:1:1:1: EQ 0x555556e45080 <e306> {c16bi} @dt=0x555556e46680@(G/w1)
-    1:2:2:1:1:1:1: SEL 0x555556e9e180 <e2621#> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:1:1:1: VARREF 0x555556de8ea0 <e2612#> {c16bc} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2415#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
-    1:2:2:1:1:1:1:2: CONST 0x555556e75600 <e2638#> {c16be} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:2:1:1:1:1:3: CONST 0x555556e75500 <e2614#> {c16bd} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
-    1:2:2:1:1:1:2: SEL 0x555556e9e240 <e2663#> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:1:2:1: VARREF 0x555556de8fc0 <e2654#> {c16bl} @dt=0x555556dfbad0@(w32)  b_withCin [RV] <- VAR 0x555556df4c00 <e2453#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
-    1:2:2:1:1:1:2:2: CONST 0x555556e75800 <e2680#> {c16bv} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:2:1:1:1:2:3: CONST 0x555556e75700 <e2656#> {c16bu} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
+    1:2:2:1:1:1:1: SEL 0x555556ea6180 <e2589#> {c16bd} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:1:1:1: VARREF 0x555556de8ea0 <e2580#> {c16bc} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2383#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
+    1:2:2:1:1:1:1:2: CONST 0x555556e75600 <e2606#> {c16be} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:2:1:1:1:1:3: CONST 0x555556e75500 <e2582#> {c16bd} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
+    1:2:2:1:1:1:2: SEL 0x555556ea6240 <e2631#> {c16bu} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:1:2:1: VARREF 0x555556de8fc0 <e2622#> {c16bl} @dt=0x555556dfbad0@(w32)  b_withCin [RV] <- VAR 0x555556df4c00 <e2421#> {c8aq} @dt=0x555556dfbad0@(w32)  b_withCin [VSTATIC]  VAR
+    1:2:2:1:1:1:2:2: CONST 0x555556e75800 <e2648#> {c16bv} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:2:1:1:1:2:3: CONST 0x555556e75700 <e2624#> {c16bu} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
     1:2:2:1:1:2: NEQ 0x555556e45290 <e307> {c16cn} @dt=0x555556e46680@(G/w1)
-    1:2:2:1:1:2:1: SEL 0x555556e9e300 <e2709#> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:2:1:1: VARREF 0x555556de90e0 <e2700#> {c16cc} @dt=0x555556dfb790@(w32)  result [RV] <- VAR 0x555556df4a80 <e2445#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
-    1:2:2:1:1:2:1:2: CONST 0x555556e75a00 <e2726#> {c16cj} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:2:1:1:2:1:3: CONST 0x555556e75900 <e2702#> {c16ci} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
-    1:2:2:1:1:2:2: SEL 0x555556e9e3c0 <e2751#> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
-    1:2:2:1:1:2:2:1: VARREF 0x555556de9200 <e2742#> {c16cq} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2415#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
-    1:2:2:1:1:2:2:2: CONST 0x555556e75c00 <e2768#> {c16cs} @dt=0x555556e9c5b0@(G/sw5)  5'h1f
-    1:2:2:1:1:2:2:3: CONST 0x555556e75b00 <e2744#> {c16cr} @dt=0x555556e9c410@(G/wu32/1)  ?32?h1
-    1:2:2:1:2: VARREF 0x555556de9320 <e2599#> {c16aq} @dt=0x555556dfb450@(w1)  overflow [LV] => VAR 0x555556df4900 <e2437#> {c6aw} @dt=0x555556dfb450@(w1)  overflow OUTPUT [VSTATIC]  PORT
-    1:2:2:1: ASSIGN 0x555556e45600 <e2778#> {c17aj} @dt=0x555556dfb380@(w1)
-    1:2:2:1:1: NOT 0x555556e45550 <e2780#> {c17ax} @dt=0x555556dfb380@(w1)
+    1:2:2:1:1:2:1: SEL 0x555556ea6300 <e2677#> {c16ci} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:2:1:1: VARREF 0x555556de90e0 <e2668#> {c16cc} @dt=0x555556dfb790@(w32)  result [RV] <- VAR 0x555556df4a80 <e2413#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
+    1:2:2:1:1:2:1:2: CONST 0x555556e75a00 <e2694#> {c16cj} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:2:1:1:2:1:3: CONST 0x555556e75900 <e2670#> {c16ci} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
+    1:2:2:1:1:2:2: SEL 0x555556ea63c0 <e2719#> {c16cr} @dt=0x555556e46680@(G/w1) decl[31:0]]
+    1:2:2:1:1:2:2:1: VARREF 0x555556de9200 <e2710#> {c16cq} @dt=0x555556dfaa90@(w32)  a [RV] <- VAR 0x555556df4300 <e2383#> {c3as} @dt=0x555556dfaa90@(w32)  a INPUT [VSTATIC]  PORT
+    1:2:2:1:1:2:2:2: CONST 0x555556e75c00 <e2736#> {c16cs} @dt=0x555556ea8270@(G/sw5)  5'h1f
+    1:2:2:1:1:2:2:3: CONST 0x555556e75b00 <e2712#> {c16cr} @dt=0x555556ea80d0@(G/wu32/1)  ?32?h1
+    1:2:2:1:2: VARREF 0x555556de9320 <e2567#> {c16aq} @dt=0x555556dfb450@(w1)  overflow [LV] => VAR 0x555556df4900 <e2405#> {c6aw} @dt=0x555556dfb450@(w1)  overflow OUTPUT [VSTATIC]  PORT
+    1:2:2:1: ASSIGN 0x555556e45600 <e2746#> {c17aj} @dt=0x555556dfb380@(w1)
+    1:2:2:1:1: NOT 0x555556e45550 <e2748#> {c17ax} @dt=0x555556dfb380@(w1)
     1:2:2:1:1:1: REDOR 0x555556e454a0 <e320> {c17az} @dt=0x555556e46680@(G/w1)
-    1:2:2:1:1:1:1: VARREF 0x555556de9440 <e2779#> {c17bb} @dt=0x555556dfb790@(w32)  result [RV] <- VAR 0x555556df4a80 <e2445#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
-    1:2:2:1:2: VARREF 0x555556de9560 <e2777#> {c17aq} @dt=0x555556dfb380@(w1)  zero [LV] => VAR 0x555556df4780 <e2434#> {c6aq} @dt=0x555556dfb380@(w1)  zero OUTPUT [VSTATIC]  PORT
-    1:2: VAR 0x555556df4d80 <e2788#> {c24aq} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556df4f00 <e2796#> {c25ap} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556df5080 <e2799#> {c26aj} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556df5200 <e2802#> {c26bl} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e45ad0 <e2804#> {c27bp} @dt=0x555556e47520@(w32)
+    1:2:2:1:1:1:1: VARREF 0x555556de9440 <e2747#> {c17bb} @dt=0x555556dfb790@(w32)  result [RV] <- VAR 0x555556df4a80 <e2413#> {c7ax} @dt=0x555556dfb790@(w32)  result OUTPUT [VSTATIC]  PORT
+    1:2:2:1:2: VARREF 0x555556de9560 <e2745#> {c17aq} @dt=0x555556dfb380@(w1)  zero [LV] => VAR 0x555556df4780 <e2402#> {c6aq} @dt=0x555556dfb380@(w1)  zero OUTPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556df4d80 <e2756#> {c24aq} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556df4f00 <e2764#> {c25ap} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556df5080 <e2767#> {c26aj} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556df5200 <e2770#> {c26bl} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e45ad0 <e2772#> {c27bp} @dt=0x555556e47520@(w32)
     1:2:1: CONST 0x555556e4a500 <e400> {c27br} @dt=0x555556e47c70@(G/w32)  32'h33829b9c
-    1:2:2: VARREF 0x555556de9680 <e2803#> {c27am} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [LV] => VAR 0x555556df4d80 <e2788#> {c24aq} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e45b80 <e2806#> {c28bo} @dt=0x555556e47860@(w1)
+    1:2:2: VARREF 0x555556de9680 <e2771#> {c27am} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [LV] => VAR 0x555556df4d80 <e2756#> {c24aq} @dt=0x555556e47520@(w32)  testF1S1B1T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e45b80 <e2774#> {c28bo} @dt=0x555556e47860@(w1)
     1:2:1: CONST 0x555556e4a600 <e411> {c28bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556de97a0 <e2805#> {c28am} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [LV] => VAR 0x555556df4f00 <e2796#> {c25ap} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e45c30 <e2808#> {c29br} @dt=0x555556e47ad0@(w1)
-    1:2:1: CONST 0x555556e75d00 <e2821#> {c29bt} @dt=0x555556e47ad0@(w1)  1'h0
-    1:2:2: VARREF 0x555556de98c0 <e2807#> {c29am} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [LV] => VAR 0x555556df5200 <e2802#> {c26bl} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e45ce0 <e2823#> {c30bn} @dt=0x555556e47a00@(w1)
-    1:2:1: CONST 0x555556e75e00 <e2836#> {c30bp} @dt=0x555556e47a00@(w1)  1'h0
-    1:2:2: VARREF 0x555556de99e0 <e2822#> {c30am} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [LV] => VAR 0x555556df5080 <e2799#> {c26aj} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556df5380 <e2844#> {c33aq} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556df5500 <e2852#> {c34ap} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556df5680 <e2855#> {c35aj} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556df5800 <e2858#> {c35bl} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e0b0 <e2860#> {c36bp} @dt=0x555556e4c4e0@(w32)
+    1:2:2: VARREF 0x555556de97a0 <e2773#> {c28am} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [LV] => VAR 0x555556df4f00 <e2764#> {c25ap} @dt=0x555556e47860@(w1)  testF1S1B1T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e45c30 <e2776#> {c29br} @dt=0x555556e47ad0@(w1)
+    1:2:1: CONST 0x555556e75d00 <e2789#> {c29bt} @dt=0x555556e47ad0@(w1)  1'h0
+    1:2:2: VARREF 0x555556de98c0 <e2775#> {c29am} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [LV] => VAR 0x555556df5200 <e2770#> {c26bl} @dt=0x555556e47ad0@(w1)  testF1S1B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e45ce0 <e2791#> {c30bn} @dt=0x555556e47a00@(w1)
+    1:2:1: CONST 0x555556e75e00 <e2804#> {c30bp} @dt=0x555556e47a00@(w1)  1'h0
+    1:2:2: VARREF 0x555556de99e0 <e2790#> {c30am} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [LV] => VAR 0x555556df5080 <e2767#> {c26aj} @dt=0x555556e47a00@(w1)  testF1S1B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556df5380 <e2812#> {c33aq} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556df5500 <e2820#> {c34ap} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556df5680 <e2823#> {c35aj} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556df5800 <e2826#> {c35bl} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e0b0 <e2828#> {c36bp} @dt=0x555556e4c4e0@(w32)
     1:2:1: CONST 0x555556e4b100 <e506> {c36br} @dt=0x555556e47c70@(G/w32)  32'h0
-    1:2:2: VARREF 0x555556de9b00 <e2859#> {c36am} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [LV] => VAR 0x555556df5380 <e2844#> {c33aq} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e160 <e2862#> {c37bo} @dt=0x555556e4c820@(w1)
+    1:2:2: VARREF 0x555556de9b00 <e2827#> {c36am} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [LV] => VAR 0x555556df5380 <e2812#> {c33aq} @dt=0x555556e4c4e0@(w32)  testF1S1B1T2_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e160 <e2830#> {c37bo} @dt=0x555556e4c820@(w1)
     1:2:1: CONST 0x555556e4b200 <e517> {c37bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556de9c20 <e2861#> {c37am} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [LV] => VAR 0x555556df5500 <e2852#> {c34ap} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e210 <e2864#> {c38br} @dt=0x555556e4ca90@(w1)
-    1:2:1: CONST 0x555556e75f00 <e2877#> {c38bt} @dt=0x555556e4ca90@(w1)  1'h0
-    1:2:2: VARREF 0x555556de9d40 <e2863#> {c38am} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [LV] => VAR 0x555556df5800 <e2858#> {c35bl} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e2c0 <e2879#> {c39bn} @dt=0x555556e4c9c0@(w1)
-    1:2:1: CONST 0x555556ea2000 <e2892#> {c39bp} @dt=0x555556e4c9c0@(w1)  1'h0
-    1:2:2: VARREF 0x555556de9e60 <e2878#> {c39am} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [LV] => VAR 0x555556df5680 <e2855#> {c35aj} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556df5980 <e2900#> {c42aq} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556df5b00 <e2908#> {c43ap} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556df5c80 <e2911#> {c44aj} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556df5e00 <e2914#> {c44bl} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e630 <e2916#> {c45bp} @dt=0x555556e4d450@(w32)
+    1:2:2: VARREF 0x555556de9c20 <e2829#> {c37am} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [LV] => VAR 0x555556df5500 <e2820#> {c34ap} @dt=0x555556e4c820@(w1)  testF1S1B1T2_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e210 <e2832#> {c38br} @dt=0x555556e4ca90@(w1)
+    1:2:1: CONST 0x555556e75f00 <e2845#> {c38bt} @dt=0x555556e4ca90@(w1)  1'h0
+    1:2:2: VARREF 0x555556de9d40 <e2831#> {c38am} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [LV] => VAR 0x555556df5800 <e2826#> {c35bl} @dt=0x555556e4ca90@(w1)  testF1S1B1T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e2c0 <e2847#> {c39bn} @dt=0x555556e4c9c0@(w1)
+    1:2:1: CONST 0x555556eac000 <e2860#> {c39bp} @dt=0x555556e4c9c0@(w1)  1'h0
+    1:2:2: VARREF 0x555556de9e60 <e2846#> {c39am} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [LV] => VAR 0x555556df5680 <e2823#> {c35aj} @dt=0x555556e4c9c0@(w1)  testF1S1B1T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556df5980 <e2868#> {c42aq} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556df5b00 <e2876#> {c43ap} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556df5c80 <e2879#> {c44aj} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556df5e00 <e2882#> {c44bl} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e630 <e2884#> {c45bp} @dt=0x555556e4d450@(w32)
     1:2:1: CONST 0x555556e4bd00 <e612> {c45br} @dt=0x555556e47c70@(G/w32)  32'hf14865df
-    1:2:2: VARREF 0x555556e1a000 <e2915#> {c45am} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [LV] => VAR 0x555556df5980 <e2900#> {c42aq} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e6e0 <e2918#> {c46bo} @dt=0x555556e4d790@(w1)
+    1:2:2: VARREF 0x555556e7e000 <e2883#> {c45am} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [LV] => VAR 0x555556df5980 <e2868#> {c42aq} @dt=0x555556e4d450@(w32)  testF1S1B1T3_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e6e0 <e2886#> {c46bo} @dt=0x555556e4d790@(w1)
     1:2:1: CONST 0x555556e4be00 <e623> {c46bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1a120 <e2917#> {c46am} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [LV] => VAR 0x555556df5b00 <e2908#> {c43ap} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e790 <e2920#> {c47br} @dt=0x555556e4da00@(w1)
-    1:2:1: CONST 0x555556ea2100 <e2933#> {c47bt} @dt=0x555556e4da00@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1a240 <e2919#> {c47am} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [LV] => VAR 0x555556df5e00 <e2914#> {c44bl} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4e840 <e2935#> {c48bn} @dt=0x555556e4d930@(w1)
-    1:2:1: CONST 0x555556ea2200 <e2948#> {c48bp} @dt=0x555556e4d930@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1a360 <e2934#> {c48am} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [LV] => VAR 0x555556df5c80 <e2911#> {c44aj} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e56000 <e2956#> {c51aq} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e56180 <e2964#> {c52ap} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e56300 <e2967#> {c53aj} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e56480 <e2970#> {c53bl} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4ebb0 <e2972#> {c54bp} @dt=0x555556e50410@(w32)
+    1:2:2: VARREF 0x555556e7e120 <e2885#> {c46am} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [LV] => VAR 0x555556df5b00 <e2876#> {c43ap} @dt=0x555556e4d790@(w1)  testF1S1B1T3_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e790 <e2888#> {c47br} @dt=0x555556e4da00@(w1)
+    1:2:1: CONST 0x555556eac100 <e2901#> {c47bt} @dt=0x555556e4da00@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7e240 <e2887#> {c47am} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [LV] => VAR 0x555556df5e00 <e2882#> {c44bl} @dt=0x555556e4da00@(w1)  testF1S1B1T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4e840 <e2903#> {c48bn} @dt=0x555556e4d930@(w1)
+    1:2:1: CONST 0x555556eac200 <e2916#> {c48bp} @dt=0x555556e4d930@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7e360 <e2902#> {c48am} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [LV] => VAR 0x555556df5c80 <e2879#> {c44aj} @dt=0x555556e4d930@(w1)  testF1S1B1T3_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e56000 <e2924#> {c51aq} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e56180 <e2932#> {c52ap} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e56300 <e2935#> {c53aj} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e56480 <e2938#> {c53bl} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4ebb0 <e2940#> {c54bp} @dt=0x555556e50410@(w32)
     1:2:1: CONST 0x555556e52900 <e718> {c54br} @dt=0x555556e47c70@(G/w32)  32'h423a35c6
-    1:2:2: VARREF 0x555556e1a480 <e2971#> {c54am} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [LV] => VAR 0x555556e56000 <e2956#> {c51aq} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4ec60 <e2974#> {c55bo} @dt=0x555556e50750@(w1)
+    1:2:2: VARREF 0x555556e7e480 <e2939#> {c54am} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [LV] => VAR 0x555556e56000 <e2924#> {c51aq} @dt=0x555556e50410@(w32)  testF1S1B2T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4ec60 <e2942#> {c55bo} @dt=0x555556e50750@(w1)
     1:2:1: CONST 0x555556e52a00 <e729> {c55bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1a5a0 <e2973#> {c55am} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [LV] => VAR 0x555556e56180 <e2964#> {c52ap} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4ed10 <e2976#> {c56br} @dt=0x555556e509c0@(w1)
-    1:2:1: CONST 0x555556ea2300 <e2989#> {c56bt} @dt=0x555556e509c0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1a6c0 <e2975#> {c56am} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [LV] => VAR 0x555556e56480 <e2970#> {c53bl} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4edc0 <e2991#> {c57bn} @dt=0x555556e508f0@(w1)
-    1:2:1: CONST 0x555556ea2400 <e3004#> {c57bp} @dt=0x555556e508f0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1a7e0 <e2990#> {c57am} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [LV] => VAR 0x555556e56300 <e2967#> {c53aj} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e56600 <e3012#> {c60aq} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e56780 <e3020#> {c61ap} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e56900 <e3023#> {c62aj} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e56a80 <e3026#> {c62bl} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f130 <e3028#> {c63bp} @dt=0x555556e51380@(w32)
+    1:2:2: VARREF 0x555556e7e5a0 <e2941#> {c55am} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [LV] => VAR 0x555556e56180 <e2932#> {c52ap} @dt=0x555556e50750@(w1)  testF1S1B2T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4ed10 <e2944#> {c56br} @dt=0x555556e509c0@(w1)
+    1:2:1: CONST 0x555556eac300 <e2957#> {c56bt} @dt=0x555556e509c0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7e6c0 <e2943#> {c56am} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [LV] => VAR 0x555556e56480 <e2938#> {c53bl} @dt=0x555556e509c0@(w1)  testF1S1B2T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4edc0 <e2959#> {c57bn} @dt=0x555556e508f0@(w1)
+    1:2:1: CONST 0x555556eac400 <e2972#> {c57bp} @dt=0x555556e508f0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7e7e0 <e2958#> {c57am} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [LV] => VAR 0x555556e56300 <e2935#> {c53aj} @dt=0x555556e508f0@(w1)  testF1S1B2T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e56600 <e2980#> {c60aq} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e56780 <e2988#> {c61ap} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e56900 <e2991#> {c62aj} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e56a80 <e2994#> {c62bl} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f130 <e2996#> {c63bp} @dt=0x555556e51380@(w32)
     1:2:1: CONST 0x555556e53500 <e824> {c63br} @dt=0x555556e47c70@(G/w32)  32'h0
-    1:2:2: VARREF 0x555556e1a900 <e3027#> {c63am} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [LV] => VAR 0x555556e56600 <e3012#> {c60aq} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f1e0 <e3030#> {c64bo} @dt=0x555556e516c0@(w1)
+    1:2:2: VARREF 0x555556e7e900 <e2995#> {c63am} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [LV] => VAR 0x555556e56600 <e2980#> {c60aq} @dt=0x555556e51380@(w32)  testF1S1B2T2_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f1e0 <e2998#> {c64bo} @dt=0x555556e516c0@(w1)
     1:2:1: CONST 0x555556e53600 <e835> {c64bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1aa20 <e3029#> {c64am} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [LV] => VAR 0x555556e56780 <e3020#> {c61ap} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f290 <e3032#> {c65br} @dt=0x555556e51930@(w1)
-    1:2:1: CONST 0x555556ea2500 <e3045#> {c65bt} @dt=0x555556e51930@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1ab40 <e3031#> {c65am} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [LV] => VAR 0x555556e56a80 <e3026#> {c62bl} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f340 <e3047#> {c66bn} @dt=0x555556e51860@(w1)
-    1:2:1: CONST 0x555556ea2600 <e3060#> {c66bp} @dt=0x555556e51860@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1ac60 <e3046#> {c66am} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [LV] => VAR 0x555556e56900 <e3023#> {c62aj} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e56c00 <e3068#> {c69aq} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e56d80 <e3076#> {c70ap} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e56f00 <e3079#> {c71aj} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57080 <e3082#> {c71bl} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f6b0 <e3084#> {c72bp} @dt=0x555556e58340@(w32)
+    1:2:2: VARREF 0x555556e7ea20 <e2997#> {c64am} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [LV] => VAR 0x555556e56780 <e2988#> {c61ap} @dt=0x555556e516c0@(w1)  testF1S1B2T2_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f290 <e3000#> {c65br} @dt=0x555556e51930@(w1)
+    1:2:1: CONST 0x555556eac500 <e3013#> {c65bt} @dt=0x555556e51930@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7eb40 <e2999#> {c65am} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [LV] => VAR 0x555556e56a80 <e2994#> {c62bl} @dt=0x555556e51930@(w1)  testF1S1B2T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f340 <e3015#> {c66bn} @dt=0x555556e51860@(w1)
+    1:2:1: CONST 0x555556eac600 <e3028#> {c66bp} @dt=0x555556e51860@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7ec60 <e3014#> {c66am} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [LV] => VAR 0x555556e56900 <e2991#> {c62aj} @dt=0x555556e51860@(w1)  testF1S1B2T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e56c00 <e3036#> {c69aq} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e56d80 <e3044#> {c70ap} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e56f00 <e3047#> {c71aj} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57080 <e3050#> {c71bl} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f6b0 <e3052#> {c72bp} @dt=0x555556e58340@(w32)
     1:2:1: CONST 0x555556e5a100 <e930> {c72br} @dt=0x555556e47c70@(G/w32)  32'hbdc5ca3a
-    1:2:2: VARREF 0x555556e1ad80 <e3083#> {c72am} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [LV] => VAR 0x555556e56c00 <e3068#> {c69aq} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f760 <e3086#> {c73bo} @dt=0x555556e58680@(w1)
+    1:2:2: VARREF 0x555556e7ed80 <e3051#> {c72am} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [LV] => VAR 0x555556e56c00 <e3036#> {c69aq} @dt=0x555556e58340@(w32)  testF1S1B3T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f760 <e3054#> {c73bo} @dt=0x555556e58680@(w1)
     1:2:1: CONST 0x555556e5a200 <e941> {c73bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1aea0 <e3085#> {c73am} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [LV] => VAR 0x555556e56d80 <e3076#> {c70ap} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f810 <e3088#> {c74br} @dt=0x555556e588f0@(w1)
-    1:2:1: CONST 0x555556ea2700 <e3101#> {c74bt} @dt=0x555556e588f0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1afc0 <e3087#> {c74am} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [LV] => VAR 0x555556e57080 <e3082#> {c71bl} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4f8c0 <e3103#> {c75bn} @dt=0x555556e58820@(w1)
-    1:2:1: CONST 0x555556ea2900 <e3116#> {c75bp} @dt=0x555556e58820@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1b0e0 <e3102#> {c75am} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [LV] => VAR 0x555556e56f00 <e3079#> {c71aj} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57200 <e3124#> {c78aq} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e57380 <e3132#> {c79ap} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e57500 <e3135#> {c80aj} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57680 <e3138#> {c80bl} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4fc30 <e3140#> {c81bp} @dt=0x555556e592b0@(w32)
+    1:2:2: VARREF 0x555556e7eea0 <e3053#> {c73am} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [LV] => VAR 0x555556e56d80 <e3044#> {c70ap} @dt=0x555556e58680@(w1)  testF1S1B3T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f810 <e3056#> {c74br} @dt=0x555556e588f0@(w1)
+    1:2:1: CONST 0x555556eac700 <e3069#> {c74bt} @dt=0x555556e588f0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7efc0 <e3055#> {c74am} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [LV] => VAR 0x555556e57080 <e3050#> {c71bl} @dt=0x555556e588f0@(w1)  testF1S1B3T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4f8c0 <e3071#> {c75bn} @dt=0x555556e58820@(w1)
+    1:2:1: CONST 0x555556eac900 <e3084#> {c75bp} @dt=0x555556e58820@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7f0e0 <e3070#> {c75am} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [LV] => VAR 0x555556e56f00 <e3047#> {c71aj} @dt=0x555556e58820@(w1)  testF1S1B3T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57200 <e3092#> {c78aq} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e57380 <e3100#> {c79ap} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e57500 <e3103#> {c80aj} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57680 <e3106#> {c80bl} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4fc30 <e3108#> {c81bp} @dt=0x555556e592b0@(w32)
     1:2:1: CONST 0x555556e5ad00 <e1036> {c81br} @dt=0x555556e47c70@(G/w32)  32'h0
-    1:2:2: VARREF 0x555556e1b200 <e3139#> {c81am} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [LV] => VAR 0x555556e57200 <e3124#> {c78aq} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4fce0 <e3142#> {c82bo} @dt=0x555556e595f0@(w1)
+    1:2:2: VARREF 0x555556e7f200 <e3107#> {c81am} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [LV] => VAR 0x555556e57200 <e3092#> {c78aq} @dt=0x555556e592b0@(w32)  testF1S1B3T2_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4fce0 <e3110#> {c82bo} @dt=0x555556e595f0@(w1)
     1:2:1: CONST 0x555556e5ae00 <e1047> {c82bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1b320 <e3141#> {c82am} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [LV] => VAR 0x555556e57380 <e3132#> {c79ap} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4fd90 <e3144#> {c83br} @dt=0x555556e59860@(w1)
-    1:2:1: CONST 0x555556ea2a00 <e3157#> {c83bt} @dt=0x555556e59860@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1b440 <e3143#> {c83am} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [LV] => VAR 0x555556e57680 <e3138#> {c80bl} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e4fe40 <e3159#> {c84bn} @dt=0x555556e59790@(w1)
-    1:2:1: CONST 0x555556ea2b00 <e3172#> {c84bp} @dt=0x555556e59790@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1b560 <e3158#> {c84am} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [LV] => VAR 0x555556e57500 <e3135#> {c80aj} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57800 <e3180#> {c87aq} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e57980 <e3188#> {c88ap} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e57b00 <e3191#> {c89aj} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57c80 <e3194#> {c89bl} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60210 <e3196#> {c90bp} @dt=0x555556e5c270@(w32)
+    1:2:2: VARREF 0x555556e7f320 <e3109#> {c82am} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [LV] => VAR 0x555556e57380 <e3100#> {c79ap} @dt=0x555556e595f0@(w1)  testF1S1B3T2_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4fd90 <e3112#> {c83br} @dt=0x555556e59860@(w1)
+    1:2:1: CONST 0x555556eaca00 <e3125#> {c83bt} @dt=0x555556e59860@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7f440 <e3111#> {c83am} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [LV] => VAR 0x555556e57680 <e3106#> {c80bl} @dt=0x555556e59860@(w1)  testF1S1B3T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e4fe40 <e3127#> {c84bn} @dt=0x555556e59790@(w1)
+    1:2:1: CONST 0x555556eacb00 <e3140#> {c84bp} @dt=0x555556e59790@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7f560 <e3126#> {c84am} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [LV] => VAR 0x555556e57500 <e3103#> {c80aj} @dt=0x555556e59790@(w1)  testF1S1B3T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57800 <e3148#> {c87aq} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e57980 <e3156#> {c88ap} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e57b00 <e3159#> {c89aj} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57c80 <e3162#> {c89bl} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60210 <e3164#> {c90bp} @dt=0x555556e5c270@(w32)
     1:2:1: CONST 0x555556e5b900 <e1142> {c90br} @dt=0x555556e47c70@(G/w32)  32'h46aea154
-    1:2:2: VARREF 0x555556e1b680 <e3195#> {c90am} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [LV] => VAR 0x555556e57800 <e3180#> {c87aq} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e602c0 <e3198#> {c91bo} @dt=0x555556e5c5b0@(w1)
+    1:2:2: VARREF 0x555556e7f680 <e3163#> {c90am} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [LV] => VAR 0x555556e57800 <e3148#> {c87aq} @dt=0x555556e5c270@(w32)  testF1S2B1T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e602c0 <e3166#> {c91bo} @dt=0x555556e5c5b0@(w1)
     1:2:1: CONST 0x555556e5ba00 <e1153> {c91bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1b7a0 <e3197#> {c91am} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [LV] => VAR 0x555556e57980 <e3188#> {c88ap} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60370 <e3200#> {c92br} @dt=0x555556e5c820@(w1)
-    1:2:1: CONST 0x555556ea2c00 <e3213#> {c92bt} @dt=0x555556e5c820@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1b8c0 <e3199#> {c92am} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [LV] => VAR 0x555556e57c80 <e3194#> {c89bl} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60420 <e3215#> {c93bn} @dt=0x555556e5c750@(w1)
-    1:2:1: CONST 0x555556ea2d00 <e3228#> {c93bp} @dt=0x555556e5c750@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1b9e0 <e3214#> {c93am} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [LV] => VAR 0x555556e57b00 <e3191#> {c89aj} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e57e00 <e3236#> {c96aq} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e64000 <e3244#> {c97ap} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e64180 <e3247#> {c98aj} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64300 <e3250#> {c98bl} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60790 <e3252#> {c99bp} @dt=0x555556e5d1e0@(w32)
+    1:2:2: VARREF 0x555556e7f7a0 <e3165#> {c91am} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [LV] => VAR 0x555556e57980 <e3156#> {c88ap} @dt=0x555556e5c5b0@(w1)  testF1S2B1T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60370 <e3168#> {c92br} @dt=0x555556e5c820@(w1)
+    1:2:1: CONST 0x555556eacc00 <e3181#> {c92bt} @dt=0x555556e5c820@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7f8c0 <e3167#> {c92am} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [LV] => VAR 0x555556e57c80 <e3162#> {c89bl} @dt=0x555556e5c820@(w1)  testF1S2B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60420 <e3183#> {c93bn} @dt=0x555556e5c750@(w1)
+    1:2:1: CONST 0x555556eacd00 <e3196#> {c93bp} @dt=0x555556e5c750@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7f9e0 <e3182#> {c93am} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [LV] => VAR 0x555556e57b00 <e3159#> {c89aj} @dt=0x555556e5c750@(w1)  testF1S2B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e57e00 <e3204#> {c96aq} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e64000 <e3212#> {c97ap} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e64180 <e3215#> {c98aj} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e64300 <e3218#> {c98bl} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60790 <e3220#> {c99bp} @dt=0x555556e5d1e0@(w32)
     1:2:1: CONST 0x555556e62500 <e1248> {c99br} @dt=0x555556e47c70@(G/w32)  32'h423a35c6
-    1:2:2: VARREF 0x555556e1bb00 <e3251#> {c99am} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [LV] => VAR 0x555556e57e00 <e3236#> {c96aq} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60840 <e3254#> {c100bo} @dt=0x555556e5d520@(w1)
+    1:2:2: VARREF 0x555556e7fb00 <e3219#> {c99am} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [LV] => VAR 0x555556e57e00 <e3204#> {c96aq} @dt=0x555556e5d1e0@(w32)  testF2S1B1T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60840 <e3222#> {c100bo} @dt=0x555556e5d520@(w1)
     1:2:1: CONST 0x555556e62600 <e1259> {c100bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1bc20 <e3253#> {c100am} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [LV] => VAR 0x555556e64000 <e3244#> {c97ap} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e608f0 <e3256#> {c101br} @dt=0x555556e5d790@(w1)
-    1:2:1: CONST 0x555556ea2e00 <e3269#> {c101bt} @dt=0x555556e5d790@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1bd40 <e3255#> {c101am} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [LV] => VAR 0x555556e64300 <e3250#> {c98bl} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e609a0 <e3271#> {c102bn} @dt=0x555556e5d6c0@(w1)
-    1:2:1: CONST 0x555556ea2f00 <e3284#> {c102bp} @dt=0x555556e5d6c0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1be60 <e3270#> {c102am} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [LV] => VAR 0x555556e64180 <e3247#> {c98aj} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64480 <e3292#> {c105aq} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e64600 <e3300#> {c106ap} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e64780 <e3303#> {c107aj} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64900 <e3306#> {c107bl} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60d10 <e3308#> {c108bp} @dt=0x555556e661a0@(w32)
+    1:2:2: VARREF 0x555556e7fc20 <e3221#> {c100am} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [LV] => VAR 0x555556e64000 <e3212#> {c97ap} @dt=0x555556e5d520@(w1)  testF2S1B1T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e608f0 <e3224#> {c101br} @dt=0x555556e5d790@(w1)
+    1:2:1: CONST 0x555556eace00 <e3237#> {c101bt} @dt=0x555556e5d790@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7fd40 <e3223#> {c101am} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [LV] => VAR 0x555556e64300 <e3218#> {c98bl} @dt=0x555556e5d790@(w1)  testF2S1B1T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e609a0 <e3239#> {c102bn} @dt=0x555556e5d6c0@(w1)
+    1:2:1: CONST 0x555556eacf00 <e3252#> {c102bp} @dt=0x555556e5d6c0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e7fe60 <e3238#> {c102am} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [LV] => VAR 0x555556e64180 <e3215#> {c98aj} @dt=0x555556e5d6c0@(w1)  testF2S1B1T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e64480 <e3260#> {c105aq} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e64600 <e3268#> {c106ap} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e64780 <e3271#> {c107aj} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e64900 <e3274#> {c107bl} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60d10 <e3276#> {c108bp} @dt=0x555556e661a0@(w32)
     1:2:1: CONST 0x555556e63100 <e1354> {c108br} @dt=0x555556e47c70@(G/w32)  32'h33829b9c
-    1:2:2: VARREF 0x555556e1c000 <e3307#> {c108am} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [LV] => VAR 0x555556e64480 <e3292#> {c105aq} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60dc0 <e3310#> {c109bo} @dt=0x555556e664e0@(w1)
+    1:2:2: VARREF 0x555556e80000 <e3275#> {c108am} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [LV] => VAR 0x555556e64480 <e3260#> {c105aq} @dt=0x555556e661a0@(w32)  testF2S1B2T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60dc0 <e3278#> {c109bo} @dt=0x555556e664e0@(w1)
     1:2:1: CONST 0x555556e63200 <e1365> {c109bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1c120 <e3309#> {c109am} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [LV] => VAR 0x555556e64600 <e3300#> {c106ap} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60e70 <e3312#> {c110br} @dt=0x555556e66750@(w1)
-    1:2:1: CONST 0x555556ea3000 <e3325#> {c110bt} @dt=0x555556e66750@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1c240 <e3311#> {c110am} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [LV] => VAR 0x555556e64900 <e3306#> {c107bl} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e60f20 <e3327#> {c111bn} @dt=0x555556e66680@(w1)
-    1:2:1: CONST 0x555556ea3100 <e3340#> {c111bp} @dt=0x555556e66680@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1c360 <e3326#> {c111am} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [LV] => VAR 0x555556e64780 <e3303#> {c107aj} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64a80 <e3348#> {c114aq} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e64c00 <e3356#> {c115ap} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e64d80 <e3359#> {c116aj} @dt=0x555556e675f0@(w1)  testF2S1B1T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e64f00 <e3362#> {c116bl} @dt=0x555556e676c0@(w1)  testF2S1B1T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61290 <e3364#> {c117bp} @dt=0x555556e67110@(w32)
+    1:2:2: VARREF 0x555556e80120 <e3277#> {c109am} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [LV] => VAR 0x555556e64600 <e3268#> {c106ap} @dt=0x555556e664e0@(w1)  testF2S1B2T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60e70 <e3280#> {c110br} @dt=0x555556e66750@(w1)
+    1:2:1: CONST 0x555556ead000 <e3293#> {c110bt} @dt=0x555556e66750@(w1)  1'h0
+    1:2:2: VARREF 0x555556e80240 <e3279#> {c110am} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [LV] => VAR 0x555556e64900 <e3274#> {c107bl} @dt=0x555556e66750@(w1)  testF2S1B2T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e60f20 <e3295#> {c111bn} @dt=0x555556e66680@(w1)
+    1:2:1: CONST 0x555556ead100 <e3308#> {c111bp} @dt=0x555556e66680@(w1)  1'h0
+    1:2:2: VARREF 0x555556e80360 <e3294#> {c111am} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [LV] => VAR 0x555556e64780 <e3271#> {c107aj} @dt=0x555556e66680@(w1)  testF2S1B2T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e64a80 <e3316#> {c114aq} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e64c00 <e3324#> {c115ap} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e64d80 <e3327#> {c116aj} @dt=0x555556e675f0@(w1)  testF2S1B2T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e64f00 <e3330#> {c116bl} @dt=0x555556e676c0@(w1)  testF2S1B2T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61290 <e3332#> {c117bp} @dt=0x555556e67110@(w32)
     1:2:1: CONST 0x555556e63d00 <e1460> {c117br} @dt=0x555556e47c70@(G/w32)  32'h0
-    1:2:2: VARREF 0x555556e1c480 <e3363#> {c117am} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [LV] => VAR 0x555556e64a80 <e3348#> {c114aq} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61340 <e3366#> {c118bo} @dt=0x555556e67450@(w1)
+    1:2:2: VARREF 0x555556e80480 <e3331#> {c117am} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [LV] => VAR 0x555556e64a80 <e3316#> {c114aq} @dt=0x555556e67110@(w32)  testF2S1B2T2_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61340 <e3334#> {c118bo} @dt=0x555556e67450@(w1)
     1:2:1: CONST 0x555556e63e00 <e1471> {c118bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1c5a0 <e3365#> {c118am} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [LV] => VAR 0x555556e64c00 <e3356#> {c115ap} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e613f0 <e3367#> {c119br} @dt=0x555556e46680@(G/w1)
-    1:2:1: CONST 0x555556ea3200 <e3379#> {c119bt} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1c6c0 <e2150> {c119am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_overflow [LV] => VAR 0x555556e76900 <e2151> {c119am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_overflow WIRE
-    1:2: ASSIGNW 0x555556e614a0 <e3380#> {c120bn} @dt=0x555556e46680@(G/w1)
-    1:2:1: CONST 0x555556ea3300 <e3392#> {c120bp} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1c7e0 <e2161> {c120am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_zero [LV] => VAR 0x555556e76a80 <e2162> {c120am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_zero WIRE
-    1:2: VAR 0x555556e65080 <e3400#> {c123aq} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e65200 <e3408#> {c124ap} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e65380 <e3411#> {c125aj} @dt=0x555556e6a5b0@(w1)  testF2S1B1T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e65500 <e3414#> {c125bl} @dt=0x555556e6a680@(w1)  testF2S1B1T3_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61810 <e3416#> {c126bp} @dt=0x555556e6a0d0@(w32)
+    1:2:2: VARREF 0x555556e805a0 <e3333#> {c118am} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [LV] => VAR 0x555556e64c00 <e3324#> {c115ap} @dt=0x555556e67450@(w1)  testF2S1B2T2_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e613f0 <e3336#> {c119br} @dt=0x555556e676c0@(w1)
+    1:2:1: CONST 0x555556ead200 <e3349#> {c119bt} @dt=0x555556e676c0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e806c0 <e3335#> {c119am} @dt=0x555556e676c0@(w1)  testF2S1B2T2_expected_overflow [LV] => VAR 0x555556e64f00 <e3330#> {c116bl} @dt=0x555556e676c0@(w1)  testF2S1B2T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e614a0 <e3351#> {c120bn} @dt=0x555556e675f0@(w1)
+    1:2:1: CONST 0x555556ead300 <e3364#> {c120bp} @dt=0x555556e675f0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e807e0 <e3350#> {c120am} @dt=0x555556e675f0@(w1)  testF2S1B2T2_expected_zero [LV] => VAR 0x555556e64d80 <e3327#> {c116aj} @dt=0x555556e675f0@(w1)  testF2S1B2T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e65080 <e3372#> {c123aq} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e65200 <e3380#> {c124ap} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e65380 <e3383#> {c125aj} @dt=0x555556e6a5b0@(w1)  testF2S1B2T3_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e65500 <e3386#> {c125bl} @dt=0x555556e6a680@(w1)  testF2S1B2T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61810 <e3388#> {c126bp} @dt=0x555556e6a0d0@(w32)
     1:2:1: CONST 0x555556e68900 <e1566> {c126br} @dt=0x555556e47c70@(G/w32)  32'hcc7d6464
-    1:2:2: VARREF 0x555556e1c900 <e3415#> {c126am} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [LV] => VAR 0x555556e65080 <e3400#> {c123aq} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e618c0 <e3418#> {c127bo} @dt=0x555556e6a410@(w1)
+    1:2:2: VARREF 0x555556e80900 <e3387#> {c126am} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [LV] => VAR 0x555556e65080 <e3372#> {c123aq} @dt=0x555556e6a0d0@(w32)  testF2S1B2T3_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e618c0 <e3390#> {c127bo} @dt=0x555556e6a410@(w1)
     1:2:1: CONST 0x555556e68a00 <e1577> {c127bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1ca20 <e3417#> {c127am} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [LV] => VAR 0x555556e65200 <e3408#> {c124ap} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61970 <e3419#> {c128br} @dt=0x555556e46680@(G/w1)
-    1:2:1: CONST 0x555556ea3400 <e3431#> {c128bt} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1cb40 <e2178> {c128am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_overflow [LV] => VAR 0x555556e76c00 <e2179> {c128am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_overflow WIRE
-    1:2: ASSIGNW 0x555556e61a20 <e3432#> {c129bn} @dt=0x555556e46680@(G/w1)
-    1:2:1: CONST 0x555556ea3500 <e3444#> {c129bp} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1cc60 <e2189> {c129am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_zero [LV] => VAR 0x555556e76d80 <e2190> {c129am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_zero WIRE
-    1:2: VAR 0x555556e65680 <e3452#> {c132aq} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e65800 <e3460#> {c133ap} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e65980 <e3463#> {c134aj} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e65b00 <e3466#> {c134bl} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61d90 <e3468#> {c135bp} @dt=0x555556e6b040@(w32)
+    1:2:2: VARREF 0x555556e80a20 <e3389#> {c127am} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [LV] => VAR 0x555556e65200 <e3380#> {c124ap} @dt=0x555556e6a410@(w1)  testF2S1B2T3_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61970 <e3392#> {c128br} @dt=0x555556e6a680@(w1)
+    1:2:1: CONST 0x555556ead400 <e3405#> {c128bt} @dt=0x555556e6a680@(w1)  1'h0
+    1:2:2: VARREF 0x555556e80b40 <e3391#> {c128am} @dt=0x555556e6a680@(w1)  testF2S1B2T3_expected_overflow [LV] => VAR 0x555556e65500 <e3386#> {c125bl} @dt=0x555556e6a680@(w1)  testF2S1B2T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61a20 <e3407#> {c129bn} @dt=0x555556e6a5b0@(w1)
+    1:2:1: CONST 0x555556ead500 <e3420#> {c129bp} @dt=0x555556e6a5b0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e80c60 <e3406#> {c129am} @dt=0x555556e6a5b0@(w1)  testF2S1B2T3_expected_zero [LV] => VAR 0x555556e65380 <e3383#> {c125aj} @dt=0x555556e6a5b0@(w1)  testF2S1B2T3_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e65680 <e3428#> {c132aq} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e65800 <e3436#> {c133ap} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e65980 <e3439#> {c134aj} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e65b00 <e3442#> {c134bl} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61d90 <e3444#> {c135bp} @dt=0x555556e6b040@(w32)
     1:2:1: CONST 0x555556e69500 <e1672> {c135br} @dt=0x555556e47c70@(G/w32)  32'hcc7d6464
-    1:2:2: VARREF 0x555556e1cd80 <e3467#> {c135am} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [LV] => VAR 0x555556e65680 <e3452#> {c132aq} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61e40 <e3470#> {c136bo} @dt=0x555556e6b380@(w1)
+    1:2:2: VARREF 0x555556e80d80 <e3443#> {c135am} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [LV] => VAR 0x555556e65680 <e3428#> {c132aq} @dt=0x555556e6b040@(w32)  testF2S1B3T1_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61e40 <e3446#> {c136bo} @dt=0x555556e6b380@(w1)
     1:2:1: CONST 0x555556e69600 <e1683> {c136bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1cea0 <e3469#> {c136am} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [LV] => VAR 0x555556e65800 <e3460#> {c133ap} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e61ef0 <e3472#> {c137br} @dt=0x555556e6b5f0@(w1)
-    1:2:1: CONST 0x555556ea3600 <e3485#> {c137bt} @dt=0x555556e6b5f0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1cfc0 <e3471#> {c137am} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [LV] => VAR 0x555556e65b00 <e3466#> {c134bl} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70000 <e3487#> {c138bn} @dt=0x555556e6b520@(w1)
-    1:2:1: CONST 0x555556ea3700 <e3500#> {c138bp} @dt=0x555556e6b520@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1d0e0 <e3486#> {c138am} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [LV] => VAR 0x555556e65980 <e3463#> {c134aj} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e65c80 <e3508#> {c141aq} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e65e00 <e3516#> {c142ap} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e76000 <e3519#> {c143aj} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e76180 <e3522#> {c143bl} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70370 <e3524#> {c144bp} @dt=0x555556e72000@(w32)
+    1:2:2: VARREF 0x555556e80ea0 <e3445#> {c136am} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [LV] => VAR 0x555556e65800 <e3436#> {c133ap} @dt=0x555556e6b380@(w1)  testF2S1B3T1_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e61ef0 <e3448#> {c137br} @dt=0x555556e6b5f0@(w1)
+    1:2:1: CONST 0x555556ead600 <e3461#> {c137bt} @dt=0x555556e6b5f0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e80fc0 <e3447#> {c137am} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [LV] => VAR 0x555556e65b00 <e3442#> {c134bl} @dt=0x555556e6b5f0@(w1)  testF2S1B3T1_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70000 <e3463#> {c138bn} @dt=0x555556e6b520@(w1)
+    1:2:1: CONST 0x555556ead700 <e3476#> {c138bp} @dt=0x555556e6b520@(w1)  1'h0
+    1:2:2: VARREF 0x555556e810e0 <e3462#> {c138am} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [LV] => VAR 0x555556e65980 <e3439#> {c134aj} @dt=0x555556e6b520@(w1)  testF2S1B3T1_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e65c80 <e3484#> {c141aq} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e65e00 <e3492#> {c142ap} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e76000 <e3495#> {c143aj} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e76180 <e3498#> {c143bl} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70370 <e3500#> {c144bp} @dt=0x555556e72000@(w32)
     1:2:1: CONST 0x555556e74100 <e1778> {c144br} @dt=0x555556e47c70@(G/w32)  32'h0
-    1:2:2: VARREF 0x555556e1d200 <e3523#> {c144am} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [LV] => VAR 0x555556e65c80 <e3508#> {c141aq} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70420 <e3526#> {c145bo} @dt=0x555556e72340@(w1)
+    1:2:2: VARREF 0x555556e81200 <e3499#> {c144am} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [LV] => VAR 0x555556e65c80 <e3484#> {c141aq} @dt=0x555556e72000@(w32)  testF2S1B3T2_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70420 <e3502#> {c145bo} @dt=0x555556e72340@(w1)
     1:2:1: CONST 0x555556e74200 <e1789> {c145bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1d320 <e3525#> {c145am} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [LV] => VAR 0x555556e65e00 <e3516#> {c142ap} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e704d0 <e3528#> {c146br} @dt=0x555556e725b0@(w1)
-    1:2:1: CONST 0x555556ea3800 <e3541#> {c146bt} @dt=0x555556e725b0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1d440 <e3527#> {c146am} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [LV] => VAR 0x555556e76180 <e3522#> {c143bl} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70580 <e3543#> {c147bn} @dt=0x555556e724e0@(w1)
-    1:2:1: CONST 0x555556ea2800 <e3556#> {c147bp} @dt=0x555556e724e0@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1d560 <e3542#> {c147am} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [LV] => VAR 0x555556e76000 <e3519#> {c143aj} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e76300 <e3564#> {c150aq} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [VSTATIC]  VAR
-    1:2: VAR 0x555556e76480 <e3572#> {c151ap} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [VSTATIC]  VAR
-    1:2: VAR 0x555556e76600 <e3575#> {c152aj} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e76780 <e3578#> {c152bl} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e708f0 <e3580#> {c153bp} @dt=0x555556e72f70@(w32)
+    1:2:2: VARREF 0x555556e81320 <e3501#> {c145am} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [LV] => VAR 0x555556e65e00 <e3492#> {c142ap} @dt=0x555556e72340@(w1)  testF2S1B3T2_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e704d0 <e3504#> {c146br} @dt=0x555556e725b0@(w1)
+    1:2:1: CONST 0x555556ead800 <e3517#> {c146bt} @dt=0x555556e725b0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e81440 <e3503#> {c146am} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [LV] => VAR 0x555556e76180 <e3498#> {c143bl} @dt=0x555556e725b0@(w1)  testF2S1B3T2_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70580 <e3519#> {c147bn} @dt=0x555556e724e0@(w1)
+    1:2:1: CONST 0x555556eac800 <e3532#> {c147bp} @dt=0x555556e724e0@(w1)  1'h0
+    1:2:2: VARREF 0x555556e81560 <e3518#> {c147am} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [LV] => VAR 0x555556e76000 <e3495#> {c143aj} @dt=0x555556e724e0@(w1)  testF2S1B3T2_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e76300 <e3540#> {c150aq} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [VSTATIC]  VAR
+    1:2: VAR 0x555556e76480 <e3548#> {c151ap} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [VSTATIC]  VAR
+    1:2: VAR 0x555556e76600 <e3551#> {c152aj} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [VSTATIC]  VAR
+    1:2: VAR 0x555556e76780 <e3554#> {c152bl} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e708f0 <e3556#> {c153bp} @dt=0x555556e72f70@(w32)
     1:2:1: CONST 0x555556e74d00 <e1884> {c153br} @dt=0x555556e47c70@(G/w32)  32'h33829b9c
-    1:2:2: VARREF 0x555556e1d680 <e3579#> {c153am} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [LV] => VAR 0x555556e76300 <e3564#> {c150aq} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e709a0 <e3582#> {c154bo} @dt=0x555556e732b0@(w1)
+    1:2:2: VARREF 0x555556e81680 <e3555#> {c153am} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [LV] => VAR 0x555556e76300 <e3540#> {c150aq} @dt=0x555556e72f70@(w32)  testF2S1B3T3_expected_result [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e709a0 <e3558#> {c154bo} @dt=0x555556e732b0@(w1)
     1:2:1: CONST 0x555556e74e00 <e1895> {c154bq} @dt=0x555556e46680@(G/w1)  1'h0
-    1:2:2: VARREF 0x555556e1d7a0 <e3581#> {c154am} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [LV] => VAR 0x555556e76480 <e3572#> {c151ap} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70a50 <e3584#> {c155br} @dt=0x555556e73520@(w1)
-    1:2:1: CONST 0x555556ea3900 <e3597#> {c155bt} @dt=0x555556e73520@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1d8c0 <e3583#> {c155am} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [LV] => VAR 0x555556e76780 <e3578#> {c152bl} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [VSTATIC]  VAR
-    1:2: ASSIGNW 0x555556e70b00 <e3599#> {c156bn} @dt=0x555556e73450@(w1)
-    1:2:1: CONST 0x555556ea3a00 <e3612#> {c156bp} @dt=0x555556e73450@(w1)  1'h0
-    1:2:2: VARREF 0x555556e1d9e0 <e3598#> {c156am} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [LV] => VAR 0x555556e76600 <e3575#> {c152aj} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [VSTATIC]  VAR
-    1:2: VAR 0x555556e76900 <e2151> {c119am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_overflow WIRE
-    1:2: VAR 0x555556e76a80 <e2162> {c120am} @dt=0x555556e46680@(G/w1)  testF2S1B2T2_expected_zero WIRE
-    1:2: VAR 0x555556e76c00 <e2179> {c128am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_overflow WIRE
-    1:2: VAR 0x555556e76d80 <e2190> {c129am} @dt=0x555556e46680@(G/w1)  testF2S1B2T3_expected_zero WIRE
+    1:2:2: VARREF 0x555556e817a0 <e3557#> {c154am} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [LV] => VAR 0x555556e76480 <e3548#> {c151ap} @dt=0x555556e732b0@(w1)  testF2S1B3T3_expected_carry [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70a50 <e3560#> {c155br} @dt=0x555556e73520@(w1)
+    1:2:1: CONST 0x555556ead900 <e3573#> {c155bt} @dt=0x555556e73520@(w1)  1'h0
+    1:2:2: VARREF 0x555556e818c0 <e3559#> {c155am} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [LV] => VAR 0x555556e76780 <e3554#> {c152bl} @dt=0x555556e73520@(w1)  testF2S1B3T3_expected_overflow [VSTATIC]  VAR
+    1:2: ASSIGNW 0x555556e70b00 <e3575#> {c156bn} @dt=0x555556e73450@(w1)
+    1:2:1: CONST 0x555556eada00 <e3588#> {c156bp} @dt=0x555556e73450@(w1)  1'h0
+    1:2:2: VARREF 0x555556e819e0 <e3574#> {c156am} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [LV] => VAR 0x555556e76600 <e3551#> {c152aj} @dt=0x555556e73450@(w1)  testF2S1B3T3_expected_zero [VSTATIC]  VAR
     3: TYPETABLE 0x555556df2000 <e2> {a0aa}
 		   logic  -> BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
 		detailed  ->  BASICDTYPE 0x555556dfbe10 <e179> {c13bg} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
 		detailed  ->  BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
-		detailed  ->  BASICDTYPE 0x555556e9c680 <e2524#> {c15ba} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
-		detailed  ->  BASICDTYPE 0x555556e9c5b0 <e2520#> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
-		detailed  ->  BASICDTYPE 0x555556e9c410 <e2501#> {c15az} @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x555556ea8340 <e2492#> {c15ba} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+		detailed  ->  BASICDTYPE 0x555556ea8270 <e2488#> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
+		detailed  ->  BASICDTYPE 0x555556ea80d0 <e2469#> {c15az} @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
 		detailed  ->  BASICDTYPE 0x555556dfa820 <e33> {c3ap} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
 		detailed  ->  BASICDTYPE 0x555556dfa750 <e28> {c3am} @dt=this@(G/swu32/5)  logic [GENERIC] kwd=logic range=[31:0]
 		detailed  ->  BASICDTYPE 0x555556dfbc70 <e171> {c13be} @dt=this@(G/swu32/6)  logic [GENERIC] kwd=logic range=[31:0]
@@ -330,77 +326,77 @@ Verilator Tree Dump (format 0x3900) from <e2399> to <e3684>
     3:1: BASICDTYPE 0x555556dfbe10 <e179> {c13bg} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
     3:1: BASICDTYPE 0x555556e46680 <e226> {c15be} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
     3:1: BASICDTYPE 0x555556e47c70 <e397> {c27br} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556dfa680 <e2401#> {c2al} @dt=this@(nw1)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
-    3:1: BASICDTYPE 0x555556dfaa90 <e2414#> {c3al} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556dfaea0 <e2422#> {c4al} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556dfb1e0 <e2430#> {c5am} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556dfb380 <e2433#> {c6am} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556dfb450 <e2436#> {c6am} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556dfb790 <e2444#> {c7am} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556dfbad0 <e2452#> {c8af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e9c410 <e2501#> {c15az} @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e9c5b0 <e2520#> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
-    3:1: BASICDTYPE 0x555556e9c680 <e2524#> {c15ba} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
-    3:1: BASICDTYPE 0x555556e47520 <e2787#> {c24af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e47860 <e2795#> {c25af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e47a00 <e2798#> {c26af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e47ad0 <e2801#> {c26af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e4c4e0 <e2843#> {c33af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e4c820 <e2851#> {c34af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e4c9c0 <e2854#> {c35af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e4ca90 <e2857#> {c35af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e4d450 <e2899#> {c42af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e4d790 <e2907#> {c43af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e4d930 <e2910#> {c44af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e4da00 <e2913#> {c44af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e50410 <e2955#> {c51af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e50750 <e2963#> {c52af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e508f0 <e2966#> {c53af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e509c0 <e2969#> {c53af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e51380 <e3011#> {c60af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e516c0 <e3019#> {c61af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e51860 <e3022#> {c62af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e51930 <e3025#> {c62af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e58340 <e3067#> {c69af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e58680 <e3075#> {c70af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e58820 <e3078#> {c71af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e588f0 <e3081#> {c71af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e592b0 <e3123#> {c78af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e595f0 <e3131#> {c79af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e59790 <e3134#> {c80af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e59860 <e3137#> {c80af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e5c270 <e3179#> {c87af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e5c5b0 <e3187#> {c88af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e5c750 <e3190#> {c89af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e5c820 <e3193#> {c89af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e5d1e0 <e3235#> {c96af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e5d520 <e3243#> {c97af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e5d6c0 <e3246#> {c98af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e5d790 <e3249#> {c98af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e661a0 <e3291#> {c105af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e664e0 <e3299#> {c106af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e66680 <e3302#> {c107af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e66750 <e3305#> {c107af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e67110 <e3347#> {c114af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e67450 <e3355#> {c115af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e675f0 <e3358#> {c116af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e676c0 <e3361#> {c116af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e6a0d0 <e3399#> {c123af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e6a410 <e3407#> {c124af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e6a5b0 <e3410#> {c125af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e6a680 <e3413#> {c125af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e6b040 <e3451#> {c132af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e6b380 <e3459#> {c133af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e6b520 <e3462#> {c134af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e6b5f0 <e3465#> {c134af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e72000 <e3507#> {c141af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e72340 <e3515#> {c142af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e724e0 <e3518#> {c143af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e725b0 <e3521#> {c143af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e72f70 <e3563#> {c150af} @dt=this@(w32)  logic kwd=logic range=[31:0]
-    3:1: BASICDTYPE 0x555556e732b0 <e3571#> {c151af} @dt=this@(w1)  logic kwd=logic range=[0:0]
-    3:1: BASICDTYPE 0x555556e73450 <e3574#> {c152af} @dt=this@(w1)  logic kwd=logic
-    3:1: BASICDTYPE 0x555556e73520 <e3577#> {c152af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556dfa680 <e2369#> {c2al} @dt=this@(nw1)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    3:1: BASICDTYPE 0x555556dfaa90 <e2382#> {c3al} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfaea0 <e2390#> {c4al} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfb1e0 <e2398#> {c5am} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556dfb380 <e2401#> {c6am} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556dfb450 <e2404#> {c6am} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556dfb790 <e2412#> {c7am} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556dfbad0 <e2420#> {c8af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556ea80d0 <e2469#> {c15az} @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556ea8270 <e2488#> {c15az} @dt=this@(G/sw5)  logic [GENERIC] kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x555556ea8340 <e2492#> {c15ba} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x555556e47520 <e2755#> {c24af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e47860 <e2763#> {c25af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e47a00 <e2766#> {c26af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e47ad0 <e2769#> {c26af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e4c4e0 <e2811#> {c33af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e4c820 <e2819#> {c34af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e4c9c0 <e2822#> {c35af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e4ca90 <e2825#> {c35af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e4d450 <e2867#> {c42af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e4d790 <e2875#> {c43af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e4d930 <e2878#> {c44af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e4da00 <e2881#> {c44af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e50410 <e2923#> {c51af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e50750 <e2931#> {c52af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e508f0 <e2934#> {c53af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e509c0 <e2937#> {c53af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e51380 <e2979#> {c60af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e516c0 <e2987#> {c61af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e51860 <e2990#> {c62af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e51930 <e2993#> {c62af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e58340 <e3035#> {c69af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e58680 <e3043#> {c70af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e58820 <e3046#> {c71af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e588f0 <e3049#> {c71af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e592b0 <e3091#> {c78af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e595f0 <e3099#> {c79af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e59790 <e3102#> {c80af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e59860 <e3105#> {c80af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e5c270 <e3147#> {c87af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e5c5b0 <e3155#> {c88af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e5c750 <e3158#> {c89af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e5c820 <e3161#> {c89af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e5d1e0 <e3203#> {c96af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e5d520 <e3211#> {c97af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e5d6c0 <e3214#> {c98af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e5d790 <e3217#> {c98af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e661a0 <e3259#> {c105af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e664e0 <e3267#> {c106af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e66680 <e3270#> {c107af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e66750 <e3273#> {c107af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e67110 <e3315#> {c114af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e67450 <e3323#> {c115af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e675f0 <e3326#> {c116af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e676c0 <e3329#> {c116af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e6a0d0 <e3371#> {c123af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e6a410 <e3379#> {c124af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e6a5b0 <e3382#> {c125af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e6a680 <e3385#> {c125af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e6b040 <e3427#> {c132af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e6b380 <e3435#> {c133af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e6b520 <e3438#> {c134af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e6b5f0 <e3441#> {c134af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e72000 <e3483#> {c141af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e72340 <e3491#> {c142af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e724e0 <e3494#> {c143af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e725b0 <e3497#> {c143af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e72f70 <e3539#> {c150af} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556e732b0 <e3547#> {c151af} @dt=this@(w1)  logic kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x555556e73450 <e3550#> {c152af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x555556e73520 <e3553#> {c152af} @dt=this@(w1)  logic kwd=logic
     3: CONSTPOOL 0x555556df4000 <e7> {a0aa}
     3:1: MODULE 0x555556de8120 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
     3:1:2: SCOPE 0x555556df6000 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556de8120]
