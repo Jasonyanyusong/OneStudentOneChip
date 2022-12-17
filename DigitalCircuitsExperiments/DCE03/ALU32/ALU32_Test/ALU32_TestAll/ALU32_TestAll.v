@@ -113,7 +113,7 @@ module ALU32_TestAll (sub_add, a, b, carry, zero, overflow, result);
     // Give result of test bench F2S1B2T2
     reg [31:0] testF2S1B2T2_expected_result;
     reg [0:0] testF2S1B2T2_expected_carry;
-    reg testF2S1B1T2_expected_zero, testF2S1B1T2_expected_overflow;
+    reg testF2S1B2T2_expected_zero, testF2S1B2T2_expected_overflow;
     assign testF2S1B2T2_expected_result = 32'b00000000000000000000000000000000;
     assign testF2S1B2T2_expected_carry = 1'b0;
     assign testF2S1B2T2_expected_overflow = 0;
@@ -122,7 +122,7 @@ module ALU32_TestAll (sub_add, a, b, carry, zero, overflow, result);
     // Give result of test bench F2S1B2T3
     reg [31:0] testF2S1B2T3_expected_result;
     reg [0:0] testF2S1B2T3_expected_carry;
-    reg testF2S1B1T3_expected_zero, testF2S1B1T3_expected_overflow;
+    reg testF2S1B2T3_expected_zero, testF2S1B2T3_expected_overflow;
     assign testF2S1B2T3_expected_result = 32'b11001100011111010110010001100100;
     assign testF2S1B2T3_expected_carry = 1'b0;
     assign testF2S1B2T3_expected_overflow = 0;
