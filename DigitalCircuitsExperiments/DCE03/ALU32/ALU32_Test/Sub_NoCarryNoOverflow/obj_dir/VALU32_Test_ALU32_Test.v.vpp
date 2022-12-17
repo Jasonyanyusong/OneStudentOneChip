@@ -1,0 +1,102 @@
+`begin_keywords "1800-2017"
+`line 1 "ALU32_Test.v" 1
+module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
+    input sub_add; 
+    input [31:0] a;  
+    input [31:0] b;  
+    output reg [0:0] carry;
+    output reg zero, overflow;
+    output reg [31:0] result;
+    reg [31:0] b_withCin;
+
+`line 10 "ALU32_Test.v" 0
+    always @(*) 
+    /*verilator lint_off WIDTH*/ 
+    begin
+        assign b_withCin = ({32{sub_add}}^b) + sub_add;
+        assign result = a + b_withCin;
+        assign carry = a[30] == 1 && b[30] == 1;
+        assign overflow = (a[31] == b_withCin[31] && result[31] != a[31]);
+        assign zero = ~(| result);
+    end
+    /*verilator lint_on WIDTH*/ 
+
+`line 21 "ALU32_Test.v" 0
+    /*verilator lint_off IMPLICIT*/ 
+    
+     
+    reg [31:0] testF2S1B1T1_expected_result;
+    reg [0:0] testF2S1B1T1_expected_carry;
+    reg testF2S1B1T1_expected_zero, testF2S1B1T1_expected_overflow;
+    assign testF2S1B1T1_expected_result = 32'b01000010001110100011010111000110;
+    assign testF2S1B1T1_expected_carry = 1'b0;
+    assign testF2S1B1T1_expected_overflow = 0;
+    assign testF2S1B1T1_expected_zero = 0;
+
+`line 32 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B2T1_expected_result;
+    reg [0:0] testF2S1B2T1_expected_carry;
+    reg testF2S1B2T1_expected_zero, testF2S1B2T1_expected_overflow;
+    assign testF2S1B2T1_expected_result = 32'b00110011100000101001101110011100;
+    assign testF2S1B2T1_expected_carry = 1'b0;
+    assign testF2S1B2T1_expected_overflow = 0;
+    assign testF2S1B2T1_expected_zero = 0;
+
+`line 41 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B2T2_expected_result;
+    reg [0:0] testF2S1B2T2_expected_carry;
+    reg testF2S1B1T2_expected_zero, testF2S1B1T2_expected_overflow;
+    assign testF2S1B2T2_expected_result = 32'b00000000000000000000000000000000;
+    assign testF2S1B2T2_expected_carry = 1'b0;
+    assign testF2S1B2T2_expected_overflow = 0;
+    assign testF2S1B2T2_expected_zero = 0;
+
+`line 50 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B2T3_expected_result;
+    reg [0:0] testF2S1B2T3_expected_carry;
+    reg testF2S1B1T3_expected_zero, testF2S1B1T3_expected_overflow;
+    assign testF2S1B2T3_expected_result = 32'b11001100011111010110010001100100;
+    assign testF2S1B2T3_expected_carry = 1'b0;
+    assign testF2S1B2T3_expected_overflow = 0;
+    assign testF2S1B2T3_expected_zero = 0;
+
+`line 59 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B3T1_expected_result;
+    reg [0:0] testF2S1B3T1_expected_carry;
+    reg testF2S1B3T1_expected_zero, testF2S1B3T1_expected_overflow;
+    assign testF2S1B3T1_expected_result = 32'b11001100011111010110010001100100;
+    assign testF2S1B3T1_expected_carry = 1'b0;
+    assign testF2S1B3T1_expected_overflow = 0;
+    assign testF2S1B3T1_expected_zero = 0;
+
+`line 68 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B3T2_expected_result;
+    reg [0:0] testF2S1B3T2_expected_carry;
+    reg testF2S1B3T2_expected_zero, testF2S1B3T2_expected_overflow;
+    assign testF2S1B3T2_expected_result = 32'b00000000000000000000000000000000;
+    assign testF2S1B3T2_expected_carry = 1'b0;
+    assign testF2S1B3T2_expected_overflow = 0;
+    assign testF2S1B3T2_expected_zero = 0;
+
+`line 77 "ALU32_Test.v" 0
+     
+    reg [31:0] testF2S1B3T3_expected_result;
+    reg [0:0] testF2S1B3T3_expected_carry;
+    reg testF2S1B3T3_expected_zero, testF2S1B3T3_expected_overflow;
+    assign testF2S1B3T3_expected_result = 32'b00110011100000101001101110011100;
+    assign testF2S1B3T3_expected_carry = 1'b0;
+    assign testF2S1B3T3_expected_overflow = 0;
+    assign testF2S1B3T3_expected_zero = 0;
+
+`line 86 "ALU32_Test.v" 0
+    /*verilator lint_on IMPLICIT*/ 
+
+`line 88 "ALU32_Test.v" 0
+endmodule
+
+`line 90 "ALU32_Test.v" 2
