@@ -58,7 +58,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b00110011100000101001101110011100" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b0;
     top -> a = 0b00111010110111100110100010110001; // + 987654321
@@ -69,7 +69,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // FAIL
 
     top -> sub_add = 0b0;
     top -> a = 0b00111010110111100110100010110001; // + 0987654321
@@ -80,7 +80,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b11110001010010000110010111011111" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     // Test Branch 2: A >= 0 and B >= 0
     top -> sub_add = 0b0;
@@ -92,7 +92,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b01000010001110100011010111000110" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b0;
     top -> a = 0b00000000000000000000000000000000; // + 0
@@ -103,11 +103,11 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     // Test Branch 3: A <= 0 and B <= 0
     top -> sub_add = 0b0;
-    top -> a = 0b00111010110111100110100010110001; // - 987654321
+    top -> a = 0b11000101001000011001011101001111; // - 987654321
     top -> b = 0b11111000101001000011001011101011; // - 123456789
     std :: cout << "This test bench is designed for testing the ability to calculate A + B where A <= B <= 0, A + B < 0" << std :: endl;
     std :: cout << "Sub_Add: " << top -> sub_add << " A: " << top -> a << " B: " << top -> b << std :: endl;
@@ -115,7 +115,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b10111101110001011100101000111010" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // FAIL
 
     top -> sub_add = 0b0;
     top -> a = 0b00000000000000000000000000000000; // - 0
@@ -126,7 +126,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     sim_exit();
 }
