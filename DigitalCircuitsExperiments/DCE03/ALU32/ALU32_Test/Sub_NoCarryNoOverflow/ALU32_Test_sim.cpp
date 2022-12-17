@@ -58,7 +58,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b01000010001110100011010111000110" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     // Test Branch 2: A >= 0 and B >= 0
     top -> sub_add = 0b1;
@@ -70,7 +70,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b00110011100000101001101110011100" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b1;
     top -> a = 0b00000000000000000000000000000000; // + 0
@@ -81,7 +81,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b1;
     top -> a = 0b00000111010110111100110100010101; // + 123456789
@@ -92,7 +92,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b11001100011111010110010001100100" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     // Test Branch 3: A <= 0 and B <= 0
     top -> sub_add = 0b1;
@@ -104,7 +104,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b11001100011111010110010001100100" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b1;
     top -> a = 0b00000000000000000000000000000000; // - 0
@@ -115,7 +115,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "1" << " Overflow: " << "0" << " Result: " << "0b00000000000000000000000000000000" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b1;
     top -> a = 0b11111000101001000011001011101011; // - 123456789
@@ -126,7 +126,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b00110011100000101001101110011100" << std :: endl;
-    step_and_dump_wave();
+    step_and_dump_wave(); // PASS
 
     sim_exit();
 }
