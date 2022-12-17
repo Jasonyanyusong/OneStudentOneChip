@@ -27,15 +27,15 @@ $timescale 1s $end
    $var wire  1 , testF1S1B1T2_expected_zero $end
    $var wire  1 , testF1S1B1T3_expected_carry [0:0] $end
    $var wire  1 , testF1S1B1T3_expected_overflow $end
-   $var wire 32 - testF1S1B1T3_expected_result [31:0] $end
+   $var wire 32 . testF1S1B1T3_expected_result [31:0] $end
    $var wire  1 , testF1S1B1T3_expected_zero $end
    $var wire  1 , testF1S1B2T1_expected_carry [0:0] $end
    $var wire  1 , testF1S1B2T1_expected_overflow $end
-   $var wire 32 . testF1S1B2T1_expected_result [31:0] $end
+   $var wire 32 / testF1S1B2T1_expected_result [31:0] $end
    $var wire  1 , testF1S1B2T1_expected_zero $end
    $var wire  1 , testF1S1B2T2_expected_carry [0:0] $end
    $var wire  1 , testF1S1B2T2_expected_overflow $end
-   $var wire 32 / testF1S1B2T2_expected_result [31:0] $end
+   $var wire 32 - testF1S1B2T2_expected_result [31:0] $end
    $var wire  1 , testF1S1B2T2_expected_zero $end
    $var wire  1 , testF1S1B3T1_expected_carry [0:0] $end
    $var wire  1 , testF1S1B3T1_expected_overflow $end
@@ -43,7 +43,7 @@ $timescale 1s $end
    $var wire  1 , testF1S1B3T1_expected_zero $end
    $var wire  1 , testF1S1B3T2_expected_carry [0:0] $end
    $var wire  1 , testF1S1B3T2_expected_overflow $end
-   $var wire 32 / testF1S1B3T2_expected_result [31:0] $end
+   $var wire 32 - testF1S1B3T2_expected_result [31:0] $end
    $var wire  1 , testF1S1B3T2_expected_zero $end
    $var wire  1 ' zero $end
   $upscope $end
@@ -62,9 +62,9 @@ b00110011100000101001101110011100 )
 b11111000101001000011001011101011 *
 b00110011100000101001101110011100 +
 0,
-b11110001010010000110010111011111 -
-b01000010001110100011010111000110 .
-b00000000000000000000000000000000 /
+b00000000000000000000000000000000 -
+b11110001010010000110010111011111 .
+b01000010001110100011010111000110 /
 b10111101110001011100101000111010 0
 #2
 b11000101001000011001011101001111 %

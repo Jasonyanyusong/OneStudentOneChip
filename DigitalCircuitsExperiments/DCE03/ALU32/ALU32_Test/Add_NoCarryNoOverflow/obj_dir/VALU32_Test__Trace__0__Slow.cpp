@@ -35,15 +35,15 @@ VL_ATTR_COLD void VALU32_Test___024root__trace_init_sub__TOP__0(VALU32_Test___02
     tracep->declBus(c+10,"testF1S1B1T2_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B1T2_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B1T2_expected_overflow", false,-1);
-    tracep->declBus(c+11,"testF1S1B1T3_expected_result", false,-1, 31,0);
+    tracep->declBus(c+12,"testF1S1B1T3_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF1S1B1T3_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B1T3_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B1T3_expected_overflow", false,-1);
-    tracep->declBus(c+12,"testF1S1B2T1_expected_result", false,-1, 31,0);
+    tracep->declBus(c+13,"testF1S1B2T1_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF1S1B2T1_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B2T1_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B2T1_expected_overflow", false,-1);
-    tracep->declBus(c+13,"testF1S1B2T2_expected_result", false,-1, 31,0);
+    tracep->declBus(c+11,"testF1S1B2T2_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF1S1B2T2_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B2T2_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B2T2_expected_overflow", false,-1);
@@ -51,7 +51,7 @@ VL_ATTR_COLD void VALU32_Test___024root__trace_init_sub__TOP__0(VALU32_Test___02
     tracep->declBus(c+10,"testF1S1B3T1_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B3T1_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B3T1_expected_overflow", false,-1);
-    tracep->declBus(c+13,"testF1S1B3T2_expected_result", false,-1, 31,0);
+    tracep->declBus(c+11,"testF1S1B3T2_expected_result", false,-1, 31,0);
     tracep->declBus(c+10,"testF1S1B3T2_expected_carry", false,-1, 0,0);
     tracep->declBit(c+10,"testF1S1B3T2_expected_zero", false,-1);
     tracep->declBit(c+10,"testF1S1B3T2_expected_overflow", false,-1);
@@ -108,8 +108,8 @@ VL_ATTR_COLD void VALU32_Test___024root__trace_full_sub_0(VALU32_Test___024root*
     bufp->fullIData(oldp+8,(vlSelf->ALU32_Test__DOT__b_withCin),32);
     bufp->fullIData(oldp+9,(0x33829b9cU),32);
     bufp->fullBit(oldp+10,(0U));
-    bufp->fullIData(oldp+11,(0xf14865dfU),32);
-    bufp->fullIData(oldp+12,(0x423a35c6U),32);
-    bufp->fullIData(oldp+13,(0U),32);
+    bufp->fullIData(oldp+11,(0U),32);
+    bufp->fullIData(oldp+12,(0xf14865dfU),32);
+    bufp->fullIData(oldp+13,(0x423a35c6U),32);
     bufp->fullIData(oldp+14,(0xbdc5ca3aU),32);
 }

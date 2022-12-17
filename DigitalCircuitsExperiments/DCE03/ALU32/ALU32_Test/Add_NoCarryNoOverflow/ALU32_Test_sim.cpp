@@ -115,7 +115,7 @@ int main()
     std :: cout << "Carry: " << top -> carry << " Zero: " << top -> zero << " Overflow: " << top -> overflow << " Result: " << top -> result << std :: endl;
     std :: cout << "Expected Result:" << std :: endl;
     std :: cout << "Carry: " << "0" << " Zero: " << "0" << " Overflow: " << "0" << " Result: " << "0b10111101110001011100101000111010" << std :: endl;
-    step_and_dump_wave(); // FAIL
+    step_and_dump_wave(); // PASS
 
     top -> sub_add = 0b0;
     top -> a = 0b00000000000000000000000000000000; // - 0
