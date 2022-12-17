@@ -7,7 +7,7 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     output reg [31:0] result;
     reg [31:0] b_withCin;
 
-    always @(sub_add) 
+    always @(*) 
     /* verilator lint_off WIDTH */
     begin
         assign b_withCin = ({32{sub_add}}^b) + sub_add;

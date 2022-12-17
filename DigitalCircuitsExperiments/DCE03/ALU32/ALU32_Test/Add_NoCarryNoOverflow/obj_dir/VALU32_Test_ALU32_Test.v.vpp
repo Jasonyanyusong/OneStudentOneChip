@@ -1,14 +1,17 @@
+`begin_keywords "1800-2017"
+`line 1 "ALU32_Test.v" 1
 module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
-    input sub_add;// This is a switch of Add(0) or Sub(1)
-    input [31:0] a; // This is a Complement number
-    input [31:0] b; // This is a Complement number
+    input sub_add; 
+    input [31:0] a;  
+    input [31:0] b;  
     output reg [0:0] carry;
     output reg zero, overflow;
     output reg [31:0] result;
     reg [31:0] b_withCin;
 
-    always @(sub_add) 
-    /* verilator lint_off WIDTH */
+`line 10 "ALU32_Test.v" 0
+    always @(*) 
+    /*verilator lint_off WIDTH*/ 
     begin
         assign b_withCin = ({32{sub_add}}^b) + sub_add;
         assign result = a + b_withCin;
@@ -16,9 +19,10 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
         assign overflow = (a[31] == b_withCin[31] && result[31] != a[31]);
         assign zero = ~(| result);
     end
-    /* verilator lint_on WIDTH */
+    /*verilator lint_on WIDTH*/ 
 
-    // Give result of test bench F1S1B1T1
+`line 21 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B1T1_expected_result;
     reg [0:0] testF1S1B1T1_expected_carry;
     reg testF1S1B1T1_expected_zero, testF1S1B1T1_expected_overflow;
@@ -27,7 +31,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B1T1_expected_overflow = 0;
     assign testF1S1B1T1_expected_zero = 0;
 
-    // Give result of test bench F1S1B1T2
+`line 30 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B1T2_expected_result;
     reg [0:0] testF1S1B1T2_expected_carry;
     reg testF1S1B1T2_expected_zero, testF1S1B1T2_expected_overflow;
@@ -36,7 +41,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B1T2_expected_overflow = 0;
     assign testF1S1B1T2_expected_zero = 0;
 
-    // Give result of test bench F1S1B1T3
+`line 39 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B1T3_expected_result;
     reg [0:0] testF1S1B1T3_expected_carry;
     reg testF1S1B1T3_expected_zero, testF1S1B1T3_expected_overflow;
@@ -45,7 +51,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B1T3_expected_overflow = 0;
     assign testF1S1B1T3_expected_zero = 0;
 
-    // Give result of test bench F1S1B2T1
+`line 48 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B2T1_expected_result;
     reg [0:0] testF1S1B2T1_expected_carry;
     reg testF1S1B2T1_expected_zero, testF1S1B2T1_expected_overflow;
@@ -54,7 +61,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B2T1_expected_overflow = 0;
     assign testF1S1B2T1_expected_zero = 0;
 
-    // Give result of test bench F1S1B2T2
+`line 57 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B2T2_expected_result;
     reg [0:0] testF1S1B2T2_expected_carry;
     reg testF1S1B2T2_expected_zero, testF1S1B2T2_expected_overflow;
@@ -63,7 +71,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B2T2_expected_overflow = 0;
     assign testF1S1B2T2_expected_zero = 0;
 
-    // Give result of test bench F1S1B3T1
+`line 66 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B3T1_expected_result;
     reg [0:0] testF1S1B3T1_expected_carry;
     reg testF1S1B3T1_expected_zero, testF1S1B3T1_expected_overflow;
@@ -72,7 +81,8 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B3T1_expected_overflow = 0;
     assign testF1S1B3T1_expected_zero = 0;
 
-    // Give result of test bench F1S1B3T2
+`line 75 "ALU32_Test.v" 0
+     
     reg [31:0] testF1S1B3T2_expected_result;
     reg [0:0] testF1S1B3T2_expected_carry;
     reg testF1S1B3T2_expected_zero, testF1S1B3T2_expected_overflow;
@@ -81,4 +91,7 @@ module ALU32_Test (sub_add, a, b, carry, zero, overflow, result);
     assign testF1S1B3T2_expected_overflow = 0;
     assign testF1S1B3T2_expected_zero = 0;
 
+`line 84 "ALU32_Test.v" 0
 endmodule
+
+`line 86 "ALU32_Test.v" 2
