@@ -3,24 +3,22 @@
 
 #include "VSubCounter.h"
 #include "VSubCounter__Syms.h"
+#include "verilated_vcd_c.h"
 
 //============================================================
 // Constructors
 
 VSubCounter::VSubCounter(VerilatedContext* _vcontextp__, const char* _vcname__)
-    : VerilatedModel{*_vcontextp__}
-    , vlSymsp{new VSubCounter__Syms(contextp(), _vcname__, this)}
+    : vlSymsp{new VSubCounter__Syms(_vcontextp__, _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , en{vlSymsp->TOP.en}
     , out_q{vlSymsp->TOP.out_q}
     , rootp{&(vlSymsp->TOP)}
 {
-    // Register model with the context
-    contextp()->addModel(this);
 }
 
 VSubCounter::VSubCounter(const char* _vcname__)
-    : VSubCounter(Verilated::threadContextp(), _vcname__)
+    : VSubCounter(nullptr, _vcname__)
 {
 }
 
@@ -32,15 +30,43 @@ VSubCounter::~VSubCounter() {
 }
 
 //============================================================
-// Evaluation function
+// Evaluation loop
 
-#ifdef VL_DEBUG
-void VSubCounter___024root___eval_debug_assertions(VSubCounter___024root* vlSelf);
-#endif  // VL_DEBUG
-void VSubCounter___024root___eval_static(VSubCounter___024root* vlSelf);
 void VSubCounter___024root___eval_initial(VSubCounter___024root* vlSelf);
 void VSubCounter___024root___eval_settle(VSubCounter___024root* vlSelf);
 void VSubCounter___024root___eval(VSubCounter___024root* vlSelf);
+QData VSubCounter___024root___change_request(VSubCounter___024root* vlSelf);
+#ifdef VL_DEBUG
+void VSubCounter___024root___eval_debug_assertions(VSubCounter___024root* vlSelf);
+#endif  // VL_DEBUG
+void VSubCounter___024root___final(VSubCounter___024root* vlSelf);
+
+static void _eval_initial_loop(VSubCounter__Syms* __restrict vlSymsp) {
+    vlSymsp->__Vm_didInit = true;
+    VSubCounter___024root___eval_initial(&(vlSymsp->TOP));
+    // Evaluate till stable
+    int __VclockLoop = 0;
+    QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
+    do {
+        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial loop\n"););
+        VSubCounter___024root___eval_settle(&(vlSymsp->TOP));
+        VSubCounter___024root___eval(&(vlSymsp->TOP));
+        if (VL_UNLIKELY(++__VclockLoop > 100)) {
+            // About to fail, so enable debug to see what's not settling.
+            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
+            int __Vsaved_debug = Verilated::debug();
+            Verilated::debug(1);
+            __Vchange = VSubCounter___024root___change_request(&(vlSymsp->TOP));
+            Verilated::debug(__Vsaved_debug);
+            VL_FATAL_MT("SubCounter.v", 1, "",
+                "Verilated model didn't DC converge\n"
+                "- See https://verilator.org/warn/DIDNOTCONVERGE");
+        } else {
+            __Vchange = VSubCounter___024root___change_request(&(vlSymsp->TOP));
+        }
+    } while (VL_UNLIKELY(__Vchange));
+}
 
 void VSubCounter::eval_step() {
     VL_DEBUG_IF(VL_DBG_MSGF("+++++TOP Evaluate VSubCounter::eval_step\n"); );
@@ -48,51 +74,72 @@ void VSubCounter::eval_step() {
     // Debug assertions
     VSubCounter___024root___eval_debug_assertions(&(vlSymsp->TOP));
 #endif  // VL_DEBUG
-    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) {
-        vlSymsp->__Vm_didInit = true;
-        VL_DEBUG_IF(VL_DBG_MSGF("+ Initial\n"););
-        VSubCounter___024root___eval_static(&(vlSymsp->TOP));
-        VSubCounter___024root___eval_initial(&(vlSymsp->TOP));
-        VSubCounter___024root___eval_settle(&(vlSymsp->TOP));
-    }
-    // MTask 0 start
-    VL_DEBUG_IF(VL_DBG_MSGF("MTask0 starting\n"););
-    Verilated::mtaskId(0);
-    VL_DEBUG_IF(VL_DBG_MSGF("+ Eval\n"););
-    VSubCounter___024root___eval(&(vlSymsp->TOP));
-    // Evaluate cleanup
-    Verilated::endOfThreadMTask(vlSymsp->__Vm_evalMsgQp);
-    Verilated::endOfEval(vlSymsp->__Vm_evalMsgQp);
+    // Initialize
+    if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) _eval_initial_loop(vlSymsp);
+    // Evaluate till stable
+    int __VclockLoop = 0;
+    QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
+    do {
+        VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
+        VSubCounter___024root___eval(&(vlSymsp->TOP));
+        if (VL_UNLIKELY(++__VclockLoop > 100)) {
+            // About to fail, so enable debug to see what's not settling.
+            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
+            int __Vsaved_debug = Verilated::debug();
+            Verilated::debug(1);
+            __Vchange = VSubCounter___024root___change_request(&(vlSymsp->TOP));
+            Verilated::debug(__Vsaved_debug);
+            VL_FATAL_MT("SubCounter.v", 1, "",
+                "Verilated model didn't converge\n"
+                "- See https://verilator.org/warn/DIDNOTCONVERGE");
+        } else {
+            __Vchange = VSubCounter___024root___change_request(&(vlSymsp->TOP));
+        }
+    } while (VL_UNLIKELY(__Vchange));
 }
 
 //============================================================
-// Events and timing
-bool VSubCounter::eventsPending() { return false; }
+// Invoke final blocks
 
-uint64_t VSubCounter::nextTimeSlot() {
-    VL_FATAL_MT(__FILE__, __LINE__, "", "%Error: No delays in the design");
-    return 0;
+void VSubCounter::final() {
+    VSubCounter___024root___final(&(vlSymsp->TOP));
 }
 
 //============================================================
 // Utilities
+
+VerilatedContext* VSubCounter::contextp() const {
+    return vlSymsp->_vm_contextp__;
+}
 
 const char* VSubCounter::name() const {
     return vlSymsp->name();
 }
 
 //============================================================
-// Invoke final blocks
+// Trace configuration
 
-void VSubCounter___024root___eval_final(VSubCounter___024root* vlSelf);
+void VSubCounter___024root__traceInitTop(VSubCounter___024root* vlSelf, VerilatedVcd* tracep);
 
-VL_ATTR_COLD void VSubCounter::final() {
-    VSubCounter___024root___eval_final(&(vlSymsp->TOP));
+static void traceInit(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {
+    // Callback from tracep->open()
+    VSubCounter___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<VSubCounter___024root*>(voidSelf);
+    VSubCounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    if (!vlSymsp->_vm_contextp__->calcUnusedSigs()) {
+        VL_FATAL_MT(__FILE__, __LINE__, __FILE__,
+            "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
+    }
+    vlSymsp->__Vm_baseCode = code;
+    tracep->module(vlSymsp->name());
+    tracep->scopeEscape(' ');
+    VSubCounter___024root__traceInitTop(vlSelf, tracep);
+    tracep->scopeEscape('.');
 }
 
-//============================================================
-// Implementations of abstract methods from VerilatedModel
+void VSubCounter___024root__traceRegister(VSubCounter___024root* vlSelf, VerilatedVcd* tracep);
 
-const char* VSubCounter::hierName() const { return vlSymsp->name(); }
-const char* VSubCounter::modelName() const { return "VSubCounter"; }
-unsigned VSubCounter::threads() const { return 1; }
+void VSubCounter::trace(VerilatedVcdC* tfp, int, int) {
+    tfp->spTrace()->addInitCb(&traceInit, &(vlSymsp->TOP));
+    VSubCounter___024root__traceRegister(&(vlSymsp->TOP), tfp->spTrace());
+}

@@ -5,34 +5,42 @@
 #ifndef VERILATED_VSUBCOUNTER___024ROOT_H_
 #define VERILATED_VSUBCOUNTER___024ROOT_H_  // guard
 
-#include "verilated.h"
+#include "verilated_heavy.h"
+
+//==========
 
 class VSubCounter__Syms;
+class VSubCounter_VerilatedVcd;
 
-class VSubCounter___024root final : public VerilatedModule {
+
+//----------
+
+VL_MODULE(VSubCounter___024root) {
   public:
 
-    // DESIGN SPECIFIC STATE
+    // PORTS
     VL_IN8(clk,0,0);
     VL_IN8(en,0,0);
     VL_OUT8(out_q,2,0);
-    CData/*0:0*/ __Vtrigrprev__TOP__clk;
-    CData/*0:0*/ __VactContinue;
-    IData/*31:0*/ __VactIterCount;
-    VlTriggerVec<1> __VactTriggered;
-    VlTriggerVec<1> __VnbaTriggered;
+
+    // LOCAL VARIABLES
+    CData/*0:0*/ __Vclklast__TOP__clk;
 
     // INTERNAL VARIABLES
-    VSubCounter__Syms* const vlSymsp;
+    VSubCounter__Syms* vlSymsp;  // Symbol table
 
     // CONSTRUCTORS
-    VSubCounter___024root(VSubCounter__Syms* symsp, const char* name);
+  private:
+    VL_UNCOPYABLE(VSubCounter___024root);  ///< Copying not allowed
+  public:
+    VSubCounter___024root(const char* name);
     ~VSubCounter___024root();
-    VL_UNCOPYABLE(VSubCounter___024root);
 
     // INTERNAL METHODS
-    void __Vconfigure(bool first);
+    void __Vconfigure(VSubCounter__Syms* symsp, bool first);
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
+
+//----------
 
 
 #endif  // guard
