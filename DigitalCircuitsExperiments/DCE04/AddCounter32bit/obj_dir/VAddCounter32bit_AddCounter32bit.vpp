@@ -1,0 +1,17 @@
+`begin_keywords "1800-2017"
+`line 1 "AddCounter32bit.v" 1
+module AddCounter32bit(clk, en, out_q);
+    input clk;
+    input en;
+    output reg [31 : 0] out_q;
+
+`line 6 "AddCounter32bit.v" 0
+    always @(posedge clk) begin
+        if (en) out_q <= out_q + 1;
+        else out_q <= 0;
+    end
+
+`line 11 "AddCounter32bit.v" 0
+endmodule
+
+`line 13 "AddCounter32bit.v" 2

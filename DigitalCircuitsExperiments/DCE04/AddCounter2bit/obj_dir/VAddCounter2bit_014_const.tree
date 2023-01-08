@@ -1,0 +1,43 @@
+Verilator Tree Dump (format 0x3900) from <e209> to <e222>
+     NETLIST 0x555556188f80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x5555561973a0 <e84> {c1ai}  AddCounter2bit  L0 [1ps]
+    1:2: VAR 0x555556197be0 <e132> {c2al} @dt=0x5555561a12c0@(G/w1)  clk INPUT [VSTATIC]  PORT
+    1:2: VAR 0x5555561989d0 <e140> {c3al} @dt=0x5555561a12c0@(G/w1)  en INPUT [VSTATIC]  PORT
+    1:2: VAR 0x555556199900 <e148> {c4ay} @dt=0x5555561994e0@(G/w2)  out_q OUTPUT [VSTATIC]  PORT
+    1:2: ALWAYS 0x55555619b350 <e77> {c6af}
+    1:2:1: SENTREE 0x555556199e00 <e86> {c6am}
+    1:2:1:1: SENITEM 0x555556199d40 <e42> {c6ao} [POS]
+    1:2:1:1:1: VARREF 0x55555619f510 <e149> {c6aw} @dt=0x5555561a12c0@(G/w1)  clk [RV] <- VAR 0x555556197be0 <e132> {c2al} @dt=0x5555561a12c0@(G/w1)  clk INPUT [VSTATIC]  PORT
+    1:2:2: BEGIN 0x555556199f60 <e88> {c6bb}
+    1:2:2:1: IF 0x55555619b120 <e71> {c7aj}
+    1:2:2:1:1: VARREF 0x55555619f630 <e203> {c7an} @dt=0x5555561a12c0@(G/w1)  en [RV] <- VAR 0x5555561989d0 <e140> {c3al} @dt=0x5555561a12c0@(G/w1)  en INPUT [VSTATIC]  PORT
+    1:2:2:1:2: ASSIGNDLY 0x55555619aa50 <e151> {c7ax} @dt=0x5555561994e0@(G/w2)
+    1:2:2:1:2:1: SEL 0x5555561a1640 <e188> {c7bg} @dt=0x5555561994e0@(G/w2)
+    1:2:2:1:2:1:1: ADD 0x55555619a990 <e180> {c7bg} @dt=0x5555561a1480@(G/w32)
+    1:2:2:1:2:1:1:1: EXTEND 0x55555619bb90 <e166> {c7ba} @dt=0x5555561a1480@(G/w32)
+    1:2:2:1:2:1:1:1:1: VARREF 0x55555619f750 <e164> {c7ba} @dt=0x5555561994e0@(G/w2)  out_q [RV] <- VAR 0x555556199900 <e148> {c4ay} @dt=0x5555561994e0@(G/w2)  out_q OUTPUT [VSTATIC]  PORT
+    1:2:2:1:2:1:1:2: CONST 0x5555561a2280 <e218#> {c7bi} @dt=0x5555561a23c0@(G/sw32)  32'sh1
+    1:2:2:1:2:1:2: CONST 0x5555561a1930 <e219#> {c7bg} @dt=0x5555561a1480@(G/w32)  32'h0
+    1:2:2:1:2:1:3: CONST 0x5555561a1710 <e220#> {c7bg} @dt=0x5555561a1480@(G/w32)  32'h2
+    1:2:2:1:2:2: VARREF 0x55555619f870 <e150> {c7ar} @dt=0x5555561994e0@(G/w2)  out_q [LV] => VAR 0x555556199900 <e148> {c4ay} @dt=0x5555561994e0@(G/w2)  out_q OUTPUT [VSTATIC]  PORT
+    1:2:2:1:3: ASSIGNDLY 0x55555619b060 <e190> {c8au} @dt=0x5555561994e0@(G/w2)
+    1:2:2:1:3:1: CONST 0x5555561a1e50 <e202> {c8ax} @dt=0x5555561994e0@(G/w2)  2'h0
+    1:2:2:1:3:2: VARREF 0x55555619f990 <e189> {c8ao} @dt=0x5555561994e0@(G/w2)  out_q [LV] => VAR 0x555556199900 <e148> {c4ay} @dt=0x5555561994e0@(G/w2)  out_q OUTPUT [VSTATIC]  PORT
+    3: TYPETABLE 0x555556189620 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x5555561a12c0 <e131> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561994e0 <e147> {c4am} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0x5555561a1480 <e155> {c7bg} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x5555561a23c0 <e213#> {c7bi} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556198eb0 <e26> {c4ar} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556197b00 <e127> {c2al} @dt=this@(w1)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    3:1: BASICDTYPE 0x5555561a12c0 <e131> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x5555561988f0 <e134> {c3al} @dt=this@(w1)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    3:1: BASICDTYPE 0x5555561994e0 <e147> {c4am} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0x5555561a1480 <e155> {c7bg} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561a1850 <e171> {c7bg} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561a1c90 <e185> {c7bg} @dt=this@(w2)  logic kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0x5555561a1d70 <e193> {c8au} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561a23c0 <e213#> {c7bi} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x5555561897d0 <e6> {a0aa}
+    3:1: MODULE 0x555556189960 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556189aa0 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556189960]

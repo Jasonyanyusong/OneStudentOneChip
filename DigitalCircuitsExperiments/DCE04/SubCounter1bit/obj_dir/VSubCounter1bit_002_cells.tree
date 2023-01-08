@@ -1,0 +1,39 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e96>
+     NETLIST 0x555556188f80 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x555556199c30 <e96#> {c1ai}  SubCounter1bit  L0 [1ps]
+    1:2: PORT 0x55555619d560 <e8#> {c1ax}  clk
+    1:2: PORT 0x555556196460 <e10#> {c1bc}  en
+    1:2: PORT 0x5555561965e0 <e12#> {c1bg}  out_q
+    1:2: VAR 0x5555561968e0 <e88#> {c2al} @dt=0@  clk INPUT PORT
+    1:2:1: BASICDTYPE 0x555556196800 <e16#> {c2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x555556196c30 <e21#> {c3al} @dt=0@  en INPUT PORT
+    1:2:1: BASICDTYPE 0x555556196b50 <e20#> {c3al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0x55555619a550 <e50#> {c4ba} @dt=0@  out_q OUTPUT PORT
+    1:2:1: BASICDTYPE 0x555556197b50 <e49#> {c4am} @dt=this@(nw1)  logic kwd=logic
+    1:2:1:1: RANGE 0x555556197c30 <e47#> {c4aq}
+    1:2:1:1:2: SUB 0x55555619a0d0 <e45#> {c4as} @dt=0x555556197110@(G/swu32/1)
+    1:2:1:1:2:1: CONST 0x55555619a190 <e35#> {c4ar} @dt=0x555556197110@(G/swu32/1)  ?32?sh1
+    1:2:1:1:2:2: CONST 0x55555619a2d0 <e36#> {c4at} @dt=0x555556197110@(G/swu32/1)  ?32?sh1
+    1:2:1:1:3: CONST 0x55555619a410 <e46#> {c4ax} @dt=0x555556197110@(G/swu32/1)  ?32?sh0
+    1:2: ALWAYS 0x5555561a23e0 <e87#> {c6af}
+    1:2:2: TIMINGCONTROL 0x55555619be50 <e83#> {c6am}
+    1:2:2:1: SENTREE 0x55555619aa50 <e84#> {c6am}
+    1:2:2:1:1: SENITEM 0x55555619a990 <e52#> {c6ao} [POS]
+    1:2:2:1:1:1: PARSEREF 0x55555619a8b0 <e53#> {c6aw}  clk [TEXT]
+    1:2:2:2: BEGIN 0x55555619abb0 <e85#> {c6bb}
+    1:2:2:2:1: IF 0x55555619bce0 <e81#> {c7aj}
+    1:2:2:2:1:1: PARSEREF 0x55555619ae80 <e82#> {c7an}  en [TEXT]
+    1:2:2:2:1:2: ASSIGNDLY 0x55555619b610 <e68#> {c7ax} @dt=0@
+    1:2:2:2:1:2:1: SUB 0x55555619b550 <e69#> {c7bg} @dt=0@
+    1:2:2:2:1:2:1:1: PARSEREF 0x55555619b1b0 <e66#> {c7ba}  out_q [TEXT]
+    1:2:2:2:1:2:1:2: CONST 0x55555619b2e0 <e67#> {c7bi} @dt=0x555556197110@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:2:2: PARSEREF 0x55555619b000 <e70#> {c7ar}  out_q [TEXT]
+    1:2:2:2:1:3: ASSIGNDLY 0x55555619bc20 <e78#> {c8au} @dt=0@
+    1:2:2:2:1:3:1: CONST 0x55555619b9b0 <e79#> {c8ax} @dt=0x555556197110@(G/swu32/1)  ?32?sh0
+    1:2:2:2:1:3:2: PARSEREF 0x55555619b7f0 <e80#> {c8ao}  out_q [TEXT]
+    3: TYPETABLE 0x555556189620 <e2#> {a0aa}
+		detailed  ->  BASICDTYPE 0x555556197110 <e26#> {c4ar} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x555556197110 <e26#> {c4ar} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3: CONSTPOOL 0x5555561897d0 <e6#> {a0aa}
+    3:1: MODULE 0x555556189960 <e4#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556189aa0 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556189960]

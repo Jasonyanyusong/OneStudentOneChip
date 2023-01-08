@@ -1,0 +1,17 @@
+`begin_keywords "1800-2017"
+`line 1 "SubCounter4bit.v" 1
+module SubCounter4bit(clk, en, out_q);
+    input clk;
+    input en;
+    output reg [4-1 : 0] out_q;
+
+`line 6 "SubCounter4bit.v" 0
+    always @(posedge clk) begin
+        if (en) out_q <= out_q - 1;
+        else out_q <= 0;
+    end
+
+`line 11 "SubCounter4bit.v" 0
+endmodule
+
+`line 13 "SubCounter4bit.v" 2

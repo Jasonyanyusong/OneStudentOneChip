@@ -1,0 +1,38 @@
+Verilator Tree Dump (format 0x3900) from <e428> to <e452>
+     NETLIST 0x555556188f80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x5555561a2640 <e224> {c1ai}  __024root  L1 [P] [1ps]
+    1:1: CELLINLINE 0x55555619c640 <e370> {c1ai}  AddCounter1bit -> AddCounter1bit [scopep=0]
+    1:2: VAR 0x5555561a2900 <e228> {c2al} @dt=0x5555561a12c0@(G/w1)  clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561a2ca0 <e233> {c3al} @dt=0x5555561a12c0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561a3040 <e239> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555561a9920 <e379> {c2al} @dt=0x5555561a12c0@(G/w1)
+    1:2:1: VARREF 0x5555561a9800 <e376> {c2al} @dt=0x5555561a12c0@(G/w1)  clk [RV] <- VAR 0x5555561a2900 <e228> {c2al} @dt=0x5555561a12c0@(G/w1)  clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555561a96e0 <e377> {c2al} @dt=0x5555561a12c0@(G/w1)  clk [LV] => VAR 0x5555561a8760 <e400> {c2al} @dt=0x5555561a12c0@(G/w1)  AddCounter1bit__DOT__clk [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555561a9c20 <e388> {c3al} @dt=0x5555561a12c0@(G/w1)
+    1:2:1: VARREF 0x5555561a9b00 <e385> {c3al} @dt=0x5555561a12c0@(G/w1)  en [RV] <- VAR 0x5555561a2ca0 <e233> {c3al} @dt=0x5555561a12c0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555561a99e0 <e386> {c3al} @dt=0x5555561a12c0@(G/w1)  en [LV] => VAR 0x5555561a88e0 <e140> {c3al} @dt=0x5555561a12c0@(G/w1)  AddCounter1bit__DOT__en [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555561a9f20 <e397> {c4ay} @dt=0x5555561994e0@(G/w1)
+    1:2:1: VARREF 0x5555561a9e00 <e394> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [RV] <- VAR 0x5555561a3040 <e239> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555561a9ce0 <e395> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [LV] => VAR 0x5555561a8a60 <e148> {c4ay} @dt=0x5555561994e0@(G/w1)  AddCounter1bit__DOT__out_q [VSTATIC]  PORT
+    1:2: VAR 0x5555561a8760 <e400> {c2al} @dt=0x5555561a12c0@(G/w1)  AddCounter1bit__DOT__clk [VSTATIC]  PORT
+    1:2: VAR 0x5555561a88e0 <e140> {c3al} @dt=0x5555561a12c0@(G/w1)  AddCounter1bit__DOT__en [VSTATIC]  PORT
+    1:2: VAR 0x5555561a8a60 <e148> {c4ay} @dt=0x5555561994e0@(G/w1)  AddCounter1bit__DOT__out_q [VSTATIC]  PORT
+    1:2: ALWAYS 0x5555561a8be0 <e77> {c6af}
+    1:2:1: SENTREE 0x5555561a8ca0 <e86> {c6am}
+    1:2:1:1: SENITEM 0x5555561a8d60 <e42> {c6ao} [POS]
+    1:2:1:1:1: VARREF 0x5555561a8e20 <e149> {c6aw} @dt=0x5555561a12c0@(G/w1)  clk [RV] <- VAR 0x5555561a2900 <e228> {c2al} @dt=0x5555561a12c0@(G/w1)  clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: ASSIGNDLY 0x5555561a8f40 <e367> {c7ax} @dt=0x5555561994e0@(G/w1)
+    1:2:2:1: AND 0x5555561a9000 <e362> {c7bg} @dt=0x5555561a12c0@(G/w1)
+    1:2:2:1:1: VARREF 0x5555561a90c0 <e358> {c7an} @dt=0x5555561a12c0@(G/w1)  en [RV] <- VAR 0x5555561a2ca0 <e233> {c3al} @dt=0x5555561a12c0@(G/w1)  en [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1:2: ADD 0x5555561a91e0 <e359> {c7bg} @dt=0x5555561994e0@(G/w1)
+    1:2:2:1:2:1: CONST 0x5555561a9360 <e310> {c7bg} @dt=0x5555561a12c0@(G/w1)  1'h1
+    1:2:2:1:2:2: VARREF 0x5555561a94a0 <e398> {c7ba} @dt=0x5555561994e0@(G/w1)  out_q [RV] <- VAR 0x5555561a3040 <e239> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: VARREF 0x5555561a95c0 <e150> {c7ar} @dt=0x5555561994e0@(G/w1)  out_q [LV] => VAR 0x5555561a3040 <e239> {c4ay} @dt=0x5555561994e0@(G/w1)  out_q [PO] OUTPUT [P] [VSTATIC]  PORT
+    3: TYPETABLE 0x555556189620 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0x5555561a12c0 <e131> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561994e0 <e147> {c4am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
+    3:1: BASICDTYPE 0x5555561a12c0 <e131> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x5555561994e0 <e147> {c4am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic range=[0:0]
+    3: CONSTPOOL 0x5555561897d0 <e6> {a0aa}
+    3:1: MODULE 0x555556189960 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556189aa0 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556189960]
