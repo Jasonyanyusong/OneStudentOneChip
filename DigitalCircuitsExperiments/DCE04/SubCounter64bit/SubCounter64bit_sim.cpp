@@ -1,13 +1,13 @@
 #include "/usr/local/share/verilator/include/verilated.h"
 #include "/usr/local/share/verilator/include/verilated_vcd_c.h"
-#include "/home/yanyusong/OneStudentOneChip/DigitalCircuitsExperiments/DCE04/SubCounter64bit/obj_dir/VSubCounter64bit.h"
+#include "/home/yanyusong/OneStudentOneChip/DigitalCircuitsExperiments/DCE04/SubCounter64Bit/obj_dir/VSubCounter64Bit.h"
 
 #include <iostream>
 
 VerilatedContext* contextp = NULL;
 VerilatedVcdC* tfp = NULL;
 
-static VSubCounter64bit* top;
+static VSubCounter64Bit* top;
 
 void step_and_dump_wave()
 {
@@ -20,7 +20,7 @@ void sim_init() // Initilize the simulator
 {
     contextp = new VerilatedContext;
     tfp = new VerilatedVcdC;
-    top = new VSubCounter64bit;
+    top = new VSubCounter64Bit;
     contextp -> traceEverOn(true);
     top -> trace (tfp, 0);
     tfp -> open("dump.vcd");
@@ -37,7 +37,7 @@ int main()
     // Print the Experiment Informations
     printf("Verilator Generated File simulator");
     printf("\n");
-    printf("This is a 64bit Sub-Counter modeled by datastream");
+    printf("This is a 64Bit Sub-Counter modeled by datastream");
     printf("\n");
 
     // Simulator Main Parts
