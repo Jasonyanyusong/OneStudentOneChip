@@ -1,10 +1,15 @@
+`begin_keywords "1800-2017"
+`line 1 "register1.v" 1
 module register1(load, clk, clr, inp, q);
 	input load, clr, clk, inp;
 	output reg q;
 
+`line 5 "register1.v" 0
 	always @(posedge clk)
 		if (clr == 1)
 			q <= 0;
 		else if (load == 1)
 			q <= inp;
 endmodule
+
+`line 12 "register1.v" 2
