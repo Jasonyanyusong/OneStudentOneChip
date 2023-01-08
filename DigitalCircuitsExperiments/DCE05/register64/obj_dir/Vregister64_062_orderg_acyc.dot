@@ -1,0 +1,50 @@
+digraph v3graph {
+	graph	[label="obj_dir/Vregister64_062_orderg_acyc.dot",
+		 labelloc=t, labeljust=l,
+		 //size="7.5,10",
+		 rankdir=TB];
+	n0	[fontsize=8 label="*INPUTS*", color=green];
+	n0x5555561af010_1	[fontsize=8 label="0x5555561af1d0\n TOP->load", color=skyblue];
+	n0x5555561af010_2	[fontsize=8 label="0x5555561af2b0\n TOP->clr", color=skyblue];
+	n0x5555561af010_3	[fontsize=8 label="0x5555561af390\n TOP->clk", color=skyblue];
+	n0x5555561af010_4	[fontsize=8 label="0x5555561af4b0\n TOP->inp", color=skyblue];
+	n0x5555561af010_5	[fontsize=8 label="0x5555561a0bc0\n ACTIVE", color=yellow];
+	n0x5555561af010_6	[fontsize=8 label="0x5555561a7ca0\n ALWAYS", color=yellow];
+	n0x5555561af010_7	[fontsize=8 label="0x5555561af2b0 PRE\n TOP->clr", color=lightblue];
+	n0x5555561af010_8	[fontsize=8 label="0x5555561af2b0 POST\n TOP->clr", color=CadetBlue];
+	n0x5555561af010_9	[fontsize=8 label="0x5555561bc4c0 PORD\n TOP->__Vdly__q", color=NavyBlue];
+	n0x5555561af010_10	[fontsize=8 label="0x5555561bc4c0\n TOP->__Vdly__q", color=skyblue];
+	n0x5555561af010_11	[fontsize=8 label="0x5555561af1d0 PRE\n TOP->load", color=lightblue];
+	n0x5555561af010_12	[fontsize=8 label="0x5555561af1d0 POST\n TOP->load", color=CadetBlue];
+	n0x5555561af010_13	[fontsize=8 label="0x5555561af4b0 PRE\n TOP->inp", color=lightblue];
+	n0x5555561af010_14	[fontsize=8 label="0x5555561af4b0 POST\n TOP->inp", color=CadetBlue];
+	n0x5555561af010_15	[fontsize=8 label="0x55555619e360\n ACTIVE", color=yellow];
+	n0x5555561af010_16	[fontsize=8 label="0x5555561bc5a0\n ASSIGNPRE", color=yellow];
+	n0x5555561af010_17	[fontsize=8 label="0x5555561af5d0 PRE\n TOP->q", color=lightblue];
+	n0x5555561af010_18	[fontsize=8 label="0x5555561bc940\n ASSIGNPOST", color=yellow];
+	n0x5555561af010_19	[fontsize=8 label="0x5555561af5d0\n TOP->q", color=skyblue];
+	n0x5555561af010_20	[fontsize=8 label="0x5555561af5d0 POST\n TOP->q", color=CadetBlue];
+	n0 -> n0x5555561af010_1 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n0x5555561af010_2 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n0x5555561af010_3 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n0x5555561af010_4 [fontsize=8 label="" weight=1 color=red];
+	n0x5555561af010_3 -> n0x5555561af010_5 [fontsize=8 label="" weight=8 color=red];
+	n0x5555561af010_3 -> n0x5555561af010_15 [fontsize=8 label="" weight=8 color=red];
+	n0x5555561af010_5 -> n0x5555561af010_6 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_7 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_8 [fontsize=8 label="" weight=2 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_10 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_11 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_12 [fontsize=8 label="" weight=2 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_13 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_6 -> n0x5555561af010_14 [fontsize=8 label="" weight=2 color=red];
+	n0x5555561af010_9 -> n0x5555561af010_6 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_10 -> n0x5555561af010_18 [fontsize=8 label="" weight=8 color=red];
+	n0x5555561af010_15 -> n0x5555561af010_16 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_15 -> n0x5555561af010_18 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_16 -> n0x5555561af010_9 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_16 -> n0x5555561af010_10 [fontsize=8 label="" weight=32 color=red];
+	n0x5555561af010_17 -> n0x5555561af010_16 [fontsize=8 label="" weight=3 color=khaki style=dashed];
+	n0x5555561af010_18 -> n0x5555561af010_19 [fontsize=8 label="" weight=1 color=PaleGreen style=dashed];
+	n0x5555561af010_20 -> n0x5555561af010_18 [fontsize=8 label="" weight=2 color=red];
+}

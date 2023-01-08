@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f Vregister16.mk
 
-default: Vregister16__ALL.a
+default: Vregister16
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -41,9 +41,11 @@ VM_USER_LDLIBS = \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
+	register16_sim \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
+	. \
 
 
 ### Default rules...
@@ -51,5 +53,16 @@ VM_USER_DIR = \
 include Vregister16_classes.mk
 # Include global rules
 include $(VERILATOR_ROOT)/include/verilated.mk
+
+### Executable rules... (from --exe)
+VPATH += $(VM_USER_DIR)
+
+register16_sim.o: register16_sim.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+
+### Link rules... (from --exe)
+Vregister16: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
+	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
+
 
 # Verilated -*- Makefile -*-

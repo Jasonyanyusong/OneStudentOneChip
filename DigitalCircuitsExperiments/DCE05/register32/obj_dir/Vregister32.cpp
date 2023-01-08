@@ -3,6 +3,7 @@
 
 #include "Vregister32.h"
 #include "Vregister32__Syms.h"
+#include "verilated_vcd_c.h"
 
 //============================================================
 // Constructors
@@ -48,6 +49,7 @@ static void _eval_initial_loop(Vregister32__Syms* __restrict vlSymsp) {
     // Evaluate till stable
     int __VclockLoop = 0;
     QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Initial loop\n"););
         Vregister32___024root___eval_settle(&(vlSymsp->TOP));
@@ -79,6 +81,7 @@ void Vregister32::eval_step() {
     // Evaluate till stable
     int __VclockLoop = 0;
     QData __Vchange = 1;
+    vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
         Vregister32___024root___eval(&(vlSymsp->TOP));
@@ -114,4 +117,31 @@ VerilatedContext* Vregister32::contextp() const {
 
 const char* Vregister32::name() const {
     return vlSymsp->name();
+}
+
+//============================================================
+// Trace configuration
+
+void Vregister32___024root__traceInitTop(Vregister32___024root* vlSelf, VerilatedVcd* tracep);
+
+static void traceInit(void* voidSelf, VerilatedVcd* tracep, uint32_t code) {
+    // Callback from tracep->open()
+    Vregister32___024root* const __restrict vlSelf VL_ATTR_UNUSED = static_cast<Vregister32___024root*>(voidSelf);
+    Vregister32__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    if (!vlSymsp->_vm_contextp__->calcUnusedSigs()) {
+        VL_FATAL_MT(__FILE__, __LINE__, __FILE__,
+            "Turning on wave traces requires Verilated::traceEverOn(true) call before time 0.");
+    }
+    vlSymsp->__Vm_baseCode = code;
+    tracep->module(vlSymsp->name());
+    tracep->scopeEscape(' ');
+    Vregister32___024root__traceInitTop(vlSelf, tracep);
+    tracep->scopeEscape('.');
+}
+
+void Vregister32___024root__traceRegister(Vregister32___024root* vlSelf, VerilatedVcd* tracep);
+
+void Vregister32::trace(VerilatedVcdC* tfp, int, int) {
+    tfp->spTrace()->addInitCb(&traceInit, &(vlSymsp->TOP));
+    Vregister32___024root__traceRegister(&(vlSymsp->TOP), tfp->spTrace());
 }

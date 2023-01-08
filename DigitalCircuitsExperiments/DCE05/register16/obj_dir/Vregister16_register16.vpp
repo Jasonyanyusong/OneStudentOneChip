@@ -1,0 +1,16 @@
+`begin_keywords "1800-2017"
+`line 1 "register16.v" 1
+module register16(load, clk, clr, inp, q);
+	input load, clr, clk;
+    input [16-1 : 0] inp;
+	output reg [16-1 : 0] q;
+
+`line 6 "register16.v" 0
+	always @(posedge clk)
+		if (clr == 1)
+			q <= 0;
+		else if (load == 1)
+			q <= inp;
+endmodule
+
+`line 13 "register16.v" 2

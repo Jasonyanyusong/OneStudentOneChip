@@ -10,6 +10,8 @@
 //==========
 
 class Vregister16__Syms;
+class Vregister16_VerilatedVcd;
+
 
 //----------
 
