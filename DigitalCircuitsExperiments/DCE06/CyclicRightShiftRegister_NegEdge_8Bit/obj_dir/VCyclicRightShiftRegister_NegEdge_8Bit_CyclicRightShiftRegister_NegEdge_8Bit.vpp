@@ -1,0 +1,19 @@
+`begin_keywords "1800-2017"
+`line 1 "CyclicRightShiftRegister_NegEdge_8Bit.v" 1
+module CyclicRightShiftRegister_NegEdge_8Bit (clock, reset, D, Q);
+    input clock;
+    input reset;
+    input [7:0] D;
+    output reg [7:0] Q;
+
+`line 7 "CyclicRightShiftRegister_NegEdge_8Bit.v" 0
+    always @(negedge clock)
+    begin
+        if (reset)
+            Q <= 8'b00000000;
+        else
+            Q <= {D[0], D[7:1]};        
+    end
+endmodule
+
+`line 16 "CyclicRightShiftRegister_NegEdge_8Bit.v" 2
