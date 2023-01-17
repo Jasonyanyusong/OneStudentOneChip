@@ -1,0 +1,13 @@
+Signals and their clock domains:
+  0xaaaaab67a080 clock                                              @(*)
+  0xaaaaab67a160 reset                                              @(*)
+  0xaaaaab67a160 reset {POST}                                       @(*)
+  0xaaaaab67a160 reset {PRE}                                        @(*)
+  0xaaaaab67a240 D                                                  @(*)
+  0xaaaaab67a240 D {POST}                                           @(*)
+  0xaaaaab67a240 D {PRE}                                            @(*)
+  0xaaaaab67a320 Q                                                  @(posedge clock)
+  0xaaaaab67a320 Q {POST}                                           @([settle])
+  0xaaaaab67a320 Q {PRE}                                            @([settle])
+  0xaaaaab68f9f0 __Vdly__Q                                          @(posedge clock)
+  0xaaaaab68f9f0 __Vdly__Q {PORD}                                   @(posedge clock)

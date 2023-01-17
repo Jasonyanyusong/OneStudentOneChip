@@ -1,0 +1,185 @@
+Verilator Tree Dump (format 0x3900) from <e1503> to <e1520>
+     NETLIST 0xaaaaab65bf80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0xaaaaab6793a0 <e368> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab67ce20 <e389> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: TOPSCOPE 0xaaaaab679f70 <e592> {c1ai}
+    1:2:2: SCOPE 0xaaaaab679e70 <e663> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0xaaaaab6793a0]
+    1:2: VAR 0xaaaaab67f4c0 <e915> {c2al} @dt=0xaaaaab675030@(G/w1)  __Vclklast__TOP__clock MODULETEMP
+    1:2: CFUNC 0xaaaaab68bd60 <e1170> {c1ai}  traceInitTop [SLOW]
+    1:2:3: CCALL 0xaaaaab66f670 <e688> {c1ai} traceInitSub0 => CFUNC 0xaaaaab68bef0 <e1172> {c1ai}  traceInitSub0 [SLOW]
+    1:2: CFUNC 0xaaaaab68bef0 <e1172> {c1ai}  traceInitSub0 [SLOW]
+    1:2:3: TRACEDECL 0xaaaaab68c2c0 <e692> {c2al} @dt=0xaaaaab675030@(G/w1)  clock
+    1:2:3: TRACEDECL 0xaaaaab68c610 <e699> {c3al} @dt=0xaaaaab675030@(G/w1)  reset
+    1:2:3: TRACEDECL 0xaaaaab68c960 <e706> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D
+    1:2:3: TRACEDECL 0xaaaaab68ccb0 <e713> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q
+    1:2:3: TRACEDECL 0xaaaaab68d000 <e720> {c2al} @dt=0xaaaaab675030@(G/w1)  CyclicLeftShiftRegister_PosEdge_2Bit clock
+    1:2:3: TRACEDECL 0xaaaaab68d350 <e727> {c3al} @dt=0xaaaaab675030@(G/w1)  CyclicLeftShiftRegister_PosEdge_2Bit reset
+    1:2:3: TRACEDECL 0xaaaaab68d6a0 <e734> {c4ar} @dt=0xaaaaab66c810@(G/w2)  CyclicLeftShiftRegister_PosEdge_2Bit D
+    1:2:3: TRACEDECL 0xaaaaab68da70 <e741> {c5aw} @dt=0xaaaaab66c810@(G/w2)  CyclicLeftShiftRegister_PosEdge_2Bit Q
+    1:2: CFUNC 0xaaaaab6896b0 <e1174> {c7af}  _sequent__TOP__1
+    1:2:3: ASSIGNDLY 0xaaaaab67b7d0 <e1264> {c10ap} @dt=0xaaaaab6a1350@(G/wu32/2)
+    1:2:3:1: COND 0xaaaaab67b890 <e1262> {c10as} @dt=0xaaaaab6a1350@(G/wu32/2)
+    1:2:3:1:1: CCAST 0xaaaaab6a4230 <e1397> {c9an} @dt=0xaaaaab685210@(G/wu32/1) sz32
+    1:2:3:1:1:1: VARREF 0xaaaaab67b950 <e1392> {c9an} @dt=0xaaaaab685210@(G/wu32/1)  reset [RV] <- VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: CONST 0xaaaaab67ba70 <e1225> {c10as} @dt=0xaaaaab6a1350@(G/wu32/2)  2'h0
+    1:2:3:1:3: OR 0xaaaaab6a2d90 <e1349> {c12az} @dt=0xaaaaab6a1350@(G/wu32/2)
+    1:2:3:1:3:1: AND 0xaaaaab6a1f40 <e1370> {c12au} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1:3:1:1: CONST 0xaaaaab6a33e0 <e1378> {c12az} @dt=0xaaaaab678b40@(G/w32)  32'h2
+    1:2:3:1:3:1:2: SHIFTL 0xaaaaab6a3320 <e1369> {c12az} @dt=0xaaaaab678b40@(G/w32)
+    1:2:3:1:3:1:2:1: CCAST 0xaaaaab6a42f0 <e1406> {c12at} @dt=0xaaaaab685210@(G/wu32/1) sz32
+    1:2:3:1:3:1:2:1:1: VARREF 0xaaaaab67bd40 <e1401> {c12at} @dt=0xaaaaab685210@(G/wu32/1)  D [RV] <- VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:3:1:2:2: CONST 0xaaaaab6a46a0 <e1367> {c12az} @dt=0xaaaaab678b40@(G/w32)  32'h1
+    1:2:3:1:3:2: AND 0xaaaaab6a2220 <e1345> {c12bc} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1:3:2:1: CONST 0xaaaaab6a2000 <e1257> {c12bc} @dt=0xaaaaab678b40@(G/w32)  32'h1
+    1:2:3:1:3:2:2: SHIFTR 0xaaaaab6a2970 <e1323> {c12bc} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1:3:2:2:1: CCAST 0xaaaaab6a4490 <e1415> {c12bb} @dt=0xaaaaab6a1350@(G/wu32/2) sz32
+    1:2:3:1:3:2:2:1:1: VARREF 0xaaaaab67c1b0 <e1410> {c12bb} @dt=0xaaaaab6a1350@(G/wu32/2)  D [RV] <- VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:3:2:2:2: CONST 0xaaaaab67c2d0 <e1314> {c12bd} @dt=0xaaaaab6a1480@(G/swu32/1)  1'h1
+    1:2:3:2: VARREF 0xaaaaab683c00 <e1263> {c10an} @dt=0xaaaaab6a1350@(G/wu32/2)  Q [LV] => VAR 0xaaaaab67ce20 <e389> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CFUNC 0xaaaaab6830d0 <e1176> {c1ai}  _eval
+    1:2:3: IF 0xaaaaab6837a0 <e946> {c7am}
+    1:2:3:1: AND 0xaaaaab6836e0 <e1268> {c7ao} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1:1: CCAST 0xaaaaab6a48c0 <e1424> {c7ao} @dt=0xaaaaab685210@(G/wu32/1) sz32
+    1:2:3:1:1:1: VARREF 0xaaaaab689090 <e1419> {c7ao} @dt=0xaaaaab685210@(G/wu32/1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3:1:2: NOT 0xaaaaab683620 <e1267> {c7ao} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1:2:1: CCAST 0xaaaaab6a4a60 <e1433> {c7ao} @dt=0xaaaaab685210@(G/wu32/1) sz32
+    1:2:3:1:2:1:1: VARREF 0xaaaaab6891b0 <e1428> {c7ao} @dt=0xaaaaab685210@(G/wu32/1)  __Vclklast__TOP__clock [RV] <- VAR 0xaaaaab67f4c0 <e915> {c2al} @dt=0xaaaaab675030@(G/w1)  __Vclklast__TOP__clock MODULETEMP
+    1:2:3:2: CCALL 0xaaaaab691a90 <e908> {c7af} _sequent__TOP__1 => CFUNC 0xaaaaab6896b0 <e1174> {c7af}  _sequent__TOP__1
+    1:2:4: ASSIGN 0xaaaaab688fd0 <e1271> {c2al} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:4:1: VARREF 0xaaaaab688eb0 <e1269> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:4:2: VARREF 0xaaaaab688d90 <e1270> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  __Vclklast__TOP__clock [LV] => VAR 0xaaaaab67f4c0 <e915> {c2al} @dt=0xaaaaab675030@(G/w1)  __Vclklast__TOP__clock MODULETEMP
+    1:2: CFUNC 0xaaaaab691050 <e1178> {c1ai}  _eval_initial [SLOW]
+    1:2:3: ASSIGN 0xaaaaab688cd0 <e1274> {c2al} @dt=0xaaaaab685210@(G/wu32/1)
+    1:2:3:1: VARREF 0xaaaaab688a90 <e1272> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3:2: VARREF 0xaaaaab688bb0 <e1273> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  __Vclklast__TOP__clock [LV] => VAR 0xaaaaab67f4c0 <e915> {c2al} @dt=0xaaaaab675030@(G/w1)  __Vclklast__TOP__clock MODULETEMP
+    1:2: CFUNC 0xaaaaab6911e0 <e1180> {c1ai}  _eval_settle [SLOW]
+    1:2: CFUNC 0xaaaaab691370 <e1182> {c1ai}  _final [SLOW]
+    1:2: CFUNC 0xaaaaab684210 <e1184> {c1ai}  _change_request
+    1:2:3: CRETURN 0xaaaaab684640 <e994> {c1ai}
+    1:2:3:1: CCALL 0xaaaaab684530 <e995> {c1ai} _change_request_1 => CFUNC 0xaaaaab6843a0 <e1186> {c1ai}  _change_request_1
+    1:2: CFUNC 0xaaaaab6843a0 <e1186> {c1ai}  _change_request_1
+    1:2:3: CHANGEDET 0xaaaaab684700 <e996> {c1ai}
+    1:2: CFUNC 0xaaaaab685c30 <e1188> {c1ai}  traceRegister [SLOW]
+    1:2:3: TEXT 0xaaaaab6862a0 <e1034> {c1ai} "tracep->addFullCb("
+    1:2:3: ADDROFCFUNC 0xaaaaab686390 <e1040> {c1ai} @dt=0xaaaaab686460@(G/w64)
+    1:2:3: TEXT 0xaaaaab686540 <e1042> {c1ai} ", vlSelf);..."
+    1:2:3: TEXT 0xaaaaab687730 <e1065> {c1ai} "tracep->addChgCb("
+    1:2:3: ADDROFCFUNC 0xaaaaab687820 <e1068> {c1ai} @dt=0xaaaaab686460@(G/w64)
+    1:2:3: TEXT 0xaaaaab6878f0 <e1070> {c1ai} ", vlSelf);..."
+    1:2:3: TEXT 0xaaaaab6a0030 <e1128> {c1ai} "tracep->addCleanupCb("
+    1:2:3: ADDROFCFUNC 0xaaaaab6a0120 <e1131> {c1ai} @dt=0xaaaaab686460@(G/w64)
+    1:2:3: TEXT 0xaaaaab6a01f0 <e1133> {c1ai} ", vlSelf);..."
+    1:2: CFUNC 0xaaaaab685df0 <e1190> {c1ai}  traceFullTop0 [SLOW] [STATIC]
+    1:2:2: CSTMT 0xaaaaab685fb0 <e1028> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab689930 <e1029> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit___024root* const __restrict vlSelf = static_cast<VCyclicLeftShiftRegister_PosEdge_2Bit___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0xaaaaab686070 <e1032> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab686130 <e1031> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:3: CCALL 0xaaaaab686820 <e1045> {c1ai} traceFullSub0 => CFUNC 0xaaaaab686630 <e1192> {c1ai}  traceFullSub0 [SLOW]
+    1:2: CFUNC 0xaaaaab686630 <e1192> {c1ai}  traceFullSub0 [SLOW]
+    1:2:3: TRACEINC 0xaaaaab686930 <e1047> {c2al} @dt=0xaaaaab675030@(G/w1) -> TRACEDECL 0xaaaaab68c2c0 <e692> {c2al} @dt=0xaaaaab675030@(G/w1)  clock
+    1:2:3:2: VARREF 0xaaaaab686a00 <e1275> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab686b20 <e1050> {c3al} @dt=0xaaaaab675030@(G/w1) -> TRACEDECL 0xaaaaab68c610 <e699> {c3al} @dt=0xaaaaab675030@(G/w1)  reset
+    1:2:3:2: VARREF 0xaaaaab686bf0 <e1276> {c3al} @dt=0xaaaaab685210@(G/wu32/1)  reset [RV] <- VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab686d10 <e1053> {c4ar} @dt=0xaaaaab66c810@(G/w2) -> TRACEDECL 0xaaaaab68c960 <e706> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D
+    1:2:3:2: VARREF 0xaaaaab686de0 <e1277> {c4ar} @dt=0xaaaaab6a1350@(G/wu32/2)  D [RV] <- VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab686f00 <e1056> {c5aw} @dt=0xaaaaab66c810@(G/w2) -> TRACEDECL 0xaaaaab68ccb0 <e713> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q
+    1:2:3:2: VARREF 0xaaaaab686fd0 <e1278> {c5aw} @dt=0xaaaaab6a1350@(G/wu32/2)  Q [RV] <- VAR 0xaaaaab67ce20 <e389> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CFUNC 0xaaaaab6870f0 <e1194> {c1ai}  traceChgTop0 [STATIC]
+    1:2:2: CSTMT 0xaaaaab6872b0 <e1058> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab687370 <e1059> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit___024root* const __restrict vlSelf = static_cast<VCyclicLeftShiftRegister_PosEdge_2Bit___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0xaaaaab687500 <e1062> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab6875c0 <e1061> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2: CSTMT 0xaaaaab6879e0 <e1073> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab687aa0 <e1072> {c1ai} "if (VL_UNLIKELY(!vlSymsp->__Vm_activity)) return;..."
+    1:2:3: CCALL 0xaaaaab687d80 <e1076> {c1ai} traceChgSub0 => CFUNC 0xaaaaab687b90 <e1196> {c1ai}  traceChgSub0
+    1:2: CFUNC 0xaaaaab687b90 <e1196> {c1ai}  traceChgSub0
+    1:2:3: TRACEINC 0xaaaaab688180 <e1211> {c2al} @dt=0xaaaaab675030@(G/w1) -> TRACEDECL 0xaaaaab68c2c0 <e692> {c2al} @dt=0xaaaaab675030@(G/w1)  clock
+    1:2:3:2: VARREF 0xaaaaab688250 <e1279> {c2al} @dt=0xaaaaab685210@(G/wu32/1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab688370 <e1089> {c3al} @dt=0xaaaaab675030@(G/w1) -> TRACEDECL 0xaaaaab68c610 <e699> {c3al} @dt=0xaaaaab675030@(G/w1)  reset
+    1:2:3:2: VARREF 0xaaaaab688440 <e1280> {c3al} @dt=0xaaaaab685210@(G/wu32/1)  reset [RV] <- VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab688560 <e1092> {c4ar} @dt=0xaaaaab66c810@(G/w2) -> TRACEDECL 0xaaaaab68c960 <e706> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D
+    1:2:3:2: VARREF 0xaaaaab688630 <e1281> {c4ar} @dt=0xaaaaab6a1350@(G/wu32/2)  D [RV] <- VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: TRACEINC 0xaaaaab688750 <e1095> {c5aw} @dt=0xaaaaab66c810@(G/w2) -> TRACEDECL 0xaaaaab68ccb0 <e713> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q
+    1:2:3:2: VARREF 0xaaaaab688820 <e1282> {c5aw} @dt=0xaaaaab6a1350@(G/wu32/2)  Q [RV] <- VAR 0xaaaaab67ce20 <e389> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CFUNC 0xaaaaab69fb60 <e1198> {c1ai}  traceCleanup [STATIC]
+    1:2:2: CSTMT 0xaaaaab688940 <e1122> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab69fcf0 <e1123> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit___024root* const __restrict vlSelf = static_cast<VCyclicLeftShiftRegister_PosEdge_2Bit___024root*>(voidSelf);..."
+    1:2:2: CSTMT 0xaaaaab69fe80 <e1126> {c1ai}
+    1:2:2:1: TEXT 0xaaaaab69ff40 <e1125> {c1ai} "VCyclicLeftShiftRegister_PosEdge_2Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2: VAR 0xaaaaab6a1b10 <e1161> {c1ai} @dt=0xaaaaab6858f0@(nw1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
+    1:2:3: CSTMT 0xaaaaab6a02e0 <e1134> {c1ai}
+    1:2:3:1: TEXT 0xaaaaab6a03a0 <e1135> {c1ai} "vlSymsp->__Vm_activity = false;..."
+    1:2:3: ASSIGN 0xaaaaab6a0ab0 <e1292> {c1ai} @dt=0xaaaaab6a22e0@(G/nwu32/1)
+    1:2:3:1: CONST 0xaaaaab6a0890 <e1286> {c1ai} @dt=0xaaaaab6a22e0@(G/nwu32/1)  1'h0
+    1:2:3:2: ARRAYSEL 0xaaaaab6a05b0 <e1291> {c1ai} @dt=0xaaaaab6a22e0@(G/nwu32/1)
+    1:2:3:2:1: VARREF 0xaaaaab6a0490 <e1145> {c1ai} @dt=0xaaaaab6858f0@(nw1)u[0:0]  __Vm_traceActivity [LV] => VAR 0xaaaaab6a1b10 <e1161> {c1ai} @dt=0xaaaaab6858f0@(nw1)u[0:0]  __Vm_traceActivity [FUNC] MODULETEMP
+    1:2:3:2:2: CONST 0xaaaaab6a0670 <e1146> {c1ai} @dt=0xaaaaab678b40@(G/w32)  32'h0
+    1:2: CFUNC 0xaaaaab6a4df0 <e1435> {c1ai}  _eval_debug_assertions
+    1:2:3: IF 0xaaaaab6a5360 <e1449> {c2al}
+    1:2:3:1: AND 0xaaaaab6a50a0 <e1450> {c2al} @dt=0xaaaaab675030@(G/w1)
+    1:2:3:1:1: VARREF 0xaaaaab6a4f80 <e1444> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [RV] <- VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3:1:2: CONST 0xaaaaab6a37e0 <e1445> {c2al} @dt=0xaaaaab6a6e00@(G/w8)  8'hfe
+    1:2:3:2: CSTMT 0xaaaaab6a51b0 <e1447> {c2al}
+    1:2:3:2:1: TEXT 0xaaaaab6a5270 <e1448> {c2al} "Verilated::overWidthError("clock");"
+    1:2:3: IF 0xaaaaab6a5a10 <e1467> {c3al}
+    1:2:3:1: AND 0xaaaaab6a5770 <e1466> {c3al} @dt=0xaaaaab675030@(G/w1)
+    1:2:3:1:1: VARREF 0xaaaaab6a5430 <e1460> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [RV] <- VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: CONST 0xaaaaab6a5550 <e1461> {c3al} @dt=0xaaaaab6a6e00@(G/w8)  8'hfe
+    1:2:3:2: CSTMT 0xaaaaab6a5860 <e1463> {c3al}
+    1:2:3:2:1: TEXT 0xaaaaab6a5920 <e1464> {c3al} "Verilated::overWidthError("reset");"
+    1:2:3: IF 0xaaaaab6a60c0 <e1484> {c4ar}
+    1:2:3:1: AND 0xaaaaab6a5e20 <e1483> {c4ar} @dt=0xaaaaab66c810@(G/w2)
+    1:2:3:1:1: VARREF 0xaaaaab6a5ae0 <e1477> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [RV] <- VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3:1:2: CONST 0xaaaaab6a5c00 <e1478> {c4ar} @dt=0xaaaaab6a6e00@(G/w8)  8'hfc
+    1:2:3:2: CSTMT 0xaaaaab6a5f10 <e1480> {c4ar}
+    1:2:3:2:1: TEXT 0xaaaaab6a5fd0 <e1481> {c4ar} "Verilated::overWidthError("D");"
+    1:2: CFUNC 0xaaaaab6a61c0 <e1486> {c1ai}  _ctor_var_reset [SLOW]
+    1:2:3: CRESET 0xaaaaab6a64a0 <e1489> {c2al}
+    1:2:3:1: VARREF 0xaaaaab6a6380 <e1488> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [LV] => VAR 0xaaaaab6796d0 <e372> {c2al} @dt=0xaaaaab675030@(G/w1)  clock [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:3: CRESET 0xaaaaab6a6680 <e1493> {c3al}
+    1:2:3:1: VARREF 0xaaaaab6a6560 <e1491> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [LV] => VAR 0xaaaaab679a70 <e377> {c3al} @dt=0xaaaaab675030@(G/w1)  reset [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: CRESET 0xaaaaab6a6860 <e1497> {c4ar}
+    1:2:3:1: VARREF 0xaaaaab6a6740 <e1495> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [LV] => VAR 0xaaaaab67ca80 <e383> {c4ar} @dt=0xaaaaab66c810@(G/w2)  D [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:3: CRESET 0xaaaaab6a6a40 <e1501> {c5aw}
+    1:2:3:1: VARREF 0xaaaaab6a6920 <e1499> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [LV] => VAR 0xaaaaab67ce20 <e389> {c5aw} @dt=0xaaaaab66c810@(G/w2)  Q [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: CUSE 0xaaaaab6a6b00 <e1503#> {c1ai}  VerilatedVcd [INT_FWD]
+    2: CFILE 0xaaaaab6a6f10 <e1504#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit__Syms.cpp [SRC] [SLOW]
+    2: CFILE 0xaaaaab6a7270 <e1506#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit__Syms.h [SLOW]
+    2: CFILE 0xaaaaab6a86d0 <e1508#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit.h
+    2: CFILE 0xaaaaab6a8910 <e1510#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit.cpp [SRC]
+    2: CFILE 0xaaaaab6a8d50 <e1512#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit__Trace__Slow.cpp [SRC] [SLOW]
+    2: CFILE 0xaaaaab6a7630 <e1514#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit__Trace.cpp [SRC]
+    2: CFILE 0xaaaaab6a7930 <e1516#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit___024root.h
+    2: CFILE 0xaaaaab6a7c80 <e1518#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit___024root__Slow.cpp [SRC] [SLOW]
+    2: CFILE 0xaaaaab6a8000 <e1520#> {a0aa}  obj_dir/VCyclicLeftShiftRegister_PosEdge_2Bit___024root.cpp [SRC]
+    3: TYPETABLE 0xaaaaab65c620 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0xaaaaab675030 <e208> {c2al} u1=0x1 @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab685310 <e999> {c1ai} u1=0xb @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab66c810 <e224> {c4al} u1=0x2 @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0xaaaaab6a6e00 <e1441> {c2al} u1=0xa @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+		detailed  ->  BASICDTYPE 0xaaaaab685210 <e1220> {c9an} u1=0x4 @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab6a1480 <e1229> {c12ax} u1=0x6 @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab6a22e0 <e1285> {c1ai} u1=0x9 @dt=this@(G/nwu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab6a1350 <e1224> {c10as} u1=0x3 @dt=this@(G/wu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab678b40 <e341> {c12av} u1=0x5 @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab686460 <e1038> {c1ai} u1=0x7 @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+    3:1: BASICDTYPE 0xaaaaab675030 <e208> {c2al} u1=0x1 @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0xaaaaab66c810 <e224> {c4al} u1=0x2 @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0xaaaaab678b40 <e341> {c12av} u1=0x5 @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab685310 <e999> {c1ai} u1=0xb @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+    3:1: UNPACKARRAYDTYPE 0xaaaaab6858f0 <e1018> {c1ai} u1=0x8 @dt=this@(nw1)u[0:0] refdt=0xaaaaab685310(G/nw1) [0:0]
+    3:1:2: RANGE 0xaaaaab6853f0 <e1016> {c1ai}
+    3:1:2:2: CONST 0xaaaaab6854b0 <e1007> {c1ai} @dt=0xaaaaab678b40@(G/w32)  32'h0
+    3:1:2:3: CONST 0xaaaaab6856d0 <e1014> {c1ai} @dt=0xaaaaab678b40@(G/w32)  32'h0
+    3:1: BASICDTYPE 0xaaaaab686460 <e1038> {c1ai} u1=0x7 @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+    3:1: BASICDTYPE 0xaaaaab685210 <e1220> {c9an} u1=0x4 @dt=this@(G/wu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab6a1350 <e1224> {c10as} u1=0x3 @dt=this@(G/wu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab6a1480 <e1229> {c12ax} u1=0x6 @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab6a22e0 <e1285> {c1ai} u1=0x9 @dt=this@(G/nwu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab6a6e00 <e1441> {c2al} u1=0xa @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+    3: CONSTPOOL 0xaaaaab65c7d0 <e6> {a0aa}
+    3:1: MODULE 0xaaaaab65c960 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0xaaaaab65caa0 <e664> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0xaaaaab65c960]
