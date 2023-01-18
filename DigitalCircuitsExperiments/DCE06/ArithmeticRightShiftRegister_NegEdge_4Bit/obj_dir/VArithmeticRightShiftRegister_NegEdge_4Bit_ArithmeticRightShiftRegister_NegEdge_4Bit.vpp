@@ -1,0 +1,19 @@
+`begin_keywords "1800-2017"
+`line 1 "ArithmeticRightShiftRegister_NegEdge_4Bit.v" 1
+module ArithmeticRightShiftRegister_NegEdge_4Bit (clock, reset, D, Q);
+    input clock;
+    input reset;
+    input [3:0] D;
+    output reg [3:0] Q;
+
+`line 7 "ArithmeticRightShiftRegister_NegEdge_4Bit.v" 0
+    always @(negedge clock)
+    begin
+        if (reset)
+            Q <= 4'b0000;
+        else
+            Q <= {D[3], D[3:1]};        
+    end
+endmodule
+
+`line 16 "ArithmeticRightShiftRegister_NegEdge_4Bit.v" 2
