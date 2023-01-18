@@ -1,0 +1,19 @@
+`begin_keywords "1800-2017"
+`line 1 "LogicLeftShiftRegister_PosEdge_2Bit.v" 1
+module LogicLeftShiftRegister_PosEdge_2Bit (clock, reset, D, Q);
+    input clock;
+    input reset;
+    input [1:0] D;
+    output reg [1:0] Q;
+
+`line 7 "LogicLeftShiftRegister_PosEdge_2Bit.v" 0
+    always @(posedge clock)
+    begin
+        if (reset)
+            Q = 2'b00;
+        else
+            Q = Q << 1 ;        
+    end
+endmodule
+
+`line 16 "LogicLeftShiftRegister_PosEdge_2Bit.v" 2

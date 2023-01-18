@@ -1,0 +1,47 @@
+Verilator Tree Dump (format 0x3900) from <e0> to <e114>
+     NETLIST 0xaaaaab5dbf80 <e1#> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0xaaaaab5eb6a0 <e114#> {c1ai}  LogicRightShiftRegister_NegEdge_4Bit  L0 [1ps]
+    1:2: PORT 0xaaaaab5ea8f0 <e8#> {c1bu}  clock
+    1:2: PORT 0xaaaaab5eaa70 <e10#> {c1cb}  reset
+    1:2: PORT 0xaaaaab5eac20 <e12#> {c1ci}  D
+    1:2: PORT 0xaaaaab5eb880 <e14#> {c1cl}  Q
+    1:2: VAR 0xaaaaab5ebb80 <e108#> {c2al} @dt=0@  clock INPUT PORT
+    1:2:1: BASICDTYPE 0xaaaaab5ebaa0 <e18#> {c2al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0xaaaaab5ebf00 <e23#> {c3al} @dt=0@  reset INPUT PORT
+    1:2:1: BASICDTYPE 0xaaaaab5ebe20 <e22#> {c3al} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0xaaaaab5ecf40 <e45#> {c4ar} @dt=0@  D INPUT PORT
+    1:2:1: BASICDTYPE 0xaaaaab5ecb20 <e44#> {c4al} @dt=this@(nw0)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab5ecc00 <e42#> {c4al}
+    1:2:1:1:2: CONST 0xaaaaab5eccc0 <e34#> {c4am} @dt=0xaaaaab5ec2b0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:3: CONST 0xaaaaab5ece00 <e35#> {c4ao} @dt=0xaaaaab5ec650@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0xaaaaab5edf20 <e71#> {c5aw} @dt=0@  Q OUTPUT PORT
+    1:2:1: BASICDTYPE 0xaaaaab5edb00 <e70#> {c5am} @dt=this@(nw1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab5edbe0 <e68#> {c5aq}
+    1:2:1:1:2: CONST 0xaaaaab5edca0 <e66#> {c5ar} @dt=0xaaaaab5ec2b0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:3: CONST 0xaaaaab5edde0 <e67#> {c5at} @dt=0xaaaaab5ec650@(G/swu32/1)  ?32?sh0
+    1:2: ALWAYS 0xaaaaab5f6be0 <e107#> {c7af}
+    1:2:2: TIMINGCONTROL 0xaaaaab5f6b20 <e103#> {c7am}
+    1:2:2:1: SENTREE 0xaaaaab5ee450 <e104#> {c7am}
+    1:2:2:1:1: SENITEM 0xaaaaab5ee390 <e73#> {c7ao} [NEG]
+    1:2:2:1:1:1: PARSEREF 0xaaaaab5ee2b0 <e74#> {c7aw}  clock [TEXT]
+    1:2:2:2: BEGIN 0xaaaaab5ee5b0 <e105#> {c8af}
+    1:2:2:2:1: IF 0xaaaaab5f69b0 <e101#> {c9aj}
+    1:2:2:2:1:1: PARSEREF 0xaaaaab5ee8e0 <e102#> {c9an}  reset [TEXT]
+    1:2:2:2:1:2: ASSIGN 0xaaaaab5f6070 <e84#> {c10ap} @dt=0@
+    1:2:2:2:1:2:1: CONST 0xaaaaab5f5e00 <e85#> {c10ar} @dt=0xaaaaab5f5f40@(G/w4)  4'h0
+    1:2:2:2:1:2:2: PARSEREF 0xaaaaab5f5c90 <e86#> {c10an}  Q [TEXT]
+    1:2:2:2:1:3: ASSIGN 0xaaaaab5f68f0 <e98#> {c12ap} @dt=0@
+    1:2:2:2:1:3:1: SHIFTR 0xaaaaab5f6830 <e99#> {c12at} @dt=0@
+    1:2:2:2:1:3:1:1: PARSEREF 0xaaaaab5f6400 <e96#> {c12ar}  Q [TEXT]
+    1:2:2:2:1:3:1:2: CONST 0xaaaaab5f65c0 <e97#> {c12aw} @dt=0xaaaaab5ec650@(G/swu32/1)  ?32?sh1
+    1:2:2:2:1:3:2: PARSEREF 0xaaaaab5f6220 <e100#> {c12an}  Q [TEXT]
+    3: TYPETABLE 0xaaaaab5dc620 <e2#> {a0aa}
+		detailed  ->  BASICDTYPE 0xaaaaab5f5f40 <e82#> {c10ar} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5ec650 <e31#> {c4ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5ec2b0 <e26#> {c4am} @dt=this@(G/swu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab5ec2b0 <e26#> {c4am} @dt=this@(G/swu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab5ec650 <e31#> {c4ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab5f5f40 <e82#> {c10ar} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+    3: CONSTPOOL 0xaaaaab5dc7d0 <e6#> {a0aa}
+    3:1: MODULE 0xaaaaab5dc960 <e4#> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0xaaaaab5dcaa0 <e5#> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0xaaaaab5dc960]

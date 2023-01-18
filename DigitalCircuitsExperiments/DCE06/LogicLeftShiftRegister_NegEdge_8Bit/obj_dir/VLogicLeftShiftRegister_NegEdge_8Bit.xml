@@ -1,0 +1,235 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="LogicLeftShiftRegister_NegEdge_8Bit.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="LogicLeftShiftRegister_NegEdge_8Bit.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell fl="c1" loc="c,1,8,1,43" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module fl="c1" loc="c,1,8,1,43" name="$root" origName="$root" topModule="1" public="true">
+      <var fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clock" public="true"/>
+      <var fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="reset" public="true"/>
+      <var fl="c4" loc="c,4,17,4,18" name="D" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="D" public="true"/>
+      <var fl="c5" loc="c,5,22,5,23" name="Q" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="Q" public="true"/>
+      <topscope fl="c1" loc="c,1,8,1,43">
+        <scope fl="c1" loc="c,1,8,1,43" name="TOP"/>
+      </topscope>
+      <var fl="c2" loc="c,2,11,2,16" name="__Vclklast__TOP__clock" dtype_id="1" vartype="logic" origName="__Vclklast__TOP__clock"/>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceInitTop">
+        <ccall fl="c1" loc="c,1,8,1,43"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceInitSub0">
+        <tracedecl fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="1"/>
+        <tracedecl fl="c4" loc="c,4,17,4,18" name="D" dtype_id="2"/>
+        <tracedecl fl="c5" loc="c,5,22,5,23" name="Q" dtype_id="2"/>
+        <tracedecl fl="c2" loc="c,2,11,2,16" name="LogicLeftShiftRegister_NegEdge_8Bit clock" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,11,3,16" name="LogicLeftShiftRegister_NegEdge_8Bit reset" dtype_id="1"/>
+        <tracedecl fl="c4" loc="c,4,17,4,18" name="LogicLeftShiftRegister_NegEdge_8Bit D" dtype_id="2"/>
+        <tracedecl fl="c5" loc="c,5,22,5,23" name="LogicLeftShiftRegister_NegEdge_8Bit Q" dtype_id="2"/>
+      </cfunc>
+      <cfunc fl="c7" loc="c,7,5,7,11" name="_sequent__TOP__1">
+        <assign fl="c10" loc="c,10,15,10,16" dtype_id="3">
+          <cond fl="c10" loc="c,10,17,10,28" dtype_id="3">
+            <ccast fl="c9" loc="c,9,13,9,18" dtype_id="4">
+              <varref fl="c9" loc="c,9,13,9,18" name="reset" dtype_id="4"/>
+            </ccast>
+            <const fl="c10" loc="c,10,17,10,28" name="32&apos;h0" dtype_id="3"/>
+            <and fl="c10" loc="c,10,17,10,28" dtype_id="3">
+              <const fl="c10" loc="c,10,17,10,28" name="32&apos;hff" dtype_id="5"/>
+              <shiftl fl="c12" loc="c,12,19,12,21" dtype_id="3">
+                <ccast fl="c12" loc="c,12,17,12,18" dtype_id="3">
+                  <varref fl="c12" loc="c,12,17,12,18" name="Q" dtype_id="3"/>
+                </ccast>
+                <const fl="c12" loc="c,12,22,12,23" name="32&apos;sh1" dtype_id="6"/>
+              </shiftl>
+            </and>
+          </cond>
+          <varref fl="c10" loc="c,10,13,10,14" name="Q" dtype_id="3"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_eval">
+        <if fl="c7" loc="c,7,12,7,13">
+          <and fl="c7" loc="c,7,14,7,21" dtype_id="4">
+            <not fl="c7" loc="c,7,14,7,21" dtype_id="4">
+              <ccast fl="c7" loc="c,7,14,7,21" dtype_id="4">
+                <varref fl="c7" loc="c,7,14,7,21" name="clock" dtype_id="4"/>
+              </ccast>
+            </not>
+            <ccast fl="c7" loc="c,7,14,7,21" dtype_id="4">
+              <varref fl="c7" loc="c,7,14,7,21" name="__Vclklast__TOP__clock" dtype_id="4"/>
+            </ccast>
+          </and>
+          <ccall fl="c7" loc="c,7,5,7,11"/>
+        </if>
+        <assign fl="c2" loc="c,2,11,2,16" dtype_id="4">
+          <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="4"/>
+          <varref fl="c2" loc="c,2,11,2,16" name="__Vclklast__TOP__clock" dtype_id="4"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_eval_initial">
+        <assign fl="c2" loc="c,2,11,2,16" dtype_id="4">
+          <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="4"/>
+          <varref fl="c2" loc="c,2,11,2,16" name="__Vclklast__TOP__clock" dtype_id="4"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_eval_settle"/>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_final"/>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_change_request">
+        <creturn fl="c1" loc="c,1,8,1,43">
+          <ccall fl="c1" loc="c,1,8,1,43"/>
+        </creturn>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_change_request_1">
+        <changedet fl="c1" loc="c,1,8,1,43"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceRegister">
+        <text fl="c1" loc="c,1,8,1,43"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,43" dtype_id="7"/>
+        <text fl="c1" loc="c,1,8,1,43"/>
+        <text fl="c1" loc="c,1,8,1,43"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,43" dtype_id="7"/>
+        <text fl="c1" loc="c,1,8,1,43"/>
+        <text fl="c1" loc="c,1,8,1,43"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,43" dtype_id="7"/>
+        <text fl="c1" loc="c,1,8,1,43"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceFullTop0">
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,43"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceFullSub0">
+        <traceinc fl="c2" loc="c,2,11,2,16" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="4"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,11,3,16" dtype_id="1">
+          <varref fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="4"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,17,4,18" dtype_id="2">
+          <varref fl="c4" loc="c,4,17,4,18" name="D" dtype_id="3"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,22,5,23" dtype_id="2">
+          <varref fl="c5" loc="c,5,22,5,23" name="Q" dtype_id="3"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceChgTop0">
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,43"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceChgSub0">
+        <traceinc fl="c2" loc="c,2,11,2,16" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="4"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,11,3,16" dtype_id="1">
+          <varref fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="4"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,17,4,18" dtype_id="2">
+          <varref fl="c4" loc="c,4,17,4,18" name="D" dtype_id="3"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,22,5,23" dtype_id="2">
+          <varref fl="c5" loc="c,5,22,5,23" name="Q" dtype_id="3"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="traceCleanup">
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <var fl="c1" loc="c,1,8,1,43" name="__Vm_traceActivity" dtype_id="8" vartype="" origName="__Vm_traceActivity"/>
+        <cstmt fl="c1" loc="c,1,8,1,43">
+          <text fl="c1" loc="c,1,8,1,43"/>
+        </cstmt>
+        <assign fl="c1" loc="c,1,8,1,43" dtype_id="9">
+          <const fl="c1" loc="c,1,8,1,43" name="1&apos;h0" dtype_id="9"/>
+          <arraysel fl="c1" loc="c,1,8,1,43" dtype_id="9">
+            <varref fl="c1" loc="c,1,8,1,43" name="__Vm_traceActivity" dtype_id="8"/>
+            <const fl="c1" loc="c,1,8,1,43" name="32&apos;h0" dtype_id="5"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_eval_debug_assertions">
+        <if fl="c2" loc="c,2,11,2,16">
+          <and fl="c2" loc="c,2,11,2,16" dtype_id="1">
+            <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="1"/>
+            <const fl="c2" loc="c,2,11,2,16" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,11,2,16">
+            <text fl="c2" loc="c,2,11,2,16"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,11,3,16">
+          <and fl="c3" loc="c,3,11,3,16" dtype_id="1">
+            <varref fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="1"/>
+            <const fl="c3" loc="c,3,11,3,16" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,11,3,16">
+            <text fl="c3" loc="c,3,11,3,16"/>
+          </cstmt>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,43" name="_ctor_var_reset">
+        <creset fl="c2" loc="c,2,11,2,16">
+          <varref fl="c2" loc="c,2,11,2,16" name="clock" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,11,3,16">
+          <varref fl="c3" loc="c,3,11,3,16" name="reset" dtype_id="1"/>
+        </creset>
+        <creset fl="c4" loc="c,4,17,4,18">
+          <varref fl="c4" loc="c,4,17,4,18" name="D" dtype_id="2"/>
+        </creset>
+        <creset fl="c5" loc="c,5,22,5,23">
+          <varref fl="c5" loc="c,5,22,5,23" name="Q" dtype_id="2"/>
+        </creset>
+      </cfunc>
+      <cuse fl="c1" loc="c,1,8,1,43" name="VerilatedVcd"/>
+    </module>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit__Syms.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit__Syms.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit__Trace__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit__Trace.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit_$root.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit_$root__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VLogicLeftShiftRegister_NegEdge_8Bit_$root.cpp"/>
+    <typetable fl="a0" loc="a,0,0,0,0">
+      <basicdtype fl="c2" loc="c,2,11,2,16" id="1" name="logic"/>
+      <basicdtype fl="c4" loc="c,4,11,4,12" id="2" name="logic" left="7" right="0"/>
+      <basicdtype fl="c12" loc="c,12,22,12,23" id="6" name="logic" left="31" right="0"/>
+      <basicdtype fl="c1" loc="c,1,8,1,43" id="10" name="logic"/>
+      <basicdtype fl="c1" loc="c,1,8,1,43" id="5" name="logic" left="31" right="0"/>
+      <unpackarraydtype fl="c1" loc="c,1,8,1,43" id="8" sub_dtype_id="10">
+        <range fl="c1" loc="c,1,8,1,43">
+          <const fl="c1" loc="c,1,8,1,43" name="32&apos;h0" dtype_id="5"/>
+          <const fl="c1" loc="c,1,8,1,43" name="32&apos;h0" dtype_id="5"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,43" id="7" name="chandle" left="63" right="0"/>
+      <basicdtype fl="c9" loc="c,9,13,9,18" id="4" name="logic" left="31" right="0"/>
+      <basicdtype fl="c10" loc="c,10,17,10,28" id="3" name="logic" left="31" right="0"/>
+      <basicdtype fl="c1" loc="c,1,8,1,43" id="9" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

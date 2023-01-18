@@ -1,0 +1,19 @@
+`begin_keywords "1800-2017"
+`line 1 "LogicRightShiftRegister_PosEdge_8Bit.v" 1
+module LogicRightShiftRegister_PosEdge_8Bit (clock, reset, D, Q);
+    input clock;
+    input reset;
+    input [7:0] D;
+    output reg [7:0] Q;
+
+`line 7 "LogicRightShiftRegister_PosEdge_8Bit.v" 0
+    always @(posedge clock)
+    begin
+        if (reset)
+            Q = 8'b00000000;
+        else
+            Q = Q >> 1 ;        
+    end
+endmodule
+
+`line 16 "LogicRightShiftRegister_PosEdge_8Bit.v" 2
