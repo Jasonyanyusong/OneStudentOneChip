@@ -1,0 +1,10 @@
+Signals and their clock domains:
+  0xaaaaab5ffae0 clock                                              @(*)
+  0xaaaaab5ffbc0 reset                                              @(*)
+  0xaaaaab5ffbc0 reset {POST}                                       @(*)
+  0xaaaaab5ffbc0 reset {PRE}                                        @(*)
+  0xaaaaab5ffca0 D                                                  @(*)
+  0xaaaaab5ffd80 Q                                                  @(negedge clock)
+  0xaaaaab5ffd80 Q {PORD}                                           @([settle])
+  0xaaaaab5ffd80 Q {POST}                                           @(negedge clock)
+  0xaaaaab5ffd80 Q {PRE}                                            @(negedge clock)
