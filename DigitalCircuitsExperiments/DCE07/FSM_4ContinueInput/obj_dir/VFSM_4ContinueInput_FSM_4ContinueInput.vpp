@@ -1,19 +1,26 @@
+`begin_keywords "1800-2017"
+`line 1 "FSM_4ContinueInput.v" 1
 module FSM_4ContinueInput
 (
   input   clk, in, reset,
   output reg out
 );
 
+`line 7 "FSM_4ContinueInput.v" 0
 parameter[3:0] S0 = 0, S1 = 1, S2 = 2, S3 = 3,
           S4 = 4, S5 = 5, S6 = 6, S7 = 7, S8 = 8;
 
+`line 10 "FSM_4ContinueInput.v" 0
 wire [3:0] state_din, state_dout;
 wire state_wen;
 
+`line 13 "FSM_4ContinueInput.v" 0
 register4Bit_Clock_Reset_Input_Output_WriteEnable state(.Module_clock(clk), .Module_reset(reset), .Module_input(state_din), .Module_output(state_dout), .Module_write_enable(state_wen));
 
+`line 15 "FSM_4ContinueInput.v" 0
 assign state_wen = 1;
 
+`line 17 "FSM_4ContinueInput.v" 0
 MuxKeyWithDefault#(9, 4, 1) outMux(.out(out), .key(state_dout), .default_out(0), .lut({
   S0, 1'b0,
   S1, 1'b0,
@@ -26,6 +33,7 @@ MuxKeyWithDefault#(9, 4, 1) outMux(.out(out), .key(state_dout), .default_out(0),
   S8, 1'b1
 }));
 
+`line 29 "FSM_4ContinueInput.v" 0
 MuxKeyWithDefault#(9, 4, 4) stateMux(.out(state_din), .key(state_dout), .default_out(S0), .lut({
   S0, in ? S5 : S1,
   S1, in ? S5 : S2,
@@ -38,3 +46,5 @@ MuxKeyWithDefault#(9, 4, 4) stateMux(.out(state_din), .key(state_dout), .default
   S8, in ? S8 : S1
 }));
 endmodule
+
+`line 42 "FSM_4ContinueInput.v" 2

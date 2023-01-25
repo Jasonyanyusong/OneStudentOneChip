@@ -1,0 +1,17 @@
+digraph v3graph {
+	graph	[label="obj_dir/VFSM_4ContinueInput_001_linkcells.dot",
+		 labelloc=t, labeljust=l,
+		 //size="7.5,10",
+		 rankdir=TB];
+	n0	[fontsize=8 label="FSM_4ContinueInput", color=black];
+	n1	[fontsize=8 label="register4Bit_Clock_Reset_Input_Output_WriteEnable", color=black];
+	n2	[fontsize=8 label="MuxKeyWithDefault", color=black];
+	n3	[fontsize=8 label="*LIBRARY*", color=black];
+	n4	[fontsize=8 label="MuxKeyInternal", color=black];
+	n0 -> n1 [fontsize=8 label="" weight=1 color=red];
+	n0 -> n2 [fontsize=8 label="" weight=1 color=red];
+	n2 -> n4 [fontsize=8 label="" weight=1 color=red];
+	n3 -> n1 [fontsize=8 label="" weight=1 color=red];
+	n3 -> n2 [fontsize=8 label="" weight=1 color=red];
+	n3 -> n4 [fontsize=8 label="" weight=1 color=red];
+}
