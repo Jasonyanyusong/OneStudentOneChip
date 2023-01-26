@@ -1,0 +1,356 @@
+Verilator Tree Dump (format 0x3900) from <e3992> to <e4011>
+     NETLIST 0xaaaaab5dbf80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0xaaaaab6142b0 <e1837> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: VAR 0xaaaaab614630 <e1841> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab6149d0 <e1846> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab614d70 <e1852> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab6154b0 <e1864> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2: VAR 0xaaaaab632c60 <e2278> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 MODULETEMP
+    1:2: TOPSCOPE 0xaaaaab636170 <e2674> {c1ai}
+    1:2:1: SENTREE 0xaaaaab660970 <e2946> {c3al}
+    1:2:1:1: SENITEM 0xaaaaab660a30 <e2945> {c3al} [COMBO]
+    1:2:1: SENTREE 0xaaaaab660af0 <e3998#> {c3al}
+    1:2:1:1: SENITEM 0xaaaaab660bb0 <e3993#> {c3al} [SETTLE]
+    1:2:1: SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:1:1: SENITEM 0xaaaaab660d30 <e233> {c16ao} [POS]
+    1:2:1:1:1: VARREF 0xaaaaab660df0 <e1044> {c16aw} @dt=0xaaaaab601ba0@(G/w1)  clk [RV] <- VARSCOPE 0xaaaaab636230 <e2676> {c3al} @dt=0xaaaaab601ba0@(G/w1)  TOP->clk -> VAR 0xaaaaab614630 <e1841> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2: SCOPE 0xaaaaab636070 <e2943> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0xaaaaab6142b0]
+    1:2:2:1: VARSCOPE 0xaaaaab636230 <e2676> {c3al} @dt=0xaaaaab601ba0@(G/w1)  TOP->clk -> VAR 0xaaaaab614630 <e1841> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636310 <e2679> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  TOP->clrn -> VAR 0xaaaaab6149d0 <e1846> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636430 <e2682> {c3au} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_clk -> VAR 0xaaaaab614d70 <e1852> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636550 <e2685> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_data -> VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636740 <e2688> {c4al} @dt=0xaaaaab601ba0@(G/w1)  TOP->nextdata_n -> VAR 0xaaaaab6154b0 <e1864> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636820 <e2691> {c5as} @dt=0xaaaaab5f7560@(G/w8)  TOP->data -> VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab638d20 <e2734> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  TOP->ps2_keyboard_sim_fn__DOT__fifo -> VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:1: VARSCOPE 0xaaaaab642a60 <e2756> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_keyboard_sim_fn__DOT____Vlvbound1 -> VAR 0xaaaaab632c60 <e2278> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 MODULETEMP
+    1:2:2:1: VARSCOPE 0xaaaaab657f70 <e3655> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab657930 <e3652> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab656dd0 <e3684> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab6554a0 <e3748> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  TOP->__Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655240 <e3745> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab655a40 <e3763> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  TOP->__Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655880 <e3760> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab656100 <e3776> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  TOP->__Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655e20 <e3773> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab65d190 <e3828> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab65dc00 <e3857> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__overflow -> VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:1: VARSCOPE 0xaaaaab65f0e0 <e3915> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab65ef60 <e3912> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer BLOCKTEMP
+    1:2:2:2: ACTIVE 0xaaaaab644cd0 <e2948> {c3al}  combo => SENTREE 0xaaaaab660970 <e2946> {c3al}
+    1:2:2:2:2: ASSIGNW 0xaaaaab642460 <e2982> {c53ar} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:1: ARRAYSEL 0xaaaaab642520 <e1803> {c53ax} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:1:1: VARREF 0xaaaaab6425e0 <e1588> {c53at} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [RV] <- VARSCOPE 0xaaaaab638d20 <e2734> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  TOP->ps2_keyboard_sim_fn__DOT__fifo -> VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2:2:2:2:1:2: VARREF 0xaaaaab642730 <e1802> {c53ay} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab642880 <e1580> {c53am} @dt=0xaaaaab5f7560@(G/w8)  data [LV] => VARSCOPE 0xaaaaab636820 <e2691> {c5as} @dt=0xaaaaab5f7560@(G/w8)  TOP->data -> VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: ACTIVE 0xaaaaab6603a0 <e3996#> {c3al}  settle => SENTREE 0xaaaaab660af0 <e3998#> {c3al}
+    1:2:2:2:2: ASSIGNW 0xaaaaab660490 <e2982> {c53ar} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:1: ARRAYSEL 0xaaaaab660550 <e1803> {c53ax} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:1:1: VARREF 0xaaaaab660610 <e1588> {c53at} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [RV] <- VARSCOPE 0xaaaaab638d20 <e2734> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  TOP->ps2_keyboard_sim_fn__DOT__fifo -> VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2:2:2:2:1:2: VARREF 0xaaaaab660730 <e1802> {c53ay} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab660850 <e1580> {c53am} @dt=0xaaaaab5f7560@(G/w8)  data [LV] => VARSCOPE 0xaaaaab636820 <e2691> {c5as} @dt=0xaaaaab5f7560@(G/w8)  TOP->data -> VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: ACTIVE 0xaaaaab645410 <e2965> {c16af}  sequent => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ALWAYS 0xaaaaab639300 <e2971> {c16af}
+    1:2:2:2:2:2: ASSIGNDLY 0xaaaaab639660 <e2000> {c17aw} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:1: CONCAT 0xaaaaab639720 <e1890> {c17bs} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:1:1: SEL 0xaaaaab6397e0 <e1066> {c17bn} @dt=0xaaaaab6122a0@(G/w2) decl[2:0]]
+    1:2:2:2:2:2:1:1:1: VARREF 0xaaaaab6398b0 <e1654> {c17bb} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:2:2:1:1:2: CONST 0xaaaaab6399d0 <e1084> {c17bq} @dt=0xaaaaab612380@(G/sw2)  2'h0
+    1:2:2:2:2:2:1:1:3: CONST 0xaaaaab639b10 <e1663> {c17bo} @dt=0xaaaaab61ace0@(G/w32)  32'h2
+    1:2:2:2:2:2:1:2: VARREF 0xaaaaab639c50 <e1085> {c17bt} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [RV] <- VARSCOPE 0xaaaaab636430 <e2682> {c3au} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_clk -> VAR 0xaaaaab614d70 <e1852> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: VARREF 0xaaaaab644250 <e3678> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync [LV] => VARSCOPE 0xaaaaab657f70 <e3655> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab657930 <e3652> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync BLOCKTEMP
+    1:2:2:2:2: ALWAYS 0xaaaaab648830 <e3098> {c22af}
+    1:2:2:2:2:2: IF 0xaaaaab649330 <e3000> {c23aj}
+    1:2:2:2:2:2:1: VARREF 0xaaaaab649210 <e2999> {c23an} @dt=0xaaaaab601ba0@(G/w1)  clrn [RV] <- VARSCOPE 0xaaaaab636310 <e2679> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  TOP->clrn -> VAR 0xaaaaab6149d0 <e1846> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2: IF 0xaaaaab64a1a0 <e3020> {c27an}
+    1:2:2:2:2:2:2:1: VARREF 0xaaaaab64a080 <e3019> {c27as} @dt=0xaaaaab601ba0@(G/w1)  ready [RV] <- VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2: IF 0xaaaaab64a5f0 <e3025> {c28ar}
+    1:2:2:2:2:2:2:2:1: NOT 0xaaaaab64a410 <e3024> {c28bf} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:1:1: VARREF 0xaaaaab64a4d0 <e1920> {c28au} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [RV] <- VARSCOPE 0xaaaaab636740 <e2688> {c4al} @dt=0xaaaaab601ba0@(G/w1)  TOP->nextdata_n -> VAR 0xaaaaab6154b0 <e1864> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64aba0 <e3031> {c30bb} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:1: ADD 0xaaaaab64ac60 <e1722> {c30bk} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:1:1: CONST 0xaaaaab64ad20 <e1928> {c30bm} @dt=0xaaaaab5fb4f0@(G/w3)  3'h1
+    1:2:2:2:2:2:2:2:2:1:2: VARREF 0xaaaaab64ae60 <e1929> {c30be} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab65a310 <e3707> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr [LV] => VARSCOPE 0xaaaaab656dd0 <e3684> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2:2:2:2:2:2:2:2: IF 0xaaaaab64b7b0 <e3036> {c31av}
+    1:2:2:2:2:2:2:2:2:1: EQ 0xaaaaab64b250 <e3035> {c31bd} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:1:1: VARREF 0xaaaaab64b310 <e1279> {c31ay} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:1:2: ADD 0xaaaaab64b460 <e1728> {c31bl} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:1:2:1: CONST 0xaaaaab64b520 <e1932> {c31bm} @dt=0xaaaaab5fb4f0@(G/w3)  3'h1
+    1:2:2:2:2:2:2:2:2:1:2:2: VARREF 0xaaaaab64b660 <e1933> {c31bg} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64b910 <e3037> {c32bf} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1: CONST 0xaaaaab64b9d0 <e1729> {c32bi} @dt=0xaaaaab601ba0@(G/w1)  1'h0
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab6550f0 <e3736> {c32az} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready [LV] => VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:2:2:2:2: IF 0xaaaaab64bf00 <e3042> {c35an}
+    1:2:2:2:2:2:2:1: AND 0xaaaaab659570 <e3508> {c20bl} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:1:1: SEL 0xaaaaab659630 <e1681> {c20bh} @dt=0xaaaaab601ba0@(G/w1) decl[2:0]]
+    1:2:2:2:2:2:2:1:1:1: VARREF 0xaaaaab659700 <e1670> {c20av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:2:2:2:1:1:2: CONST 0xaaaaab659820 <e1137> {c20bi} @dt=0xaaaaab612380@(G/sw2)  2'h2
+    1:2:2:2:2:2:2:1:1:3: CONST 0xaaaaab659960 <e1680> {c20bh} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2:2:2:2:2:2:1:2: NOT 0xaaaaab659aa0 <e1694> {c20bn} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:1:2:1: SEL 0xaaaaab659b60 <e1693> {c20ca} @dt=0xaaaaab601ba0@(G/w1) decl[2:0]]
+    1:2:2:2:2:2:2:1:2:1:1: VARREF 0xaaaaab659c30 <e1682> {c20bo} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:2:2:2:1:2:1:2: CONST 0xaaaaab659d50 <e1179> {c20cb} @dt=0xaaaaab612380@(G/sw2)  2'h1
+    1:2:2:2:2:2:2:1:2:1:3: CONST 0xaaaaab659e90 <e1692> {c20ca} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2:2:2:2:2:2:2: IF 0xaaaaab64c840 <e3052> {c36ap}
+    1:2:2:2:2:2:2:2:1: EQ 0xaaaaab64c4f0 <e3051> {c36az} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:1:1: CONST 0xaaaaab64c5b0 <e1936> {c36bc} @dt=0xaaaaab5fca50@(G/w4)  4'ha
+    1:2:2:2:2:2:2:2:1:2: VARREF 0xaaaaab64c6f0 <e1937> {c36at} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2: IF 0xaaaaab64d700 <e3057> {c37ar}
+    1:2:2:2:2:2:2:2:2:1: AND 0xaaaaab64ca90 <e3056> {c38bm} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:1:1: AND 0xaaaaab64cb50 <e1979> {c37bm} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:1:1:1: NOT 0xaaaaab64cc10 <e1972> {c37bg} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:1:1:1:1: SEL 0xaaaaab64ccd0 <e1970> {c37bc} @dt=0xaaaaab601ba0@(G/w1) decl[9:0]]
+    1:2:2:2:2:2:2:2:2:1:1:1:1:1: VARREF 0xaaaaab64cda0 <e1413> {c37aw} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:1:1:1:1:2: CONST 0xaaaaab64cef0 <e1439> {c37bd} @dt=0xaaaaab617e80@(G/sw4)  4'h0
+    1:2:2:2:2:2:2:2:2:1:1:1:1:3: CONST 0xaaaaab64d030 <e1743> {c37bc} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2:2:2:2:2:2:2:2:1:1:2: VARREF 0xaaaaab64d170 <e1961> {c38aw} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [RV] <- VARSCOPE 0xaaaaab636550 <e2685> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_data -> VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2:2:1:2: REDXOR 0xaaaaab647d40 <e1980> {c39aw} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:1:2:1: SEL 0xaaaaab64d290 <e1475> {c39bd} @dt=0xaaaaab619220@(G/w9) decl[9:0]]
+    1:2:2:2:2:2:2:2:2:1:2:1:1: VARREF 0xaaaaab64d360 <e1467> {c39ax} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:1:2:1:2: CONST 0xaaaaab64d480 <e1494> {c39bg} @dt=0xaaaaab617e80@(G/sw4)  4'h1
+    1:2:2:2:2:2:2:2:2:1:2:1:3: CONST 0xaaaaab64d5c0 <e1765> {c39be} @dt=0xaaaaab61ace0@(G/w32)  32'h9
+    1:2:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64d7d0 <e3649> {c40bh} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:2:2:2:2:2:1: SEL 0xaaaaab64d890 <e1776> {c40bq} @dt=0xaaaaab5f7560@(G/w8) decl[9:0]]
+    1:2:2:2:2:2:2:2:2:2:1:1: VARREF 0xaaaaab64d960 <e1340> {c40bk} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2:1:2: CONST 0xaaaaab64da80 <e1366> {c40bt} @dt=0xaaaaab617e80@(G/sw4)  4'h1
+    1:2:2:2:2:2:2:2:2:2:1:3: CONST 0xaaaaab64dbc0 <e1775> {c40br} @dt=0xaaaaab61ace0@(G/w32)  32'h8
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab655b20 <e3818> {c40bh} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 [LV] => VARSCOPE 0xaaaaab655a40 <e3763> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  TOP->__Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655880 <e3760> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2:2:2:2:2:2: ASSIGN 0xaaaaab65a5b0 <e3801> {c40bh} @dt=0xaaaaab655fe0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1: CONST 0xaaaaab65c870 <e3798> {c40bh} @dt=0xaaaaab624940@(G/nw1)  1'h1
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab656660 <e3799> {c40bh} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 [LV] => VARSCOPE 0xaaaaab656100 <e3776> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  TOP->__Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655e20 <e3773> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2:2:2:2:2:2: ASSIGN 0xaaaaab6556a0 <e3755> {c40bh} @dt=0xaaaaab6553c0@(G/w3)
+    1:2:2:2:2:2:2:2:2:2:1: VARREF 0xaaaaab64df10 <e3752> {c40ba} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab655580 <e3753> {c40bh} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 [LV] => VARSCOPE 0xaaaaab6554a0 <e3748> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  TOP->__Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655240 <e3745> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64e5c0 <e3644> {c42bb} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1: CONST 0xaaaaab64e680 <e1780> {c42be} @dt=0xaaaaab601ba0@(G/w1)  1'h1
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab65cef0 <e3822> {c42av} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready [LV] => VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64e060 <e3646> {c41bb} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:2:1: ADD 0xaaaaab64e120 <e1379> {c41bj} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:2:1:1: CONST 0xaaaaab64e1e0 <e1988> {c41bk} @dt=0xaaaaab5fb4f0@(G/w3)  3'h1
+    1:2:2:2:2:2:2:2:2:2:1:2: VARREF 0xaaaaab64e320 <e1989> {c41be} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab65d960 <e3851> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr [LV] => VARSCOPE 0xaaaaab65d190 <e3828> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64e8e0 <e3648> {c43be} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1: OR 0xaaaaab64e9a0 <e1787> {c43bq} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1:1: VARREF 0xaaaaab64ea60 <e1783> {c43bh} @dt=0xaaaaab601ba0@(G/w1)  overflow [RV] <- VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2:2:2:1:2: EQ 0xaaaaab64eb80 <e585> {c43bz} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:2:2:1:2:1: VARREF 0xaaaaab64ec40 <e1784> {c43bt} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2:1:2:2: ADD 0xaaaaab64ed90 <e1786> {c43cj} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:2:2:2:2:1:2:2:1: CONST 0xaaaaab64ee50 <e1992> {c43cl} @dt=0xaaaaab5fb4f0@(G/w3)  3'h1
+    1:2:2:2:2:2:2:2:2:2:1:2:2:2: VARREF 0xaaaaab64ef90 <e1993> {c43cd} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab65e3d0 <e3880> {c43av} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow [LV] => VARSCOPE 0xaaaaab65dc00 <e3857> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__overflow -> VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2:2:2:2:2:2:2:2: ASSIGNDLY 0xaaaaab64f200 <e3062> {c45ax} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:2:2:2:2:1: CONST 0xaaaaab64f2c0 <e1509> {c45ba} @dt=0xaaaaab5fca50@(G/w4)  4'h0
+    1:2:2:2:2:2:2:2:2:2: VARREF 0xaaaaab65ee40 <e3909> {c45ar} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count [LV] => VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:2:2:2:2:2:3: ASSIGN 0xaaaaab64f550 <e3063> {c47bf} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:3:1: VARREF 0xaaaaab64f610 <e2271> {c47bi} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [RV] <- VARSCOPE 0xaaaaab636550 <e2685> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_data -> VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2:2:2:3:2: VARREF 0xaaaaab64f730 <e2282> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 [LV] => VARSCOPE 0xaaaaab642a60 <e2756> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_keyboard_sim_fn__DOT____Vlvbound1 -> VAR 0xaaaaab632c60 <e2278> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 MODULETEMP
+    1:2:2:2:2:2:2:2:3: IF 0xaaaaab64fd50 <e3068> {c47ax}
+    1:2:2:2:2:2:2:2:3:1: GTE 0xaaaaab64fa00 <e3067> {c47ax} @dt=0xaaaaab624940@(G/nw1)
+    1:2:2:2:2:2:2:2:3:1:1: CONST 0xaaaaab64fac0 <e2261> {c47ax} @dt=0xaaaaab5fca50@(G/w4)  4'h9
+    1:2:2:2:2:2:2:2:3:1:2: VARREF 0xaaaaab64fc00 <e2262> {c47ay} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:3:2: ASSIGNDLY 0xaaaaab64fe20 <e3069> {c47ax} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:2:2:3:2:1: VARREF 0xaaaaab64fee0 <e2286> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 [RV] <- VARSCOPE 0xaaaaab642a60 <e2756> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_keyboard_sim_fn__DOT____Vlvbound1 -> VAR 0xaaaaab632c60 <e2278> {c47ax} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn__DOT____Vlvbound1 MODULETEMP
+    1:2:2:2:2:2:2:2:3:2:2: SEL 0xaaaaab650030 <e2287> {c47ax} @dt=0xaaaaab601ba0@(G/w1) decl[9:0]]
+    1:2:2:2:2:2:2:2:3:2:2:1: VARREF 0xaaaaab65f8b0 <e3938> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer [LV] => VARSCOPE 0xaaaaab65f0e0 <e3915> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab65ef60 <e3912> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer BLOCKTEMP
+    1:2:2:2:2:2:2:2:3:2:2:2: VARREF 0xaaaaab650250 <e1523> {c47ay} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:3:2:2:3: CONST 0xaaaaab6503a0 <e1799> {c47ax} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2:2:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab6504e0 <e3070> {c48ax} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:2:2:2:3:1: ADD 0xaaaaab6505a0 <e1553> {c48bg} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:2:2:2:3:1:1: CONST 0xaaaaab650660 <e1996> {c48bi} @dt=0xaaaaab5fca50@(G/w4)  4'h1
+    1:2:2:2:2:2:2:2:3:1:2: VARREF 0xaaaaab6507a0 <e1997> {c48ba} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:3:2: VARREF 0xaaaaab65f9d0 <e3942> {c48ar} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count [LV] => VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab650a40 <e3071> {c24at} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:2:3:1: CONST 0xaaaaab650b00 <e1207> {c24aw} @dt=0xaaaaab5fca50@(G/w4)  4'h0
+    1:2:2:2:2:2:3:2: VARREF 0xaaaaab65faf0 <e3946> {c24an} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count [LV] => VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab650d90 <e3072> {c24bf} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:3:1: CONST 0xaaaaab650e50 <e1222> {c24bi} @dt=0xaaaaab5fb4f0@(G/w3)  3'h0
+    1:2:2:2:2:2:3:2: VARREF 0xaaaaab65fc10 <e3950> {c24az} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr [LV] => VARSCOPE 0xaaaaab65d190 <e3828> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab6510e0 <e3073> {c24br} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:2:3:1: CONST 0xaaaaab6511a0 <e1709> {c24bu} @dt=0xaaaaab5fb4f0@(G/w3)  3'h0
+    1:2:2:2:2:2:3:2: VARREF 0xaaaaab65fd60 <e3954> {c24bl} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr [LV] => VARSCOPE 0xaaaaab656dd0 <e3684> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab651430 <e3074> {c24cg} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:3:1: CONST 0xaaaaab6514f0 <e1712> {c24cj} @dt=0xaaaaab601ba0@(G/w1)  1'h0
+    1:2:2:2:2:2:3:2: VARREF 0xaaaaab65feb0 <e3958> {c24bx} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow [LV] => VARSCOPE 0xaaaaab65dc00 <e3857> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__overflow -> VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2:2:2:2:2:3: ASSIGNDLY 0xaaaaab651750 <e3075> {c24cr} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:2:3:1: CONST 0xaaaaab651810 <e1715> {c24cu} @dt=0xaaaaab601ba0@(G/w1)  1'h0
+    1:2:2:2:2:2:3:2: VARREF 0xaaaaab65ffd0 <e3962> {c24cm} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready [LV] => VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:2: ACTIVE 0xaaaaab65f7c0 <e3933> {c47ar}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab65f400 <e3923> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)
+    1:2:2:2:2:1: VARREF 0xaaaaab65f2e0 <e3921> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab65f1c0 <e3922> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer [LV] => VARSCOPE 0xaaaaab65f0e0 <e3915> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab65ef60 <e3912> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab65f700 <e3934> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)
+    1:2:2:2:2:1: VARREF 0xaaaaab65f5e0 <e3929> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab65f0e0 <e3915> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab65ef60 <e3912> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65f4c0 <e3930> {c47ar} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [LV] => VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2: ACTIVE 0xaaaaab65ed50 <e3904> {c45ar}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab65e990 <e3894> {c45ar} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:1: VARREF 0xaaaaab65e870 <e3892> {c45ar} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab65e750 <e3893> {c45ar} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count [LV] => VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab65ec90 <e3905> {c45ar} @dt=0xaaaaab5fca50@(G/w4)
+    1:2:2:2:2:1: VARREF 0xaaaaab65eb70 <e3900> {c45ar} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab65e670 <e3886> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65ea50 <e3901> {c45ar} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [LV] => VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2: ACTIVE 0xaaaaab65e2e0 <e3875> {c43av}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab65df20 <e3865> {c43av} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:1: VARREF 0xaaaaab65de00 <e3863> {c43av} @dt=0xaaaaab601ba0@(G/w1)  overflow [RV] <- VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0xaaaaab65dce0 <e3864> {c43av} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow [LV] => VARSCOPE 0xaaaaab65dc00 <e3857> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__overflow -> VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab65e220 <e3876> {c43av} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:1: VARREF 0xaaaaab65e100 <e3871> {c43av} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow [RV] <- VARSCOPE 0xaaaaab65dc00 <e3857> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__overflow -> VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65dfe0 <e3872> {c43av} @dt=0xaaaaab601ba0@(G/w1)  overflow [LV] => VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: ACTIVE 0xaaaaab65d870 <e3846> {c41av}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab65d4b0 <e3836> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab65d390 <e3834> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab65d270 <e3835> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr [LV] => VARSCOPE 0xaaaaab65d190 <e3828> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab65d7b0 <e3847> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab65d690 <e3842> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab65d190 <e3828> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65d570 <e3843> {c41av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [LV] => VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2: ACTIVE 0xaaaaab65cb50 <e3808> {c40av}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ALWAYSPOST 0xaaaaab65ca90 <e3806> {c40bh}
+    1:2:2:2:2:2: IF 0xaaaaab65cd60 <e3812> {c40bh}
+    1:2:2:2:2:2:1: VARREF 0xaaaaab65cc40 <e3813> {c40bh} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 [RV] <- VARSCOPE 0xaaaaab656100 <e3776> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  TOP->__Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655e20 <e3773> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2:2:2: ASSIGN 0xaaaaab65ce30 <e3817> {c40bh} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:2:2:1: VARREF 0xaaaaab655cc0 <e3815> {c40bh} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 [RV] <- VARSCOPE 0xaaaaab655a40 <e3763> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  TOP->__Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655880 <e3760> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2:2:2:2: ARRAYSEL 0xaaaaab6567c0 <e3816> {c40bh} @dt=0xaaaaab5f7560@(G/w8)
+    1:2:2:2:2:2:2:2:1: VARREF 0xaaaaab64ddc0 <e3803> {c40av} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [LV] => VARSCOPE 0xaaaaab638d20 <e2734> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  TOP->ps2_keyboard_sim_fn__DOT__fifo -> VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2:2:2:2:2:2:2:2: VARREF 0xaaaaab655760 <e3804> {c40bh} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 [RV] <- VARSCOPE 0xaaaaab6554a0 <e3748> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  TOP->__Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655240 <e3745> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab6565a0 <e3809> {c40bh} @dt=0xaaaaab655fe0@(G/w1)
+    1:2:2:2:2:1: CONST 0xaaaaab656380 <e3786> {c40bh} @dt=0xaaaaab61ace0@(G/w32)  32'h0
+    1:2:2:2:2:2: VARREF 0xaaaaab6561e0 <e3787> {c40bh} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 [LV] => VARSCOPE 0xaaaaab656100 <e3776> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  TOP->__Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 -> VAR 0xaaaaab655e20 <e3773> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2:2:2: ACTIVE 0xaaaaab655000 <e3731> {c32az}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab657270 <e3721> {c32az} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:1: VARREF 0xaaaaab657150 <e3719> {c32az} @dt=0xaaaaab601ba0@(G/w1)  ready [RV] <- VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0xaaaaab657030 <e3720> {c32az} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready [LV] => VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab654f40 <e3732> {c32az} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:2:1: VARREF 0xaaaaab654e20 <e3727> {c32az} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready [RV] <- VARSCOPE 0xaaaaab656f50 <e3713> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->__Vdly__ready -> VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab657330 <e3728> {c32az} @dt=0xaaaaab601ba0@(G/w1)  ready [LV] => VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: ACTIVE 0xaaaaab65a220 <e3702> {c30av}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab65a9d0 <e3692> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab654bb0 <e3690> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab654a30 <e3691> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr [LV] => VARSCOPE 0xaaaaab656dd0 <e3684> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab657b50 <e3703> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab65b6c0 <e3698> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab656dd0 <e3684> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65b570 <e3699> {c30av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [LV] => VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2: ACTIVE 0xaaaaab651a70 <e3673> {c17aj}  sequentdly => SENTREE 0xaaaaab660c70 <e4000#> {c16am}
+    1:2:2:2:2: ASSIGNPRE 0xaaaaab656ad0 <e3663> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab657550 <e3661> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0xaaaaab657c70 <e3662> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync [LV] => VARSCOPE 0xaaaaab657f70 <e3655> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab657930 <e3652> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync BLOCKTEMP
+    1:2:2:2:2: ASSIGNPOST 0xaaaaab6569b0 <e3674> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)
+    1:2:2:2:2:1: VARREF 0xaaaaab65a8b0 <e3669> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab657f70 <e3655> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->__Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab657930 <e3652> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync BLOCKTEMP
+    1:2:2:2:2:2: VARREF 0xaaaaab65b3c0 <e3670> {c17aj} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [LV] => VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2: CFUNC 0xaaaaab647680 <e3282> {c1ai}  traceInitTop [SLOW]
+    1:2:2:2:3: CCALL 0xaaaaab5ef650 <e3285> {c1ai} traceInitSub0 => CFUNC 0xaaaaab647810 <e3284> {c1ai}  traceInitSub0 [SLOW]
+    1:2:2:2: CFUNC 0xaaaaab647810 <e3284> {c1ai}  traceInitSub0 [SLOW]
+    1:2:2:2:3: TRACEDECL 0xaaaaab647af0 <e3289> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk
+    1:2:2:2:3:1: VARREF 0xaaaaab6479d0 <e3287> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [RV] <- VARSCOPE 0xaaaaab636230 <e2676> {c3al} @dt=0xaaaaab601ba0@(G/w1)  TOP->clk -> VAR 0xaaaaab614630 <e1841> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab646590 <e3296> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn
+    1:2:2:2:3:1: VARREF 0xaaaaab646470 <e3293> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [RV] <- VARSCOPE 0xaaaaab636310 <e2679> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  TOP->clrn -> VAR 0xaaaaab6149d0 <e1846> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab6468e0 <e3303> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk
+    1:2:2:2:3:1: VARREF 0xaaaaab6467c0 <e3300> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [RV] <- VARSCOPE 0xaaaaab636430 <e2682> {c3au} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_clk -> VAR 0xaaaaab614d70 <e1852> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab646cb0 <e3310> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data
+    1:2:2:2:3:1: VARREF 0xaaaaab646b90 <e3307> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [RV] <- VARSCOPE 0xaaaaab636550 <e2685> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_data -> VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab647000 <e3317> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n
+    1:2:2:2:3:1: VARREF 0xaaaaab646ee0 <e3314> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [RV] <- VARSCOPE 0xaaaaab636740 <e2688> {c4al} @dt=0xaaaaab601ba0@(G/w1)  TOP->nextdata_n -> VAR 0xaaaaab6154b0 <e1864> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab647350 <e3324> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data
+    1:2:2:2:3:1: VARREF 0xaaaaab647230 <e3321> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [RV] <- VARSCOPE 0xaaaaab636820 <e2691> {c5as} @dt=0xaaaaab5f7560@(G/w8)  TOP->data -> VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab6456f0 <e3331> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready
+    1:2:2:2:3:1: VARREF 0xaaaaab6455d0 <e3328> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [RV] <- VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab645a40 <e3338> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow
+    1:2:2:2:3:1: VARREF 0xaaaaab645920 <e3335> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [RV] <- VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab645df0 <e3345> {c3al} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn clk
+    1:2:2:2:3:1: VARREF 0xaaaaab658210 <e3447> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [RV] <- VARSCOPE 0xaaaaab636230 <e2676> {c3al} @dt=0xaaaaab601ba0@(G/w1)  TOP->clk -> VAR 0xaaaaab614630 <e1841> {c3al} @dt=0xaaaaab601ba0@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab6461d0 <e3352> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn clrn
+    1:2:2:2:3:1: VARREF 0xaaaaab658330 <e3452> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [RV] <- VARSCOPE 0xaaaaab636310 <e2679> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  TOP->clrn -> VAR 0xaaaaab6149d0 <e1846> {c3ap} @dt=0xaaaaab601ba0@(G/w1)  clrn [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab651e70 <e3359> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn ps2_clk
+    1:2:2:2:3:1: VARREF 0xaaaaab658450 <e3457> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [RV] <- VARSCOPE 0xaaaaab636430 <e2682> {c3au} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_clk -> VAR 0xaaaaab614d70 <e1852> {c3au} @dt=0xaaaaab601ba0@(G/w1)  ps2_clk [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab6521c0 <e3366> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn ps2_data
+    1:2:2:2:3:1: VARREF 0xaaaaab658570 <e3462> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [RV] <- VARSCOPE 0xaaaaab636550 <e2685> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  TOP->ps2_data -> VAR 0xaaaaab615110 <e1858> {c3bc} @dt=0xaaaaab601ba0@(G/w1)  ps2_data [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab652510 <e3373> {c4al} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn nextdata_n
+    1:2:2:2:3:1: VARREF 0xaaaaab658690 <e3467> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [RV] <- VARSCOPE 0xaaaaab636740 <e2688> {c4al} @dt=0xaaaaab601ba0@(G/w1)  TOP->nextdata_n -> VAR 0xaaaaab6154b0 <e1864> {c4al} @dt=0xaaaaab601ba0@(G/w1)  nextdata_n [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab652860 <e3380> {c5as} @dt=0xaaaaab5f7560@(G/w8)  ps2_keyboard_sim_fn data
+    1:2:2:2:3:1: VARREF 0xaaaaab6587b0 <e3472> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [RV] <- VARSCOPE 0xaaaaab636820 <e2691> {c5as} @dt=0xaaaaab5f7560@(G/w8)  TOP->data -> VAR 0xaaaaab615850 <e1870> {c5as} @dt=0xaaaaab5f7560@(G/w8)  data [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab652bb0 <e3387> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn ready
+    1:2:2:2:3:1: VARREF 0xaaaaab6588d0 <e3477> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [RV] <- VARSCOPE 0xaaaaab636900 <e2694> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->ready -> VAR 0xaaaaab615bf0 <e1876> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  ready [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab652f00 <e3394> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn overflow
+    1:2:2:2:3:1: VARREF 0xaaaaab6589f0 <e3482> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [RV] <- VARSCOPE 0xaaaaab6369e0 <e2697> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  TOP->overflow -> VAR 0xaaaaab615f90 <e1882> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEDECL 0xaaaaab653250 <e3401> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn buffer
+    1:2:2:2:3:1: VARREF 0xaaaaab653130 <e3398> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [RV] <- VARSCOPE 0xaaaaab638c00 <e2731> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  TOP->ps2_keyboard_sim_fn__DOT__buffer -> VAR 0xaaaaab6299b0 <e1000> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  ps2_keyboard_sim_fn__DOT__buffer [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab6535a0 <e3408> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn fifo
+    1:2:2:2:3:1: VARREF 0xaaaaab653480 <e3405> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [RV] <- VARSCOPE 0xaaaaab638d20 <e2734> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  TOP->ps2_keyboard_sim_fn__DOT__fifo -> VAR 0xaaaaab629b30 <e1011> {c10ap} @dt=0xaaaaab5fa8c0@(w8)u[7:0]  ps2_keyboard_sim_fn__DOT__fifo [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab6538f0 <e3415> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn w_ptr
+    1:2:2:2:3:1: VARREF 0xaaaaab6537d0 <e3412> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [RV] <- VARSCOPE 0xaaaaab638e40 <e2737> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__w_ptr -> VAR 0xaaaaab629cb0 <e1019> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__w_ptr [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab653c40 <e3422> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn r_ptr
+    1:2:2:2:3:1: VARREF 0xaaaaab653b20 <e3419> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [RV] <- VARSCOPE 0xaaaaab638f60 <e2740> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__r_ptr -> VAR 0xaaaaab629e30 <e1652> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__r_ptr [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab653f90 <e3429> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn count
+    1:2:2:2:3:1: VARREF 0xaaaaab653e70 <e3426> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [RV] <- VARSCOPE 0xaaaaab639080 <e2743> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  TOP->ps2_keyboard_sim_fn__DOT__count -> VAR 0xaaaaab629fb0 <e1035> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  ps2_keyboard_sim_fn__DOT__count [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab6542e0 <e3436> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn ps2_clk_sync
+    1:2:2:2:3:1: VARREF 0xaaaaab6541c0 <e3433> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:3: TRACEDECL 0xaaaaab6546c0 <e3443> {c20ak} @dt=0xaaaaab601ba0@(G/w1)  ps2_keyboard_sim_fn sampling
+    1:2:2:2:3:1: AND 0xaaaaab659fd0 <e3512> {c20bl} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:3:1:1: SEL 0xaaaaab65a090 <e1681> {c20bh} @dt=0xaaaaab601ba0@(G/w1) decl[2:0]]
+    1:2:2:2:3:1:1:1: VARREF 0xaaaaab65bd90 <e1670> {c20av} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:3:1:1:2: CONST 0xaaaaab65beb0 <e1137> {c20bi} @dt=0xaaaaab612380@(G/sw2)  2'h2
+    1:2:2:2:3:1:1:3: CONST 0xaaaaab65bff0 <e1680> {c20bh} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2:2:2:3:1:2: NOT 0xaaaaab65c130 <e1694> {c20bn} @dt=0xaaaaab601ba0@(G/w1)
+    1:2:2:2:3:1:2:1: SEL 0xaaaaab65c1f0 <e1693> {c20ca} @dt=0xaaaaab601ba0@(G/w1) decl[2:0]]
+    1:2:2:2:3:1:2:1:1: VARREF 0xaaaaab65c2c0 <e1682> {c20bo} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [RV] <- VARSCOPE 0xaaaaab6391a0 <e2746> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  TOP->ps2_keyboard_sim_fn__DOT__ps2_clk_sync -> VAR 0xaaaaab62a130 <e1653> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  ps2_keyboard_sim_fn__DOT__ps2_clk_sync [VSTATIC]  VAR
+    1:2:2:2:3:1:2:1:2: CONST 0xaaaaab65c3e0 <e1179> {c20cb} @dt=0xaaaaab612380@(G/sw2)  2'h1
+    1:2:2:2:3:1:2:1:3: CONST 0xaaaaab65c520 <e1692> {c20ca} @dt=0xaaaaab61ace0@(G/w32)  32'h1
+    1:2: VAR 0xaaaaab657930 <e3652> {c14ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync BLOCKTEMP
+    1:2: VAR 0xaaaaab656bf0 <e3681> {c11av} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__r_ptr BLOCKTEMP
+    1:2: VAR 0xaaaaab65a430 <e3710> {c6aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__ready BLOCKTEMP
+    1:2: VAR 0xaaaaab655240 <e3745> {c10ap} @dt=0xaaaaab6553c0@(G/w3)  __Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2: VAR 0xaaaaab655880 <e3760> {c10ap} @dt=0xaaaaab5f7560@(G/w8)  __Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2: VAR 0xaaaaab655e20 <e3773> {c10ap} @dt=0xaaaaab655fe0@(G/w1)  __Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0 BLOCKTEMP
+    1:2: VAR 0xaaaaab65d010 <e3825> {c11ap} @dt=0xaaaaab5fb4f0@(G/w3)  __Vdly__ps2_keyboard_sim_fn__DOT__w_ptr BLOCKTEMP
+    1:2: VAR 0xaaaaab65da80 <e3854> {c7aq} @dt=0xaaaaab601ba0@(G/w1)  __Vdly__overflow BLOCKTEMP
+    1:2: VAR 0xaaaaab65e4f0 <e3883> {c12ap} @dt=0xaaaaab5fca50@(G/w4)  __Vdly__ps2_keyboard_sim_fn__DOT__count BLOCKTEMP
+    1:2: VAR 0xaaaaab65ef60 <e3912> {c9ap} @dt=0xaaaaab5f8dd0@(G/w10)  __Vdly__ps2_keyboard_sim_fn__DOT__buffer BLOCKTEMP
+    3: TYPETABLE 0xaaaaab5dc620 <e2> {a0aa}
+		   logic  -> BASICDTYPE 0xaaaaab624940 <e2059> {c17bn} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab655fe0 <e3771> {c10ap} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
+		detailed  ->  BASICDTYPE 0xaaaaab601ba0 <e336> {c23as} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab624940 <e2059> {c17bn} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab6122a0 <e1063> {c17bn} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0xaaaaab612380 <e1075> {c17bn} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0xaaaaab6553c0 <e3743> {c10ap} @dt=this@(G/w3)  bit [GENERIC] kwd=bit range=[2:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5fb4f0 <e1018> {c11af} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5fca50 <e1034> {c12af} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+		detailed  ->  BASICDTYPE 0xaaaaab617e80 <e1357> {c40bq} @dt=this@(G/sw4)  logic [GENERIC] kwd=logic range=[3:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5f7560 <e985> {c5am} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+		detailed  ->  BASICDTYPE 0xaaaaab619220 <e1472> {c39bd} @dt=this@(G/w9)  logic [GENERIC] kwd=logic range=[8:0]
+		detailed  ->  BASICDTYPE 0xaaaaab5f8dd0 <e999> {c9af} @dt=this@(G/w10)  logic [GENERIC] kwd=logic range=[9:0]
+		detailed  ->  BASICDTYPE 0xaaaaab61ace0 <e1658> {c17bo} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab61a8a0 <e1636> {c10au} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab601ba0 <e336> {c23as} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0xaaaaab5f7560 <e985> {c5am} @dt=this@(G/w8)  logic [GENERIC] kwd=logic range=[7:0]
+    3:1: BASICDTYPE 0xaaaaab5f8dd0 <e999> {c9af} @dt=this@(G/w10)  logic [GENERIC] kwd=logic range=[9:0]
+    3:1: UNPACKARRAYDTYPE 0xaaaaab5fa8c0 <e1010> {c10at} @dt=this@(w8)u[7:0] refdt=0xaaaaab5f7560(G/w8) [7:0]
+    3:1:2: RANGE 0xaaaaab5fa390 <e148> {c10at}
+    3:1:2:2: CONST 0xaaaaab61a760 <e1641> {c10au} @dt=0xaaaaab61a8a0@(G/sw32)  32'sh7
+    3:1:2:3: CONST 0xaaaaab61a980 <e1651> {c10aw} @dt=0xaaaaab61a8a0@(G/sw32)  32'sh0
+    3:1: BASICDTYPE 0xaaaaab5fb4f0 <e1018> {c11af} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0xaaaaab5fca50 <e1034> {c12af} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0xaaaaab6122a0 <e1063> {c17bn} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0xaaaaab612380 <e1075> {c17bn} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0xaaaaab617e80 <e1357> {c40bq} @dt=this@(G/sw4)  logic [GENERIC] kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0xaaaaab619220 <e1472> {c39bd} @dt=this@(G/w9)  logic [GENERIC] kwd=logic range=[8:0]
+    3:1: BASICDTYPE 0xaaaaab61a8a0 <e1636> {c10au} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab61ace0 <e1658> {c17bo} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab624940 <e2059> {c17bn} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0xaaaaab6553c0 <e3743> {c10ap} @dt=this@(G/w3)  bit [GENERIC] kwd=bit range=[2:0]
+    3:1: BASICDTYPE 0xaaaaab655fe0 <e3771> {c10ap} @dt=this@(G/w1)  bit [GENERIC] kwd=bit
+    3: CONSTPOOL 0xaaaaab5dc7d0 <e6> {a0aa}
+    3:1: MODULE 0xaaaaab5dc960 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0xaaaaab5dcaa0 <e2944> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0xaaaaab5dc960]
