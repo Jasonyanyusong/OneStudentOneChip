@@ -229,8 +229,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F2: 1'b0 8'b 0110 0000 1'b1 1'b1
@@ -419,8 +419,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F3: 1'b0 8'b 0010 0000 1'b1 1'b1
@@ -609,8 +609,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F4: 1'b0 8'b 0011 0000 1'b1 1'b1
@@ -799,8 +799,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F5: 1'b0 8'b 1100 0000 1'b1 1'b1
@@ -989,8 +989,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F6: 1'b0 8'b 1101 0000 1'b1 1'b1
@@ -1179,8 +1179,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F7: 1'b0 8'b 1100 0001 1'b1 1'b1
@@ -1369,8 +1369,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F8: 1'b0 8'b 0101 0000 1'b1 1'b1
@@ -1559,8 +1559,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F9: 1'b0 8'b 1000 0000 1'b1 1'b1
@@ -1749,8 +1749,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F10: 1'b0 8'b 1001 0000 1'b1 1'b1
@@ -1939,8 +1939,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F11: 1'b0 8'b 0001 1110 1'b1 1'b1
@@ -2129,8 +2129,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
 
     // F12: 1'b0 8'b 1110 0000 1'b1 1'b1
@@ -2319,8 +2319,8 @@ int main()
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
     top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
-    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 1; step_and_dump_wave();
+    top -> clk = 0; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
+    top -> clk = 1; top -> ps2_clk = 0; top -> clrn = 1; top -> ps2_data = 1; top -> nextdata_n = 0; step_and_dump_wave();
 
     sim_exit();
 }
