@@ -1,0 +1,760 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="ps2_keyboard_sim_fn.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="ps2_keyboard_sim_fn.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell fl="c1" loc="c,1,8,1,27" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module fl="c1" loc="c,1,8,1,27" name="$root" origName="$root" topModule="1" public="true">
+      <var fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk" public="true"/>
+      <var fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="clrn" public="true"/>
+      <var fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="ps2_clk" public="true"/>
+      <var fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="ps2_data" public="true"/>
+      <var fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="nextdata_n" public="true"/>
+      <var fl="c5" loc="c,5,18,5,22" name="data" dtype_id="2" dir="output" pinIndex="5" vartype="logic" origName="data" public="true"/>
+      <var fl="c6" loc="c,6,16,6,21" name="ready" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="ready" public="true"/>
+      <var fl="c7" loc="c,7,16,7,24" name="overflow" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="overflow" public="true"/>
+      <var fl="c9" loc="c,9,15,9,21" name="ps2_keyboard_sim_fn.buffer" dtype_id="3" vartype="logic" origName="buffer"/>
+      <var fl="c10" loc="c,10,15,10,19" name="ps2_keyboard_sim_fn.fifo" dtype_id="4" vartype="" origName="fifo"/>
+      <var fl="c11" loc="c,11,15,11,20" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="5" vartype="logic" origName="w_ptr"/>
+      <var fl="c11" loc="c,11,21,11,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="5" vartype="logic" origName="r_ptr"/>
+      <var fl="c12" loc="c,12,15,12,20" name="ps2_keyboard_sim_fn.count" dtype_id="6" vartype="logic" origName="count"/>
+      <var fl="c14" loc="c,14,15,14,27" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="5" vartype="logic" origName="ps2_clk_sync"/>
+      <var fl="c47" loc="c,47,23,47,24" name="ps2_keyboard_sim_fn.__Vlvbound1" dtype_id="1" vartype="logic" origName="__Vlvbound1"/>
+      <topscope fl="c1" loc="c,1,8,1,27">
+        <scope fl="c1" loc="c,1,8,1,27" name="TOP"/>
+      </topscope>
+      <var fl="c3" loc="c,3,11,3,14" name="__Vclklast__TOP__clk" dtype_id="1" vartype="logic" origName="__Vclklast__TOP__clk"/>
+      <var fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="7" vartype="" origName="__Vm_traceActivity"/>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceInitTop">
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceInitSub0">
+        <tracedecl fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="1"/>
+        <tracedecl fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="1"/>
+        <tracedecl fl="c5" loc="c,5,18,5,22" name="data" dtype_id="2"/>
+        <tracedecl fl="c6" loc="c,6,16,6,21" name="ready" dtype_id="1"/>
+        <tracedecl fl="c7" loc="c,7,16,7,24" name="overflow" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,11,3,14" name="ps2_keyboard_sim_fn clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,15,3,19" name="ps2_keyboard_sim_fn clrn" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,20,3,27" name="ps2_keyboard_sim_fn ps2_clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,28,3,36" name="ps2_keyboard_sim_fn ps2_data" dtype_id="1"/>
+        <tracedecl fl="c4" loc="c,4,11,4,21" name="ps2_keyboard_sim_fn nextdata_n" dtype_id="1"/>
+        <tracedecl fl="c5" loc="c,5,18,5,22" name="ps2_keyboard_sim_fn data" dtype_id="2"/>
+        <tracedecl fl="c6" loc="c,6,16,6,21" name="ps2_keyboard_sim_fn ready" dtype_id="1"/>
+        <tracedecl fl="c7" loc="c,7,16,7,24" name="ps2_keyboard_sim_fn overflow" dtype_id="1"/>
+        <tracedecl fl="c9" loc="c,9,15,9,21" name="ps2_keyboard_sim_fn buffer" dtype_id="3"/>
+        <tracedecl fl="c10" loc="c,10,15,10,19" name="ps2_keyboard_sim_fn fifo" dtype_id="4"/>
+        <tracedecl fl="c11" loc="c,11,15,11,20" name="ps2_keyboard_sim_fn w_ptr" dtype_id="5"/>
+        <tracedecl fl="c11" loc="c,11,21,11,26" name="ps2_keyboard_sim_fn r_ptr" dtype_id="5"/>
+        <tracedecl fl="c12" loc="c,12,15,12,20" name="ps2_keyboard_sim_fn count" dtype_id="6"/>
+        <tracedecl fl="c14" loc="c,14,15,14,27" name="ps2_keyboard_sim_fn ps2_clk_sync" dtype_id="5"/>
+        <tracedecl fl="c20" loc="c,20,10,20,18" name="ps2_keyboard_sim_fn sampling" dtype_id="1"/>
+      </cfunc>
+      <cfunc fl="c17" loc="c,17,9,17,21" name="_sequent__TOP__1">
+        <var fl="c14" loc="c,14,15,14,27" name="__Vdly__ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="5" vartype="logic" origName="__Vdly__ps2_keyboard_sim_fn__DOT__ps2_clk_sync"/>
+        <var fl="c11" loc="c,11,21,11,26" name="__Vdly__ps2_keyboard_sim_fn.r_ptr" dtype_id="5" vartype="logic" origName="__Vdly__ps2_keyboard_sim_fn__DOT__r_ptr"/>
+        <var fl="c10" loc="c,10,15,10,19" name="__Vdlyvdim0__ps2_keyboard_sim_fn.fifo__v0" dtype_id="8" vartype="bit" origName="__Vdlyvdim0__ps2_keyboard_sim_fn__DOT__fifo__v0"/>
+        <var fl="c10" loc="c,10,15,10,19" name="__Vdlyvval__ps2_keyboard_sim_fn.fifo__v0" dtype_id="2" vartype="logic" origName="__Vdlyvval__ps2_keyboard_sim_fn__DOT__fifo__v0"/>
+        <var fl="c10" loc="c,10,15,10,19" name="__Vdlyvset__ps2_keyboard_sim_fn.fifo__v0" dtype_id="9" vartype="bit" origName="__Vdlyvset__ps2_keyboard_sim_fn__DOT__fifo__v0"/>
+        <var fl="c11" loc="c,11,15,11,20" name="__Vdly__ps2_keyboard_sim_fn.w_ptr" dtype_id="5" vartype="logic" origName="__Vdly__ps2_keyboard_sim_fn__DOT__w_ptr"/>
+        <var fl="c12" loc="c,12,15,12,20" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="6" vartype="logic" origName="__Vdly__ps2_keyboard_sim_fn__DOT__count"/>
+        <assignpre fl="c17" loc="c,17,9,17,21" dtype_id="10">
+          <varref fl="c17" loc="c,17,9,17,21" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+          <varref fl="c17" loc="c,17,9,17,21" name="__Vdly__ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+        </assignpre>
+        <assignpre fl="c45" loc="c,45,17,45,22" dtype_id="11">
+          <varref fl="c45" loc="c,45,17,45,22" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+          <varref fl="c45" loc="c,45,17,45,22" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="11"/>
+        </assignpre>
+        <assignpre fl="c41" loc="c,41,21,41,26" dtype_id="10">
+          <varref fl="c41" loc="c,41,21,41,26" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+          <varref fl="c41" loc="c,41,21,41,26" name="__Vdly__ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+        </assignpre>
+        <assignpre fl="c30" loc="c,30,21,30,26" dtype_id="10">
+          <varref fl="c30" loc="c,30,21,30,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          <varref fl="c30" loc="c,30,21,30,26" name="__Vdly__ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+        </assignpre>
+        <assignpre fl="c40" loc="c,40,33,40,35" dtype_id="12">
+          <const fl="c40" loc="c,40,33,40,35" name="32&apos;h0" dtype_id="13"/>
+          <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvset__ps2_keyboard_sim_fn.fifo__v0" dtype_id="12"/>
+        </assignpre>
+        <assigndly fl="c17" loc="c,17,22,17,24" dtype_id="10">
+          <or fl="c17" loc="c,17,44,17,45" dtype_id="10">
+            <and fl="c17" loc="c,17,39,17,40" dtype_id="14">
+              <const fl="c17" loc="c,17,44,17,45" name="32&apos;h6" dtype_id="13"/>
+              <shiftl fl="c17" loc="c,17,44,17,45" dtype_id="13">
+                <ccast fl="c17" loc="c,17,27,17,39" dtype_id="14">
+                  <varref fl="c17" loc="c,17,27,17,39" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="14"/>
+                </ccast>
+                <const fl="c17" loc="c,17,44,17,45" name="32&apos;h1" dtype_id="13"/>
+              </shiftl>
+            </and>
+            <ccast fl="c17" loc="c,17,45,17,52" dtype_id="12">
+              <varref fl="c17" loc="c,17,45,17,52" name="ps2_clk" dtype_id="12"/>
+            </ccast>
+          </or>
+          <varref fl="c17" loc="c,17,9,17,21" name="__Vdly__ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+        </assigndly>
+        <if fl="c23" loc="c,23,9,23,11">
+          <varref fl="c23" loc="c,23,13,23,17" name="clrn" dtype_id="12"/>
+          <if fl="c27" loc="c,27,13,27,15">
+            <varref fl="c27" loc="c,27,18,27,23" name="ready" dtype_id="12"/>
+            <if fl="c28" loc="c,28,17,28,19">
+              <and fl="c28" loc="c,28,31,28,33" dtype_id="12">
+                <const fl="c28" loc="c,28,31,28,33" name="32&apos;h1" dtype_id="13"/>
+                <not fl="c28" loc="c,28,31,28,33" dtype_id="12">
+                  <ccast fl="c28" loc="c,28,20,28,30" dtype_id="12">
+                    <varref fl="c28" loc="c,28,20,28,30" name="nextdata_n" dtype_id="12"/>
+                  </ccast>
+                </not>
+              </and>
+              <assigndly fl="c30" loc="c,30,27,30,29" dtype_id="10">
+                <and fl="c30" loc="c,30,36,30,37" dtype_id="10">
+                  <const fl="c30" loc="c,30,36,30,37" name="32&apos;h7" dtype_id="13"/>
+                  <add fl="c30" loc="c,30,36,30,37" dtype_id="10">
+                    <ccast fl="c30" loc="c,30,38,30,42" dtype_id="10">
+                      <const fl="c30" loc="c,30,38,30,42" name="3&apos;h1" dtype_id="10"/>
+                    </ccast>
+                    <ccast fl="c30" loc="c,30,30,30,35" dtype_id="10">
+                      <varref fl="c30" loc="c,30,30,30,35" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+                    </ccast>
+                  </add>
+                </and>
+                <varref fl="c30" loc="c,30,21,30,26" name="__Vdly__ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+              </assigndly>
+              <if fl="c31" loc="c,31,21,31,23">
+                <eq fl="c31" loc="c,31,29,31,31" dtype_id="12">
+                  <ccast fl="c31" loc="c,31,24,31,29" dtype_id="10">
+                    <varref fl="c31" loc="c,31,24,31,29" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+                  </ccast>
+                  <and fl="c31" loc="c,31,37,31,38" dtype_id="10">
+                    <const fl="c31" loc="c,31,37,31,38" name="32&apos;h7" dtype_id="13"/>
+                    <add fl="c31" loc="c,31,37,31,38" dtype_id="10">
+                      <ccast fl="c31" loc="c,31,38,31,42" dtype_id="10">
+                        <const fl="c31" loc="c,31,38,31,42" name="3&apos;h1" dtype_id="10"/>
+                      </ccast>
+                      <ccast fl="c31" loc="c,31,32,31,37" dtype_id="10">
+                        <varref fl="c31" loc="c,31,32,31,37" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+                      </ccast>
+                    </add>
+                  </and>
+                </eq>
+                <assigndly fl="c32" loc="c,32,31,32,33" dtype_id="12">
+                  <const fl="c32" loc="c,32,34,32,38" name="1&apos;h0" dtype_id="12"/>
+                  <varref fl="c32" loc="c,32,25,32,30" name="ready" dtype_id="12"/>
+                </assigndly>
+              </if>
+            </if>
+          </if>
+          <if fl="c35" loc="c,35,13,35,15">
+            <ccast fl="c20" loc="c,20,21,20,33" dtype_id="12">
+              <eq fl="c20" loc="c,20,21,20,33" dtype_id="15">
+                <const fl="c20" loc="c,20,21,20,33" name="32&apos;h4" dtype_id="13"/>
+                <and fl="c20" loc="c,20,21,20,33" dtype_id="13">
+                  <const fl="c20" loc="c,20,21,20,33" name="32&apos;h6" dtype_id="13"/>
+                  <ccast fl="c20" loc="c,20,21,20,33" dtype_id="10">
+                    <varref fl="c20" loc="c,20,21,20,33" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+                  </ccast>
+                </and>
+              </eq>
+            </ccast>
+            <if fl="c36" loc="c,36,15,36,17">
+              <eq fl="c36" loc="c,36,25,36,27" dtype_id="12">
+                <const fl="c36" loc="c,36,28,36,33" name="4&apos;ha" dtype_id="11"/>
+                <ccast fl="c36" loc="c,36,19,36,24" dtype_id="11">
+                  <varref fl="c36" loc="c,36,19,36,24" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+                </ccast>
+              </eq>
+              <if fl="c37" loc="c,37,17,37,19">
+                <and fl="c38" loc="c,38,38,38,40" dtype_id="12">
+                  <and fl="c37" loc="c,37,38,37,40" dtype_id="12">
+                    <not fl="c37" loc="c,37,32,37,34" dtype_id="12">
+                      <ccast fl="c37" loc="c,37,22,37,28" dtype_id="12">
+                        <varref fl="c37" loc="c,37,22,37,28" name="ps2_keyboard_sim_fn.buffer" dtype_id="12"/>
+                      </ccast>
+                    </not>
+                    <ccast fl="c38" loc="c,38,22,38,30" dtype_id="12">
+                      <varref fl="c38" loc="c,38,22,38,30" name="ps2_data" dtype_id="12"/>
+                    </ccast>
+                  </and>
+                  <redxor fl="c39" loc="c,39,22,39,23" dtype_id="12">
+                    <and fl="c39" loc="c,39,29,39,30" dtype_id="16">
+                      <const fl="c39" loc="c,39,29,39,30" name="32&apos;h1ff" dtype_id="13"/>
+                      <shiftr fl="c39" loc="c,39,29,39,30" dtype_id="16">
+                        <ccast fl="c39" loc="c,39,23,39,29" dtype_id="17">
+                          <varref fl="c39" loc="c,39,23,39,29" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+                        </ccast>
+                        <const fl="c39" loc="c,39,32,39,33" name="4&apos;h1" dtype_id="18"/>
+                      </shiftr>
+                    </and>
+                  </redxor>
+                </and>
+                <assigndly fl="c40" loc="c,40,33,40,35" dtype_id="19">
+                  <and fl="c40" loc="c,40,42,40,43" dtype_id="19">
+                    <const fl="c40" loc="c,40,42,40,43" name="32&apos;hff" dtype_id="13"/>
+                    <shiftr fl="c40" loc="c,40,42,40,43" dtype_id="19">
+                      <ccast fl="c40" loc="c,40,36,40,42" dtype_id="17">
+                        <varref fl="c40" loc="c,40,36,40,42" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+                      </ccast>
+                      <const fl="c40" loc="c,40,45,40,46" name="4&apos;h1" dtype_id="18"/>
+                    </shiftr>
+                  </and>
+                  <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvval__ps2_keyboard_sim_fn.fifo__v0" dtype_id="19"/>
+                </assigndly>
+                <assign fl="c40" loc="c,40,33,40,35" dtype_id="12">
+                  <const fl="c40" loc="c,40,33,40,35" name="1&apos;h1" dtype_id="20"/>
+                  <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvset__ps2_keyboard_sim_fn.fifo__v0" dtype_id="12"/>
+                </assign>
+                <assign fl="c40" loc="c,40,33,40,35" dtype_id="10">
+                  <varref fl="c40" loc="c,40,26,40,31" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+                  <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvdim0__ps2_keyboard_sim_fn.fifo__v0" dtype_id="10"/>
+                </assign>
+                <assigndly fl="c42" loc="c,42,27,42,29" dtype_id="12">
+                  <const fl="c42" loc="c,42,30,42,34" name="1&apos;h1" dtype_id="12"/>
+                  <varref fl="c42" loc="c,42,21,42,26" name="ready" dtype_id="12"/>
+                </assigndly>
+                <assigndly fl="c41" loc="c,41,27,41,29" dtype_id="10">
+                  <and fl="c41" loc="c,41,35,41,36" dtype_id="10">
+                    <const fl="c41" loc="c,41,35,41,36" name="32&apos;h7" dtype_id="13"/>
+                    <add fl="c41" loc="c,41,35,41,36" dtype_id="10">
+                      <ccast fl="c41" loc="c,41,36,41,40" dtype_id="10">
+                        <const fl="c41" loc="c,41,36,41,40" name="3&apos;h1" dtype_id="10"/>
+                      </ccast>
+                      <ccast fl="c41" loc="c,41,30,41,35" dtype_id="10">
+                        <varref fl="c41" loc="c,41,30,41,35" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+                      </ccast>
+                    </add>
+                  </and>
+                  <varref fl="c41" loc="c,41,21,41,26" name="__Vdly__ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+                </assigndly>
+                <assigndly fl="c43" loc="c,43,30,43,32" dtype_id="12">
+                  <or fl="c43" loc="c,43,42,43,43" dtype_id="12">
+                    <ccast fl="c43" loc="c,43,33,43,41" dtype_id="12">
+                      <varref fl="c43" loc="c,43,33,43,41" name="overflow" dtype_id="12"/>
+                    </ccast>
+                    <eq fl="c43" loc="c,43,51,43,53" dtype_id="12">
+                      <ccast fl="c43" loc="c,43,45,43,50" dtype_id="10">
+                        <varref fl="c43" loc="c,43,45,43,50" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+                      </ccast>
+                      <and fl="c43" loc="c,43,61,43,62" dtype_id="10">
+                        <const fl="c43" loc="c,43,61,43,62" name="32&apos;h7" dtype_id="13"/>
+                        <add fl="c43" loc="c,43,61,43,62" dtype_id="10">
+                          <ccast fl="c43" loc="c,43,63,43,67" dtype_id="10">
+                            <const fl="c43" loc="c,43,63,43,67" name="3&apos;h1" dtype_id="10"/>
+                          </ccast>
+                          <ccast fl="c43" loc="c,43,55,43,60" dtype_id="10">
+                            <varref fl="c43" loc="c,43,55,43,60" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+                          </ccast>
+                        </add>
+                      </and>
+                    </eq>
+                  </or>
+                  <varref fl="c43" loc="c,43,21,43,29" name="overflow" dtype_id="12"/>
+                </assigndly>
+              </if>
+              <assigndly fl="c45" loc="c,45,23,45,25" dtype_id="11">
+                <const fl="c45" loc="c,45,26,45,27" name="4&apos;h0" dtype_id="11"/>
+                <varref fl="c45" loc="c,45,17,45,22" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="11"/>
+              </assigndly>
+              <assign fl="c47" loc="c,47,31,47,33" dtype_id="12">
+                <varref fl="c47" loc="c,47,34,47,42" name="ps2_data" dtype_id="12"/>
+                <varref fl="c47" loc="c,47,23,47,24" name="ps2_keyboard_sim_fn.__Vlvbound1" dtype_id="12"/>
+              </assign>
+              <if fl="c47" loc="c,47,23,47,24">
+                <gte fl="c47" loc="c,47,23,47,24" dtype_id="20">
+                  <const fl="c47" loc="c,47,23,47,24" name="4&apos;h9" dtype_id="11"/>
+                  <ccast fl="c47" loc="c,47,24,47,29" dtype_id="11">
+                    <varref fl="c47" loc="c,47,24,47,29" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+                  </ccast>
+                </gte>
+                <assign fl="c47" loc="c,47,23,47,24" dtype_id="17">
+                  <or fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                    <and fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                      <not fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                        <shiftl fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                          <ccast fl="c47" loc="c,47,23,47,24" dtype_id="17">
+                            <const fl="c47" loc="c,47,23,47,24" name="10&apos;h1" dtype_id="3"/>
+                          </ccast>
+                          <ccast fl="c47" loc="c,47,24,47,29" dtype_id="11">
+                            <varref fl="c47" loc="c,47,24,47,29" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+                          </ccast>
+                        </shiftl>
+                      </not>
+                      <ccast fl="c47" loc="c,47,17,47,23" dtype_id="17">
+                        <varref fl="c47" loc="c,47,17,47,23" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+                      </ccast>
+                    </and>
+                    <and fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                      <const fl="c47" loc="c,47,23,47,24" name="11&apos;h3ff" dtype_id="21"/>
+                      <shiftl fl="c47" loc="c,47,23,47,24" dtype_id="13">
+                        <ccast fl="c47" loc="c,47,23,47,24" dtype_id="12">
+                          <varref fl="c47" loc="c,47,23,47,24" name="ps2_keyboard_sim_fn.__Vlvbound1" dtype_id="12"/>
+                        </ccast>
+                        <ccast fl="c47" loc="c,47,24,47,29" dtype_id="11">
+                          <varref fl="c47" loc="c,47,24,47,29" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+                        </ccast>
+                      </shiftl>
+                    </and>
+                  </or>
+                  <varref fl="c47" loc="c,47,17,47,23" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+                </assign>
+              </if>
+              <assigndly fl="c48" loc="c,48,23,48,25" dtype_id="11">
+                <and fl="c48" loc="c,48,32,48,33" dtype_id="11">
+                  <const fl="c48" loc="c,48,32,48,33" name="32&apos;hf" dtype_id="13"/>
+                  <add fl="c48" loc="c,48,32,48,33" dtype_id="11">
+                    <ccast fl="c48" loc="c,48,34,48,38" dtype_id="11">
+                      <const fl="c48" loc="c,48,34,48,38" name="4&apos;h1" dtype_id="11"/>
+                    </ccast>
+                    <ccast fl="c48" loc="c,48,26,48,31" dtype_id="11">
+                      <varref fl="c48" loc="c,48,26,48,31" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+                    </ccast>
+                  </add>
+                </and>
+                <varref fl="c48" loc="c,48,17,48,22" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="11"/>
+              </assigndly>
+            </if>
+          </if>
+          <assigndly fl="c24" loc="c,24,19,24,21" dtype_id="11">
+            <const fl="c24" loc="c,24,22,24,23" name="4&apos;h0" dtype_id="11"/>
+            <varref fl="c24" loc="c,24,13,24,18" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="11"/>
+          </assigndly>
+          <assigndly fl="c24" loc="c,24,31,24,33" dtype_id="10">
+            <const fl="c24" loc="c,24,34,24,35" name="3&apos;h0" dtype_id="10"/>
+            <varref fl="c24" loc="c,24,25,24,30" name="__Vdly__ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+          </assigndly>
+          <assigndly fl="c24" loc="c,24,43,24,45" dtype_id="10">
+            <const fl="c24" loc="c,24,46,24,47" name="3&apos;h0" dtype_id="10"/>
+            <varref fl="c24" loc="c,24,37,24,42" name="__Vdly__ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          </assigndly>
+          <assigndly fl="c24" loc="c,24,58,24,60" dtype_id="12">
+            <const fl="c24" loc="c,24,61,24,62" name="1&apos;h0" dtype_id="12"/>
+            <varref fl="c24" loc="c,24,49,24,57" name="overflow" dtype_id="12"/>
+          </assigndly>
+          <assigndly fl="c24" loc="c,24,69,24,71" dtype_id="12">
+            <const fl="c24" loc="c,24,72,24,73" name="1&apos;h0" dtype_id="12"/>
+            <varref fl="c24" loc="c,24,64,24,69" name="ready" dtype_id="12"/>
+          </assigndly>
+        </if>
+        <assignpost fl="c17" loc="c,17,9,17,21" dtype_id="10">
+          <varref fl="c17" loc="c,17,9,17,21" name="__Vdly__ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+          <varref fl="c17" loc="c,17,9,17,21" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+        </assignpost>
+        <assignpost fl="c41" loc="c,41,21,41,26" dtype_id="10">
+          <varref fl="c41" loc="c,41,21,41,26" name="__Vdly__ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+          <varref fl="c41" loc="c,41,21,41,26" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+        </assignpost>
+        <assignpost fl="c45" loc="c,45,17,45,22" dtype_id="11">
+          <varref fl="c45" loc="c,45,17,45,22" name="__Vdly__ps2_keyboard_sim_fn.count" dtype_id="11"/>
+          <varref fl="c45" loc="c,45,17,45,22" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+        </assignpost>
+        <assignpost fl="c30" loc="c,30,21,30,26" dtype_id="10">
+          <varref fl="c30" loc="c,30,21,30,26" name="__Vdly__ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          <varref fl="c30" loc="c,30,21,30,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+        </assignpost>
+        <if fl="c40" loc="c,40,33,40,35">
+          <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvset__ps2_keyboard_sim_fn.fifo__v0" dtype_id="12"/>
+          <assign fl="c40" loc="c,40,33,40,35" dtype_id="19">
+            <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvval__ps2_keyboard_sim_fn.fifo__v0" dtype_id="19"/>
+            <arraysel fl="c40" loc="c,40,33,40,35" dtype_id="19">
+              <varref fl="c40" loc="c,40,21,40,25" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+              <varref fl="c40" loc="c,40,33,40,35" name="__Vdlyvdim0__ps2_keyboard_sim_fn.fifo__v0" dtype_id="10"/>
+            </arraysel>
+          </assign>
+        </if>
+        <contassign fl="c53" loc="c,53,17,53,18" dtype_id="19">
+          <arraysel fl="c53" loc="c,53,23,53,24" dtype_id="19">
+            <varref fl="c53" loc="c,53,19,53,23" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+            <varref fl="c53" loc="c,53,24,53,29" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          </arraysel>
+          <varref fl="c53" loc="c,53,12,53,16" name="data" dtype_id="19"/>
+        </contassign>
+      </cfunc>
+      <cfunc fl="c53" loc="c,53,17,53,18" name="_settle__TOP__2">
+        <contassign fl="c53" loc="c,53,17,53,18" dtype_id="19">
+          <arraysel fl="c53" loc="c,53,23,53,24" dtype_id="19">
+            <varref fl="c53" loc="c,53,19,53,23" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+            <varref fl="c53" loc="c,53,24,53,29" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          </arraysel>
+          <varref fl="c53" loc="c,53,12,53,16" name="data" dtype_id="19"/>
+        </contassign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval">
+        <if fl="c16" loc="c,16,12,16,13">
+          <and fl="c16" loc="c,16,14,16,21" dtype_id="12">
+            <ccast fl="c16" loc="c,16,14,16,21" dtype_id="12">
+              <varref fl="c16" loc="c,16,14,16,21" name="clk" dtype_id="12"/>
+            </ccast>
+            <not fl="c16" loc="c,16,14,16,21" dtype_id="12">
+              <ccast fl="c16" loc="c,16,14,16,21" dtype_id="12">
+                <varref fl="c16" loc="c,16,14,16,21" name="__Vclklast__TOP__clk" dtype_id="12"/>
+              </ccast>
+            </not>
+          </and>
+          <ccall fl="c17" loc="c,17,9,17,21"/>
+          <assign fl="c17" loc="c,17,9,17,21" dtype_id="20">
+            <const fl="c17" loc="c,17,9,17,21" name="1&apos;h1" dtype_id="20"/>
+            <arraysel fl="c17" loc="c,17,9,17,21" dtype_id="20">
+              <varref fl="c17" loc="c,17,9,17,21" name="__Vm_traceActivity" dtype_id="7"/>
+              <const fl="c17" loc="c,17,9,17,21" name="32&apos;h1" dtype_id="13"/>
+            </arraysel>
+          </assign>
+        </if>
+        <assign fl="c3" loc="c,3,11,3,14" dtype_id="12">
+          <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="12"/>
+          <varref fl="c3" loc="c,3,11,3,14" name="__Vclklast__TOP__clk" dtype_id="12"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_initial">
+        <assign fl="c3" loc="c,3,11,3,14" dtype_id="12">
+          <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="12"/>
+          <varref fl="c3" loc="c,3,11,3,14" name="__Vclklast__TOP__clk" dtype_id="12"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_settle">
+        <ccall fl="c53" loc="c,53,17,53,18"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_final"/>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_change_request">
+        <creturn fl="c1" loc="c,1,8,1,27">
+          <ccall fl="c1" loc="c,1,8,1,27"/>
+        </creturn>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_change_request_1">
+        <changedet fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceRegister">
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="22"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="22"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,27" dtype_id="22"/>
+        <text fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceFullTop0">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceFullSub0">
+        <traceinc fl="c9" loc="c,9,15,9,21" dtype_id="3">
+          <varref fl="c9" loc="c,9,15,9,21" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+        </traceinc>
+        <traceinc fl="c10" loc="c,10,15,10,19" dtype_id="4">
+          <varref fl="c10" loc="c,10,15,10,19" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+        </traceinc>
+        <traceinc fl="c11" loc="c,11,15,11,20" dtype_id="5">
+          <varref fl="c11" loc="c,11,15,11,20" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c11" loc="c,11,21,11,26" dtype_id="5">
+          <varref fl="c11" loc="c,11,21,11,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c12" loc="c,12,15,12,20" dtype_id="6">
+          <varref fl="c12" loc="c,12,15,12,20" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c14" loc="c,14,15,14,27" dtype_id="5">
+          <varref fl="c14" loc="c,14,15,14,27" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c20" loc="c,20,10,20,18" dtype_id="1">
+          <ccast fl="c20" loc="c,20,21,20,33" dtype_id="12">
+            <eq fl="c20" loc="c,20,21,20,33" dtype_id="15">
+              <const fl="c20" loc="c,20,21,20,33" name="32&apos;h4" dtype_id="13"/>
+              <and fl="c20" loc="c,20,21,20,33" dtype_id="13">
+                <const fl="c20" loc="c,20,21,20,33" name="32&apos;h6" dtype_id="13"/>
+                <ccast fl="c20" loc="c,20,21,20,33" dtype_id="10">
+                  <varref fl="c20" loc="c,20,21,20,33" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+                </ccast>
+              </and>
+            </eq>
+          </ccast>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,11,3,14" dtype_id="1">
+          <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,15,3,19" dtype_id="1">
+          <varref fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,20,3,27" dtype_id="1">
+          <varref fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,28,3,36" dtype_id="1">
+          <varref fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,11,4,21" dtype_id="1">
+          <varref fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,18,5,22" dtype_id="2">
+          <varref fl="c5" loc="c,5,18,5,22" name="data" dtype_id="19"/>
+        </traceinc>
+        <traceinc fl="c6" loc="c,6,16,6,21" dtype_id="1">
+          <varref fl="c6" loc="c,6,16,6,21" name="ready" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c7" loc="c,7,16,7,24" dtype_id="1">
+          <varref fl="c7" loc="c,7,16,7,24" name="overflow" dtype_id="12"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceChgTop0">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,27"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceChgSub0">
+        <if fl="c1" loc="c,1,8,1,27">
+          <arraysel fl="c1" loc="c,1,8,1,27" dtype_id="20">
+            <varref fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="7"/>
+            <const fl="c1" loc="c,1,8,1,27" name="32&apos;h1" dtype_id="13"/>
+          </arraysel>
+          <traceinc fl="c9" loc="c,9,15,9,21" dtype_id="3">
+            <varref fl="c9" loc="c,9,15,9,21" name="ps2_keyboard_sim_fn.buffer" dtype_id="17"/>
+          </traceinc>
+          <traceinc fl="c10" loc="c,10,15,10,19" dtype_id="4">
+            <varref fl="c10" loc="c,10,15,10,19" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+          </traceinc>
+          <traceinc fl="c11" loc="c,11,15,11,20" dtype_id="5">
+            <varref fl="c11" loc="c,11,15,11,20" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="10"/>
+          </traceinc>
+          <traceinc fl="c11" loc="c,11,21,11,26" dtype_id="5">
+            <varref fl="c11" loc="c,11,21,11,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="10"/>
+          </traceinc>
+          <traceinc fl="c12" loc="c,12,15,12,20" dtype_id="6">
+            <varref fl="c12" loc="c,12,15,12,20" name="ps2_keyboard_sim_fn.count" dtype_id="11"/>
+          </traceinc>
+          <traceinc fl="c14" loc="c,14,15,14,27" dtype_id="5">
+            <varref fl="c14" loc="c,14,15,14,27" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+          </traceinc>
+          <traceinc fl="c20" loc="c,20,10,20,18" dtype_id="1">
+            <ccast fl="c20" loc="c,20,21,20,33" dtype_id="12">
+              <eq fl="c20" loc="c,20,21,20,33" dtype_id="15">
+                <const fl="c20" loc="c,20,21,20,33" name="32&apos;h4" dtype_id="13"/>
+                <and fl="c20" loc="c,20,21,20,33" dtype_id="13">
+                  <const fl="c20" loc="c,20,21,20,33" name="32&apos;h6" dtype_id="13"/>
+                  <ccast fl="c20" loc="c,20,21,20,33" dtype_id="10">
+                    <varref fl="c20" loc="c,20,21,20,33" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="10"/>
+                  </ccast>
+                </and>
+              </eq>
+            </ccast>
+          </traceinc>
+        </if>
+        <traceinc fl="c3" loc="c,3,11,3,14" dtype_id="1">
+          <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,15,3,19" dtype_id="1">
+          <varref fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,20,3,27" dtype_id="1">
+          <varref fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,28,3,36" dtype_id="1">
+          <varref fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,11,4,21" dtype_id="1">
+          <varref fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,18,5,22" dtype_id="2">
+          <varref fl="c5" loc="c,5,18,5,22" name="data" dtype_id="19"/>
+        </traceinc>
+        <traceinc fl="c6" loc="c,6,16,6,21" dtype_id="1">
+          <varref fl="c6" loc="c,6,16,6,21" name="ready" dtype_id="12"/>
+        </traceinc>
+        <traceinc fl="c7" loc="c,7,16,7,24" dtype_id="1">
+          <varref fl="c7" loc="c,7,16,7,24" name="overflow" dtype_id="12"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="traceCleanup">
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,27">
+          <text fl="c1" loc="c,1,8,1,27"/>
+        </cstmt>
+        <assign fl="c1" loc="c,1,8,1,27" dtype_id="20">
+          <const fl="c1" loc="c,1,8,1,27" name="1&apos;h0" dtype_id="20"/>
+          <arraysel fl="c1" loc="c,1,8,1,27" dtype_id="20">
+            <varref fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="7"/>
+            <const fl="c1" loc="c,1,8,1,27" name="32&apos;h0" dtype_id="13"/>
+          </arraysel>
+        </assign>
+        <assign fl="c1" loc="c,1,8,1,27" dtype_id="20">
+          <const fl="c1" loc="c,1,8,1,27" name="1&apos;h0" dtype_id="20"/>
+          <arraysel fl="c1" loc="c,1,8,1,27" dtype_id="20">
+            <varref fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="7"/>
+            <const fl="c1" loc="c,1,8,1,27" name="32&apos;h1" dtype_id="13"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_eval_debug_assertions">
+        <if fl="c3" loc="c,3,11,3,14">
+          <and fl="c3" loc="c,3,11,3,14" dtype_id="1">
+            <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="1"/>
+            <const fl="c3" loc="c,3,11,3,14" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,11,3,14">
+            <text fl="c3" loc="c,3,11,3,14"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,15,3,19">
+          <and fl="c3" loc="c,3,15,3,19" dtype_id="1">
+            <varref fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="1"/>
+            <const fl="c3" loc="c,3,15,3,19" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,15,3,19">
+            <text fl="c3" loc="c,3,15,3,19"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,20,3,27">
+          <and fl="c3" loc="c,3,20,3,27" dtype_id="1">
+            <varref fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="1"/>
+            <const fl="c3" loc="c,3,20,3,27" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,20,3,27">
+            <text fl="c3" loc="c,3,20,3,27"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,28,3,36">
+          <and fl="c3" loc="c,3,28,3,36" dtype_id="1">
+            <varref fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="1"/>
+            <const fl="c3" loc="c,3,28,3,36" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,28,3,36">
+            <text fl="c3" loc="c,3,28,3,36"/>
+          </cstmt>
+        </if>
+        <if fl="c4" loc="c,4,11,4,21">
+          <and fl="c4" loc="c,4,11,4,21" dtype_id="1">
+            <varref fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="1"/>
+            <const fl="c4" loc="c,4,11,4,21" name="8&apos;hfe" dtype_id="2"/>
+          </and>
+          <cstmt fl="c4" loc="c,4,11,4,21">
+            <text fl="c4" loc="c,4,11,4,21"/>
+          </cstmt>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,27" name="_ctor_var_reset">
+        <creset fl="c3" loc="c,3,11,3,14">
+          <varref fl="c3" loc="c,3,11,3,14" name="clk" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,15,3,19">
+          <varref fl="c3" loc="c,3,15,3,19" name="clrn" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,20,3,27">
+          <varref fl="c3" loc="c,3,20,3,27" name="ps2_clk" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,28,3,36">
+          <varref fl="c3" loc="c,3,28,3,36" name="ps2_data" dtype_id="1"/>
+        </creset>
+        <creset fl="c4" loc="c,4,11,4,21">
+          <varref fl="c4" loc="c,4,11,4,21" name="nextdata_n" dtype_id="1"/>
+        </creset>
+        <creset fl="c5" loc="c,5,18,5,22">
+          <varref fl="c5" loc="c,5,18,5,22" name="data" dtype_id="2"/>
+        </creset>
+        <creset fl="c6" loc="c,6,16,6,21">
+          <varref fl="c6" loc="c,6,16,6,21" name="ready" dtype_id="1"/>
+        </creset>
+        <creset fl="c7" loc="c,7,16,7,24">
+          <varref fl="c7" loc="c,7,16,7,24" name="overflow" dtype_id="1"/>
+        </creset>
+        <creset fl="c9" loc="c,9,15,9,21">
+          <varref fl="c9" loc="c,9,15,9,21" name="ps2_keyboard_sim_fn.buffer" dtype_id="3"/>
+        </creset>
+        <creset fl="c10" loc="c,10,15,10,19">
+          <varref fl="c10" loc="c,10,15,10,19" name="ps2_keyboard_sim_fn.fifo" dtype_id="4"/>
+        </creset>
+        <creset fl="c11" loc="c,11,15,11,20">
+          <varref fl="c11" loc="c,11,15,11,20" name="ps2_keyboard_sim_fn.w_ptr" dtype_id="5"/>
+        </creset>
+        <creset fl="c11" loc="c,11,21,11,26">
+          <varref fl="c11" loc="c,11,21,11,26" name="ps2_keyboard_sim_fn.r_ptr" dtype_id="5"/>
+        </creset>
+        <creset fl="c12" loc="c,12,15,12,20">
+          <varref fl="c12" loc="c,12,15,12,20" name="ps2_keyboard_sim_fn.count" dtype_id="6"/>
+        </creset>
+        <creset fl="c14" loc="c,14,15,14,27">
+          <varref fl="c14" loc="c,14,15,14,27" name="ps2_keyboard_sim_fn.ps2_clk_sync" dtype_id="5"/>
+        </creset>
+        <creset fl="c47" loc="c,47,23,47,24">
+          <varref fl="c47" loc="c,47,23,47,24" name="ps2_keyboard_sim_fn.__Vlvbound1" dtype_id="1"/>
+        </creset>
+        <creset fl="c1" loc="c,1,8,1,27">
+          <varref fl="c1" loc="c,1,8,1,27" name="__Vm_traceActivity" dtype_id="7"/>
+        </creset>
+      </cfunc>
+      <cuse fl="c1" loc="c,1,8,1,27" name="VerilatedVcd"/>
+    </module>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn__Syms.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn__Syms.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn__Trace__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn__Trace.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn_$root.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn_$root__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/Vps2_keyboard_sim_fn_$root.cpp"/>
+    <typetable fl="a0" loc="a,0,0,0,0">
+      <basicdtype fl="c23" loc="c,23,18,23,20" id="1" name="logic"/>
+      <basicdtype fl="c5" loc="c,5,12,5,13" id="2" name="logic" left="7" right="0"/>
+      <basicdtype fl="c9" loc="c,9,5,9,8" id="3" name="logic" left="9" right="0"/>
+      <unpackarraydtype fl="c10" loc="c,10,19,10,20" id="4" sub_dtype_id="2">
+        <range fl="c10" loc="c,10,19,10,20">
+          <const fl="c10" loc="c,10,20,10,21" name="32&apos;sh7" dtype_id="23"/>
+          <const fl="c10" loc="c,10,22,10,23" name="32&apos;sh0" dtype_id="23"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c11" loc="c,11,5,11,8" id="5" name="logic" left="2" right="0"/>
+      <basicdtype fl="c12" loc="c,12,5,12,8" id="6" name="logic" left="3" right="0"/>
+      <basicdtype fl="c10" loc="c,10,20,10,21" id="23" name="logic" left="31" right="0"/>
+      <basicdtype fl="c17" loc="c,17,40,17,41" id="13" name="logic" left="31" right="0"/>
+      <basicdtype fl="c17" loc="c,17,39,17,40" id="15" name="logic"/>
+      <basicdtype fl="c10" loc="c,10,15,10,19" id="8" name="bit" left="2" right="0"/>
+      <basicdtype fl="c10" loc="c,10,15,10,19" id="9" name="bit"/>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="24" name="logic"/>
+      <unpackarraydtype fl="c1" loc="c,1,8,1,27" id="7" sub_dtype_id="24">
+        <range fl="c1" loc="c,1,8,1,27">
+          <const fl="c1" loc="c,1,8,1,27" name="32&apos;h1" dtype_id="13"/>
+          <const fl="c1" loc="c,1,8,1,27" name="32&apos;h0" dtype_id="13"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,27" id="22" name="chandle" left="63" right="0"/>
+      <basicdtype fl="c17" loc="c,17,9,17,21" id="10" name="logic" left="31" right="0"/>
+      <basicdtype fl="c45" loc="c,45,17,45,22" id="11" name="logic" left="31" right="0"/>
+      <basicdtype fl="c40" loc="c,40,33,40,35" id="12" name="logic" left="31" right="0"/>
+      <basicdtype fl="c17" loc="c,17,39,17,40" id="14" name="logic" left="31" right="0"/>
+      <basicdtype fl="c37" loc="c,37,22,37,28" id="17" name="logic" left="31" right="0"/>
+      <basicdtype fl="c37" loc="c,37,29,37,30" id="18" name="logic" left="31" right="0"/>
+      <basicdtype fl="c39" loc="c,39,29,39,30" id="16" name="logic" left="31" right="0"/>
+      <basicdtype fl="c40" loc="c,40,42,40,43" id="19" name="logic" left="31" right="0"/>
+      <basicdtype fl="c40" loc="c,40,33,40,35" id="20" name="logic" left="31" right="0"/>
+      <basicdtype fl="c47" loc="c,47,23,47,24" id="21" name="logic" left="10" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>
