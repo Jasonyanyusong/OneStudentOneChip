@@ -63,6 +63,10 @@ static int cmd_p(char *args){
   return 0;
 }
 
+static int cmd_w(char *args){
+  return 0;
+}
+
 static int cmd_d(char *args){
   return 0;
 }
