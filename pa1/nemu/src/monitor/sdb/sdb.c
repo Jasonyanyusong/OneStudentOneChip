@@ -16,8 +16,12 @@
 #include <isa.h>
 #include <cpu/cpu.h>
 #include <stdlib.h>
+#include <math.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <memory/paddr.h>
+#include <memory/vaddr.h>
+#include <memory/host.h>
 #include "sdb.h"
 
 static int is_batch_mode = false;
@@ -100,6 +104,58 @@ static int cmd_info(char *args){
 
 static int cmd_x(char *args){
   printf("++++ cmd_x command ++++\n");
+  printf("==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====\n");
+  int print_length;
+  int start_memory_address;
+  char *last_part_of_args;
+  //printf("---- 检查点1: 参数args现在是: \"%s\" ----\n", args);
+  //char *string_token_first = strtok(args, " ");
+  char *string_token_first = strtok_r(args, " ", &last_part_of_args);
+  printf("==== 读取出的string_token_first为: \"%s\" ====\n", string_token_first);
+  print_length = atoi(string_token_first);
+  printf("==== 转换后的print_length为: \"%d\" ====\n", print_length);
+  printf("==== 读取出的last_part_of_args为: \"%s\" ====\n", last_part_of_args);
+  //printf("---- 检查点2: 参数args现在是: \"%s\" ----\n", args);
+  //char *string_token_second = strtok(args, " ");
+  //int decimal_result = 0;
+  //for (int i = (sizeof(last_part_of_args)/sizeof(char)) - 1; i >= 2; i = i - 1)
+  //for (int i = (strlen(last_part_of_args)) - 1; i >= 2; i = i - 1)
+  //{
+  //  decimal_result = decimal_result + (int)pow(16, i - 1) * last_part_of_args[i - 2];
+  //  printf("---- 读出字符数据 %s ----\n", last_part_of_args[i - 2]);
+  //  printf("---- 循环第 %d 次，读出数组数字 %d decimal_result为: %d ----\n", i, last_part_of_args[i - 2], decimal_result);
+  //}
+  //printf("---- 循环完成后，decimal_result为: %d ----\n", decimal_result);
+  //start_memory_address = decimal_result;
+  sscanf(last_part_of_args, "%x", &start_memory_address);
+  printf("---- 打印内存前，start_memory_address (10进制)为: %d ----\n", start_memory_address);
+  //printf("==== 读取出的string_token_second为: \"%s\" ====\n", string_token_second);
+  //int start_memory_address_atoi;
+  //start_memory_address_atoi = atoi(last_part_of_args);
+  //printf("==== 操作后的start_memory_address_atoi为: \"%d\" ====\n", start_memory_address_atoi);
+  //int start_memory_address_atol;
+  //start_memory_address_atol = atol(last_part_of_args);
+  //printf("==== 操作后的start_memory_address_atol为: \"%d\" ====\n", start_memory_address_atol);
+  //int start_memory_address_atoll;
+  //start_memory_address_atoll = atol(last_part_of_args);
+  //printf("==== 操作后的start_memory_address_atoll为: \"%d\" ====\n", start_memory_address_atoll);
+
+  //char *string_token_second = strtok(args, " ");
+  //printf("==== 读取出的string_token_second为: \"%s\" ====\n", string_token_second);
+  //start_memory_address = atoi(string_token_second);
+  //printf("==== 转换后的start_memory_address为: \"%d\" ====\n", start_memory_address);
+
+  for(int i = 0; i < print_length; i = i + 1)
+  {
+    printf("Address: %x , Data: %lx\n", start_memory_address, paddr_read(start_memory_address, 4));
+  }
+
+  //char *string_tokens[] = strtok(args, " ");
+  //printf("==== 读取出的string_tokens[0]为: \"%s\" ====\n", string_tokens[0]);
+  //print_length = atoi(string_tokens[0]);
+  //printf("==== 转换后的print_length为: \"%d\" ====\n", print_length);
+  //printf("==== 读取出的string_tokens[1]为: \"%s\" ====\n", string_tokens[1]);
+  //print_length = atoi(string_tokens[1]);
   return 0;
 }
 

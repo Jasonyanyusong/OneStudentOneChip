@@ -1,0 +1,1906 @@
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:3: error: implicit declaration of function ‘print’; did you mean ‘printf’? [-Werror=implicit-function-declaration]
+   57 |   print(cmd_si_n_inputs);
+      |   ^~~~~
+      |   printf
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   57 |   printf(cmd_si_n_inputs);
+      |   ^~~~~~
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:3: error: unknown type name ‘str’
+   56 |   str cmd_si_n_inputs = rl_gets();
+      |   ^~~
+src/monitor/sdb/sdb.c:56:25: error: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   56 |   str cmd_si_n_inputs = rl_gets();
+      |                         ^~~~~~~
+src/monitor/sdb/sdb.c:57:10: error: passing argument 1 of ‘printf’ makes pointer from integer without a cast [-Werror=int-conversion]
+   57 |   printf(cmd_si_n_inputs);
+      |          ^~~~~~~~~~~~~~~
+      |          |
+      |          int
+In file included from /usr/include/stdio.h:894,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/debug.h:20,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/common.h:47,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/src/isa/riscv64/include/isa-def.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/isa.h:20,
+                 from src/monitor/sdb/sdb.c:16:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:110:32: note: expected ‘const char * restrict’ but argument is of type ‘int’
+  110 | printf (const char *__restrict __fmt, ...)
+      |         ~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+src/monitor/sdb/sdb.c:57:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   57 |   printf(cmd_si_n_inputs);
+      |   ^~~~~~
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:3: error: unknown type name ‘str’
+   56 |   str cmd_si_n_inputs = rl_gets();
+      |   ^~~
+src/monitor/sdb/sdb.c:56:25: error: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   56 |   str cmd_si_n_inputs = rl_gets();
+      |                         ^~~~~~~
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:3: error: unknown type name ‘string’; did you mean ‘stdin’?
+   56 |   string cmd_si_n_inputs = rl_gets();
+      |   ^~~~~~
+      |   stdin
+src/monitor/sdb/sdb.c:56:28: error: initialization of ‘int’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   56 |   string cmd_si_n_inputs = rl_gets();
+      |                            ^~~~~~~
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   57 |   printf(cmd_si_n_inputs);
+      |   ^~~~~~
+src/monitor/sdb/sdb.c:55:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   55 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   57 |   printf(cmd_si_n_inputs);
+      |   ^~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:20: error: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   57 |   *cmd_si_n_inputs = rl_gets();
+      |                    ^
+src/monitor/sdb/sdb.c:57:20: error: ‘cmd_si_n_inputs’ is used uninitialized [-Werror=uninitialized]
+   57 |   *cmd_si_n_inputs = rl_gets();
+      |   ~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:20: error: assignment to ‘char’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   57 |   *cmd_si_n_inputs = rl_gets();
+      |                    ^
+src/monitor/sdb/sdb.c:57:20: error: ‘cmd_si_n_inputs’ is used uninitialized [-Werror=uninitialized]
+   57 |   *cmd_si_n_inputs = rl_gets();
+      |   ~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 10
+++++ cmd_si command ++++
+让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1
+10(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 67890
+++++ cmd_si command ++++
+让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1
+程序得到如下子指令 The code get SUBCOMMAND: 67890
+(nemu) si 678 tttt
+++++ cmd_si command ++++
+让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1
+程序得到如下子指令 The code get SUBCOMMAND: 678 tttt
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 789 fhfhf &&&
+++++ cmd_si command ++++
+让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1
+程序得到如下子指令 The code get SUBCOMMAND: "789 fhfhf &&&"
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:12: error: assignment to ‘int’ from ‘char *’ makes integer from pointer without a cast [-Werror=int-conversion]
+   56 |   cmd_si_n = args;
+      |            ^
+src/monitor/sdb/sdb.c:57:10: error: too many arguments for format [-Werror=format-extra-args]
+   57 |   printf("==== 将单步执行 %d 次 ====\n", cmd_si_n, cmd_si_n);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:10: error: too many arguments for format [-Werror=format-extra-args]
+   57 |   printf("==== 将单步执行 %d 次 ====\n", cmd_si_n, cmd_si_n);
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 18
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "18" ====
+==== 将单步执行 49 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 149 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 26,845 inst/s
+==== 执行完毕,程序退出 ====
+(nemu) si 456789
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "456789" ====
+==== 将单步执行 52 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 18
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "18" ====
+==== 将单步执行 49 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 155 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 25,806 inst/s
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:14: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   56 |   cmd_si_n = (int)args;
+      |              ^
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:14: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   56 |   cmd_si_n = (int)args;
+      |              ^
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:54:7: error: unused variable ‘cmd_si_n’ [-Werror=unused-variable]
+   54 |   int cmd_si_n;
+      |       ^~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "(null)" ====
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:56:14: error: cast from pointer to integer of different size [-Werror=pointer-to-int-cast]
+   56 |   cmd_si_n = (int)args;
+      |              ^
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:13: error: comparison between pointer and integer [-Werror]
+   57 |   if (*args == "(null)"){
+      |             ^~
+src/monitor/sdb/sdb.c:57:13: error: comparison with string literal results in unspecified behavior [-Werror=address]
+src/monitor/sdb/sdb.c:59:14: error: ‘cmd_si_n’ undeclared (first use in this function); did you mean ‘cmd_si’?
+   59 |     cpu_exec(cmd_si_n);
+      |              ^~~~~~~~
+      |              cmd_si
+src/monitor/sdb/sdb.c:59:14: note: each undeclared identifier is reported only once for each function it appears in
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:13: error: comparison between pointer and integer [-Werror]
+   57 |   if (*args == "(null)"){
+      |             ^~
+src/monitor/sdb/sdb.c:57:13: error: comparison with string literal results in unspecified behavior [-Werror=address]
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:12: error: comparison with string literal results in unspecified behavior [-Werror=address]
+   57 |   if (args == "(null)"){
+      |            ^~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "(null)" ====
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 8
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "8" ====
+==== 将单步执行 8 次 ====
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+0x0000000080000004: 00 02 b8 23 sd	zero, 16(t0)
+0x0000000080000008: 01 02 b5 03 ld	a0, 16(t0)
+0x000000008000000c: 00 10 00 73 ebreak	
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 159 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 25,157 inst/s
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:57:20: error: ‘null_command’ undeclared (first use in this function)
+   57 |   if (strcmp(args, null_command) == 0){
+      |                    ^~~~~~~~~~~~
+src/monitor/sdb/sdb.c:57:20: note: each undeclared identifier is reported only once for each function it appears in
+src/monitor/sdb/sdb.c:56:9: error: unused variable ‘null_string’ [-Werror=unused-variable]
+   56 |   char *null_string = "(null)";
+      |         ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "(null)" ====
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:58:14: error: passing argument 1 of ‘strcmp’ makes pointer from integer without a cast [-Werror=int-conversion]
+   58 |   if (strcmp(*args, *null_string) == 0){
+      |              ^~~~~
+      |              |
+      |              char
+In file included from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/common.h:22,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/src/isa/riscv64/include/isa-def.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/isa.h:20,
+                 from src/monitor/sdb/sdb.c:16:
+/usr/include/string.h:156:32: note: expected ‘const char *’ but argument is of type ‘char’
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |                    ~~~~~~~~~~~~^~~~
+src/monitor/sdb/sdb.c:58:21: error: passing argument 2 of ‘strcmp’ makes pointer from integer without a cast [-Werror=int-conversion]
+   58 |   if (strcmp(*args, *null_string) == 0){
+      |                     ^~~~~~~~~~~~
+      |                     |
+      |                     char
+In file included from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/common.h:22,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/src/isa/riscv64/include/isa-def.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/isa.h:20,
+                 from src/monitor/sdb/sdb.c:16:
+/usr/include/string.h:156:50: note: expected ‘const char *’ but argument is of type ‘char’
+  156 | extern int strcmp (const char *__s1, const char *__s2)
+      |                                      ~~~~~~~~~~~~^~~~
+src/monitor/sdb/sdb.c:58:7: error: ‘strcmp’ reading 1 or more bytes from a region of size 0 [-Werror=stringop-overread]
+   58 |   if (strcmp(*args, *null_string) == 0){
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_si’:
+src/monitor/sdb/sdb.c:59:11: error: request for member ‘compare’ in something not a structure or union
+   59 |   if (args.compare(null_string) == 0){
+      |           ^
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 9
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "9" ====
+#### null_string是: "(null)" ####
+==== 将单步执行 9 次 ====
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+0x0000000080000004: 00 02 b8 23 sd	zero, 16(t0)
+0x0000000080000008: 01 02 b5 03 ld	a0, 16(t0)
+0x000000008000000c: 00 10 00 73 ebreak	
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 174 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 22,988 inst/s
+==== 执行完毕,程序退出 ====
+(nemu) si 1
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "1" ====
+#### null_string是: "(null)" ####
+==== 将单步执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si (null)
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+==== 没有收到子命令，默认执行 1 次 ====0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+(nemu) si (null)
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+==== 没有收到子命令，默认执行 1 次 ====0x0000000080000004: 00 02 b8 23 sd	zero, 16(t0)
+==== 执行完毕,程序退出 ====
+(nemu) si (null)
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+==== 没有收到子命令，默认执行 1 次 ====0x0000000080000008: 01 02 b5 03 ld	a0, 16(t0)
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si (null)
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+==== 没有收到子命令，默认执行 1 次 ====
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+#### null_string是: "(null)" ####
+==== 没有收到子命令，默认执行 1 次 ====
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) so
+Unknown command 'so'
+(nemu) si 1000
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "1000" ====
+==== 将单步执行 1000 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 211 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 18,957 inst/s
+==== 执行完毕,程序退出 ====
+(nemu) si 1
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "1" ====
+==== 将单步执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+(nemu) si
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+==== 没有收到子命令，默认执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 18
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "18" ====
+==== 将单步执行 18 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 157 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 25,477 inst/s
+==== 执行完毕,程序退出 ====
+
+(nemu) si 
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+==== 没有收到子命令，默认执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+
+(nemu) si 20050121
+++++ cmd_si command ++++
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "20050121" ====
+==== 将单步执行 20050121 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 88
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "88" ====
+==== 将单步执行 88 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 197 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 20,304 inst/s
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si u
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "u" ====
+==== 将单步执行 0 次 ====
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si 10
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "10" ====
+==== 将单步执行 10 次 ====
+[src/cpu/cpu-exec.c:116 cpu_exec] nemu: HIT GOOD TRAP at pc = 0x000000008000000c
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 145 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 4
+[src/cpu/cpu-exec.c:86 statistic] simulation frequency = 27,586 inst/s
+==== 执行完毕,程序退出 ====
+
+(nemu) si 1
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "1" ====
+==== 将单步执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+==== 没有收到子命令，默认执行 1 次 ====
+Program execution has ended. To restart the program, exit NEMU and run again.
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+^^^^ 没有收到子命令，默认执行 1 次 ^^^^
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+
+(nemu) info
+++++ cmd_info command ++++
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Segmentation fault (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+^^^^ 没有收到子命令，默认执行 1 次 ^^^^
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+
+(nemu) info
+++++ cmd_info command ++++
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+!!!! 没有给出子指令 !!!!(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+^^^^ 没有收到子命令，默认执行 1 次 ^^^^
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+
+(nemu) info
+++++ cmd_info command ++++
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+!!!! 没有给出子指令 !!!!
+(nemu) info r
+++++ cmd_info command ++++
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+(nemu) info w
+++++ cmd_info command ++++
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“w”: 打印监视点信息 ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+^^^^ 没有收到子命令，默认执行 1 次 ^^^^
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+
+(nemu) info
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+!!!! 没有给出子指令 !!!!
+==== 执行完毕,程序退出 ====
+
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+==== 执行完毕,程序退出 ====
+
+(nemu) info w
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“w”: 打印监视点信息 ====
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) si
+++++ cmd_si command ++++
+
+==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== 
+==== 程序得到如下子指令: "(null)" ====
+^^^^ 没有收到子命令，默认执行 1 次 ^^^^
+0x0000000080000000: 00 00 02 97 auipc	t0, 0
+==== 执行完毕,程序退出 ====
+
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_info’:
+src/monitor/sdb/sdb.c:85:14: error: invalid use of void expression
+   85 |       printf(isa_reg_display());
+      |              ^~~~~~~~~~~~~~~~~
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ gdb
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
+(gdb) info r
+The program has no registers now.
+(gdb) a = 1
+Ambiguous command "a = 1": actions, add-auto-load-safe-path, add-auto-load-scripts-directory, add-inferior...
+(gdb) info r
+The program has no registers now.
+(gdb) exit
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make gdb run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+gdb -s /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --args /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter...
+(gdb) layout split
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
+src/isa/riscv64/reg.c: In function ‘isa_reg_display’:
+src/isa/riscv64/reg.c:29:5: error: implicit declaration of function ‘print’; did you mean ‘printf’? [-Werror=implicit-function-declaration]
+   29 |     print("%s", regs[i]);
+      |     ^~~~~
+      |     printf
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/isa/riscv64/reg.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+$0raspgptpt0t1t2s0s1a0a1a2a3a4a5a6a7s2s3s4s5s6s7s8s9s10s11t3t4t5t6==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+$0 ra sp gp tp t0 t1 t2 s0 s1 a0 a1 a2 a3 a4 a5 a6 a7 s2 s3 s4 s5 s6 s7 s8 s9 s10 s11 t3 t4 t5 t6 ==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+$0 
+ra sp gp tp t0 t1 t2 s0 
+s1 a0 a1 a2 a3 a4 a5 a6 
+a7 s2 s3 s4 s5 s6 s7 s8 
+s9 s10 s11 t3 t4 t5 t6 ==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/isa/riscv64/reg.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) info r
+++++ cmd_info command ++++
+
+==== info r: 打印寄存器状态 info w: 打印监视点信息 ====
+==== 收到子指令“r”: 打印寄存器状态 ====
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+==== 执行完毕,程序退出 ====
+
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) help
+++++ cmd_help command ++++
+help - 打印命令的帮助信息 Display information about all supported commands
+c - 继续运行被暂停的程序 Continue the execution of the program
+q - 退出NEMU Exit NEMU
+si - 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1
+info - info r: 打印寄存器状态 info w: 打印监视点信息 info r: print the state of register, info w: point the information of monitor point
+x - 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte
+p - 求出表达式EXPR的值 slove the expression EXPR
+w - 当表达式EXPR的值发生变化时, 暂停程序执行 when the value of EXPR changes, suspend the program
+d - 删除序号为N的监视点 delete the monitor point with number N
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ man stroke
+No manual entry for stroke
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ man strtok
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ man strtok
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:105:7: error: unused variable ‘start_memory_address’ [-Werror=unused-variable]
+  105 |   int start_memory_address;
+      |       ^~~~~~~~~~~~~~~~~~~~
+src/monitor/sdb/sdb.c:104:7: error: unused variable ‘print_length’ [-Werror=unused-variable]
+  104 |   int print_length;
+      |       ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:107:3: error: implicit declaration of function ‘print’; did you mean ‘printf’? [-Werror=implicit-function-declaration]
+  107 |   print("%s", string_token);
+      |   ^~~~~
+      |   printf
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节10(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节10(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节
+10(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "10" ====
+==== 转换后的print_length为: "10" ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ man strtok
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "10" ====
+==== 转换后的print_length为: "10" ====
+==== 读取出的string_token_second为: "1" ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:114:27: error: invalid initializer
+  114 |   char *string_tokens[] = strtok(args, " ");
+      |                           ^~~~~~
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ man strtok
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "10" ====
+==== 转换后的print_length为: "10" ====
+==== 读取出的string_token_second为: "10" ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:120:34: error: format ‘%x’ expects argument of type ‘unsigned int’, but argument 3 has type ‘word_t’ {aka ‘long unsigned int’} [-Werror=format=]
+  120 |     printf("Address: %x , Data: %x\n", start_memory_address, paddr_read(start_memory_address, 4));
+      |                                 ~^                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                  |                           |
+      |                                  unsigned int                word_t {aka long unsigned int}
+      |                                 %lx
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 10 0x8000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "10" ====
+==== 转换后的print_length为: "10" ====
+==== 操作后的start_memory_address为: "10" ====
+address = 0x0000000a is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 操作后的start_memory_address为: "1" ====
+address = 0x00000001 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+---- 参数args现在是: "1" ----
+==== 操作后的start_memory_address为: "1" ====
+address = 0x00000001 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+---- 检查点1: 参数args现在是: "1 0x80000000" ----
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+---- 检查点2: 参数args现在是: "1" ----
+==== 操作后的start_memory_address为: "1" ====
+address = 0x00000001 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 操作后的start_memory_address为: "0" ====
+address = 0x00000000 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+==== 操作后的start_memory_address为: "0" ====
+address = 0x00000000 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:121:3: error: ‘start_memory_address_atoi’ undeclared (first use in this function); did you mean ‘start_memory_adress_atoi’?
+  121 |   start_memory_address_atoi = atoi(last_part_of_args);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |   start_memory_adress_atoi
+src/monitor/sdb/sdb.c:121:3: note: each undeclared identifier is reported only once for each function it appears in
+src/monitor/sdb/sdb.c:120:7: error: unused variable ‘start_memory_adress_atoi’ [-Werror=unused-variable]
+  120 |   int start_memory_adress_atoi;
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+==== 操作后的start_memory_address为: "0" ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+==== 操作后的start_memory_address_atoi为: "0" ====
+==== 操作后的start_memory_address_atol为: "0" ====
+==== 操作后的start_memory_address_atoll为: "0" ====
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:121:42: error: division ‘sizeof (char *) / sizeof (char)’ does not compute the number of array elements [-Werror=sizeof-pointer-div]
+  121 |   for (int i = (sizeof(last_part_of_args)/sizeof(char)) - 1; i >= 2; i = i - 1)
+      |                                          ^
+src/monitor/sdb/sdb.c:110:9: note: first ‘sizeof’ operand was declared here
+  110 |   char *last_part_of_args;
+      |         ^~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+---- 循环完成后，decimal_result为: 286331136 ----
+---- 打印内存前，start_memory_address为: 286331136 ----
+address = 0x11111100 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+---- 循环完成后，decimal_result为: -1861152496 ----
+---- 打印内存前，start_memory_address为: -1861152496 ----
+address = 0x91111110 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+---- 循环第9次，decimal_result为: -2147483648 ----
+---- 循环第8次，decimal_result为: -1879048192 ----
+---- 循环第7次，decimal_result为: -1862270976 ----
+---- 循环第6次，decimal_result为: -1861222400 ----
+---- 循环第5次，decimal_result为: -1861156864 ----
+---- 循环第4次，decimal_result为: -1861152768 ----
+---- 循环第3次，decimal_result为: -1861152512 ----
+---- 循环第2次，decimal_result为: -1861152496 ----
+---- 循环完成后，decimal_result为: -1861152496 ----
+---- 打印内存前，start_memory_address为: -1861152496 ----
+address = 0x91111110 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+==== 转换后的print_length为: "1" ====
+---- 循环第9次，decimal_result为: 0 ----
+---- 循环第8次，decimal_result为: 0 ----
+---- 循环第7次，decimal_result为: 805306368 ----
+---- 循环第6次，decimal_result为: 855638016 ----
+---- 循环第5次，decimal_result为: 858783744 ----
+---- 循环第4次，decimal_result为: 859013120 ----
+---- 循环第3次，decimal_result为: 859043840 ----
+---- 循环第2次，decimal_result为: 859044608 ----
+---- 循环完成后，decimal_result为: 859044608 ----
+---- 打印内存前，start_memory_address为: 859044608 ----
+address = 0x3333fb00 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+---- 循环第 9 次，读出数组数字 48 decimal_result为: 0 ----
+---- 循环第 8 次，读出数组数字 48 decimal_result为: 0 ----
+---- 循环第 7 次，读出数组数字 48 decimal_result为: 805306368 ----
+---- 循环第 6 次，读出数组数字 48 decimal_result为: 855638016 ----
+---- 循环第 5 次，读出数组数字 48 decimal_result为: 858783744 ----
+---- 循环第 4 次，读出数组数字 56 decimal_result为: 859013120 ----
+---- 循环第 3 次，读出数组数字 120 decimal_result为: 859043840 ----
+---- 循环第 2 次，读出数组数字 48 decimal_result为: 859044608 ----
+---- 循环完成后，decimal_result为: 859044608 ----
+---- 打印内存前，start_memory_address为: 859044608 ----
+address = 0x3333fb00 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:124:83: error: passing argument 1 of ‘atoi’ makes pointer from integer without a cast [-Werror=int-conversion]
+  124 |     decimal_result = decimal_result + (int)pow(16, i - 1) * atoi(last_part_of_args[i - 2]);
+      |                                                                  ~~~~~~~~~~~~~~~~~^~~~~~~
+      |                                                                                   |
+      |                                                                                   char
+In file included from /usr/include/features.h:486,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdint.h:26,
+                 from /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:9,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/common.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/src/isa/riscv64/include/isa-def.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/isa.h:20,
+                 from src/monitor/sdb/sdb.c:16:
+/usr/include/stdlib.h:362:1: note: expected ‘const char *’ but argument is of type ‘char’
+  362 | __NTH (atoi (const char *__nptr))
+      | ^~~~~
+src/monitor/sdb/sdb.c:125:103: error: passing argument 1 of ‘atoi’ makes pointer from integer without a cast [-Werror=int-conversion]
+  125 |     printf("---- 循环第 %d 次，读出数组数字 %d decimal_result为: %d ----\n", i, atoi(last_part_of_args[i - 2]), decimal_result);
+      |                                                                                      ~~~~~~~~~~~~~~~~~^~~~~~~
+      |                                                                                                       |
+      |                                                                                                       char
+In file included from /usr/include/features.h:486,
+                 from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdint.h:26,
+                 from /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:9,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/common.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/src/isa/riscv64/include/isa-def.h:19,
+                 from /home/yanyusong/OneStudentOneChip/pa1/nemu/include/isa.h:20,
+                 from src/monitor/sdb/sdb.c:16:
+/usr/include/stdlib.h:362:1: note: expected ‘const char *’ but argument is of type ‘char’
+  362 | __NTH (atoi (const char *__nptr))
+      | ^~~~~
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x8abcdef
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 读取出的last_part_of_args为: "0x8abcdef" ====
+---- 循环第 8 次，读出数组数字 100 decimal_result为: 1073741824 ----
+---- 循环第 7 次，读出数组数字 99 decimal_result为: -1560281088 ----
+---- 循环第 6 次，读出数组数字 98 decimal_result为: -1457520640 ----
+---- 循环第 5 次，读出数组数字 97 decimal_result为: -1451163648 ----
+---- 循环第 4 次，读出数组数字 56 decimal_result为: -1450934272 ----
+---- 循环第 3 次，读出数组数字 120 decimal_result为: -1450903552 ----
+---- 循环第 2 次，读出数组数字 48 decimal_result为: -1450902784 ----
+---- 循环完成后，decimal_result为: -1450902784 ----
+---- 打印内存前，start_memory_address为: -1450902784 ----
+address = 0xa984fb00 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+---- 读出字符数据0
+---- 循环第 9 次，读出数组数字 48 decimal_result为: 0 ----
+---- 读出字符数据0
+---- 循环第 8 次，读出数组数字 48 decimal_result为: 0 ----
+---- 读出字符数据0
+---- 循环第 7 次，读出数组数字 48 decimal_result为: 805306368 ----
+---- 读出字符数据0
+---- 循环第 6 次，读出数组数字 48 decimal_result为: 855638016 ----
+---- 读出字符数据0
+---- 循环第 5 次，读出数组数字 48 decimal_result为: 858783744 ----
+---- 读出字符数据8
+---- 循环第 4 次，读出数组数字 56 decimal_result为: 859013120 ----
+---- 读出字符数据x
+---- 循环第 3 次，读出数组数字 120 decimal_result为: 859043840 ----
+---- 读出字符数据0
+---- 循环第 2 次，读出数组数字 48 decimal_result为: 859044608 ----
+---- 循环完成后，decimal_result为: 859044608 ----
+---- 打印内存前，start_memory_address为: 859044608 ----
+address = 0x3333fb00 is out of bound of pmem [0x80000000, 0x87ffffff] at pc = 0x0000000080000000
+$0 ra sp gp tp t0 t1 t2 
+s0 s1 a0 a1 a2 a3 a4 a5 
+a6 a7 s2 s3 s4 s5 s6 s7 
+s8 s9 s10 s11 t3 t4 t5 t6 
+[src/cpu/cpu-exec.c:84 statistic] host time spent = 0 us
+[src/cpu/cpu-exec.c:85 statistic] total guest instructions = 0
+[src/cpu/cpu-exec.c:87 statistic] Finish running in less than 1 us and can not calculate the simulation frequency
+riscv64-nemu-interpreter: src/memory/paddr.c:40: out_of_bound: Assertion `0' failed.
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/native.mk:38: run] Aborted (core dumped)
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:125:32: error: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘int’ [-Werror=format=]
+  125 |     printf("---- 读出字符数据 %s ----\n", last_part_of_args[i - 2]);
+      |                               ~^          ~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                |                           |
+      |                                char *                      int
+      |                               %d
+cc1: all warnings being treated as errors
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
+src/monitor/sdb/sdb.c: In function ‘cmd_x’:
+src/monitor/sdb/sdb.c:130:57: error: expected ‘;’ before ‘printf’
+  130 |   sscanf(last_part_of_args, "%x", &start_memory_address)
+      |                                                         ^
+      |                                                         ;
+  131 |   printf("---- 打印内存前，start_memory_address (10进制)为: %d ----\n", start_memory_address);
+      |   ~~~~~~                                                 
+make: *** [/home/yanyusong/OneStudentOneChip/pa1/nemu/scripts/build.mk:34: /home/yanyusong/OneStudentOneChip/pa1/nemu/build/obj-riscv64-nemu-interpreter/src/monitor/sdb/sdb.o] Error 1
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ make run
++ CC src/monitor/sdb/sdb.c
++ LD /home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter
+/home/yanyusong/OneStudentOneChip/pa1/nemu/build/riscv64-nemu-interpreter --log=/home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt  
+[src/utils/log.c:28 init_log] Log is written to /home/yanyusong/OneStudentOneChip/pa1/nemu/build/nemu-log.txt
+[src/memory/paddr.c:56 init_mem] physical memory area [0x80000000, 0x87ffffff]
+[src/monitor/monitor.c:52 load_img] No image is given. Use the default build-in image.
+[src/monitor/monitor.c:28 welcome] Trace: ON
+[src/monitor/monitor.c:29 welcome] If trace is enabled, a log file will be generated to record the trace. This may lead to a large log file. If it is not necessary, you can disable it in menuconfig
+[src/monitor/monitor.c:32 welcome] Build time: 18:04:55, Jan 30 2023
+Welcome to riscv64-NEMU!
+For help, type "help"
+(nemu) x 1 0x80000000
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 读取出的last_part_of_args为: "0x80000000" ====
+---- 打印内存前，start_memory_address (10进制)为: -2147483648 ----
+Address: 80000000 , Data: 297
+(nemu) x 1 0x8000000a
+++++ cmd_x command ++++
+==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====
+==== 读取出的string_token_first为: "1" ====
+==== 转换后的print_length为: "1" ====
+==== 读取出的last_part_of_args为: "0x8000000a" ====
+---- 打印内存前，start_memory_address (10进制)为: -2147483638 ----
+Address: 8000000a , Data: 730102
+(nemu) q
+++++ cmd_q command ++++
+yanyusong@lab0:~/OneStudentOneChip/pa1/nemu$ 
+
+
