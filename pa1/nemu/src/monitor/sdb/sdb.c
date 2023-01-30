@@ -47,6 +47,25 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_si(char *args){
+  return 0;
+}
+
+static int cmd_info(char *args){
+  return 0;
+}
+
+static int cmd_x(char *args){
+  return 0;
+}
+
+static int cmd_p(char *args){
+  return 0;
+}
+
+static int cmd_d(char *args){
+  return 0;
+}
 
 static int cmd_q(char *args) {
   nemu_state.state = NEMU_QUIT;
@@ -66,6 +85,12 @@ static struct {
   { "help", "Display information about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  { "si [N]", "Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
+  { "info SUBCMD", "info r: print the state of register, info w: point the information of monitor point", cmd_info},
+  { "x N EXPR", "solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
+  { "p EXPR", "slove the expression EXPR", cmd_p},
+  { "w EXPR", "when the value of EXPR changes, suspend the program", cmd_w},
+  { "d N", "delete the monitor point with number N", cmd_d}
 
   /* TODO: Add more commands */
 
