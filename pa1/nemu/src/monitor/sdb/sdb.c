@@ -57,7 +57,7 @@ static int cmd_si(char *args){
   //printf("#### null_string是: \"%s\" ####\n", null_string);
   if (args == NULL){
   //if (args.compare(null_string) == 0){
-    printf("==== 没有收到子命令，默认执行 1 次 ====\n");
+    printf("^^^^ 没有收到子命令，默认执行 1 次 ^^^^\n");
     cpu_exec(1);
   }
   else{
@@ -71,7 +71,30 @@ static int cmd_si(char *args){
 }
 
 static int cmd_info(char *args){
-  printf("++++ cmd_info command ++++\n");
+  printf("++++ cmd_info command ++++\n\n");
+  printf("==== info r: 打印寄存器状态 info w: 打印监视点信息 ====\n");
+  if (args == NULL)
+  {
+    printf("!!!! 没有给出子指令 !!!!\n");
+  }
+  else
+  {
+    if (strcmp(args, "r") == 0)
+    {
+      printf("==== 收到子指令“r”: 打印寄存器状态 ====\n");
+      isa_reg_display();
+    }
+  else if (strcmp(args, "w") == 0)
+    {
+      printf("==== 收到子指令“w”: 打印监视点信息 ====\n");
+      // Implement Later
+    }
+  else
+    {
+      printf("!!!! 子指令无定义 !!!!\n");
+    }
+  }
+  printf("==== 执行完毕,程序退出 ====\n\n");
   return 0;
 }
 
@@ -115,7 +138,7 @@ static struct {
   { "c", "继续运行被暂停的程序 Continue the execution of the program", cmd_c }, /* OK */
   { "q", "退出NEMU Exit NEMU", cmd_q }, /* OK */
   { "si", "让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
-  { "info", "打印寄存器状态 打印监视点信息info r: print the state of register, info w: point the information of monitor point", cmd_info},
+  { "info", "info r: 打印寄存器状态 info w: 打印监视点信息 info r: print the state of register, info w: point the information of monitor point", cmd_info},
   { "x", "求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
   { "p", "求出表达式EXPR的值 slove the expression EXPR", cmd_p},
   { "w", "当表达式EXPR的值发生变化时, 暂停程序执行 when the value of EXPR changes, suspend the program", cmd_w},
