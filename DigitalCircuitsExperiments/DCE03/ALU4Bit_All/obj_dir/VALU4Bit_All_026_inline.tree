@@ -1,0 +1,433 @@
+Verilator Tree Dump (format 0x3900) from <e6108> to <e6550>
+     NETLIST 0x555556188f80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x5555561fc490 <e4712> {c1ai}  __024root  L1 [P] [1ps]
+    1:1: CELLINLINE 0x5555561ff3d0 <e6109#> {c1ai}  ALU4Bit_All -> ALU4Bit_All [scopep=0]
+    1:2: VAR 0x5555561fc710 <e4716> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556227ef0 <e6118#> {c2ar} @dt=0x5555561a5d10@(G/w3)
+    1:2:1: VARREF 0x555556227dd0 <e6115#> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [RV] <- VAR 0x5555561fc710 <e4716> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556227cb0 <e6116#> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [LV] => VAR 0x5555562112a0 <e6174#> {c2ar} @dt=0x5555561a5d10@(G/w3)  ALU4Bit_All__DOT__sel [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555562281f0 <e6127#> {c3ar} @dt=0x5555561a6d10@(G/w4)
+    1:2:1: VARREF 0x5555562280d0 <e6124#> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556227fb0 <e6125#> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [LV] => VAR 0x555556211420 <e1847> {c3ar} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__a [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555562284f0 <e6136#> {c3au} @dt=0x5555561a6d10@(G/w4)
+    1:2:1: VARREF 0x5555562283d0 <e6133#> {c3au} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555562282b0 <e6134#> {c3au} @dt=0x5555561a6d10@(G/w4)  b [LV] => VAR 0x5555562115a0 <e3985> {c3au} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__b [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555562287f0 <e6145#> {c4aw} @dt=0x5555561a6d10@(G/w4)
+    1:2:1: VARREF 0x5555562286d0 <e6142#> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555562285b0 <e6143#> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x555556211720 <e3986> {c4aw} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__result [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556228af0 <e6154#> {c5aq} @dt=0x5555561a8a80@(G/w1)
+    1:2:1: VARREF 0x5555562289d0 <e6151#> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [RV] <- VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x5555562288b0 <e6152#> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555562118a0 <e1866> {c5aq} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__overflow [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x555556228df0 <e6163#> {c5ba} @dt=0x5555561a8a80@(G/w1)
+    1:2:1: VARREF 0x555556228cd0 <e6160#> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [RV] <- VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556228bb0 <e6161#> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x555556211a20 <e3987> {c5ba} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__carry [VSTATIC]  PORT
+    1:2: ASSIGNALIAS 0x5555562290f0 <e6172#> {c5bh} @dt=0x5555561a8a80@(G/w1)
+    1:2:1: VARREF 0x555556228fd0 <e6169#> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [RV] <- VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2: VARREF 0x555556228eb0 <e6170#> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x555556211ba0 <e3988> {c5bh} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__zero [VSTATIC]  PORT
+    1:2: VAR 0x5555562112a0 <e6174#> {c2ar} @dt=0x5555561a5d10@(G/w3)  ALU4Bit_All__DOT__sel [VSTATIC]  PORT
+    1:2: VAR 0x555556211420 <e1847> {c3ar} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__a [VSTATIC]  PORT
+    1:2: VAR 0x5555562115a0 <e3985> {c3au} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__b [VSTATIC]  PORT
+    1:2: VAR 0x555556211720 <e3986> {c4aw} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__result [VSTATIC]  PORT
+    1:2: VAR 0x5555562118a0 <e1866> {c5aq} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__overflow [VSTATIC]  PORT
+    1:2: VAR 0x555556211a20 <e3987> {c5ba} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__carry [VSTATIC]  PORT
+    1:2: VAR 0x555556211ba0 <e3988> {c5bh} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__zero [VSTATIC]  PORT
+    1:2: VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2: VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2: VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2: VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2: ALWAYS 0x555556212320 <e1171> {c13af}
+    1:2:1: SENTREE 0x5555562123e0 <e1177> {c13am}
+    1:2:1:1: SENITEM 0x5555562124a0 <e183> {c13ao} [ANY]
+    1:2:1:1:1: VARREF 0x555556212560 <e1895> {c13ao} @dt=0x5555561a5d10@(G/w3)  sel [RV] <- VAR 0x5555561fc710 <e4716> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2: CASE 0x555556212680 <e5127> {c15aj}
+    1:2:2:1: VARREF 0x555556212750 <e1896> {c15ao} @dt=0x5555561a5d10@(G/w3)  sel [RV] <- VAR 0x5555561fc710 <e4716> {c2ar} @dt=0x5555561a5d10@(G/w3)  sel [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x555556212870 <e353> {c16ap}
+    1:2:2:2:1: CONST 0x555556212930 <e3991> {c16aj} @dt=0x5555561a5d10@(G/w3)  3'h0
+    1:2:2:2:2: ASSIGN 0x555556212a70 <e5094> {c18an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556212b30 <e3992> {c18ba} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556212c70 <e3993> {c18au} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [LV] => VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556212d90 <e4009> {c19an} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: XOR 0x555556212e50 <e4007> {c19bp} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1: REPLICATE 0x555556212f10 <e4005> {c19bh} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1:1: VARREF 0x555556212fd0 <e3995> {c19bj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [RV] <- VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:1:2: CONST 0x5555562130f0 <e4004> {c19bg} @dt=0x5555561ddc90@(G/sw32)  32'sh4
+    1:2:2:2:2:1:2: VARREF 0x555556213230 <e4006> {c19bq} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556213350 <e4008> {c19au} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [LV] => VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556213470 <e1926> {c20an} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1: ADD 0x555556213530 <e4016> {c20ca} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1: ADD 0x5555562135f0 <e4013> {c20bp} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:1: EXTEND 0x5555562136b0 <e4010> {c20bn} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:1:1: VARREF 0x555556213770 <e1948> {c20bn} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:2: EXTEND 0x555556213890 <e4012> {c20br} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:2:1: VARREF 0x555556213950 <e4011> {c20br} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [RV] <- VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:2: EXTEND 0x555556213a70 <e4015> {c20cc} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:2:1: VARREF 0x555556213b30 <e4014> {c20cc} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [RV] <- VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0x555556213c50 <e1925> {c20au} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [LV] => VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556213d70 <e4028> {c21an} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: SEL 0x555556213e30 <e4026> {c21bt} @dt=0x5555561a6d10@(G/w4) decl[4:0]]
+    1:2:2:2:2:1:1: VARREF 0x555556213f00 <e1976> {c21bd} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [RV] <- VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2:1:2: CONST 0x555556214020 <e2003> {c21bw} @dt=0x5555561da240@(G/sw3)  3'h0
+    1:2:2:2:2:1:3: CONST 0x555556214160 <e4025> {c21bu} @dt=0x5555561ddeb0@(G/w32)  32'h4
+    1:2:2:2:2:2: VARREF 0x5555562142a0 <e4027> {c21au} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x5555562143c0 <e4041> {c22an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: SEL 0x555556214480 <e4039> {c22bt} @dt=0x5555561a8a80@(G/w1) decl[4:0]]
+    1:2:2:2:2:1:1: VARREF 0x555556214550 <e2020> {c22bc} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [RV] <- VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2:1:2: CONST 0x555556214670 <e2046> {c22bu} @dt=0x5555561da240@(G/sw3)  3'h4
+    1:2:2:2:2:1:3: CONST 0x5555562147b0 <e4038> {c22bt} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:2: VARREF 0x5555562148f0 <e4040> {c22au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556214a10 <e2052> {c23an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: AND 0x555556214ad0 <e4764> {c23cb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: EQ 0x555556214b90 <e4760> {c23bl} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: SEL 0x555556214c50 <e4052> {c23bh} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:1:1:1: VARREF 0x555556214d20 <e2064> {c23bg} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:1:2: CONST 0x555556214e40 <e2088> {c23bi} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:1:1:3: CONST 0x555556214f80 <e4051> {c23bh} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:1:2: SEL 0x5555562150c0 <e4064> {c23bw} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:1:2:1: VARREF 0x555556215190 <e4053> {c23bo} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [RV] <- VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:1:2:2: CONST 0x5555562152b0 <e2130> {c23bx} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:1:2:3: CONST 0x5555562153f0 <e4063> {c23bw} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:2: NEQ 0x555556215530 <e4761> {c23cq} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:2:1: SEL 0x5555562155f0 <e4077> {c23cm} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:2:1:1: VARREF 0x5555562156c0 <e4066> {c23cf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2:1:2: CONST 0x5555562157e0 <e2180> {c23cn} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:2:1:3: CONST 0x555556215920 <e4076> {c23cm} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:2:2: SEL 0x555556215a60 <e4088> {c23cu} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:2:2:1: VARREF 0x555556215b30 <e2196> {c23ct} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2:2:2: CONST 0x555556215c50 <e2222> {c23cv} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:2:2:3: CONST 0x555556215d90 <e4087> {c23cu} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:2: VARREF 0x555556215ed0 <e2051> {c23au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556215ff0 <e4095> {c24an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x5555562160b0 <e4093> {c24bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x555556216170 <e4092> {c24bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556216230 <e4091> {c24bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556216350 <e4094> {c24au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x555556216470 <e517> {c26ap}
+    1:2:2:2:1: CONST 0x555556216530 <e4096> {c26aj} @dt=0x5555561a5d10@(G/w3)  3'h1
+    1:2:2:2:2: ASSIGN 0x555556216670 <e5097> {c28an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556216730 <e4097> {c28ba} @dt=0x5555561a8a80@(G/w1)  1'h1
+    1:2:2:2:2:2: VARREF 0x555556216870 <e4098> {c28au} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [LV] => VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556216990 <e4115> {c29an} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: XOR 0x555556216a50 <e4113> {c29bp} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1: REPLICATE 0x555556216b10 <e4111> {c29bh} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1:1: VARREF 0x555556216bd0 <e4100> {c29bj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [RV] <- VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:1:2: CONST 0x555556216cf0 <e4110> {c29bg} @dt=0x5555561ddc90@(G/sw32)  32'sh4
+    1:2:2:2:2:1:2: VARREF 0x555556216e30 <e4112> {c29bq} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556216f50 <e4114> {c29au} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [LV] => VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556217070 <e2266> {c30an} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1: ADD 0x555556217130 <e4122> {c30ca} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1: ADD 0x5555562171f0 <e4119> {c30bp} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:1: EXTEND 0x5555562172b0 <e4116> {c30bn} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:1:1: VARREF 0x555556217370 <e2289> {c30bn} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:2: EXTEND 0x555556217490 <e4118> {c30br} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:1:2:1: VARREF 0x555556217550 <e4117> {c30br} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [RV] <- VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:2: EXTEND 0x555556217670 <e4121> {c30cc} @dt=0x5555561ab000@(G/w5)
+    1:2:2:2:2:1:2:1: VARREF 0x555556217730 <e4120> {c30cc} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [RV] <- VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2:2: VARREF 0x555556217850 <e2265> {c30au} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [LV] => VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556217970 <e4135> {c31an} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: SEL 0x555556217a30 <e4133> {c31bt} @dt=0x5555561a6d10@(G/w4) decl[4:0]]
+    1:2:2:2:2:1:1: VARREF 0x555556217b00 <e2318> {c31bd} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [RV] <- VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2:1:2: CONST 0x555556217c20 <e2346> {c31bw} @dt=0x5555561da240@(G/sw3)  3'h0
+    1:2:2:2:2:1:3: CONST 0x555556217d60 <e4132> {c31bu} @dt=0x5555561ddeb0@(G/w32)  32'h4
+    1:2:2:2:2:2: VARREF 0x555556217ea0 <e4134> {c31au} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556217fc0 <e4148> {c32an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: SEL 0x555556218080 <e4146> {c32bt} @dt=0x5555561a8a80@(G/w1) decl[4:0]]
+    1:2:2:2:2:1:1: VARREF 0x555556218150 <e2364> {c32bc} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [RV] <- VAR 0x555556212020 <e1891> {c8ap} @dt=0x5555561ab000@(G/w5)  ALU4Bit_All__DOT__carry_and_result [VSTATIC]  VAR
+    1:2:2:2:2:1:2: CONST 0x555556218270 <e2390> {c32bu} @dt=0x5555561da240@(G/sw3)  3'h4
+    1:2:2:2:2:1:3: CONST 0x5555562183b0 <e4145> {c32bt} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:2: VARREF 0x5555562184f0 <e4147> {c32au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556218610 <e2396> {c33an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: AND 0x5555562186d0 <e4774> {c33cb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: EQ 0x555556218790 <e4770> {c33bl} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: SEL 0x555556218850 <e4159> {c33bh} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:1:1:1: VARREF 0x555556218920 <e2408> {c33bg} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:1:2: CONST 0x555556218a40 <e2434> {c33bi} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:1:1:3: CONST 0x555556218b80 <e4158> {c33bh} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:1:2: SEL 0x555556218cc0 <e4171> {c33bw} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:1:2:1: VARREF 0x555556218d90 <e4160> {c33bo} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [RV] <- VAR 0x555556211ea0 <e3990> {c7ap} @dt=0x5555561a6d10@(G/w4)  ALU4Bit_All__DOT__t_no_Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:1:2:2: CONST 0x555556218eb0 <e2476> {c33bx} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:1:2:3: CONST 0x555556218ff0 <e4170> {c33bw} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:2: NEQ 0x555556219130 <e4771> {c33cq} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:2:1: SEL 0x5555562191f0 <e4184> {c33cm} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:2:1:1: VARREF 0x5555562192c0 <e4173> {c33cf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2:1:2: CONST 0x5555562193e0 <e2522> {c33cn} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:2:1:3: CONST 0x555556219520 <e4183> {c33cm} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:1:2:2: SEL 0x555556219660 <e4195> {c33cu} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:1:2:2:1: VARREF 0x555556219730 <e2538> {c33ct} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2:2:2: CONST 0x555556219850 <e2564> {c33cv} @dt=0x5555561db1a0@(G/sw2)  2'h3
+    1:2:2:2:2:1:2:2:3: CONST 0x555556219990 <e4194> {c33cu} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:2: VARREF 0x555556219ad0 <e2395> {c33au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556219bf0 <e4202> {c34an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x555556219cb0 <e4200> {c34bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x555556219d70 <e4199> {c34bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556219e30 <e4198> {c34bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556219f50 <e4201> {c34au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x55555621a070 <e595> {c36ap}
+    1:2:2:2:1: CONST 0x55555621a130 <e4203> {c36aj} @dt=0x5555561a5d10@(G/w3)  3'h2
+    1:2:2:2:2: ASSIGN 0x55555621a270 <e5100> {c38an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x55555621a330 <e4204> {c38ba} @dt=0x5555561a8a80@(G/w1)  1'h1
+    1:2:2:2:2:2: VARREF 0x55555621a470 <e4205> {c38au} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [LV] => VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x55555621a590 <e4222> {c39an} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: XOR 0x55555621a650 <e4220> {c39bn} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1: REPLICATE 0x55555621a710 <e4218> {c39bf} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1:1: VARREF 0x55555621a7d0 <e4207> {c39bh} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [RV] <- VAR 0x555556211d20 <e3989> {c6aj} @dt=0x5555561a8a80@(G/w1)  ALU4Bit_All__DOT__Cin [VSTATIC]  VAR
+    1:2:2:2:2:1:1:2: CONST 0x55555621a8f0 <e4217> {c39be} @dt=0x5555561ddc90@(G/sw32)  32'sh4
+    1:2:2:2:2:1:2: VARREF 0x55555621aa30 <e4219> {c39bo} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x55555621ab50 <e4221> {c39au} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x55555621ac70 <e4227> {c40an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x55555621ad30 <e4225> {c40bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x55555621adf0 <e4224> {c40bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x55555621aeb0 <e4223> {c40bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x55555621afd0 <e4226> {c40au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x55555621b0f0 <e4230> {c41an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x55555621b1b0 <e4228> {c41bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x55555621b2f0 <e4229> {c41au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x55555621b410 <e2627> {c42an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x55555621b4d0 <e2640> {c42bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x55555621b610 <e2626> {c42au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x55555621b730 <e752> {c44ap}
+    1:2:2:2:1: CONST 0x55555621b7f0 <e4231> {c44aj} @dt=0x5555561a5d10@(G/w3)  3'h3
+    1:2:2:2:2: ASSIGN 0x55555621b930 <e5106> {c46at} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:1: CONST 0x55555621b9f0 <e4241> {c46au} @dt=0x5555561ddc90@(G/sw32)  32'sh0
+    1:2:2:2:2:2: VARREF 0x55555621bb30 <e2641> {c46as} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: WHILE 0x55555621bc50 <e716> {c46an}
+    1:2:2:2:2:2: GTES 0x55555621bd10 <e4787> {c46az} @dt=0x5555561fe1f0@(G/nw1)
+    1:2:2:2:2:2:1: CONST 0x55555621bdd0 <e4780> {c46bc} @dt=0x5555561ddc90@(G/sw32)  32'sh3
+    1:2:2:2:2:2:2: VARREF 0x55555621bf10 <e4781> {c46ax} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3: ASSIGN 0x55555621c030 <e4866> {c49bj} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:3:1: AND 0x55555621c0f0 <e4895> {c48ba} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:3:1:1: EQ 0x55555621c1b0 <e4891> {c47ba} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:3:1:1:1: SEL 0x55555621c270 <e4265> {c47aw} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:1:1:1: VARREF 0x55555621c340 <e2947> {c47av} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:1:1:2: SEL 0x55555621c460 <e2988> {c47ax} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:1:1:2:1: VARREF 0x55555621c530 <e2979> {c47ax} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:1:1:2:2: CONST 0x55555621c650 <e4253> {c47ax} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:1:1:2:3: CONST 0x55555621c790 <e4254> {c47ax} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:1:1:3: CONST 0x55555621c8d0 <e4264> {c47aw} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:1:1:2: SEL 0x55555621ca10 <e4279> {c47be} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:1:2:1: VARREF 0x55555621cae0 <e4266> {c47bd} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:1:2:2: SEL 0x55555621cc00 <e3046> {c47bf} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:1:2:2:1: VARREF 0x55555621ccd0 <e3037> {c47bf} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:1:2:2:2: CONST 0x55555621cdf0 <e4267> {c47bf} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:1:2:2:3: CONST 0x55555621cf30 <e4268> {c47bf} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:1:2:3: CONST 0x55555621d070 <e4278> {c47be} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:1:2: SEL 0x55555621d1b0 <e4892> {c48ba} @dt=0x5555561fe1f0@(G/nw1) decl[3:0]]
+    1:2:2:2:2:3:1:2:1: VARREF 0x55555621d280 <e2808> {c48az} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:2:2: SEL 0x55555621d3a0 <e2849> {c48bb} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:2:2:1: VARREF 0x55555621d470 <e2840> {c48bb} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:2:2:2: CONST 0x55555621d590 <e4281> {c48bb} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:2:2:3: CONST 0x55555621d6d0 <e4282> {c48bb} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:2:3: CONST 0x55555621d810 <e4292> {c48ba} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:2: SEL 0x55555621d950 <e4320> {c49bf} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:2:1: VARREF 0x55555621da20 <e4307> {c49az} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:2:2: SEL 0x55555621db40 <e2707> {c49bg} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:2:2:1: VARREF 0x55555621dc10 <e2698> {c49bg} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:2:2:2: CONST 0x55555621dd30 <e4308> {c49bg} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:2:2:3: CONST 0x55555621de70 <e4309> {c49bg} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:2:3: CONST 0x55555621dfb0 <e4319> {c49bf} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:4: ASSIGN 0x55555621e0f0 <e3056> {c46bh} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1: ADD 0x55555621e1b0 <e3063> {c46bl} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1:1: CONST 0x55555621e270 <e4900> {c46bn} @dt=0x5555561ddc90@(G/sw32)  32'sh1
+    1:2:2:2:2:4:1:2: VARREF 0x55555621e3b0 <e4901> {c46bj} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:4:2: VARREF 0x55555621e4d0 <e3055> {c46bf} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x55555621e5f0 <e4368> {c54an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x55555621e6b0 <e4366> {c54bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x55555621e770 <e4365> {c54bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x55555621e830 <e4364> {c54bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x55555621e950 <e4367> {c54au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x55555621ea70 <e4371> {c55an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x55555621eb30 <e4369> {c55bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x55555621ec70 <e4370> {c55au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x55555621ed90 <e3084> {c56an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x55555621ee50 <e3097> {c56bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x55555621ef90 <e3083> {c56au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x55555621f0b0 <e898> {c58ap}
+    1:2:2:2:1: CONST 0x55555621f170 <e4372> {c58aj} @dt=0x5555561a5d10@(G/w3)  3'h4
+    1:2:2:2:2: ASSIGN 0x55555621f2b0 <e5112> {c60at} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:1: CONST 0x55555621f370 <e4382> {c60au} @dt=0x5555561ddc90@(G/sw32)  32'sh0
+    1:2:2:2:2:2: VARREF 0x55555621f4b0 <e3098> {c60as} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: WHILE 0x55555621f5d0 <e862> {c60an}
+    1:2:2:2:2:2: GTES 0x55555621f690 <e4909> {c60az} @dt=0x5555561fe1f0@(G/nw1)
+    1:2:2:2:2:2:1: CONST 0x55555621f750 <e4905> {c60bc} @dt=0x5555561ddc90@(G/sw32)  32'sh3
+    1:2:2:2:2:2:2: VARREF 0x55555621f890 <e4906> {c60ax} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3: ASSIGN 0x55555621f9b0 <e4961> {c62bf} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:3:1: OR 0x55555621fa70 <e4998> {c61bh} @dt=0x5555561fe1f0@(G/nw1)
+    1:2:2:2:2:3:1:1: SEL 0x55555621fb30 <e4974> {c61ax} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:1:1: VARREF 0x55555621fc00 <e3267> {c61aw} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:1:2: SEL 0x55555621fd20 <e3308> {c61ay} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:1:2:1: VARREF 0x55555621fdf0 <e3299> {c61ay} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:1:2:2: CONST 0x55555621ff10 <e4394> {c61ay} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:1:2:3: CONST 0x555556220050 <e4395> {c61ay} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:1:3: CONST 0x555556220190 <e4405> {c61ax} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:1:2: SEL 0x5555562202d0 <e4980> {c61bl} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:2:1: VARREF 0x5555562203a0 <e4419> {c61bk} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:2:2: SEL 0x5555562204c0 <e3376> {c61bm} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:2:2:1: VARREF 0x555556220590 <e3367> {c61bm} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:2:2:2: CONST 0x5555562206b0 <e4420> {c61bm} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:2:2:3: CONST 0x5555562207f0 <e4421> {c61bm} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:2:3: CONST 0x555556220930 <e4431> {c61bl} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:2: SEL 0x555556220a70 <e4460> {c62bb} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:2:1: VARREF 0x555556220b40 <e4447> {c62av} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:2:2: SEL 0x555556220c60 <e3166> {c62bc} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:2:2:1: VARREF 0x555556220d30 <e3157> {c62bc} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:2:2:2: CONST 0x555556220e50 <e4448> {c62bc} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:2:2:3: CONST 0x555556220f90 <e4449> {c62bc} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:2:3: CONST 0x5555562210d0 <e4459> {c62bb} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:4: ASSIGN 0x555556221210 <e3397> {c60bh} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1: ADD 0x5555562212d0 <e3404> {c60bl} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1:1: CONST 0x555556221390 <e5004> {c60bn} @dt=0x5555561ddc90@(G/sw32)  32'sh1
+    1:2:2:2:2:4:1:2: VARREF 0x5555562214d0 <e5005> {c60bj} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:4:2: VARREF 0x5555562215f0 <e3396> {c60bf} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556221710 <e4492> {c65an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x5555562217d0 <e4490> {c65bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x555556221890 <e4489> {c65bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556221950 <e4488> {c65bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556221a70 <e4491> {c65au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556221b90 <e4495> {c66an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556221c50 <e4493> {c66bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556221d90 <e4494> {c66au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556221eb0 <e3425> {c67an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556221f70 <e3438> {c67bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x5555562220b0 <e3424> {c67au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x5555562221d0 <e1024> {c69ap}
+    1:2:2:2:1: CONST 0x555556222290 <e4496> {c69aj} @dt=0x5555561a5d10@(G/w3)  3'h5
+    1:2:2:2:2: ASSIGN 0x5555562223d0 <e5118> {c71at} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:1: CONST 0x555556222490 <e4506> {c71au} @dt=0x5555561ddc90@(G/sw32)  32'sh0
+    1:2:2:2:2:2: VARREF 0x5555562225d0 <e3439> {c71as} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: WHILE 0x5555562226f0 <e988> {c71an}
+    1:2:2:2:2:2: GTES 0x5555562227b0 <e5013> {c71az} @dt=0x5555561fe1f0@(G/nw1)
+    1:2:2:2:2:2:1: CONST 0x555556222870 <e5009> {c71bc} @dt=0x5555561ddc90@(G/sw32)  32'sh3
+    1:2:2:2:2:2:2: VARREF 0x5555562229b0 <e5010> {c71ax} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3: ASSIGN 0x555556222ad0 <e5027> {c73bf} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:3:1: NEQ 0x555556222b90 <e5052> {c72ba} @dt=0x5555561fe1f0@(G/nw1)
+    1:2:2:2:2:3:1:1: SEL 0x555556222c50 <e4530> {c72aw} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:1:1: VARREF 0x555556222d20 <e3608> {c72av} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:1:2: SEL 0x555556222e40 <e3649> {c72ax} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:1:2:1: VARREF 0x555556222f10 <e3640> {c72ax} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:1:2:2: CONST 0x555556223030 <e4518> {c72ax} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:1:2:3: CONST 0x555556223170 <e4519> {c72ax} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:1:3: CONST 0x5555562232b0 <e4529> {c72aw} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:1:2: SEL 0x5555562233f0 <e4544> {c72be} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:1:2:1: VARREF 0x5555562234c0 <e4531> {c72bd} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:1:2:2: SEL 0x5555562235e0 <e3707> {c72bf} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:1:2:2:1: VARREF 0x5555562236b0 <e3698> {c72bf} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:1:2:2:2: CONST 0x5555562237d0 <e4532> {c72bf} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:1:2:2:3: CONST 0x555556223910 <e4533> {c72bf} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:1:2:3: CONST 0x555556223a50 <e4543> {c72be} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:3:2: SEL 0x555556223b90 <e4560> {c73bb} @dt=0x5555561a8a80@(G/w1) decl[3:0]]
+    1:2:2:2:2:3:2:1: VARREF 0x555556223c60 <e4547> {c73av} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:3:2:2: SEL 0x555556223d80 <e3507> {c73bc} @dt=0x5555561db1a0@(G/sw2)
+    1:2:2:2:2:3:2:2:1: VARREF 0x555556223e50 <e3498> {c73bc} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:3:2:2:2: CONST 0x555556223f70 <e4548> {c73bc} @dt=0x5555561ddeb0@(G/w32)  32'h0
+    1:2:2:2:2:3:2:2:3: CONST 0x5555562240b0 <e4549> {c73bc} @dt=0x5555561ddeb0@(G/w32)  32'h2
+    1:2:2:2:2:3:2:3: CONST 0x5555562241f0 <e4559> {c73bb} @dt=0x5555561ddeb0@(G/w32)  32'h1
+    1:2:2:2:2:4: ASSIGN 0x555556224330 <e3717> {c71bh} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1: ADD 0x5555562243f0 <e3724> {c71bl} @dt=0x5555561ab770@(G/sw32)
+    1:2:2:2:2:4:1:1: CONST 0x5555562244b0 <e5058> {c71bn} @dt=0x5555561ddc90@(G/sw32)  32'sh1
+    1:2:2:2:2:4:1:2: VARREF 0x5555562245f0 <e5059> {c71bj} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [RV] <- VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2:4:2: VARREF 0x555556224710 <e3716> {c71bf} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LV] => VAR 0x5555562121a0 <e1894> {c9an} @dt=0x5555561ab770@(G/sw32)  ALU4Bit_All__DOT__i [LOOP] [VSTATIC]  VAR
+    1:2:2:2:2: ASSIGN 0x555556224830 <e4592> {c76an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x5555562248f0 <e4590> {c76bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x5555562249b0 <e4589> {c76bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556224a70 <e4588> {c76bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556224b90 <e4591> {c76au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556224cb0 <e4595> {c77an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556224d70 <e4593> {c77bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556224eb0 <e4594> {c77au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556224fd0 <e3745> {c78an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556225090 <e3758> {c78bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x5555562251d0 <e3744> {c78au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x5555562252f0 <e1095> {c80ap}
+    1:2:2:2:1: CONST 0x5555562253b0 <e4596> {c80aj} @dt=0x5555561a5d10@(G/w3)  3'h6
+    1:2:2:2:2: ASSIGN 0x5555562254f0 <e5121> {c83ar} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: COND 0x5555562255b0 <e5069> {c83bh} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1: LT 0x555556225670 <e5065> {c82at} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556225730 <e3789> {c82ar} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:2: VARREF 0x555556225850 <e4597> {c82av} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2: CONST 0x555556225970 <e5066> {c83bh} @dt=0x5555561a6d10@(G/w4)  4'h1
+    1:2:2:2:2:1:3: CONST 0x555556225ab0 <e5067> {c85bh} @dt=0x5555561a6d10@(G/w4)  4'h0
+    1:2:2:2:2:2: VARREF 0x555556225bf0 <e4600> {c83ay} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556225d10 <e4609> {c86an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x555556225dd0 <e4607> {c86bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x555556225e90 <e4606> {c86bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556225f50 <e4605> {c86bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556226070 <e4608> {c86au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556226190 <e4612> {c87an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556226250 <e4610> {c87bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556226390 <e4611> {c87au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x5555562264b0 <e3815> {c88an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556226570 <e3828> {c88bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x5555562266b0 <e3814> {c88au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CASEITEM 0x5555562267d0 <e1166> {c90ap}
+    1:2:2:2:1: CONST 0x555556226890 <e4613> {c90aj} @dt=0x5555561a5d10@(G/w3)  3'h7
+    1:2:2:2:2: ASSIGN 0x5555562269d0 <e5124> {c93ar} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1: COND 0x555556226a90 <e5085> {c93bh} @dt=0x5555561a6d10@(G/w4)
+    1:2:2:2:2:1:1: EQ 0x555556226b50 <e5081> {c92as} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556226c10 <e3859> {c92aq} @dt=0x5555561a6d10@(G/w4)  a [RV] <- VAR 0x5555561fcab0 <e4721> {c3ar} @dt=0x5555561a6d10@(G/w4)  a [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:1:2: VARREF 0x555556226d30 <e4614> {c92av} @dt=0x5555561a6d10@(G/w4)  b [RV] <- VAR 0x5555561fce50 <e4727> {c3au} @dt=0x5555561a6d10@(G/w4)  b [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:1:2: CONST 0x555556226e50 <e5082> {c93bh} @dt=0x5555561a6d10@(G/w4)  4'h1
+    1:2:2:2:2:1:3: CONST 0x555556226f90 <e5083> {c95bh} @dt=0x5555561a6d10@(G/w4)  4'h0
+    1:2:2:2:2:2: VARREF 0x5555562270d0 <e4617> {c93ay} @dt=0x5555561a6d10@(G/w4)  result [LV] => VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x5555562271f0 <e4626> {c96an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: NOT 0x5555562272b0 <e4624> {c96bb} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1: REDOR 0x555556227370 <e4623> {c96bd} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1:1:1: VARREF 0x555556227430 <e4622> {c96bf} @dt=0x5555561a6d10@(G/w4)  result [RV] <- VAR 0x5555561fd1f0 <e4733> {c4aw} @dt=0x5555561a6d10@(G/w4)  result [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2:2: VARREF 0x555556227550 <e4625> {c96au} @dt=0x5555561a8a80@(G/w1)  zero [LV] => VAR 0x5555561fdcd0 <e4751> {c5bh} @dt=0x5555561a8a80@(G/w1)  zero [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556227670 <e4629> {c97an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556227730 <e4627> {c97bc} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556227870 <e4628> {c97au} @dt=0x5555561a8a80@(G/w1)  carry [LV] => VAR 0x5555561fd930 <e4745> {c5ba} @dt=0x5555561a8a80@(G/w1)  carry [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:2: ASSIGN 0x555556227990 <e3885> {c98an} @dt=0x5555561a8a80@(G/w1)
+    1:2:2:2:2:1: CONST 0x555556227a50 <e3898> {c98bf} @dt=0x5555561a8a80@(G/w1)  1'h0
+    1:2:2:2:2:2: VARREF 0x555556227b90 <e3884> {c98au} @dt=0x5555561a8a80@(G/w1)  overflow [LV] => VAR 0x5555561fd590 <e4739> {c5aq} @dt=0x5555561a8a80@(G/w1)  overflow [PO] OUTPUT [P] [VSTATIC]  PORT
+    3: TYPETABLE 0x555556189620 <e2> {a0aa}
+		   logic  -> BASICDTYPE 0x5555561fe1f0 <e4784> {c46az} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561a8a80 <e1865> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561fe1f0 <e4784> {c46az} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x555556200af0 <e5213> {c23bh} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0x5555561db1a0 <e2080> {c23bh} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0x5555561a5d10 <e1838> {c2al} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0x5555561da240 <e1994> {c21bt} @dt=this@(G/sw3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0x5555561a6d10 <e1846> {c3al} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+		detailed  ->  BASICDTYPE 0x5555561ab000 <e1890> {c8af} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+		detailed  ->  BASICDTYPE 0x5555561ddeb0 <e4020> {c21bu} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x5555561ab770 <e1893> {c9af} @dt=this@(G/sw32)  integer [GENERIC] kwd=integer range=[31:0]
+		detailed  ->  BASICDTYPE 0x5555561ddc90 <e3999> {c19bg} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561a54d0 <e23> {c2am} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561a5870 <e28> {c2ao} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561aa9d0 <e152> {c8ak} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561ac5a0 <e193> {c16aj} @dt=this@(w3)  logic kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x5555561ad780 <e219> {c19bh} @dt=this@(w0)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561b0760 <e307> {c23bl} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561a5d10 <e1838> {c2al} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x5555561a6d10 <e1846> {c3al} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561a7350 <e1854> {c3al} @dt=this@(w4)  logic kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561a82c0 <e1862> {c4am} @dt=this@(w4)  logic kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561a8a80 <e1865> {c5am} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x5555561a8d80 <e1868> {c5am} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561a9080 <e1871> {c5am} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561a94b0 <e1874> {c6af} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561aa090 <e1882> {c7af} @dt=this@(w4)  logic kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561ab000 <e1890> {c8af} @dt=this@(G/w5)  logic [GENERIC] kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x5555561ab770 <e1893> {c9af} @dt=this@(G/sw32)  integer [GENERIC] kwd=integer range=[31:0]
+    3:1: BASICDTYPE 0x5555561d93c0 <e1906> {c18ba} @dt=this@(w1)  logic kwd=logic
+    3:1: BASICDTYPE 0x5555561d94a0 <e1916> {c19bh} @dt=this@(w4)  logic kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561d9820 <e1942> {c20an} @dt=this@(w5)  logic kwd=logic range=[4:0]
+    3:1: BASICDTYPE 0x5555561da080 <e1973> {c21bu} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561da240 <e1994> {c21bt} @dt=this@(G/sw3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x5555561da760 <e2017> {c22bt} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561db1a0 <e2080> {c23bh} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0x5555561db3c0 <e2084> {c23bi} @dt=this@(w2)  logic kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0x5555561e41c0 <e2654> {c46az} @dt=this@(sw32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561e4960 <e2689> {c49bg} @dt=this@(w32)  logic kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561ddc90 <e3999> {c19bg} @dt=this@(G/sw32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561ddeb0 <e4020> {c21bu} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561fe1f0 <e4784> {c46az} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x555556200af0 <e5213> {c23bh} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+    3: CONSTPOOL 0x5555561897d0 <e6> {a0aa}
+    3:1: MODULE 0x555556189960 <e4> {a0aa} u1=0x1  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556189aa0 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0x555556189960]

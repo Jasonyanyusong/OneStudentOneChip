@@ -1,0 +1,1149 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="ALU4Bit_All.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="ALU4Bit_All.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell fl="c1" loc="c,1,8,1,19" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module fl="c1" loc="c,1,8,1,19" name="$root" origName="$root" topModule="1" public="true">
+      <var fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="sel" public="true"/>
+      <var fl="c3" loc="c,3,17,3,18" name="a" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="a" public="true"/>
+      <var fl="c3" loc="c,3,20,3,21" name="b" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="b" public="true"/>
+      <var fl="c4" loc="c,4,22,4,28" name="result" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="result" public="true"/>
+      <var fl="c5" loc="c,5,16,5,24" name="overflow" dtype_id="3" dir="output" pinIndex="5" vartype="logic" origName="overflow" public="true"/>
+      <var fl="c5" loc="c,5,26,5,31" name="carry" dtype_id="3" dir="output" pinIndex="6" vartype="logic" origName="carry" public="true"/>
+      <var fl="c5" loc="c,5,33,5,37" name="zero" dtype_id="3" dir="output" pinIndex="7" vartype="logic" origName="zero" public="true"/>
+      <var fl="c6" loc="c,6,9,6,12" name="ALU4Bit_All.Cin" dtype_id="3" vartype="logic" origName="Cin" latched="true"/>
+      <var fl="c7" loc="c,7,15,7,23" name="ALU4Bit_All.t_no_Cin" dtype_id="2" vartype="logic" origName="t_no_Cin" latched="true"/>
+      <var fl="c8" loc="c,8,15,8,31" name="ALU4Bit_All.carry_and_result" dtype_id="4" vartype="logic" origName="carry_and_result" latched="true"/>
+      <var fl="c9" loc="c,9,13,9,14" name="ALU4Bit_All.i" dtype_id="5" vartype="integer" origName="i"/>
+      <topscope fl="c1" loc="c,1,8,1,19">
+        <scope fl="c1" loc="c,1,8,1,19" name="TOP"/>
+      </topscope>
+      <var fl="c1" loc="c,1,8,1,19" name="__Vm_traceActivity" dtype_id="6" vartype="" origName="__Vm_traceActivity"/>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceInitTop">
+        <ccall fl="c1" loc="c,1,8,1,19"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceInitSub0">
+        <tracedecl fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,17,3,18" name="a" dtype_id="2"/>
+        <tracedecl fl="c3" loc="c,3,20,3,21" name="b" dtype_id="2"/>
+        <tracedecl fl="c4" loc="c,4,22,4,28" name="result" dtype_id="2"/>
+        <tracedecl fl="c5" loc="c,5,16,5,24" name="overflow" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,26,5,31" name="carry" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,33,5,37" name="zero" dtype_id="3"/>
+        <tracedecl fl="c2" loc="c,2,17,2,20" name="ALU4Bit_All sel" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,17,3,18" name="ALU4Bit_All a" dtype_id="2"/>
+        <tracedecl fl="c3" loc="c,3,20,3,21" name="ALU4Bit_All b" dtype_id="2"/>
+        <tracedecl fl="c4" loc="c,4,22,4,28" name="ALU4Bit_All result" dtype_id="2"/>
+        <tracedecl fl="c5" loc="c,5,16,5,24" name="ALU4Bit_All overflow" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,26,5,31" name="ALU4Bit_All carry" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,33,5,37" name="ALU4Bit_All zero" dtype_id="3"/>
+        <tracedecl fl="c6" loc="c,6,9,6,12" name="ALU4Bit_All Cin" dtype_id="3"/>
+        <tracedecl fl="c7" loc="c,7,15,7,23" name="ALU4Bit_All t_no_Cin" dtype_id="2"/>
+        <tracedecl fl="c8" loc="c,8,15,8,31" name="ALU4Bit_All carry_and_result" dtype_id="4"/>
+        <tracedecl fl="c9" loc="c,9,13,9,14" name="ALU4Bit_All i" dtype_id="5"/>
+      </cfunc>
+      <cfunc fl="c15" loc="c,15,14,15,17" name="_combo__TOP__1">
+        <if fl="c15" loc="c,15,14,15,17">
+          <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+            <not fl="c15" loc="c,15,14,15,17" dtype_id="7">
+              <shiftr fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+                </ccast>
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h2" dtype_id="8"/>
+              </shiftr>
+            </not>
+          </and>
+          <if fl="c15" loc="c,15,14,15,17">
+            <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+              <const fl="c15" loc="c,15,14,15,17" name="32&apos;h2" dtype_id="8"/>
+              <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+              </ccast>
+            </and>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <not fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                  <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                    <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                  </ccast>
+                </not>
+              </and>
+              <assign fl="c38" loc="c,38,13,38,19" dtype_id="10">
+                <const fl="c38" loc="c,38,26,38,27" name="1&apos;h1" dtype_id="10"/>
+                <varref fl="c38" loc="c,38,20,38,23" name="ALU4Bit_All.Cin" dtype_id="10"/>
+              </assign>
+            </if>
+            <assign fl="c28" loc="c,28,13,28,19" dtype_id="10">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <varref fl="c28" loc="c,28,20,28,23" name="ALU4Bit_All.Cin" dtype_id="10"/>
+            </assign>
+          </if>
+        </if>
+        <if fl="c15" loc="c,15,14,15,17">
+          <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h4" dtype_id="8"/>
+            <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+              <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+            </ccast>
+          </and>
+          <if fl="c15" loc="c,15,14,15,17">
+            <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+              <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+              <not fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <shiftr fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                  <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                    <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+                  </ccast>
+                  <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                </shiftr>
+              </not>
+            </and>
+            <assign fl="c71" loc="c,71,33,71,34" dtype_id="5">
+              <const fl="c71" loc="c,71,37,71,38" name="32&apos;h4" dtype_id="5"/>
+              <varref fl="c71" loc="c,71,31,71,32" name="ALU4Bit_All.i" dtype_id="5"/>
+            </assign>
+          </if>
+          <if fl="c15" loc="c,15,14,15,17">
+            <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+              <const fl="c15" loc="c,15,14,15,17" name="32&apos;h2" dtype_id="8"/>
+              <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+              </ccast>
+            </and>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <assign fl="c46" loc="c,46,33,46,34" dtype_id="5">
+                <const fl="c46" loc="c,46,37,46,38" name="32&apos;h4" dtype_id="5"/>
+                <varref fl="c46" loc="c,46,31,46,32" name="ALU4Bit_All.i" dtype_id="5"/>
+              </assign>
+            </if>
+          </if>
+        </if>
+        <if fl="c15" loc="c,15,14,15,17">
+          <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h4" dtype_id="8"/>
+            <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+              <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+            </ccast>
+          </and>
+          <if fl="c15" loc="c,15,14,15,17">
+            <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+              <const fl="c15" loc="c,15,14,15,17" name="32&apos;h2" dtype_id="8"/>
+              <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+              </ccast>
+            </and>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <assign fl="c93" loc="c,93,17,93,23" dtype_id="11">
+                <cond fl="c93" loc="c,93,33,93,39" dtype_id="11">
+                  <eq fl="c92" loc="c,92,18,92,20" dtype_id="10">
+                    <ccast fl="c92" loc="c,92,16,92,17" dtype_id="11">
+                      <varref fl="c92" loc="c,92,16,92,17" name="a" dtype_id="11"/>
+                    </ccast>
+                    <ccast fl="c92" loc="c,92,21,92,22" dtype_id="11">
+                      <varref fl="c92" loc="c,92,21,92,22" name="b" dtype_id="11"/>
+                    </ccast>
+                  </eq>
+                  <const fl="c93" loc="c,93,33,93,39" name="4&apos;h1" dtype_id="11"/>
+                  <const fl="c95" loc="c,95,33,95,39" name="4&apos;h0" dtype_id="11"/>
+                </cond>
+                <varref fl="c93" loc="c,93,24,93,30" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c96" loc="c,96,13,96,19" dtype_id="10">
+                <and fl="c96" loc="c,96,27,96,28" dtype_id="10">
+                  <const fl="c96" loc="c,96,27,96,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c96" loc="c,96,27,96,28" dtype_id="10">
+                    <ccast fl="c96" loc="c,96,29,96,30" dtype_id="10">
+                      <neq fl="c96" loc="c,96,29,96,30" dtype_id="12">
+                        <const fl="c96" loc="c,96,29,96,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c96" loc="c,96,31,96,37" dtype_id="11">
+                          <varref fl="c96" loc="c,96,31,96,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c96" loc="c,96,20,96,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c97" loc="c,97,13,97,19" dtype_id="10">
+                <const fl="c97" loc="c,97,28,97,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c97" loc="c,97,20,97,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c98" loc="c,98,13,98,19" dtype_id="10">
+                <const fl="c98" loc="c,98,31,98,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c98" loc="c,98,20,98,28" name="overflow" dtype_id="10"/>
+              </assign>
+              <assign fl="c83" loc="c,83,17,83,23" dtype_id="11">
+                <cond fl="c83" loc="c,83,33,83,39" dtype_id="11">
+                  <lt fl="c82" loc="c,82,19,82,20" dtype_id="10">
+                    <ccast fl="c82" loc="c,82,17,82,18" dtype_id="11">
+                      <varref fl="c82" loc="c,82,17,82,18" name="a" dtype_id="11"/>
+                    </ccast>
+                    <ccast fl="c82" loc="c,82,21,82,22" dtype_id="11">
+                      <varref fl="c82" loc="c,82,21,82,22" name="b" dtype_id="11"/>
+                    </ccast>
+                  </lt>
+                  <const fl="c83" loc="c,83,33,83,39" name="4&apos;h1" dtype_id="11"/>
+                  <const fl="c85" loc="c,85,33,85,39" name="4&apos;h0" dtype_id="11"/>
+                </cond>
+                <varref fl="c83" loc="c,83,24,83,30" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c86" loc="c,86,13,86,19" dtype_id="10">
+                <and fl="c86" loc="c,86,27,86,28" dtype_id="10">
+                  <const fl="c86" loc="c,86,27,86,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c86" loc="c,86,27,86,28" dtype_id="10">
+                    <ccast fl="c86" loc="c,86,29,86,30" dtype_id="10">
+                      <neq fl="c86" loc="c,86,29,86,30" dtype_id="12">
+                        <const fl="c86" loc="c,86,29,86,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c86" loc="c,86,31,86,37" dtype_id="11">
+                          <varref fl="c86" loc="c,86,31,86,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c86" loc="c,86,20,86,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c87" loc="c,87,13,87,19" dtype_id="10">
+                <const fl="c87" loc="c,87,28,87,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c87" loc="c,87,20,87,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c88" loc="c,88,13,88,19" dtype_id="10">
+                <const fl="c88" loc="c,88,31,88,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c88" loc="c,88,20,88,28" name="overflow" dtype_id="10"/>
+              </assign>
+            </if>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <assign fl="c73" loc="c,73,31,73,32" dtype_id="11">
+                <or fl="c73" loc="c,73,27,73,28" dtype_id="2">
+                  <and fl="c73" loc="c,73,27,73,28" dtype_id="2">
+                    <const fl="c73" loc="c,73,27,73,28" name="4&apos;hc" dtype_id="2"/>
+                    <ccast fl="c73" loc="c,73,21,73,27" dtype_id="11">
+                      <varref fl="c73" loc="c,73,21,73,27" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <or fl="c72" loc="c,72,26,72,28" dtype_id="8">
+                    <shiftl fl="c72" loc="c,72,26,72,28" dtype_id="8">
+                      <neq fl="c72" loc="c,72,26,72,28" dtype_id="7">
+                        <and fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                          <const fl="c72" loc="c,72,22,72,23" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,21,72,22" dtype_id="11">
+                              <varref fl="c72" loc="c,72,21,72,22" name="a" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,23,72,24" name="2&apos;h1" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                        <and fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                          <const fl="c72" loc="c,72,30,72,31" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,29,72,30" dtype_id="11">
+                              <varref fl="c72" loc="c,72,29,72,30" name="b" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,31,72,32" name="2&apos;h1" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                      </neq>
+                      <const fl="c72" loc="c,72,26,72,28" name="32&apos;h1" dtype_id="8"/>
+                    </shiftl>
+                    <neq fl="c72" loc="c,72,26,72,28" dtype_id="7">
+                      <and fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                        <const fl="c72" loc="c,72,22,72,23" name="32&apos;h1" dtype_id="8"/>
+                        <ccast fl="c72" loc="c,72,21,72,22" dtype_id="10">
+                          <varref fl="c72" loc="c,72,21,72,22" name="a" dtype_id="10"/>
+                        </ccast>
+                      </and>
+                      <and fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                        <const fl="c72" loc="c,72,30,72,31" name="32&apos;h1" dtype_id="8"/>
+                        <ccast fl="c72" loc="c,72,29,72,30" dtype_id="10">
+                          <varref fl="c72" loc="c,72,29,72,30" name="b" dtype_id="10"/>
+                        </ccast>
+                      </and>
+                    </neq>
+                  </or>
+                </or>
+                <varref fl="c73" loc="c,73,21,73,27" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c77" loc="c,77,13,77,19" dtype_id="10">
+                <const fl="c77" loc="c,77,28,77,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c77" loc="c,77,20,77,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c78" loc="c,78,13,78,19" dtype_id="10">
+                <const fl="c78" loc="c,78,31,78,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c78" loc="c,78,20,78,28" name="overflow" dtype_id="10"/>
+              </assign>
+              <assign fl="c73" loc="c,73,31,73,32" dtype_id="11">
+                <or fl="c73" loc="c,73,27,73,28" dtype_id="2">
+                  <and fl="c73" loc="c,73,27,73,28" dtype_id="2">
+                    <const fl="c73" loc="c,73,27,73,28" name="4&apos;h3" dtype_id="2"/>
+                    <ccast fl="c73" loc="c,73,21,73,27" dtype_id="11">
+                      <varref fl="c73" loc="c,73,21,73,27" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <or fl="c72" loc="c,72,26,72,28" dtype_id="8">
+                    <shiftl fl="c73" loc="c,73,27,73,28" dtype_id="8">
+                      <neq fl="c72" loc="c,72,26,72,28" dtype_id="7">
+                        <and fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                          <const fl="c72" loc="c,72,22,72,23" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,21,72,22" dtype_id="11">
+                              <varref fl="c72" loc="c,72,21,72,22" name="a" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,23,72,24" name="2&apos;h3" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                        <and fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                          <const fl="c72" loc="c,72,30,72,31" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,29,72,30" dtype_id="11">
+                              <varref fl="c72" loc="c,72,29,72,30" name="b" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,31,72,32" name="2&apos;h3" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                      </neq>
+                      <const fl="c73" loc="c,73,27,73,28" name="32&apos;h3" dtype_id="8"/>
+                    </shiftl>
+                    <shiftl fl="c73" loc="c,73,27,73,28" dtype_id="8">
+                      <neq fl="c72" loc="c,72,26,72,28" dtype_id="7">
+                        <and fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                          <const fl="c72" loc="c,72,22,72,23" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,22,72,23" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,21,72,22" dtype_id="11">
+                              <varref fl="c72" loc="c,72,21,72,22" name="a" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,23,72,24" name="2&apos;h2" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                        <and fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                          <const fl="c72" loc="c,72,30,72,31" name="32&apos;h1" dtype_id="8"/>
+                          <shiftr fl="c72" loc="c,72,30,72,31" dtype_id="10">
+                            <ccast fl="c72" loc="c,72,29,72,30" dtype_id="11">
+                              <varref fl="c72" loc="c,72,29,72,30" name="b" dtype_id="11"/>
+                            </ccast>
+                            <const fl="c72" loc="c,72,31,72,32" name="2&apos;h2" dtype_id="13"/>
+                          </shiftr>
+                        </and>
+                      </neq>
+                      <const fl="c73" loc="c,73,27,73,28" name="32&apos;h2" dtype_id="8"/>
+                    </shiftl>
+                  </or>
+                </or>
+                <varref fl="c73" loc="c,73,21,73,27" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c76" loc="c,76,13,76,19" dtype_id="10">
+                <and fl="c76" loc="c,76,27,76,28" dtype_id="10">
+                  <const fl="c76" loc="c,76,27,76,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c76" loc="c,76,27,76,28" dtype_id="10">
+                    <ccast fl="c76" loc="c,76,29,76,30" dtype_id="10">
+                      <neq fl="c76" loc="c,76,29,76,30" dtype_id="12">
+                        <const fl="c76" loc="c,76,29,76,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c76" loc="c,76,31,76,37" dtype_id="11">
+                          <varref fl="c76" loc="c,76,31,76,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c76" loc="c,76,20,76,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c62" loc="c,62,31,62,32" dtype_id="11">
+                <or fl="c61" loc="c,61,33,61,34" dtype_id="11">
+                  <ccast fl="c61" loc="c,61,22,61,23" dtype_id="11">
+                    <varref fl="c61" loc="c,61,22,61,23" name="a" dtype_id="11"/>
+                  </ccast>
+                  <ccast fl="c61" loc="c,61,36,61,37" dtype_id="11">
+                    <varref fl="c61" loc="c,61,36,61,37" name="b" dtype_id="11"/>
+                  </ccast>
+                </or>
+                <varref fl="c62" loc="c,62,21,62,27" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c65" loc="c,65,13,65,19" dtype_id="10">
+                <and fl="c65" loc="c,65,27,65,28" dtype_id="10">
+                  <const fl="c65" loc="c,65,27,65,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c65" loc="c,65,27,65,28" dtype_id="10">
+                    <ccast fl="c65" loc="c,65,29,65,30" dtype_id="10">
+                      <neq fl="c65" loc="c,65,29,65,30" dtype_id="12">
+                        <const fl="c65" loc="c,65,29,65,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c65" loc="c,65,31,65,37" dtype_id="11">
+                          <varref fl="c65" loc="c,65,31,65,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c65" loc="c,65,20,65,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c66" loc="c,66,13,66,19" dtype_id="10">
+                <const fl="c66" loc="c,66,28,66,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c66" loc="c,66,20,66,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c67" loc="c,67,13,67,19" dtype_id="10">
+                <const fl="c67" loc="c,67,31,67,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c67" loc="c,67,20,67,28" name="overflow" dtype_id="10"/>
+              </assign>
+            </if>
+          </if>
+          <if fl="c15" loc="c,15,14,15,17">
+            <and fl="c15" loc="c,15,14,15,17" dtype_id="8">
+              <const fl="c15" loc="c,15,14,15,17" name="32&apos;h2" dtype_id="8"/>
+              <ccast fl="c15" loc="c,15,14,15,17" dtype_id="9">
+                <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="9"/>
+              </ccast>
+            </and>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <assign fl="c49" loc="c,49,35,49,36" dtype_id="11">
+                <or fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                    <const fl="c49" loc="c,49,31,49,32" name="4&apos;he" dtype_id="2"/>
+                    <ccast fl="c49" loc="c,49,25,49,31" dtype_id="11">
+                      <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <and fl="c48" loc="c,48,26,48,27" dtype_id="8">
+                    <eq fl="c47" loc="c,47,26,47,28" dtype_id="10">
+                      <and fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                        <const fl="c47" loc="c,47,22,47,23" name="32&apos;h1" dtype_id="8"/>
+                        <ccast fl="c47" loc="c,47,21,47,22" dtype_id="10">
+                          <varref fl="c47" loc="c,47,21,47,22" name="a" dtype_id="10"/>
+                        </ccast>
+                      </and>
+                      <and fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                        <const fl="c47" loc="c,47,30,47,31" name="32&apos;h1" dtype_id="8"/>
+                        <ccast fl="c47" loc="c,47,29,47,30" dtype_id="10">
+                          <varref fl="c47" loc="c,47,29,47,30" name="b" dtype_id="10"/>
+                        </ccast>
+                      </and>
+                    </eq>
+                    <ccast fl="c48" loc="c,48,25,48,26" dtype_id="10">
+                      <varref fl="c48" loc="c,48,25,48,26" name="a" dtype_id="7"/>
+                    </ccast>
+                  </and>
+                </or>
+                <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c55" loc="c,55,13,55,19" dtype_id="10">
+                <const fl="c55" loc="c,55,28,55,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c55" loc="c,55,20,55,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c56" loc="c,56,13,56,19" dtype_id="10">
+                <const fl="c56" loc="c,56,31,56,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c56" loc="c,56,20,56,28" name="overflow" dtype_id="10"/>
+              </assign>
+              <assign fl="c49" loc="c,49,35,49,36" dtype_id="11">
+                <or fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                    <const fl="c49" loc="c,49,31,49,32" name="4&apos;hd" dtype_id="2"/>
+                    <ccast fl="c49" loc="c,49,25,49,31" dtype_id="11">
+                      <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                    <const fl="c49" loc="c,49,31,49,32" name="32&apos;hfffffffe" dtype_id="8"/>
+                    <and fl="c49" loc="c,49,31,49,32" dtype_id="10">
+                      <shiftl fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                        <eq fl="c47" loc="c,47,26,47,28" dtype_id="10">
+                          <and fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                            <const fl="c47" loc="c,47,22,47,23" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,21,47,22" dtype_id="11">
+                                <varref fl="c47" loc="c,47,21,47,22" name="a" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,23,47,24" name="2&apos;h1" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                          <and fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                            <const fl="c47" loc="c,47,30,47,31" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,29,47,30" dtype_id="11">
+                                <varref fl="c47" loc="c,47,29,47,30" name="b" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,31,47,32" name="2&apos;h1" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                        </eq>
+                        <const fl="c49" loc="c,49,31,49,32" name="32&apos;h1" dtype_id="8"/>
+                      </shiftl>
+                      <ccast fl="c48" loc="c,48,25,48,26" dtype_id="8">
+                        <varref fl="c48" loc="c,48,25,48,26" name="a" dtype_id="8"/>
+                      </ccast>
+                    </and>
+                  </and>
+                </or>
+                <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c49" loc="c,49,35,49,36" dtype_id="11">
+                <or fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                    <const fl="c49" loc="c,49,31,49,32" name="4&apos;hb" dtype_id="2"/>
+                    <ccast fl="c49" loc="c,49,25,49,31" dtype_id="11">
+                      <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                    <const fl="c49" loc="c,49,31,49,32" name="32&apos;hfffffffc" dtype_id="8"/>
+                    <and fl="c49" loc="c,49,31,49,32" dtype_id="10">
+                      <shiftl fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                        <eq fl="c47" loc="c,47,26,47,28" dtype_id="10">
+                          <and fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                            <const fl="c47" loc="c,47,22,47,23" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,21,47,22" dtype_id="11">
+                                <varref fl="c47" loc="c,47,21,47,22" name="a" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,23,47,24" name="2&apos;h2" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                          <and fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                            <const fl="c47" loc="c,47,30,47,31" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,29,47,30" dtype_id="11">
+                                <varref fl="c47" loc="c,47,29,47,30" name="b" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,31,47,32" name="2&apos;h2" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                        </eq>
+                        <const fl="c49" loc="c,49,31,49,32" name="32&apos;h2" dtype_id="8"/>
+                      </shiftl>
+                      <ccast fl="c48" loc="c,48,25,48,26" dtype_id="8">
+                        <varref fl="c48" loc="c,48,25,48,26" name="a" dtype_id="8"/>
+                      </ccast>
+                    </and>
+                  </and>
+                </or>
+                <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c49" loc="c,49,35,49,36" dtype_id="11">
+                <or fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="2">
+                    <const fl="c49" loc="c,49,31,49,32" name="4&apos;h7" dtype_id="2"/>
+                    <ccast fl="c49" loc="c,49,25,49,31" dtype_id="11">
+                      <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+                    </ccast>
+                  </and>
+                  <and fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                    <const fl="c49" loc="c,49,31,49,32" name="32&apos;hfffffff8" dtype_id="8"/>
+                    <and fl="c49" loc="c,49,31,49,32" dtype_id="10">
+                      <shiftl fl="c49" loc="c,49,31,49,32" dtype_id="8">
+                        <eq fl="c47" loc="c,47,26,47,28" dtype_id="10">
+                          <and fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                            <const fl="c47" loc="c,47,22,47,23" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,22,47,23" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,21,47,22" dtype_id="11">
+                                <varref fl="c47" loc="c,47,21,47,22" name="a" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,23,47,24" name="2&apos;h3" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                          <and fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                            <const fl="c47" loc="c,47,30,47,31" name="32&apos;h1" dtype_id="8"/>
+                            <shiftr fl="c47" loc="c,47,30,47,31" dtype_id="10">
+                              <ccast fl="c47" loc="c,47,29,47,30" dtype_id="11">
+                                <varref fl="c47" loc="c,47,29,47,30" name="b" dtype_id="11"/>
+                              </ccast>
+                              <const fl="c47" loc="c,47,31,47,32" name="2&apos;h3" dtype_id="13"/>
+                            </shiftr>
+                          </and>
+                        </eq>
+                        <const fl="c49" loc="c,49,31,49,32" name="32&apos;h3" dtype_id="8"/>
+                      </shiftl>
+                      <ccast fl="c48" loc="c,48,25,48,26" dtype_id="8">
+                        <varref fl="c48" loc="c,48,25,48,26" name="a" dtype_id="8"/>
+                      </ccast>
+                    </and>
+                  </and>
+                </or>
+                <varref fl="c49" loc="c,49,25,49,31" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c54" loc="c,54,13,54,19" dtype_id="10">
+                <and fl="c54" loc="c,54,27,54,28" dtype_id="10">
+                  <const fl="c54" loc="c,54,27,54,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c54" loc="c,54,27,54,28" dtype_id="10">
+                    <ccast fl="c54" loc="c,54,29,54,30" dtype_id="10">
+                      <neq fl="c54" loc="c,54,29,54,30" dtype_id="12">
+                        <const fl="c54" loc="c,54,29,54,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c54" loc="c,54,31,54,37" dtype_id="11">
+                          <varref fl="c54" loc="c,54,31,54,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c54" loc="c,54,20,54,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c39" loc="c,39,13,39,19" dtype_id="11">
+                <and fl="c39" loc="c,39,39,39,40" dtype_id="11">
+                  <const fl="c39" loc="c,39,39,39,40" name="32&apos;hf" dtype_id="8"/>
+                  <not fl="c39" loc="c,39,39,39,40" dtype_id="11">
+                    <ccast fl="c39" loc="c,39,40,39,41" dtype_id="11">
+                      <varref fl="c39" loc="c,39,40,39,41" name="b" dtype_id="11"/>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c39" loc="c,39,20,39,26" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c40" loc="c,40,13,40,19" dtype_id="10">
+                <and fl="c40" loc="c,40,27,40,28" dtype_id="10">
+                  <const fl="c40" loc="c,40,27,40,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c40" loc="c,40,27,40,28" dtype_id="10">
+                    <ccast fl="c40" loc="c,40,29,40,30" dtype_id="10">
+                      <neq fl="c40" loc="c,40,29,40,30" dtype_id="12">
+                        <const fl="c40" loc="c,40,29,40,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c40" loc="c,40,31,40,37" dtype_id="11">
+                          <varref fl="c40" loc="c,40,31,40,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c40" loc="c,40,20,40,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c41" loc="c,41,13,41,19" dtype_id="10">
+                <const fl="c41" loc="c,41,28,41,29" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c41" loc="c,41,20,41,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c42" loc="c,42,13,42,19" dtype_id="10">
+                <const fl="c42" loc="c,42,31,42,32" name="1&apos;h0" dtype_id="10"/>
+                <varref fl="c42" loc="c,42,20,42,28" name="overflow" dtype_id="10"/>
+              </assign>
+            </if>
+            <if fl="c15" loc="c,15,14,15,17">
+              <and fl="c15" loc="c,15,14,15,17" dtype_id="7">
+                <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+                <ccast fl="c15" loc="c,15,14,15,17" dtype_id="10">
+                  <varref fl="c15" loc="c,15,14,15,17" name="sel" dtype_id="7"/>
+                </ccast>
+              </and>
+              <assign fl="c29" loc="c,29,13,29,19" dtype_id="11">
+                <and fl="c29" loc="c,29,41,29,42" dtype_id="11">
+                  <const fl="c29" loc="c,29,41,29,42" name="32&apos;hf" dtype_id="8"/>
+                  <not fl="c29" loc="c,29,41,29,42" dtype_id="11">
+                    <ccast fl="c29" loc="c,29,42,29,43" dtype_id="11">
+                      <varref fl="c29" loc="c,29,42,29,43" name="b" dtype_id="11"/>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c29" loc="c,29,20,29,28" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+              </assign>
+              <assign fl="c30" loc="c,30,13,30,19" dtype_id="14">
+                <and fl="c30" loc="c,30,52,30,53" dtype_id="14">
+                  <const fl="c30" loc="c,30,52,30,53" name="32&apos;h1f" dtype_id="8"/>
+                  <add fl="c30" loc="c,30,52,30,53" dtype_id="14">
+                    <ccast fl="c30" loc="c,30,54,30,57" dtype_id="14">
+                      <const fl="c30" loc="c,30,54,30,57" name="5&apos;h1" dtype_id="14"/>
+                    </ccast>
+                    <add fl="c30" loc="c,30,41,30,42" dtype_id="14">
+                      <ccast fl="c30" loc="c,30,39,30,40" dtype_id="14">
+                        <varref fl="c30" loc="c,30,39,30,40" name="a" dtype_id="14"/>
+                      </ccast>
+                      <ccast fl="c30" loc="c,30,43,30,51" dtype_id="14">
+                        <varref fl="c30" loc="c,30,43,30,51" name="ALU4Bit_All.t_no_Cin" dtype_id="14"/>
+                      </ccast>
+                    </add>
+                  </add>
+                </and>
+                <varref fl="c30" loc="c,30,20,30,36" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+              </assign>
+              <assign fl="c31" loc="c,31,13,31,19" dtype_id="11">
+                <and fl="c31" loc="c,31,45,31,46" dtype_id="11">
+                  <const fl="c31" loc="c,31,45,31,46" name="32&apos;hf" dtype_id="8"/>
+                  <ccast fl="c31" loc="c,31,29,31,45" dtype_id="11">
+                    <varref fl="c31" loc="c,31,29,31,45" name="ALU4Bit_All.carry_and_result" dtype_id="11"/>
+                  </ccast>
+                </and>
+                <varref fl="c31" loc="c,31,20,31,26" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c32" loc="c,32,13,32,19" dtype_id="10">
+                <and fl="c32" loc="c,32,45,32,46" dtype_id="10">
+                  <const fl="c32" loc="c,32,45,32,46" name="32&apos;h1" dtype_id="8"/>
+                  <shiftr fl="c32" loc="c,32,45,32,46" dtype_id="10">
+                    <ccast fl="c32" loc="c,32,28,32,44" dtype_id="14">
+                      <varref fl="c32" loc="c,32,28,32,44" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+                    </ccast>
+                    <const fl="c32" loc="c,32,46,32,47" name="3&apos;h4" dtype_id="15"/>
+                  </shiftr>
+                </and>
+                <varref fl="c32" loc="c,32,20,32,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c33" loc="c,33,13,33,19" dtype_id="10">
+                <and fl="c33" loc="c,33,53,33,55" dtype_id="10">
+                  <eq fl="c33" loc="c,33,37,33,39" dtype_id="10">
+                    <and fl="c33" loc="c,33,33,33,34" dtype_id="10">
+                      <const fl="c33" loc="c,33,33,33,34" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c33" loc="c,33,33,33,34" dtype_id="10">
+                        <ccast fl="c33" loc="c,33,32,33,33" dtype_id="11">
+                          <varref fl="c33" loc="c,33,32,33,33" name="a" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c33" loc="c,33,34,33,35" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                    <and fl="c33" loc="c,33,48,33,49" dtype_id="10">
+                      <const fl="c33" loc="c,33,48,33,49" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c33" loc="c,33,48,33,49" dtype_id="10">
+                        <ccast fl="c33" loc="c,33,40,33,48" dtype_id="11">
+                          <varref fl="c33" loc="c,33,40,33,48" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c33" loc="c,33,49,33,50" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                  </eq>
+                  <neq fl="c33" loc="c,33,68,33,70" dtype_id="10">
+                    <and fl="c33" loc="c,33,64,33,65" dtype_id="10">
+                      <const fl="c33" loc="c,33,64,33,65" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c33" loc="c,33,64,33,65" dtype_id="10">
+                        <ccast fl="c33" loc="c,33,57,33,63" dtype_id="11">
+                          <varref fl="c33" loc="c,33,57,33,63" name="result" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c33" loc="c,33,65,33,66" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                    <and fl="c33" loc="c,33,72,33,73" dtype_id="10">
+                      <const fl="c33" loc="c,33,72,33,73" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c33" loc="c,33,72,33,73" dtype_id="10">
+                        <ccast fl="c33" loc="c,33,71,33,72" dtype_id="11">
+                          <varref fl="c33" loc="c,33,71,33,72" name="a" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c33" loc="c,33,73,33,74" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                  </neq>
+                </and>
+                <varref fl="c33" loc="c,33,20,33,28" name="overflow" dtype_id="10"/>
+              </assign>
+              <assign fl="c34" loc="c,34,13,34,19" dtype_id="10">
+                <and fl="c34" loc="c,34,27,34,28" dtype_id="10">
+                  <const fl="c34" loc="c,34,27,34,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c34" loc="c,34,27,34,28" dtype_id="10">
+                    <ccast fl="c34" loc="c,34,29,34,30" dtype_id="10">
+                      <neq fl="c34" loc="c,34,29,34,30" dtype_id="12">
+                        <const fl="c34" loc="c,34,29,34,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c34" loc="c,34,31,34,37" dtype_id="11">
+                          <varref fl="c34" loc="c,34,31,34,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c34" loc="c,34,20,34,24" name="zero" dtype_id="10"/>
+              </assign>
+              <assign fl="c19" loc="c,19,13,19,19" dtype_id="11">
+                <varref fl="c19" loc="c,19,42,19,43" name="b" dtype_id="11"/>
+                <varref fl="c19" loc="c,19,20,19,28" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+              </assign>
+              <assign fl="c20" loc="c,20,13,20,19" dtype_id="14">
+                <and fl="c20" loc="c,20,41,20,42" dtype_id="14">
+                  <const fl="c20" loc="c,20,41,20,42" name="32&apos;h1f" dtype_id="8"/>
+                  <add fl="c20" loc="c,20,41,20,42" dtype_id="14">
+                    <ccast fl="c20" loc="c,20,39,20,40" dtype_id="14">
+                      <varref fl="c20" loc="c,20,39,20,40" name="a" dtype_id="14"/>
+                    </ccast>
+                    <ccast fl="c20" loc="c,20,43,20,51" dtype_id="14">
+                      <varref fl="c20" loc="c,20,43,20,51" name="ALU4Bit_All.t_no_Cin" dtype_id="14"/>
+                    </ccast>
+                  </add>
+                </and>
+                <varref fl="c20" loc="c,20,20,20,36" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+              </assign>
+              <assign fl="c21" loc="c,21,13,21,19" dtype_id="11">
+                <and fl="c21" loc="c,21,45,21,46" dtype_id="11">
+                  <const fl="c21" loc="c,21,45,21,46" name="32&apos;hf" dtype_id="8"/>
+                  <ccast fl="c21" loc="c,21,29,21,45" dtype_id="11">
+                    <varref fl="c21" loc="c,21,29,21,45" name="ALU4Bit_All.carry_and_result" dtype_id="11"/>
+                  </ccast>
+                </and>
+                <varref fl="c21" loc="c,21,20,21,26" name="result" dtype_id="11"/>
+              </assign>
+              <assign fl="c22" loc="c,22,13,22,19" dtype_id="10">
+                <and fl="c22" loc="c,22,45,22,46" dtype_id="10">
+                  <const fl="c22" loc="c,22,45,22,46" name="32&apos;h1" dtype_id="8"/>
+                  <shiftr fl="c22" loc="c,22,45,22,46" dtype_id="10">
+                    <ccast fl="c22" loc="c,22,28,22,44" dtype_id="14">
+                      <varref fl="c22" loc="c,22,28,22,44" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+                    </ccast>
+                    <const fl="c22" loc="c,22,46,22,47" name="3&apos;h4" dtype_id="15"/>
+                  </shiftr>
+                </and>
+                <varref fl="c22" loc="c,22,20,22,25" name="carry" dtype_id="10"/>
+              </assign>
+              <assign fl="c23" loc="c,23,13,23,19" dtype_id="10">
+                <and fl="c23" loc="c,23,53,23,55" dtype_id="10">
+                  <eq fl="c23" loc="c,23,37,23,39" dtype_id="10">
+                    <and fl="c23" loc="c,23,33,23,34" dtype_id="10">
+                      <const fl="c23" loc="c,23,33,23,34" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c23" loc="c,23,33,23,34" dtype_id="10">
+                        <ccast fl="c23" loc="c,23,32,23,33" dtype_id="11">
+                          <varref fl="c23" loc="c,23,32,23,33" name="a" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c23" loc="c,23,34,23,35" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                    <and fl="c23" loc="c,23,48,23,49" dtype_id="10">
+                      <const fl="c23" loc="c,23,48,23,49" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c23" loc="c,23,48,23,49" dtype_id="10">
+                        <ccast fl="c23" loc="c,23,40,23,48" dtype_id="11">
+                          <varref fl="c23" loc="c,23,40,23,48" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c23" loc="c,23,49,23,50" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                  </eq>
+                  <neq fl="c23" loc="c,23,68,23,70" dtype_id="10">
+                    <and fl="c23" loc="c,23,64,23,65" dtype_id="10">
+                      <const fl="c23" loc="c,23,64,23,65" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c23" loc="c,23,64,23,65" dtype_id="10">
+                        <ccast fl="c23" loc="c,23,57,23,63" dtype_id="11">
+                          <varref fl="c23" loc="c,23,57,23,63" name="result" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c23" loc="c,23,65,23,66" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                    <and fl="c23" loc="c,23,72,23,73" dtype_id="10">
+                      <const fl="c23" loc="c,23,72,23,73" name="32&apos;h1" dtype_id="8"/>
+                      <shiftr fl="c23" loc="c,23,72,23,73" dtype_id="10">
+                        <ccast fl="c23" loc="c,23,71,23,72" dtype_id="11">
+                          <varref fl="c23" loc="c,23,71,23,72" name="a" dtype_id="11"/>
+                        </ccast>
+                        <const fl="c23" loc="c,23,73,23,74" name="2&apos;h3" dtype_id="13"/>
+                      </shiftr>
+                    </and>
+                  </neq>
+                </and>
+                <varref fl="c23" loc="c,23,20,23,28" name="overflow" dtype_id="10"/>
+              </assign>
+              <assign fl="c24" loc="c,24,13,24,19" dtype_id="10">
+                <and fl="c24" loc="c,24,27,24,28" dtype_id="10">
+                  <const fl="c24" loc="c,24,27,24,28" name="32&apos;h1" dtype_id="8"/>
+                  <not fl="c24" loc="c,24,27,24,28" dtype_id="10">
+                    <ccast fl="c24" loc="c,24,29,24,30" dtype_id="10">
+                      <neq fl="c24" loc="c,24,29,24,30" dtype_id="12">
+                        <const fl="c24" loc="c,24,29,24,30" name="32&apos;h0" dtype_id="8"/>
+                        <ccast fl="c24" loc="c,24,31,24,37" dtype_id="11">
+                          <varref fl="c24" loc="c,24,31,24,37" name="result" dtype_id="11"/>
+                        </ccast>
+                      </neq>
+                    </ccast>
+                  </not>
+                </and>
+                <varref fl="c24" loc="c,24,20,24,24" name="zero" dtype_id="10"/>
+              </assign>
+            </if>
+          </if>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_eval">
+        <ccall fl="c15" loc="c,15,14,15,17"/>
+        <assign fl="c15" loc="c,15,14,15,17" dtype_id="7">
+          <const fl="c15" loc="c,15,14,15,17" name="1&apos;h1" dtype_id="7"/>
+          <arraysel fl="c15" loc="c,15,14,15,17" dtype_id="7">
+            <varref fl="c15" loc="c,15,14,15,17" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_eval_initial"/>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_eval_settle">
+        <ccall fl="c15" loc="c,15,14,15,17"/>
+        <assign fl="c15" loc="c,15,14,15,17" dtype_id="7">
+          <const fl="c15" loc="c,15,14,15,17" name="1&apos;h1" dtype_id="7"/>
+          <arraysel fl="c15" loc="c,15,14,15,17" dtype_id="7">
+            <varref fl="c15" loc="c,15,14,15,17" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h1" dtype_id="8"/>
+          </arraysel>
+        </assign>
+        <assign fl="c15" loc="c,15,14,15,17" dtype_id="7">
+          <const fl="c15" loc="c,15,14,15,17" name="1&apos;h1" dtype_id="7"/>
+          <arraysel fl="c15" loc="c,15,14,15,17" dtype_id="7">
+            <varref fl="c15" loc="c,15,14,15,17" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c15" loc="c,15,14,15,17" name="32&apos;h0" dtype_id="8"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_final"/>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_change_request">
+        <creturn fl="c1" loc="c,1,8,1,19">
+          <ccall fl="c1" loc="c,1,8,1,19"/>
+        </creturn>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_change_request_1">
+        <changedet fl="c1" loc="c,1,8,1,19"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceRegister">
+        <text fl="c1" loc="c,1,8,1,19"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,19" dtype_id="16"/>
+        <text fl="c1" loc="c,1,8,1,19"/>
+        <text fl="c1" loc="c,1,8,1,19"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,19" dtype_id="16"/>
+        <text fl="c1" loc="c,1,8,1,19"/>
+        <text fl="c1" loc="c,1,8,1,19"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,19" dtype_id="16"/>
+        <text fl="c1" loc="c,1,8,1,19"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceFullTop0">
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,19"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceFullSub0">
+        <traceinc fl="c6" loc="c,6,9,6,12" dtype_id="3">
+          <varref fl="c6" loc="c,6,9,6,12" name="ALU4Bit_All.Cin" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c7" loc="c,7,15,7,23" dtype_id="2">
+          <varref fl="c7" loc="c,7,15,7,23" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c8" loc="c,8,15,8,31" dtype_id="4">
+          <varref fl="c8" loc="c,8,15,8,31" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+        </traceinc>
+        <traceinc fl="c9" loc="c,9,13,9,14" dtype_id="5">
+          <varref fl="c9" loc="c,9,13,9,14" name="ALU4Bit_All.i" dtype_id="5"/>
+        </traceinc>
+        <traceinc fl="c2" loc="c,2,17,2,20" dtype_id="1">
+          <varref fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="9"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,17,3,18" dtype_id="2">
+          <varref fl="c3" loc="c,3,17,3,18" name="a" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,20,3,21" dtype_id="2">
+          <varref fl="c3" loc="c,3,20,3,21" name="b" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,22,4,28" dtype_id="2">
+          <varref fl="c4" loc="c,4,22,4,28" name="result" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,16,5,24" dtype_id="3">
+          <varref fl="c5" loc="c,5,16,5,24" name="overflow" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,26,5,31" dtype_id="3">
+          <varref fl="c5" loc="c,5,26,5,31" name="carry" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,33,5,37" dtype_id="3">
+          <varref fl="c5" loc="c,5,33,5,37" name="zero" dtype_id="10"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceChgTop0">
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,19"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceChgSub0">
+        <if fl="c1" loc="c,1,8,1,19">
+          <arraysel fl="c1" loc="c,1,8,1,19" dtype_id="7">
+            <varref fl="c1" loc="c,1,8,1,19" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c1" loc="c,1,8,1,19" name="32&apos;h1" dtype_id="8"/>
+          </arraysel>
+          <traceinc fl="c6" loc="c,6,9,6,12" dtype_id="3">
+            <varref fl="c6" loc="c,6,9,6,12" name="ALU4Bit_All.Cin" dtype_id="10"/>
+          </traceinc>
+          <traceinc fl="c7" loc="c,7,15,7,23" dtype_id="2">
+            <varref fl="c7" loc="c,7,15,7,23" name="ALU4Bit_All.t_no_Cin" dtype_id="11"/>
+          </traceinc>
+          <traceinc fl="c8" loc="c,8,15,8,31" dtype_id="4">
+            <varref fl="c8" loc="c,8,15,8,31" name="ALU4Bit_All.carry_and_result" dtype_id="14"/>
+          </traceinc>
+          <traceinc fl="c9" loc="c,9,13,9,14" dtype_id="5">
+            <varref fl="c9" loc="c,9,13,9,14" name="ALU4Bit_All.i" dtype_id="5"/>
+          </traceinc>
+        </if>
+        <traceinc fl="c2" loc="c,2,17,2,20" dtype_id="1">
+          <varref fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="9"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,17,3,18" dtype_id="2">
+          <varref fl="c3" loc="c,3,17,3,18" name="a" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,20,3,21" dtype_id="2">
+          <varref fl="c3" loc="c,3,20,3,21" name="b" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,22,4,28" dtype_id="2">
+          <varref fl="c4" loc="c,4,22,4,28" name="result" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,16,5,24" dtype_id="3">
+          <varref fl="c5" loc="c,5,16,5,24" name="overflow" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,26,5,31" dtype_id="3">
+          <varref fl="c5" loc="c,5,26,5,31" name="carry" dtype_id="10"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,33,5,37" dtype_id="3">
+          <varref fl="c5" loc="c,5,33,5,37" name="zero" dtype_id="10"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="traceCleanup">
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,19">
+          <text fl="c1" loc="c,1,8,1,19"/>
+        </cstmt>
+        <assign fl="c1" loc="c,1,8,1,19" dtype_id="7">
+          <const fl="c1" loc="c,1,8,1,19" name="1&apos;h0" dtype_id="7"/>
+          <arraysel fl="c1" loc="c,1,8,1,19" dtype_id="7">
+            <varref fl="c1" loc="c,1,8,1,19" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c1" loc="c,1,8,1,19" name="32&apos;h0" dtype_id="8"/>
+          </arraysel>
+        </assign>
+        <assign fl="c1" loc="c,1,8,1,19" dtype_id="7">
+          <const fl="c1" loc="c,1,8,1,19" name="1&apos;h0" dtype_id="7"/>
+          <arraysel fl="c1" loc="c,1,8,1,19" dtype_id="7">
+            <varref fl="c1" loc="c,1,8,1,19" name="__Vm_traceActivity" dtype_id="6"/>
+            <const fl="c1" loc="c,1,8,1,19" name="32&apos;h1" dtype_id="8"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_eval_debug_assertions">
+        <if fl="c2" loc="c,2,17,2,20">
+          <and fl="c2" loc="c,2,17,2,20" dtype_id="1">
+            <varref fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="1"/>
+            <const fl="c2" loc="c,2,17,2,20" name="8&apos;hf8" dtype_id="17"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,17,2,20">
+            <text fl="c2" loc="c,2,17,2,20"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,17,3,18">
+          <and fl="c3" loc="c,3,17,3,18" dtype_id="2">
+            <varref fl="c3" loc="c,3,17,3,18" name="a" dtype_id="2"/>
+            <const fl="c3" loc="c,3,17,3,18" name="8&apos;hf0" dtype_id="17"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,17,3,18">
+            <text fl="c3" loc="c,3,17,3,18"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,20,3,21">
+          <and fl="c3" loc="c,3,20,3,21" dtype_id="2">
+            <varref fl="c3" loc="c,3,20,3,21" name="b" dtype_id="2"/>
+            <const fl="c3" loc="c,3,20,3,21" name="8&apos;hf0" dtype_id="17"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,20,3,21">
+            <text fl="c3" loc="c,3,20,3,21"/>
+          </cstmt>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,19" name="_ctor_var_reset">
+        <creset fl="c2" loc="c,2,17,2,20">
+          <varref fl="c2" loc="c,2,17,2,20" name="sel" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,17,3,18">
+          <varref fl="c3" loc="c,3,17,3,18" name="a" dtype_id="2"/>
+        </creset>
+        <creset fl="c3" loc="c,3,20,3,21">
+          <varref fl="c3" loc="c,3,20,3,21" name="b" dtype_id="2"/>
+        </creset>
+        <creset fl="c4" loc="c,4,22,4,28">
+          <varref fl="c4" loc="c,4,22,4,28" name="result" dtype_id="2"/>
+        </creset>
+        <creset fl="c5" loc="c,5,16,5,24">
+          <varref fl="c5" loc="c,5,16,5,24" name="overflow" dtype_id="3"/>
+        </creset>
+        <creset fl="c5" loc="c,5,26,5,31">
+          <varref fl="c5" loc="c,5,26,5,31" name="carry" dtype_id="3"/>
+        </creset>
+        <creset fl="c5" loc="c,5,33,5,37">
+          <varref fl="c5" loc="c,5,33,5,37" name="zero" dtype_id="3"/>
+        </creset>
+        <creset fl="c6" loc="c,6,9,6,12">
+          <varref fl="c6" loc="c,6,9,6,12" name="ALU4Bit_All.Cin" dtype_id="3"/>
+        </creset>
+        <creset fl="c7" loc="c,7,15,7,23">
+          <varref fl="c7" loc="c,7,15,7,23" name="ALU4Bit_All.t_no_Cin" dtype_id="2"/>
+        </creset>
+        <creset fl="c8" loc="c,8,15,8,31">
+          <varref fl="c8" loc="c,8,15,8,31" name="ALU4Bit_All.carry_and_result" dtype_id="4"/>
+        </creset>
+        <creset fl="c9" loc="c,9,13,9,14">
+          <varref fl="c9" loc="c,9,13,9,14" name="ALU4Bit_All.i" dtype_id="5"/>
+        </creset>
+        <creset fl="c1" loc="c,1,8,1,19">
+          <varref fl="c1" loc="c,1,8,1,19" name="__Vm_traceActivity" dtype_id="6"/>
+        </creset>
+      </cfunc>
+      <cuse fl="c1" loc="c,1,8,1,19" name="VerilatedVcd"/>
+    </module>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All__Syms.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All__Syms.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All__Trace__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All__Trace.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All_$root.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All_$root__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VALU4Bit_All_$root.cpp"/>
+    <typetable fl="a0" loc="a,0,0,0,0">
+      <basicdtype fl="c2" loc="c,2,11,2,12" id="1" name="logic" left="2" right="0"/>
+      <basicdtype fl="c3" loc="c,3,11,3,12" id="2" name="logic" left="3" right="0"/>
+      <basicdtype fl="c5" loc="c,5,12,5,15" id="3" name="logic"/>
+      <basicdtype fl="c8" loc="c,8,5,8,8" id="4" name="logic" left="4" right="0"/>
+      <basicdtype fl="c9" loc="c,9,5,9,12" id="5" name="integer" left="31" right="0"/>
+      <basicdtype fl="c21" loc="c,21,46,21,47" id="8" name="logic" left="31" right="0"/>
+      <basicdtype fl="c46" loc="c,46,25,46,27" id="12" name="logic"/>
+      <basicdtype fl="c1" loc="c,1,8,1,19" id="18" name="logic"/>
+      <unpackarraydtype fl="c1" loc="c,1,8,1,19" id="6" sub_dtype_id="18">
+        <range fl="c1" loc="c,1,8,1,19">
+          <const fl="c1" loc="c,1,8,1,19" name="32&apos;h1" dtype_id="8"/>
+          <const fl="c1" loc="c,1,8,1,19" name="32&apos;h0" dtype_id="8"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,19" id="16" name="chandle" left="63" right="0"/>
+      <basicdtype fl="c15" loc="c,15,14,15,17" id="9" name="logic" left="31" right="0"/>
+      <basicdtype fl="c15" loc="c,15,14,15,17" id="7" name="logic" left="31" right="0"/>
+      <basicdtype fl="c38" loc="c,38,26,38,27" id="10" name="logic" left="31" right="0"/>
+      <basicdtype fl="c92" loc="c,92,16,92,17" id="11" name="logic" left="31" right="0"/>
+      <basicdtype fl="c72" loc="c,72,23,72,24" id="13" name="logic" left="31" right="0"/>
+      <basicdtype fl="c30" loc="c,30,54,30,57" id="14" name="logic" left="31" right="0"/>
+      <basicdtype fl="c31" loc="c,31,48,31,49" id="15" name="logic" left="31" right="0"/>
+      <basicdtype fl="c2" loc="c,2,17,2,20" id="17" name="logic" left="7" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -1,0 +1,456 @@
+Verilator Statistics Report
+
+Information:
+  Verilator 4.210 2021-07-07 rev v4.210
+  Arguments: --cc --exe --build --trace --debug ALU4Bit_All_sim.cpp ALU4Bit_All.v
+
+Global Statistics:
+
+  Assertions, assert immediate statements                     0
+  Assertions, assert non-immediate statements                 0
+  Assertions, cover statements                                0
+  Assertions, full/parallel case                              0
+  ConstPool, Constants emitted                                0
+  ConstPool, Tables emitted                                   0
+  Optimizations, Cases complex                                0
+  Optimizations, Cases parallelized                           1
+  Optimizations, Clocker decomposed vectors                   0
+  Optimizations, Clocker seen vectors                         0
+  Optimizations, Combined CFuncs                              1
+  Optimizations, Const bit op reduction                       0
+  Optimizations, Const bit op reduction                       0
+  Optimizations, Delayed shared-sets                          0
+  Optimizations, Gate assign merged                           0
+  Optimizations, Gate inputs replaced                         7
+  Optimizations, Gate sigs deduped                            0
+  Optimizations, Gate sigs deleted                            7
+  Optimizations, Inline unsupported                           0
+  Optimizations, Inlined instances                            1
+  Optimizations, Lifetime assign deletions                    9
+  Optimizations, Lifetime constant prop                       5
+  Optimizations, Lifetime postassign deletions                0
+  Optimizations, MergeCond longest merge                      0
+  Optimizations, MergeCond merged items                       0
+  Optimizations, MergeCond merges                             0
+  Optimizations, Prelim extracted value to ConstPool          0
+  Optimizations, Reloop iterations                            0
+  Optimizations, Reloops                                      0
+  Optimizations, Split always                                 1
+  Optimizations, Split always                                 0
+  Optimizations, Substituted temps                            0
+  Optimizations, Tables created                               0
+  Optimizations, Unrolled Iterations                         12
+  Optimizations, Unrolled Loops                               3
+  Optimizations, Vars localized                               0
+  Optimizations, expand limited                               0
+  Optimizations, expand wide words                            0
+  Optimizations, expand wides                                 0
+  Optimizations, isolate_assignments blocks                   0
+  SplitVar, Split packed variables                            0
+  SplitVar, Split unpacked arrays                             0
+  Tracing, Ignored signals                                    0
+  Tracing, Traced signals                                    18
+  Tracing, Unique changing signals                            0
+  Tracing, Unique trace codes                                11
+  Tracing, Unique traced signals                             11
+  Tristate, Tristate resolved nets                            0
+  Unknowns, variables created                                 0
+  Warnings, Suppressed EOFNEWLINE                             1
+  Warnings, Suppressed LATCH                                  3
+  Warnings, Suppressed WIDTH                                  6
+
+Performance Statistics:
+
+  Stage, Elapsed time (sec), 001_cells                 0.000000
+  Stage, Elapsed time (sec), 002_linkparse             0.000236
+  Stage, Elapsed time (sec), 003_linkdot               0.000336
+  Stage, Elapsed time (sec), 004_linkresolve           0.000173
+  Stage, Elapsed time (sec), 005_linklvalue            0.000152
+  Stage, Elapsed time (sec), 006_link                  0.000781
+  Stage, Elapsed time (sec), 007_linkInc               0.000195
+  Stage, Elapsed time (sec), 008_param                 0.000538
+  Stage, Elapsed time (sec), 009_paramlink             0.000220
+  Stage, Elapsed time (sec), 010_deadModules           0.000211
+  Stage, Elapsed time (sec), 011_width                 0.001225
+  Stage, Elapsed time (sec), 012_widthcommit           0.000317
+  Stage, Elapsed time (sec), 013_const                 0.000906
+  Stage, Elapsed time (sec), 014_assertpre             0.000284
+  Stage, Elapsed time (sec), 015_assert                0.000202
+  Stage, Elapsed time (sec), 016_wraptop               0.000199
+  Stage, Elapsed time (sec), 017_const                 0.000961
+  Stage, Elapsed time (sec), 018_split_var             0.000309
+  Stage, Elapsed time (sec), 019_split_var             0.000183
+  Stage, Elapsed time (sec), 020_dearray               0.000188
+  Stage, Elapsed time (sec), 021_linkdot               0.000264
+  Stage, Elapsed time (sec), 022_begin                 0.000863
+  Stage, Elapsed time (sec), 023_tristate              0.000293
+  Stage, Elapsed time (sec), 024_unknown               0.000865
+  Stage, Elapsed time (sec), 025_inline                0.000979
+  Stage, Elapsed time (sec), 026_linkdot               0.000248
+  Stage, Elapsed time (sec), 027_const                 0.000213
+  Stage, Elapsed time (sec), 028_deadDtypes            0.000822
+  Stage, Elapsed time (sec), 029_inst                  0.000169
+  Stage, Elapsed time (sec), 030_const                 0.000180
+  Stage, Elapsed time (sec), 031_scope                 0.001166
+  Stage, Elapsed time (sec), 032_linkdot               0.001122
+  Stage, Elapsed time (sec), 033_class                 0.000195
+  Stage, Elapsed time (sec), 034_const                 0.000206
+  Stage, Elapsed time (sec), 035_deadDtypesScoped      0.000215
+  Stage, Elapsed time (sec), 036_case                  0.001168
+  Stage, Elapsed time (sec), 037_task                  0.000342
+  Stage, Elapsed time (sec), 038_name                  0.000234
+  Stage, Elapsed time (sec), 039_unroll                0.002027
+  Stage, Elapsed time (sec), 040_slice                 0.000338
+  Stage, Elapsed time (sec), 041_const                 0.001417
+  Stage, Elapsed time (sec), 042_life                  0.001393
+  Stage, Elapsed time (sec), 043_table                 0.000260
+  Stage, Elapsed time (sec), 044_const                 0.001257
+  Stage, Elapsed time (sec), 045_deadDtypesScoped      0.001111
+  Stage, Elapsed time (sec), 046_active                0.001229
+  Stage, Elapsed time (sec), 047_split                 0.001617
+  Stage, Elapsed time (sec), 048_splitas               0.000261
+  Stage, Elapsed time (sec), 049_tracedecl             0.001503
+  Stage, Elapsed time (sec), 050_gate                  0.001556
+  Stage, Elapsed time (sec), 051_const                 0.001242
+  Stage, Elapsed time (sec), 052_deadAllScoped         0.001207
+  Stage, Elapsed time (sec), 053_reorder               0.001335
+  Stage, Elapsed time (sec), 054_delayed               0.000261
+  Stage, Elapsed time (sec), 055_activetop             0.002356
+  Stage, Elapsed time (sec), 056_order                 0.003264
+  Stage, Elapsed time (sec), 057_genclk                0.000395
+  Stage, Elapsed time (sec), 058_clock                 0.002184
+  Stage, Elapsed time (sec), 059_const                 0.000369
+  Stage, Elapsed time (sec), 060_life                  0.000518
+  Stage, Elapsed time (sec), 061_life_post             0.000439
+  Stage, Elapsed time (sec), 062_const                 0.000405
+  Stage, Elapsed time (sec), 063_deadAllScoped         0.000414
+  Stage, Elapsed time (sec), 064_changed               0.002143
+  Stage, Elapsed time (sec), 065_trace                 0.002491
+  Stage, Elapsed time (sec), 066_localize              0.000630
+  Stage, Elapsed time (sec), 067_descope               0.001980
+  Stage, Elapsed time (sec), 068_combine               0.001303
+  Stage, Elapsed time (sec), 069_const                 0.001149
+  Stage, Elapsed time (sec), 070_deadAll               0.000300
+  Stage, Elapsed time (sec), 071_clean                 0.001511
+  Stage, Elapsed time (sec), 072_premit                0.000413
+  Stage, Elapsed time (sec), 073_expand                0.001588
+  Stage, Elapsed time (sec), 074_const_cpp             0.001423
+  Stage, Elapsed time (sec), 075_subst                 0.000349
+  Stage, Elapsed time (sec), 076_const_cpp             0.001428
+  Stage, Elapsed time (sec), 077_deadAll               0.001278
+  Stage, Elapsed time (sec), 078_merge_cond            0.000257
+  Stage, Elapsed time (sec), 079_reloop                0.000270
+  Stage, Elapsed time (sec), 080_depth                 0.000238
+  Stage, Elapsed time (sec), 081_cast                  0.001413
+  Stage, Elapsed time (sec), 082_cuse                  0.001544
+  Stage, Memory (MB), 001_cells                        7.722656
+  Stage, Memory (MB), 002_linkparse                    7.722656
+  Stage, Memory (MB), 003_linkdot                      7.722656
+  Stage, Memory (MB), 004_linkresolve                  7.722656
+  Stage, Memory (MB), 005_linklvalue                   7.722656
+  Stage, Memory (MB), 006_link                         7.847656
+  Stage, Memory (MB), 007_linkInc                      7.847656
+  Stage, Memory (MB), 008_param                        8.496094
+  Stage, Memory (MB), 009_paramlink                    8.496094
+  Stage, Memory (MB), 010_deadModules                  8.496094
+  Stage, Memory (MB), 011_width                        8.617188
+  Stage, Memory (MB), 012_widthcommit                  8.617188
+  Stage, Memory (MB), 013_const                        8.617188
+  Stage, Memory (MB), 014_assertpre                    8.617188
+  Stage, Memory (MB), 015_assert                       8.617188
+  Stage, Memory (MB), 016_wraptop                      8.617188
+  Stage, Memory (MB), 017_const                        8.617188
+  Stage, Memory (MB), 018_split_var                    8.617188
+  Stage, Memory (MB), 019_split_var                    8.617188
+  Stage, Memory (MB), 020_dearray                      8.617188
+  Stage, Memory (MB), 021_linkdot                      8.617188
+  Stage, Memory (MB), 022_begin                        8.617188
+  Stage, Memory (MB), 023_tristate                     8.617188
+  Stage, Memory (MB), 024_unknown                      8.617188
+  Stage, Memory (MB), 025_inline                       8.746094
+  Stage, Memory (MB), 026_linkdot                      8.746094
+  Stage, Memory (MB), 027_const                        8.746094
+  Stage, Memory (MB), 028_deadDtypes                   8.746094
+  Stage, Memory (MB), 029_inst                         8.746094
+  Stage, Memory (MB), 030_const                        8.746094
+  Stage, Memory (MB), 031_scope                        8.875000
+  Stage, Memory (MB), 032_linkdot                      8.875000
+  Stage, Memory (MB), 033_class                        8.875000
+  Stage, Memory (MB), 034_const                        8.875000
+  Stage, Memory (MB), 035_deadDtypesScoped             8.875000
+  Stage, Memory (MB), 036_case                         9.003906
+  Stage, Memory (MB), 037_task                         9.003906
+  Stage, Memory (MB), 038_name                         9.003906
+  Stage, Memory (MB), 039_unroll                       9.261719
+  Stage, Memory (MB), 040_slice                        9.261719
+  Stage, Memory (MB), 041_const                        9.261719
+  Stage, Memory (MB), 042_life                         9.261719
+  Stage, Memory (MB), 043_table                        9.261719
+  Stage, Memory (MB), 044_const                        9.261719
+  Stage, Memory (MB), 045_deadDtypesScoped             9.261719
+  Stage, Memory (MB), 046_active                       9.261719
+  Stage, Memory (MB), 047_split                        9.519531
+  Stage, Memory (MB), 048_splitas                      9.519531
+  Stage, Memory (MB), 049_tracedecl                    9.519531
+  Stage, Memory (MB), 050_gate                         9.519531
+  Stage, Memory (MB), 051_const                        9.519531
+  Stage, Memory (MB), 052_deadAllScoped                9.519531
+  Stage, Memory (MB), 053_reorder                      9.519531
+  Stage, Memory (MB), 054_delayed                      9.519531
+  Stage, Memory (MB), 055_activetop                    9.519531
+  Stage, Memory (MB), 056_order                        9.679688
+  Stage, Memory (MB), 057_genclk                       9.679688
+  Stage, Memory (MB), 058_clock                        9.679688
+  Stage, Memory (MB), 059_const                        9.679688
+  Stage, Memory (MB), 060_life                         9.679688
+  Stage, Memory (MB), 061_life_post                    9.679688
+  Stage, Memory (MB), 062_const                        9.679688
+  Stage, Memory (MB), 063_deadAllScoped                9.679688
+  Stage, Memory (MB), 064_changed                      9.679688
+  Stage, Memory (MB), 065_trace                        9.679688
+  Stage, Memory (MB), 066_localize                     9.679688
+  Stage, Memory (MB), 067_descope                      9.679688
+  Stage, Memory (MB), 068_combine                      9.679688
+  Stage, Memory (MB), 069_const                        9.679688
+  Stage, Memory (MB), 070_deadAll                      9.679688
+  Stage, Memory (MB), 071_clean                        9.679688
+  Stage, Memory (MB), 072_premit                       9.679688
+  Stage, Memory (MB), 073_expand                       9.800781
+  Stage, Memory (MB), 074_const_cpp                    9.800781
+  Stage, Memory (MB), 075_subst                        9.800781
+  Stage, Memory (MB), 076_const_cpp                    9.800781
+  Stage, Memory (MB), 077_deadAll                      9.800781
+  Stage, Memory (MB), 078_merge_cond                   9.800781
+  Stage, Memory (MB), 079_reloop                       9.800781
+  Stage, Memory (MB), 080_depth                        9.800781
+  Stage, Memory (MB), 081_cast                         9.800781
+  Stage, Memory (MB), 082_cuse                         9.800781
+
+Stage Statistics:
+  Stat                                  Link       PreOrder   Scoped     Final      Final_Fast
+  --------                              -------    -------    -------    -------    -------  
+
+  Branch prediction,                          6         28         29         14          8
+  Branch prediction, VL_UNLIKELY                                    1          4
+
+  Instruction count, TOTAL                  557       3296       3729       3053        136
+  Instruction count, fast critical            0          0        976       1011        117
+
+  Node count, ACTIVE                                     2
+  Node count, ADD                             7          6          6          3
+  Node count, ADDROFCFUNC                                           3          3
+  Node count, ALWAYS                          1          6
+  Node count, AND                                       12         12         90          9
+  Node count, ARRAYSEL                                              7          7          1
+  Node count, ASSIGN                         51         88         93         49          7
+  Node count, ATTROF                         33
+  Node count, BASICDTYPE                     17         10         12         17
+  Node count, BEGIN                          12
+  Node count, CASE                            1
+  Node count, CASEITEM                        8
+  Node count, CCALL                                      1          6          6          1
+  Node count, CCAST                                                           96         12
+  Node count, CFILE                                                            9
+  Node count, CFUNC                                      2         16         17          1
+  Node count, CHANGEDET                                             1          1
+  Node count, CONCAT                                     4          4
+  Node count, COND                                       4          4          2          1
+  Node count, CONST                          78        308        324        158         20
+  Node count, CONSTPOOL                       1          1          1          1
+  Node count, CRESET                                                          12
+  Node count, CRETURN                                               1          1
+  Node count, CSTMT                                                 8         11
+  Node count, CUSE                                                             1
+  Node count, EQ                             12         14         14          7          1
+  Node count, EXTEND                                     8          8
+  Node count, IF                              6         28         30         18          8
+  Node count, LOGAND                          2
+  Node count, LT                              2          2          2          1
+  Node count, LTE                             3
+  Node count, MODULE                          2          2          2          2
+  Node count, NEQ                             4         12         12         14          1
+  Node count, NETLIST                         1          1          1          1
+  Node count, NOT                             8         32         32         16          4
+  Node count, OR                              2          2          2          9
+  Node count, RANGE                           6                     1          1
+  Node count, REDOR                           8         16         16
+  Node count, REPLICATE                       3
+  Node count, SCOPE                           1          2          2          2
+  Node count, SEL                                      134        134
+  Node count, SELBIT                         31
+  Node count, SELEXTRACT                      2
+  Node count, SENITEM                         1          2
+  Node count, SENTREE                         1          2
+  Node count, SHIFTL                                                           6
+  Node count, SHIFTR                                                          26          2
+  Node count, TEXT                                                 14         17
+  Node count, TOPSCOPE                                   1          1          1
+  Node count, TRACEDECL                                 18         18         18
+  Node count, TRACEINC                                             22         22
+  Node count, TYPETABLE                       1          1          1          1
+  Node count, UNPACKARRAYDTYPE                                      1          1
+  Node count, VAR                            11         11         12         12
+  Node count, VARREF                        167        270        281        179         18
+  Node count, VARSCOPE                                  11         12
+  Node count, WHILE                           3
+  Node count, XOR                             3
+
+  Node pairs, ACTIVE_ALWAYS                              2
+  Node pairs, ADD_ADD                         2          2          2          1
+  Node pairs, ADD_CCAST                                                        5
+  Node pairs, ADD_CONST                       3          2          2
+  Node pairs, ADD_EXTEND                                 8          8
+  Node pairs, ADD_VARREF                      9
+  Node pairs, ALWAYS_BEGIN                    1
+  Node pairs, ALWAYS_IF                                  6
+  Node pairs, ALWAYS_SENTREE                  1
+  Node pairs, AND_ADD                                                          2
+  Node pairs, AND_AND                                                          3
+  Node pairs, AND_CCAST                                                       39          5
+  Node pairs, AND_CONST                                                       84          9
+  Node pairs, AND_EQ                                    12         12          3
+  Node pairs, AND_NEQ                                    4          4          2
+  Node pairs, AND_NOT                                                         16          4
+  Node pairs, AND_SEL                                    8          8
+  Node pairs, AND_SHIFTL                                                       3
+  Node pairs, AND_SHIFTR                                                      22
+  Node pairs, AND_VARREF                                                       6
+  Node pairs, ARRAYSEL_CONST                                        7          7          1
+  Node pairs, ARRAYSEL_VARREF                                       7          7          1
+  Node pairs, ASSIGN_ADD                      5          4          4
+  Node pairs, ASSIGN_AND                                12         12         19          1
+  Node pairs, ASSIGN_ARRAYSEL                                       5          5          1
+  Node pairs, ASSIGN_CONCAT                              4          4
+  Node pairs, ASSIGN_COND                                4          4          2          1
+  Node pairs, ASSIGN_CONST                   29         30         35         20          5
+  Node pairs, ASSIGN_LOGAND                   2
+  Node pairs, ASSIGN_NOT                      8         20         20
+  Node pairs, ASSIGN_OR                                  2          2          7
+  Node pairs, ASSIGN_SEL                                22         22
+  Node pairs, ASSIGN_SELBIT                   9
+  Node pairs, ASSIGN_SELEXTRACT               2
+  Node pairs, ASSIGN_VARREF                  44         78         78         45          6
+  Node pairs, ASSIGN_XOR                      3
+  Node pairs, ATTROF_VARREF                  33
+  Node pairs, BASICDTYPE_RANGE                6
+  Node pairs, BEGIN_ASSIGN                    6
+  Node pairs, BEGIN_BEGIN                     3
+  Node pairs, BEGIN_CASE                      1
+  Node pairs, BEGIN_IF                        2
+  Node pairs, CASEITEM_BEGIN                  8
+  Node pairs, CASEITEM_CONST                  8
+  Node pairs, CASE_CASEITEM                   1
+  Node pairs, CASE_VARREF                     1
+  Node pairs, CCAST_CONST                                                      1
+  Node pairs, CCAST_NEQ                                                        8          1
+  Node pairs, CCAST_VARREF                                                    87         11
+  Node pairs, CFUNC_CCALL                                1          5          5          1
+  Node pairs, CFUNC_CHANGEDET                                       1          1
+  Node pairs, CFUNC_CRESET                                                     1
+  Node pairs, CFUNC_CRETURN                                         1          1
+  Node pairs, CFUNC_CSTMT                                           4          4
+  Node pairs, CFUNC_IF                                              3          3          1
+  Node pairs, CFUNC_TEXT                                            1          1
+  Node pairs, CFUNC_TRACEDECL                            1          1          1
+  Node pairs, CFUNC_TRACEINC                                        1          1
+  Node pairs, CONCAT_NEQ                                 8          8
+  Node pairs, COND_CONST                                 8          8          4          2
+  Node pairs, COND_EQ                                    2          2          1          1
+  Node pairs, COND_LT                                    2          2          1
+  Node pairs, CONSTPOOL_MODULE                1          1          1          1
+  Node pairs, CRESET_VARREF                                                   12
+  Node pairs, CRETURN_CCALL                                         1          1
+  Node pairs, CSTMT_TEXT                                            8         11
+  Node pairs, EQ_AND                                                          12
+  Node pairs, EQ_CCAST                                                         2          2
+  Node pairs, EQ_CONST                        6
+  Node pairs, EQ_SEL                                    24         24
+  Node pairs, EQ_SELBIT                      14
+  Node pairs, EQ_VARREF                       4          4          4
+  Node pairs, EXTEND_VARREF                              8          8
+  Node pairs, IF_AND                                                          34          8
+  Node pairs, IF_ARRAYSEL                                           2          2
+  Node pairs, IF_ASSIGN                      11         24         24         12          3
+  Node pairs, IF_CONST                                              2
+  Node pairs, IF_CSTMT                                                         3
+  Node pairs, IF_EQ                           6
+  Node pairs, IF_IF                           1         22         22         11          5
+  Node pairs, IF_LT                           2
+  Node pairs, IF_NEQ                          2
+  Node pairs, IF_NOT                                    12         12
+  Node pairs, IF_OR                           2
+  Node pairs, IF_SEL                                    44         44
+  Node pairs, IF_TRACEINC                                           2          1
+  Node pairs, LOGAND_EQ                       2
+  Node pairs, LOGAND_NEQ                      2
+  Node pairs, LTE_CONST                       3
+  Node pairs, LTE_VARREF                      3
+  Node pairs, LT_CCAST                                                         2
+  Node pairs, LT_VARREF                       4          4          4
+  Node pairs, MODULE_SCOPE                    1          1          1          1
+  Node pairs, MODULE_VAR                      1          1          1          1
+  Node pairs, NEQ_AND                                                         12
+  Node pairs, NEQ_CCAST                                                        8          1
+  Node pairs, NEQ_CONST                                                        8          1
+  Node pairs, NEQ_SEL                                   24         24
+  Node pairs, NEQ_SELBIT                      8
+  Node pairs, NETLIST_CFILE                                                    1
+  Node pairs, NETLIST_MODULE                  1          1          1          1
+  Node pairs, NETLIST_TYPETABLE               1          1          1          1
+  Node pairs, NOT_CCAST                                                       12          2
+  Node pairs, NOT_REDOR                       8         16         16
+  Node pairs, NOT_SEL                                   12         12
+  Node pairs, NOT_SHIFTR                                                       4          2
+  Node pairs, NOT_VARREF                                 4          4
+  Node pairs, OR_AND                                                          10
+  Node pairs, OR_CCAST                                                         2
+  Node pairs, OR_EQ                           4
+  Node pairs, OR_NEQ                                                           1
+  Node pairs, OR_OR                                                            2
+  Node pairs, OR_SHIFTL                                                        3
+  Node pairs, OR_VARREF                                  4          4
+  Node pairs, RANGE_CONST                    12                     2          2
+  Node pairs, REDOR_VARREF                    8         16         16
+  Node pairs, REPLICATE_CONST                 3
+  Node pairs, REPLICATE_VARREF                3
+  Node pairs, SCOPE_ACTIVE                               1
+  Node pairs, SCOPE_CFUNC                                           1
+  Node pairs, SCOPE_VARSCOPE                             1          1
+  Node pairs, SELBIT_ATTROF                  31
+  Node pairs, SELBIT_CONST                   10
+  Node pairs, SELBIT_VARREF                  52
+  Node pairs, SELEXTRACT_ATTROF               2
+  Node pairs, SELEXTRACT_CONST                4
+  Node pairs, SELEXTRACT_VARREF               2
+  Node pairs, SEL_CONST                                268        268
+  Node pairs, SEL_VARREF                               134        134
+  Node pairs, SENITEM_VARREF                  1
+  Node pairs, SENTREE_SENITEM                 1          2
+  Node pairs, SHIFTL_CONST                                                     6
+  Node pairs, SHIFTL_EQ                                                        3
+  Node pairs, SHIFTL_NEQ                                                       3
+  Node pairs, SHIFTR_CCAST                                                    26          2
+  Node pairs, SHIFTR_CONST                                                    26          2
+  Node pairs, TOPSCOPE_SCOPE                             1          1          1
+  Node pairs, TOPSCOPE_SENTREE                           1
+  Node pairs, TRACEDECL_VARREF                          18
+  Node pairs, TRACEINC_VARREF                                      22         22
+  Node pairs, TYPETABLE_BASICDTYPE            1          1          1          1
+  Node pairs, UNPACKARRAYDTYPE_RANGE                                1          1
+  Node pairs, VAR_BASICDTYPE                 11
+  Node pairs, WHILE_ASSIGN                    3
+  Node pairs, WHILE_IF                        3
+  Node pairs, WHILE_LTE                       3
+  Node pairs, XOR_REPLICATE                   3
+  Node pairs, XOR_VARREF                      3
+
+  Var space, non-arrays, bytes                0         14         14         14          0
+  Var space, scoped, bytes                              14         14
+
+  Vars, clock attribute                       0          0          0          0          0
+  Vars, unpacked arrayed                      0          0          1          1          0
+  Vars, width     1                                      4          5          5
+  Vars, width     3                                      1          1          1
+  Vars, width     4                                      4          4          4
+  Vars, width     5                                      1          1          1
+  Vars, width    32                                      1          1          1
