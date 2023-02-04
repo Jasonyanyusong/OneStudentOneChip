@@ -1,0 +1,269 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2017"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2017"/>
+    <file id="c" filename="MultiShifter_4Bit.v" language="1800-2017"/>
+  </files>
+  <module_files>
+    <file id="c" filename="MultiShifter_4Bit.v" language="1800-2017"/>
+  </module_files>
+  <cells>
+    <cell fl="c1" loc="c,1,8,1,25" name="$root" submodname="$root" hier="$root"/>
+  </cells>
+  <netlist>
+    <module fl="c1" loc="c,1,8,1,25" name="$root" origName="$root" topModule="1" public="true">
+      <var fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk" public="true"/>
+      <var fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="sel" public="true"/>
+      <var fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="3" dir="input" pinIndex="3" vartype="logic" origName="inp" public="true"/>
+      <var fl="c5" loc="c,5,22,5,26" name="outp" dtype_id="3" dir="output" pinIndex="4" vartype="logic" origName="outp" public="true"/>
+      <topscope fl="c1" loc="c,1,8,1,25">
+        <scope fl="c1" loc="c,1,8,1,25" name="TOP"/>
+      </topscope>
+      <var fl="c2" loc="c,2,11,2,14" name="__Vclklast__TOP__clk" dtype_id="1" vartype="logic" origName="__Vclklast__TOP__clk"/>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceInitTop">
+        <ccall fl="c1" loc="c,1,8,1,25"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceInitSub0">
+        <tracedecl fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="2"/>
+        <tracedecl fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,22,5,26" name="outp" dtype_id="3"/>
+        <tracedecl fl="c2" loc="c,2,11,2,14" name="MultiShifter_4Bit clk" dtype_id="1"/>
+        <tracedecl fl="c3" loc="c,3,17,3,20" name="MultiShifter_4Bit sel" dtype_id="2"/>
+        <tracedecl fl="c4" loc="c,4,17,4,20" name="MultiShifter_4Bit inp" dtype_id="3"/>
+        <tracedecl fl="c5" loc="c,5,22,5,26" name="MultiShifter_4Bit outp" dtype_id="3"/>
+      </cfunc>
+      <cfunc fl="c7" loc="c,7,5,7,11" name="_sequent__TOP__1">
+        <var fl="c7" loc="c,7,5,7,11" name="__Vtableidx1" dtype_id="4" vartype="bit" origName="__Vtableidx1"/>
+        <assign fl="c7" loc="c,7,5,7,11" dtype_id="5">
+          <or fl="c7" loc="c,7,5,7,11" dtype_id="5">
+            <shiftl fl="c7" loc="c,7,5,7,11" dtype_id="6">
+              <ccast fl="c7" loc="c,7,5,7,11" dtype_id="7">
+                <varref fl="c7" loc="c,7,5,7,11" name="inp" dtype_id="7"/>
+              </ccast>
+              <const fl="c7" loc="c,7,5,7,11" name="32&apos;h7" dtype_id="6"/>
+            </shiftl>
+            <or fl="c7" loc="c,7,5,7,11" dtype_id="8">
+              <shiftl fl="c7" loc="c,7,5,7,11" dtype_id="6">
+                <ccast fl="c7" loc="c,7,5,7,11" dtype_id="7">
+                  <varref fl="c7" loc="c,7,5,7,11" name="outp" dtype_id="7"/>
+                </ccast>
+                <const fl="c7" loc="c,7,5,7,11" name="32&apos;h3" dtype_id="6"/>
+              </shiftl>
+              <ccast fl="c7" loc="c,7,5,7,11" dtype_id="9">
+                <varref fl="c7" loc="c,7,5,7,11" name="sel" dtype_id="9"/>
+              </ccast>
+            </or>
+          </or>
+          <varref fl="c7" loc="c,7,5,7,11" name="__Vtableidx1" dtype_id="5"/>
+        </assign>
+        <assigndly fl="c7" loc="c,7,5,7,11" dtype_id="7">
+          <arraysel fl="c7" loc="c,7,5,7,11" dtype_id="7">
+            <varref fl="c7" loc="c,7,5,7,11" name="TABLE_acb00034_0" dtype_id="10"/>
+            <varref fl="c7" loc="c,7,5,7,11" name="__Vtableidx1" dtype_id="5"/>
+          </arraysel>
+          <varref fl="c7" loc="c,7,5,7,11" name="outp" dtype_id="7"/>
+        </assigndly>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_eval">
+        <if fl="c7" loc="c,7,12,7,13">
+          <and fl="c7" loc="c,7,14,7,21" dtype_id="11">
+            <ccast fl="c7" loc="c,7,14,7,21" dtype_id="11">
+              <varref fl="c7" loc="c,7,14,7,21" name="clk" dtype_id="11"/>
+            </ccast>
+            <not fl="c7" loc="c,7,14,7,21" dtype_id="11">
+              <ccast fl="c7" loc="c,7,14,7,21" dtype_id="11">
+                <varref fl="c7" loc="c,7,14,7,21" name="__Vclklast__TOP__clk" dtype_id="11"/>
+              </ccast>
+            </not>
+          </and>
+          <ccall fl="c7" loc="c,7,5,7,11"/>
+        </if>
+        <assign fl="c2" loc="c,2,11,2,14" dtype_id="11">
+          <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="11"/>
+          <varref fl="c2" loc="c,2,11,2,14" name="__Vclklast__TOP__clk" dtype_id="11"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_eval_initial">
+        <assign fl="c2" loc="c,2,11,2,14" dtype_id="11">
+          <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="11"/>
+          <varref fl="c2" loc="c,2,11,2,14" name="__Vclklast__TOP__clk" dtype_id="11"/>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_eval_settle"/>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_final"/>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_change_request">
+        <creturn fl="c1" loc="c,1,8,1,25">
+          <ccall fl="c1" loc="c,1,8,1,25"/>
+        </creturn>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_change_request_1">
+        <changedet fl="c1" loc="c,1,8,1,25"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceRegister">
+        <text fl="c1" loc="c,1,8,1,25"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,25" dtype_id="12"/>
+        <text fl="c1" loc="c,1,8,1,25"/>
+        <text fl="c1" loc="c,1,8,1,25"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,25" dtype_id="12"/>
+        <text fl="c1" loc="c,1,8,1,25"/>
+        <text fl="c1" loc="c,1,8,1,25"/>
+        <addrofcfunc fl="c1" loc="c,1,8,1,25" dtype_id="12"/>
+        <text fl="c1" loc="c,1,8,1,25"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceFullTop0">
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,25"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceFullSub0">
+        <traceinc fl="c2" loc="c,2,11,2,14" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,17,3,20" dtype_id="2">
+          <varref fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="9"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,17,4,20" dtype_id="3">
+          <varref fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="7"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,22,5,26" dtype_id="3">
+          <varref fl="c5" loc="c,5,22,5,26" name="outp" dtype_id="7"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceChgTop0">
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <ccall fl="c1" loc="c,1,8,1,25"/>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceChgSub0">
+        <traceinc fl="c2" loc="c,2,11,2,14" dtype_id="1">
+          <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="11"/>
+        </traceinc>
+        <traceinc fl="c3" loc="c,3,17,3,20" dtype_id="2">
+          <varref fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="9"/>
+        </traceinc>
+        <traceinc fl="c4" loc="c,4,17,4,20" dtype_id="3">
+          <varref fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="7"/>
+        </traceinc>
+        <traceinc fl="c5" loc="c,5,22,5,26" dtype_id="3">
+          <varref fl="c5" loc="c,5,22,5,26" name="outp" dtype_id="7"/>
+        </traceinc>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="traceCleanup">
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <var fl="c1" loc="c,1,8,1,25" name="__Vm_traceActivity" dtype_id="13" vartype="" origName="__Vm_traceActivity"/>
+        <cstmt fl="c1" loc="c,1,8,1,25">
+          <text fl="c1" loc="c,1,8,1,25"/>
+        </cstmt>
+        <assign fl="c1" loc="c,1,8,1,25" dtype_id="14">
+          <const fl="c1" loc="c,1,8,1,25" name="1&apos;h0" dtype_id="14"/>
+          <arraysel fl="c1" loc="c,1,8,1,25" dtype_id="14">
+            <varref fl="c1" loc="c,1,8,1,25" name="__Vm_traceActivity" dtype_id="13"/>
+            <const fl="c1" loc="c,1,8,1,25" name="32&apos;h0" dtype_id="6"/>
+          </arraysel>
+        </assign>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_eval_debug_assertions">
+        <if fl="c2" loc="c,2,11,2,14">
+          <and fl="c2" loc="c,2,11,2,14" dtype_id="1">
+            <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="1"/>
+            <const fl="c2" loc="c,2,11,2,14" name="8&apos;hfe" dtype_id="15"/>
+          </and>
+          <cstmt fl="c2" loc="c,2,11,2,14">
+            <text fl="c2" loc="c,2,11,2,14"/>
+          </cstmt>
+        </if>
+        <if fl="c3" loc="c,3,17,3,20">
+          <and fl="c3" loc="c,3,17,3,20" dtype_id="2">
+            <varref fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="2"/>
+            <const fl="c3" loc="c,3,17,3,20" name="8&apos;hf8" dtype_id="15"/>
+          </and>
+          <cstmt fl="c3" loc="c,3,17,3,20">
+            <text fl="c3" loc="c,3,17,3,20"/>
+          </cstmt>
+        </if>
+        <if fl="c4" loc="c,4,17,4,20">
+          <and fl="c4" loc="c,4,17,4,20" dtype_id="3">
+            <varref fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="3"/>
+            <const fl="c4" loc="c,4,17,4,20" name="8&apos;hf0" dtype_id="15"/>
+          </and>
+          <cstmt fl="c4" loc="c,4,17,4,20">
+            <text fl="c4" loc="c,4,17,4,20"/>
+          </cstmt>
+        </if>
+      </cfunc>
+      <cfunc fl="c1" loc="c,1,8,1,25" name="_ctor_var_reset">
+        <creset fl="c2" loc="c,2,11,2,14">
+          <varref fl="c2" loc="c,2,11,2,14" name="clk" dtype_id="1"/>
+        </creset>
+        <creset fl="c3" loc="c,3,17,3,20">
+          <varref fl="c3" loc="c,3,17,3,20" name="sel" dtype_id="2"/>
+        </creset>
+        <creset fl="c4" loc="c,4,17,4,20">
+          <varref fl="c4" loc="c,4,17,4,20" name="inp" dtype_id="3"/>
+        </creset>
+        <creset fl="c5" loc="c,5,22,5,26">
+          <varref fl="c5" loc="c,5,22,5,26" name="outp" dtype_id="3"/>
+        </creset>
+      </cfunc>
+      <cuse fl="c1" loc="c,1,8,1,25" name="VerilatedVcd"/>
+    </module>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit__Syms.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit__Syms.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit__ConstPool_0.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit__Trace__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit__Trace.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit_$root.h"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit_$root__Slow.cpp"/>
+    <cfile fl="a0" loc="a,0,0,0,0" name="obj_dir/VMultiShifter_4Bit_$root.cpp"/>
+    <typetable fl="a0" loc="a,0,0,0,0">
+      <basicdtype fl="c2" loc="c,2,11,2,14" id="1" name="logic"/>
+      <basicdtype fl="c3" loc="c,3,11,3,12" id="2" name="logic" left="2" right="0"/>
+      <basicdtype fl="c4" loc="c,4,11,4,12" id="3" name="logic" left="3" right="0"/>
+      <basicdtype fl="c23" loc="c,23,33,23,34" id="6" name="logic" left="31" right="0"/>
+      <basicdtype fl="c7" loc="c,7,5,7,11" id="4" name="bit" left="10" right="0"/>
+      <basicdtype fl="a0" loc="a,0,0,0,0" id="16" name="bit" left="3" right="0"/>
+      <unpackarraydtype fl="c5" loc="c,5,22,5,26" id="10" sub_dtype_id="16">
+        <range fl="c5" loc="c,5,22,5,26">
+          <const fl="c5" loc="c,5,22,5,26" name="32&apos;h7ff" dtype_id="6"/>
+          <const fl="c5" loc="c,5,22,5,26" name="32&apos;h0" dtype_id="6"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,25" id="17" name="logic"/>
+      <unpackarraydtype fl="c1" loc="c,1,8,1,25" id="13" sub_dtype_id="17">
+        <range fl="c1" loc="c,1,8,1,25">
+          <const fl="c1" loc="c,1,8,1,25" name="32&apos;h0" dtype_id="6"/>
+          <const fl="c1" loc="c,1,8,1,25" name="32&apos;h0" dtype_id="6"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype fl="c1" loc="c,1,8,1,25" id="12" name="chandle" left="63" right="0"/>
+      <basicdtype fl="c7" loc="c,7,5,7,11" id="7" name="logic" left="31" right="0"/>
+      <basicdtype fl="c7" loc="c,7,5,7,11" id="9" name="logic" left="31" right="0"/>
+      <basicdtype fl="c7" loc="c,7,5,7,11" id="8" name="logic" left="31" right="0"/>
+      <basicdtype fl="c7" loc="c,7,5,7,11" id="5" name="logic" left="31" right="0"/>
+      <basicdtype fl="c7" loc="c,7,14,7,21" id="11" name="logic" left="31" right="0"/>
+      <basicdtype fl="c1" loc="c,1,8,1,25" id="14" name="logic" left="31" right="0"/>
+      <basicdtype fl="c2" loc="c,2,11,2,14" id="15" name="logic" left="7" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>
