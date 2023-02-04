@@ -1,0 +1,18 @@
+`begin_keywords "1800-2017"
+`line 1 "mux21.v" 1
+module mux21(datain0, datain1, sel, dataout);
+    input datain0, datain1;
+    input sel;
+    output reg dataout;
+
+`line 6 "mux21.v" 0
+    always @(sel) 
+    begin
+        case (sel)
+        0 : dataout = datain0;
+        1 : dataout = datain1;
+        endcase
+    end
+endmodule
+
+`line 15 "mux21.v" 2
