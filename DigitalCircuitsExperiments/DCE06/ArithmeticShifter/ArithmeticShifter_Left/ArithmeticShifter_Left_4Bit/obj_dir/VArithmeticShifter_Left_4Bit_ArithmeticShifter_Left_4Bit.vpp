@@ -1,0 +1,20 @@
+`begin_keywords "1800-2017"
+`line 1 "ArithmeticShifter_Left_4Bit.v" 1
+module ArithmeticShifter_Left_4Bit(clk, clr, inp, outp, load);
+    input clk, clr, load;
+    input [3:0] inp;
+    output reg [3:0] outp;
+
+`line 6 "ArithmeticShifter_Left_4Bit.v" 0
+    always @(posedge clk)
+    begin
+        if(load)
+            outp <= inp;
+        else if (clr)
+            outp <= 4'b0000;
+        else
+            outp <= {outp[3], outp[1:0], 1'b0};  
+    end
+endmodule
+
+`line 17 "ArithmeticShifter_Left_4Bit.v" 2
