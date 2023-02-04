@@ -1,0 +1,20 @@
+`begin_keywords "1800-2017"
+`line 1 "LogicShifter_Right_4Bit.v" 1
+module LogicShifter_Right_4Bit(clk, clr, inp, outp, load);
+    input clk, clr, load;
+    input [3:0] inp;
+    output reg [3:0] outp;
+
+`line 6 "LogicShifter_Right_4Bit.v" 0
+    always @(posedge clk)
+    begin
+        if(load)
+            outp <= inp;
+        else if (clr)
+            outp <= 4'b0000;
+        else
+            outp <= {1'b0, outp[3:1]};  
+    end
+endmodule
+
+`line 17 "LogicShifter_Right_4Bit.v" 2

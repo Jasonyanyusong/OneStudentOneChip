@@ -1,0 +1,152 @@
+Verilator Tree Dump (format 0x3900) from <e1044> to <e1217>
+     NETLIST 0x555556188f80 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0x5555561a6960 <e348> {c1ai}  __024root  L1 [P] [1ps]
+    1:2: VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561a7080 <e357> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561a7420 <e363> {c2av} @dt=0x5555561a2920@(G/w1)  load [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561aa430 <e369> {c3ar} @dt=0x55555619a460@(G/w4)  inp [PI] INPUT [P] [VSTATIC]  PORT
+    1:2: VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2: TOPSCOPE 0x5555561b0be0 <e597> {c1ai}
+    1:2:2: SCOPE 0x5555561b0ae0 <e679> {c1ai}  TOP [abovep=0] [cellp=0] [modp=0x5555561a6960]
+    1:2:2:1: VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x5555561b0dc0 <e602> {c2aq} @dt=0x5555561a2920@(G/w1)  TOP->clr -> VAR 0x5555561a7080 <e357> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x5555561b0ee0 <e605> {c2av} @dt=0x5555561a2920@(G/w1)  TOP->load -> VAR 0x5555561a7420 <e363> {c2av} @dt=0x5555561a2920@(G/w1)  load [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x5555561b1000 <e608> {c3ar} @dt=0x55555619a460@(G/w4)  TOP->inp -> VAR 0x5555561aa430 <e369> {c3ar} @dt=0x55555619a460@(G/w4)  inp [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x5555561b1120 <e611> {c4aw} @dt=0x55555619a460@(G/w4)  TOP->outp -> VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:1: VARSCOPE 0x5555561b5050 <e966> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->__Vclklast__TOP__clk -> VAR 0x5555561b4ed0 <e963> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk MODULETEMP
+    1:2:2:1: VARSCOPE 0x5555561b7e20 <e1072#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  TOP->__Vm_traceActivity -> VAR 0x5555561b7ca0 <e1069#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  __Vm_traceActivity MODULETEMP
+    1:2:2:2: CFUNC 0x5555561a8e70 <e703> {c1ai}  traceInitTop [SLOW]
+    1:2:2:2:3: CCALL 0x55555619c660 <e706> {c1ai} traceInitSub0 => CFUNC 0x5555561a9000 <e705> {c1ai}  traceInitSub0 [SLOW]
+    1:2:2:2: CFUNC 0x5555561a9000 <e705> {c1ai}  traceInitSub0 [SLOW]
+    1:2:2:2:3: TRACEDECL 0x5555561a93d0 <e710> {c2al} @dt=0x5555561a2920@(G/w1)  clk
+    1:2:2:2:3: TRACEDECL 0x5555561a9720 <e717> {c2aq} @dt=0x5555561a2920@(G/w1)  clr
+    1:2:2:2:3: TRACEDECL 0x5555561a9a70 <e724> {c2av} @dt=0x5555561a2920@(G/w1)  load
+    1:2:2:2:3: TRACEDECL 0x5555561a9dc0 <e731> {c3ar} @dt=0x55555619a460@(G/w4)  inp
+    1:2:2:2:3: TRACEDECL 0x5555561aa110 <e738> {c4aw} @dt=0x55555619a460@(G/w4)  outp
+    1:2:2:2:3: TRACEDECL 0x5555561bb1d0 <e745> {c2al} @dt=0x5555561a2920@(G/w1)  LogicShifter_Right_4Bit clk
+    1:2:2:2:3: TRACEDECL 0x5555561bb520 <e752> {c2aq} @dt=0x5555561a2920@(G/w1)  LogicShifter_Right_4Bit clr
+    1:2:2:2:3: TRACEDECL 0x5555561bb870 <e759> {c2av} @dt=0x5555561a2920@(G/w1)  LogicShifter_Right_4Bit load
+    1:2:2:2:3: TRACEDECL 0x5555561bbbc0 <e766> {c3ar} @dt=0x55555619a460@(G/w4)  LogicShifter_Right_4Bit inp
+    1:2:2:2:3: TRACEDECL 0x5555561bbf70 <e773> {c4aw} @dt=0x55555619a460@(G/w4)  LogicShifter_Right_4Bit outp
+    1:2:2:2: CFUNC 0x5555561c1c30 <e912> {c6af}  _sequent__TOP__1
+    1:2:2:2:3: ASSIGNDLY 0x5555561b2ca0 <e922> {c9as} @dt=0x55555619a460@(G/w4)
+    1:2:2:2:3:1: COND 0x5555561b2d60 <e422> {c9av} @dt=0x55555619a460@(G/w4)
+    1:2:2:2:3:1:1: VARREF 0x5555561b2e20 <e418> {c8am} @dt=0x5555561a2920@(G/w1)  load [RV] <- VARSCOPE 0x5555561b0ee0 <e605> {c2av} @dt=0x5555561a2920@(G/w1)  TOP->load -> VAR 0x5555561a7420 <e363> {c2av} @dt=0x5555561a2920@(G/w1)  load [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:1:2: VARREF 0x5555561b2f40 <e419> {c9av} @dt=0x55555619a460@(G/w4)  inp [RV] <- VARSCOPE 0x5555561b1000 <e608> {c3ar} @dt=0x55555619a460@(G/w4)  TOP->inp -> VAR 0x5555561aa430 <e369> {c3ar} @dt=0x55555619a460@(G/w4)  inp [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:1:3: COND 0x5555561b3060 <e420> {c11av} @dt=0x55555619a460@(G/w4)
+    1:2:2:2:3:1:3:1: VARREF 0x5555561b3120 <e402> {c10as} @dt=0x5555561a2920@(G/w1)  clr [RV] <- VARSCOPE 0x5555561b0dc0 <e602> {c2aq} @dt=0x5555561a2920@(G/w1)  TOP->clr -> VAR 0x5555561a7080 <e357> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:1:3:2: CONST 0x5555561b3240 <e403> {c11av} @dt=0x55555619a460@(G/w4)  4'h0
+    1:2:2:2:3:1:3:3: EXTEND 0x5555561b3380 <e404> {c13ba} @dt=0x55555619a460@(G/w4)
+    1:2:2:2:3:1:3:3:1: SEL 0x5555561b3440 <e384> {c13bg} @dt=0x5555561a5800@(G/w3) decl[3:0]]
+    1:2:2:2:3:1:3:3:1:1: VARREF 0x5555561b3510 <e331> {c13bc} @dt=0x55555619a460@(G/w4)  outp [RV] <- VARSCOPE 0x5555561b1120 <e611> {c4aw} @dt=0x55555619a460@(G/w4)  TOP->outp -> VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:1:3:3:1:2: CONST 0x5555561b3630 <e305> {c13bj} @dt=0x5555561a58e0@(G/sw2)  2'h1
+    1:2:2:2:3:1:3:3:1:3: CONST 0x5555561b3770 <e340> {c13bh} @dt=0x5555561a60e0@(G/w32)  32'h3
+    1:2:2:2:3:2: VARREF 0x5555561b5ec0 <e1023> {c9an} @dt=0x55555619a460@(G/w4)  outp [LV] => VARSCOPE 0x5555561b1120 <e611> {c4aw} @dt=0x55555619a460@(G/w4)  TOP->outp -> VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CFUNC 0x5555561b4890 <e934> {c1ai}  _eval
+    1:2:2:2:3: IF 0x5555561b5850 <e994> {c6am}
+    1:2:2:2:3:1: AND 0x5555561b5790 <e995> {c6ao} @dt=0x5555561a2920@(G/w1)
+    1:2:2:2:3:1:1: VARREF 0x5555561b5490 <e991> {c6ao} @dt=0x5555561a2920@(G/w1)  clk [RV] <- VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3:1:2: NOT 0x5555561b56d0 <e992> {c6ao} @dt=0x5555561a2920@(G/w1)
+    1:2:2:2:3:1:2:1: VARREF 0x5555561b55b0 <e989> {c6ao} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk [RV] <- VARSCOPE 0x5555561b5050 <e966> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->__Vclklast__TOP__clk -> VAR 0x5555561b4ed0 <e963> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk MODULETEMP
+    1:2:2:2:3:2: CCALL 0x5555561c1310 <e956> {c6af} _sequent__TOP__1 => CFUNC 0x5555561c1c30 <e912> {c6af}  _sequent__TOP__1
+    1:2:2:2:4: ASSIGN 0x5555561b3a90 <e982> {c2al} @dt=0x5555561a2920@(G/w1)
+    1:2:2:2:4:1: VARREF 0x5555561b5370 <e980> {c2al} @dt=0x5555561a2920@(G/w1)  clk [RV] <- VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:4:2: VARREF 0x5555561b5250 <e981> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk [LV] => VARSCOPE 0x5555561b5050 <e966> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->__Vclklast__TOP__clk -> VAR 0x5555561b4ed0 <e963> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk MODULETEMP
+    1:2:2:2: CFUNC 0x5555561b4a20 <e936> {c1ai}  _eval_initial [SLOW]
+    1:2:2:2:3: ASSIGN 0x5555561bd510 <e974> {c2al} @dt=0x5555561a2920@(G/w1)
+    1:2:2:2:3:1: VARREF 0x55555619f7e0 <e972> {c2al} @dt=0x5555561a2920@(G/w1)  clk [RV] <- VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3:2: VARREF 0x5555561b5130 <e973> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk [LV] => VARSCOPE 0x5555561b5050 <e966> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->__Vclklast__TOP__clk -> VAR 0x5555561b4ed0 <e963> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk MODULETEMP
+    1:2:2:2: CFUNC 0x5555561b4bb0 <e938> {c1ai}  _eval_settle [SLOW]
+    1:2:2:2: CFUNC 0x5555561b4d40 <e940> {c1ai}  _final [SLOW]
+    1:2:2:2: CFUNC 0x5555561b6340 <e1038> {c1ai}  _change_request
+    1:2:2:2:3: CRETURN 0x5555561b6770 <e1042> {c1ai}
+    1:2:2:2:3:1: CCALL 0x5555561b6660 <e1043> {c1ai} _change_request_1 => CFUNC 0x5555561b64d0 <e1040> {c1ai}  _change_request_1
+    1:2:2:2: CFUNC 0x5555561b64d0 <e1040> {c1ai}  _change_request_1
+    1:2:2:2:3: CHANGEDET 0x5555561b6830 <e1044#> {c1ai}
+    1:2:2:2: CFUNC 0x5555561b7f00 <e1074#> {c1ai}  traceRegister [SLOW]
+    1:2:2:2:3: TEXT 0x5555561b8560 <e1082#> {c1ai} "tracep->addFullCb("
+    1:2:2:2:3: ADDROFCFUNC 0x5555561b8220 <e1088#> {c1ai} @dt=0x5555561b8650@(G/w64)
+    1:2:2:2:3: TEXT 0x5555561b8730 <e1090#> {c1ai} ", vlSelf);..."
+    1:2:2:2:3: TEXT 0x5555561b9a30 <e1116#> {c1ai} "tracep->addChgCb("
+    1:2:2:2:3: ADDROFCFUNC 0x5555561b9600 <e1119#> {c1ai} @dt=0x5555561b8650@(G/w64)
+    1:2:2:2:3: TEXT 0x5555561b9b20 <e1121#> {c1ai} ", vlSelf);..."
+    1:2:2:2:3: TEXT 0x5555561bfc10 <e1188#> {c1ai} "tracep->addCleanupCb("
+    1:2:2:2:3: ADDROFCFUNC 0x5555561bae90 <e1191#> {c1ai} @dt=0x5555561b8650@(G/w64)
+    1:2:2:2:3: TEXT 0x5555561bfd00 <e1193#> {c1ai} ", vlSelf);..."
+    1:2:2:2: CFUNC 0x5555561b8090 <e1081#> {c1ai}  traceFullTop0 [SLOW] [STATIC]
+    1:2:2:2:2: CSTMT 0x5555561b82f0 <e1076#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561c20f0 <e1077#> {c1ai} "VLogicShifter_Right_4Bit___024root* const __restrict vlSelf = static_cast<VLogicShifter_Right_4Bit___024root*>(voidSelf);..."
+    1:2:2:2:2: CSTMT 0x5555561b83b0 <e1080#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561b8470 <e1079#> {c1ai} "VLogicShifter_Right_4Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2:2:3: CCALL 0x5555561b89b0 <e1093#> {c1ai} traceFullSub0 => CFUNC 0x5555561b8820 <e1092#> {c1ai}  traceFullSub0 [SLOW]
+    1:2:2:2: CFUNC 0x5555561b8820 <e1092#> {c1ai}  traceFullSub0 [SLOW]
+    1:2:2:2:3: TRACEINC 0x5555561b8ac0 <e1095#> {c2al} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a93d0 <e710> {c2al} @dt=0x5555561a2920@(G/w1)  clk
+    1:2:2:2:3:2: VARREF 0x5555561b8b90 <e708> {c2al} @dt=0x5555561a2920@(G/w1)  clk [RV] <- VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEINC 0x5555561b8cb0 <e1098#> {c2aq} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a9720 <e717> {c2aq} @dt=0x5555561a2920@(G/w1)  clr
+    1:2:2:2:3:2: VARREF 0x5555561b8d80 <e714> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [RV] <- VARSCOPE 0x5555561b0dc0 <e602> {c2aq} @dt=0x5555561a2920@(G/w1)  TOP->clr -> VAR 0x5555561a7080 <e357> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEINC 0x5555561b8ea0 <e1101#> {c2av} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a9a70 <e724> {c2av} @dt=0x5555561a2920@(G/w1)  load
+    1:2:2:2:3:2: VARREF 0x5555561b8f70 <e721> {c2av} @dt=0x5555561a2920@(G/w1)  load [RV] <- VARSCOPE 0x5555561b0ee0 <e605> {c2av} @dt=0x5555561a2920@(G/w1)  TOP->load -> VAR 0x5555561a7420 <e363> {c2av} @dt=0x5555561a2920@(G/w1)  load [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEINC 0x5555561b9090 <e1104#> {c3ar} @dt=0x55555619a460@(G/w4) -> TRACEDECL 0x5555561a9dc0 <e731> {c3ar} @dt=0x55555619a460@(G/w4)  inp
+    1:2:2:2:3:2: VARREF 0x5555561b9160 <e728> {c3ar} @dt=0x55555619a460@(G/w4)  inp [RV] <- VARSCOPE 0x5555561b1000 <e608> {c3ar} @dt=0x55555619a460@(G/w4)  TOP->inp -> VAR 0x5555561aa430 <e369> {c3ar} @dt=0x55555619a460@(G/w4)  inp [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3: TRACEINC 0x5555561b9280 <e1107#> {c4aw} @dt=0x55555619a460@(G/w4) -> TRACEDECL 0x5555561aa110 <e738> {c4aw} @dt=0x55555619a460@(G/w4)  outp
+    1:2:2:2:3:2: VARREF 0x5555561b9350 <e735> {c4aw} @dt=0x55555619a460@(G/w4)  outp [RV] <- VARSCOPE 0x5555561b1120 <e611> {c4aw} @dt=0x55555619a460@(G/w4)  TOP->outp -> VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CFUNC 0x5555561b9470 <e1114#> {c1ai}  traceChgTop0 [STATIC]
+    1:2:2:2:2: CSTMT 0x5555561b96d0 <e1109#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561b9790 <e1110#> {c1ai} "VLogicShifter_Right_4Bit___024root* const __restrict vlSelf = static_cast<VLogicShifter_Right_4Bit___024root*>(voidSelf);..."
+    1:2:2:2:2: CSTMT 0x5555561b9880 <e1113#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561b9940 <e1112#> {c1ai} "VLogicShifter_Right_4Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2:2:2: CSTMT 0x5555561b9c10 <e1124#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561b9cd0 <e1123#> {c1ai} "if (VL_UNLIKELY(!vlSymsp->__Vm_activity)) return;..."
+    1:2:2:2:3: CCALL 0x5555561b9f50 <e1127#> {c1ai} traceChgSub0 => CFUNC 0x5555561b9dc0 <e1126#> {c1ai}  traceChgSub0
+    1:2:2:2: CFUNC 0x5555561b9dc0 <e1126#> {c1ai}  traceChgSub0
+    1:2:2:2:3: IF 0x5555561ba280 <e1134#> {c1ai}
+    1:2:2:2:3:1: CONST 0x5555561ba060 <e1135#> {c1ai} @dt=0x5555561a60e0@(G/w32)  32'h1
+    1:2:2:2:3:2: TRACEINC 0x5555561ba350 <e1137#> {c2al} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a93d0 <e710> {c2al} @dt=0x5555561a2920@(G/w1)  clk
+    1:2:2:2:3:2:2: VARREF 0x5555561ba420 <e708> {c2al} @dt=0x5555561a2920@(G/w1)  clk [RV] <- VARSCOPE 0x5555561b0ca0 <e599> {c2al} @dt=0x5555561a2920@(G/w1)  TOP->clk -> VAR 0x5555561a6ce0 <e352> {c2al} @dt=0x5555561a2920@(G/w1)  clk [PI] INPUT [CLK] [P] [VSTATIC]  PORT
+    1:2:2:2:3:2: TRACEINC 0x5555561ba540 <e1140#> {c2aq} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a9720 <e717> {c2aq} @dt=0x5555561a2920@(G/w1)  clr
+    1:2:2:2:3:2:2: VARREF 0x5555561ba610 <e714> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [RV] <- VARSCOPE 0x5555561b0dc0 <e602> {c2aq} @dt=0x5555561a2920@(G/w1)  TOP->clr -> VAR 0x5555561a7080 <e357> {c2aq} @dt=0x5555561a2920@(G/w1)  clr [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:2: TRACEINC 0x5555561ba730 <e1143#> {c2av} @dt=0x5555561a2920@(G/w1) -> TRACEDECL 0x5555561a9a70 <e724> {c2av} @dt=0x5555561a2920@(G/w1)  load
+    1:2:2:2:3:2:2: VARREF 0x5555561ba800 <e721> {c2av} @dt=0x5555561a2920@(G/w1)  load [RV] <- VARSCOPE 0x5555561b0ee0 <e605> {c2av} @dt=0x5555561a2920@(G/w1)  TOP->load -> VAR 0x5555561a7420 <e363> {c2av} @dt=0x5555561a2920@(G/w1)  load [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:2: TRACEINC 0x5555561ba920 <e1146#> {c3ar} @dt=0x55555619a460@(G/w4) -> TRACEDECL 0x5555561a9dc0 <e731> {c3ar} @dt=0x55555619a460@(G/w4)  inp
+    1:2:2:2:3:2:2: VARREF 0x5555561ba9f0 <e728> {c3ar} @dt=0x55555619a460@(G/w4)  inp [RV] <- VARSCOPE 0x5555561b1000 <e608> {c3ar} @dt=0x55555619a460@(G/w4)  TOP->inp -> VAR 0x5555561aa430 <e369> {c3ar} @dt=0x55555619a460@(G/w4)  inp [PI] INPUT [P] [VSTATIC]  PORT
+    1:2:2:2:3:2: TRACEINC 0x5555561bab10 <e1149#> {c4aw} @dt=0x55555619a460@(G/w4) -> TRACEDECL 0x5555561aa110 <e738> {c4aw} @dt=0x55555619a460@(G/w4)  outp
+    1:2:2:2:3:2:2: VARREF 0x5555561babe0 <e735> {c4aw} @dt=0x55555619a460@(G/w4)  outp [RV] <- VARSCOPE 0x5555561b1120 <e611> {c4aw} @dt=0x55555619a460@(G/w4)  TOP->outp -> VAR 0x5555561aa7d0 <e375> {c4aw} @dt=0x55555619a460@(G/w4)  outp [PO] OUTPUT [P] [VSTATIC]  PORT
+    1:2:2:2: CFUNC 0x5555561bad00 <e1181#> {c1ai}  traceCleanup [STATIC]
+    1:2:2:2:2: CSTMT 0x5555561baf60 <e1182#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561bf970 <e1183#> {c1ai} "VLogicShifter_Right_4Bit___024root* const __restrict vlSelf = static_cast<VLogicShifter_Right_4Bit___024root*>(voidSelf);..."
+    1:2:2:2:2: CSTMT 0x5555561bfa60 <e1186#> {c1ai}
+    1:2:2:2:2:1: TEXT 0x5555561bfb20 <e1185#> {c1ai} "VLogicShifter_Right_4Bit__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;..."
+    1:2:2:2:3: CSTMT 0x5555561bfdf0 <e1194#> {c1ai}
+    1:2:2:2:3:1: TEXT 0x5555561bfeb0 <e1195#> {c1ai} "vlSymsp->__Vm_activity = false;..."
+    1:2:2:2:3: ASSIGN 0x5555561cf400 <e1217#> {c1ai} @dt=0x5555561b76a0@(nw1)
+    1:2:2:2:3:1: CONST 0x5555561cf1e0 <e1214#> {c1ai} @dt=0x5555561cf320@(G/nw1)  1'h0
+    1:2:2:2:3:2: ARRAYSEL 0x5555561cef00 <e1215#> {c1ai} @dt=0x5555561b76a0@(nw1)
+    1:2:2:2:3:2:1: VARREF 0x5555561cede0 <e1205#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  __Vm_traceActivity [LV] => VARSCOPE 0x5555561b7e20 <e1072#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  TOP->__Vm_traceActivity -> VAR 0x5555561b7ca0 <e1069#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  __Vm_traceActivity MODULETEMP
+    1:2:2:2:3:2:2: CONST 0x5555561cefc0 <e1206#> {c1ai} @dt=0x5555561a60e0@(G/w32)  32'h0
+    1:2: VAR 0x5555561b4ed0 <e963> {c2al} @dt=0x5555561a2920@(G/w1)  __Vclklast__TOP__clk MODULETEMP
+    1:2: VAR 0x5555561b7ca0 <e1069#> {c1ai} @dt=0x5555561b7bc0@(nw1)u[0:0]  __Vm_traceActivity MODULETEMP
+    3: TYPETABLE 0x555556189620 <e2> {a0aa}
+		 chandle  -> BASICDTYPE 0x5555561b8650 <e1086#> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+		   logic  -> BASICDTYPE 0x5555561cf320 <e1211#> {c1ai} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561a2920 <e227> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561cf320 <e1211#> {c1ai} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0x5555561a58e0 <e297> {c13bg} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0x5555561a5800 <e285> {c13bg} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0x55555619a460 <e251> {c3al} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+		detailed  ->  BASICDTYPE 0x5555561a60e0 <e335> {c13bh} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0x5555561b8650 <e1086#> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+    3:1: BASICDTYPE 0x5555561a2920 <e227> {c2al} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0x55555619a460 <e251> {c3al} @dt=this@(G/w4)  logic [GENERIC] kwd=logic range=[3:0]
+    3:1: BASICDTYPE 0x5555561a5800 <e285> {c13bg} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0x5555561a58e0 <e297> {c13bg} @dt=this@(G/sw2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0x5555561a60e0 <e335> {c13bh} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0x5555561b76a0 <e1047#> {c1ai} @dt=this@(nw1)  logic kwd=logic
+    3:1: UNPACKARRAYDTYPE 0x5555561b7bc0 <e1066#> {c1ai} @dt=this@(nw1)u[0:0] refdt=0x5555561b76a0(nw1) [0:0]
+    3:1:2: RANGE 0x5555561bde00 <e1064#> {c1ai}
+    3:1:2:2: CONST 0x5555561b7780 <e1055#> {c1ai} @dt=0x5555561a60e0@(G/w32)  32'h0
+    3:1:2:3: CONST 0x5555561b79a0 <e1062#> {c1ai} @dt=0x5555561a60e0@(G/w32)  32'h0
+    3:1: BASICDTYPE 0x5555561b8650 <e1086#> {c1ai} @dt=this@(G/w64)  chandle [GENERIC] kwd=chandle range=[63:0]
+    3:1: BASICDTYPE 0x5555561cf320 <e1211#> {c1ai} @dt=this@(G/nw1)  logic [GENERIC] kwd=logic
+    3: CONSTPOOL 0x5555561897d0 <e6> {a0aa}
+    3:1: MODULE 0x555556189960 <e4> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0x555556189aa0 <e680> {a0aa}  TOP [abovep=0] [cellp=0] [modp=0x555556189960]
