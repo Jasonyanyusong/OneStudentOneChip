@@ -21,8 +21,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254,
-
+ TK_NOTYPE = 256, TK_EQ, TK_NEQ, TK_AND, TK_OR, TK_MINUS, TK_NOT, TK_POINTER, TK_NUMBER, TK_HNUMBER, TK_REGISTER, TK_MARK,
   /* TODO: Add more token types */
 
 };
@@ -36,15 +35,22 @@ static struct rule {
    * Pay attention to the precedence level of different rules.
    */
 
-  {" +", TK_NOTYPE},    // spaces
-  //{"\\(", TK_LEFTparentheses}, // left_parentheses
-  //{"\\)", TK_RIGHTparentheses}, // right_parentheses
-  {"==", TK_EQ},        // equal
-  {"!=", TK_NEQ},       // not equal
-  {"\\+", '+'},         // plus
-  {"\\-", '-'},         // minus
-  {"\\*", '*'},         // multiply
-  {"\\/", '/'},         // devide
+  {" +", TK_NOTYPE}, // spaces
+  {" +", TK_NOTYPE}, // tab
+  {"0x[0-9,a-f]+", TK_HNUMBER}, // Hex Numbers
+  {"[0-9]+", TK_NUMBER}, // Dec Numbers
+  {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
+  {"\\(", '('}, // Left Parenthesis
+  {"\\)", ')'}, // Right Parenthesis
+  {"\\*", '*'}, // Multiply
+  {"\\/", '/'}, // Devide
+  {"\\+", '+'}, // Plus
+  {"\\-", '-'}, // Minus
+  {"==", TK_EQ}, // Equal
+  {"!=", TK_NEQ}, // Not Equal
+  {"&&", TK_AND}, // And
+  {"\\|\\|", TK_OR}, // Or
+  {"!", '!'}, // Not
 
 };
 
