@@ -114,7 +114,8 @@ static int cmd_x(char *args){
   printf("---- 打印内存前，start_memory_address (10进制)为: %d ----\n", start_memory_address);
   for(int i = 0; i < print_length; i = i + 1)
   {
-    printf("Address: %x , Data: %lx\n", start_memory_address, paddr_read(start_memory_address, 4));
+    int this_memory_address = start_memory_address + i * 4;
+    printf("Address: %x , Data: %lx\n", this_memory_address, paddr_read(this_memory_address, 4));
   }
   printf("==== 执行完毕,程序退出 ====\n\n");
   return 0;
