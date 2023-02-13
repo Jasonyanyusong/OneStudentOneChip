@@ -64,6 +64,11 @@ static int cmd_si(char *args){
   else{
     int cmd_si_n;
     cmd_si_n = atoi(args);
+    if(cmd_si_n < -1)
+    {
+      printf("!!!! Invalid input !!!!\n");
+      return 0;
+    }
     printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
     cpu_exec(cmd_si_n);
   }
@@ -73,7 +78,7 @@ static int cmd_si(char *args){
 
 static int cmd_info(char *args){
   printf("++++ cmd_info command ++++\n\n");
-  printf("==== info r: print the state of register info w: print the information of watch point(s) ====\n");
+  printf("==== info r: Print the state of register info w: Print the information of watch point(s) ====\n");
   if (args == NULL)
   {
     printf("!!!! No Subcommand !!!!\n");
@@ -101,7 +106,7 @@ static int cmd_info(char *args){
 
 static int cmd_x(char *args){
   printf("++++ cmd_x command ++++\n");
-  printf("==== solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte ====\n");
+  printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte ====\n");
   int print_length;
   int start_memory_address;
   char *last_part_of_args;
@@ -161,11 +166,11 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si", "Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
-  { "info", "info r: print the state of register, info w: print the information of watch point(s)", cmd_info},
-  { "x", "solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
-  { "p", "slove the expression EXPR", cmd_p},
-  { "w", "when the value of EXPR changes, suspend the program", cmd_w},
-  { "d", "delete the monitor point with number N", cmd_d}
+  { "info", "info r: Print the state of register, info w: Print the information of watch point(s)", cmd_info},
+  { "x", "Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
+  { "p", "Solve the expression EXPR", cmd_p},
+  { "w", "When the value of EXPR changes, suspend the program", cmd_w},
+  { "d", "Delete the watch point with number N", cmd_d}
 };
 
 #define NR_CMD ARRLEN(cmd_table)
