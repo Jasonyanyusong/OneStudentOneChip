@@ -24,13 +24,10 @@ const char *regs[] = {
 };
 
 void isa_reg_display() {
+  printf("This will display\n1) Reg Name 2) Hex 3) Dec 4) Out\n");
   for (int i = 0; i < 32; i = i + 1)
   {
-    printf("%s ", regs[i]);
-    if (i % 8 == 7)
-    {
-      printf("\n");
-    }
+    printf("%s\t%lx\t%ld\t%lo\n", regs[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i]);
   }
 }
 
