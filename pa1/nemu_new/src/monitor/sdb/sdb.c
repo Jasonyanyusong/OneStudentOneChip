@@ -55,69 +55,69 @@ static int cmd_c(char *args) {
 
 static int cmd_si(char *args){
   printf("++++ cmd_si command ++++\n\n");
-  printf("==== 让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 ==== \n");
-  printf("==== 程序得到如下子指令: \"%s\" ====\n", args);
+  printf("==== Run the program for N steps and then suspend, if N is not given, defalt is 1 ==== \n");
+  printf("==== Subcommnd Received: \"%s\" ====\n", args);
   if (args == NULL){
-    printf("^^^^ 没有收到子命令，默认执行 1 次 ^^^^\n");
+    printf("^^^^ No Subcommand received, default 1 ^^^^\n");
     cpu_exec(1);
   }
   else{
     int cmd_si_n;
     cmd_si_n = atoi(args);
-    printf("==== 将单步执行 %d 次 ====\n", cmd_si_n);
+    printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
     cpu_exec(cmd_si_n);
   }
-  printf("==== 执行完毕,程序退出 ====\n\n");
+  printf("==== Execution finished, program ends ====\n\n");
   return 0;
 }
 
 static int cmd_info(char *args){
   printf("++++ cmd_info command ++++\n\n");
-  printf("==== info r: 打印寄存器状态 info w: 打印监视点信息 ====\n");
+  printf("==== info r: print the state of register info w: print the information of watch point(s) ====\n");
   if (args == NULL)
   {
-    printf("!!!! 没有给出子指令 !!!!\n");
+    printf("!!!! No Subcommand !!!!\n");
   }
   else
   {
     if (strcmp(args, "r") == 0)
     {
-      printf("==== 收到子指令“r”: 打印寄存器状态 ====\n");
+      printf("==== Received Subcommand “r”: print the state of register ====\n");
       isa_reg_display();
     }
   else if (strcmp(args, "w") == 0)
     {
-      printf("==== 收到子指令“w”: 打印监视点信息 ====\n");
+      printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
       // Implement Later
     }
   else
     {
-      printf("!!!! 子指令无定义 !!!!\n");
+      printf("!!!! Subcommand Not Defined !!!!\n");
     }
   }
-  printf("==== 执行完毕,程序退出 ====\n\n");
+  printf("==== Execution finished, program ends ====\n\n");
   return 0;
 }
 
 static int cmd_x(char *args){
   printf("++++ cmd_x command ++++\n");
-  printf("==== 求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节 ====\n");
+  printf("==== solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte ====\n");
   int print_length;
   int start_memory_address;
   char *last_part_of_args;
   char *string_token_first = strtok_r(args, " ", &last_part_of_args);
-  printf("==== 读取出的string_token_first为: \"%s\" ====\n", string_token_first);
+  printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
   print_length = atoi(string_token_first);
-  printf("==== 转换后的print_length为: \"%d\" ====\n", print_length);
-  printf("==== 读取出的last_part_of_args为: \"%s\" ====\n", last_part_of_args);
+  printf("==== print_length is : \"%d\" ====\n", print_length);
+  printf("==== last_part_of_args is : \"%s\" ====\n", last_part_of_args);
   sscanf(last_part_of_args, "%x", &start_memory_address);
-  printf("---- 打印内存前，start_memory_address (10进制)为: %d ----\n", start_memory_address);
+  printf("---- start_memory_address (decimal) is: %d ----\n", start_memory_address);
   for(int i = 0; i < print_length; i = i + 1)
   {
     int this_memory_address = start_memory_address + i * 4;
     printf("Address: %x , Data: %lx\n", this_memory_address, paddr_read(this_memory_address, 4));
   }
-  printf("==== 执行完毕,程序退出 ====\n\n");
+  printf("==== Execution finished, program ends ====\n\n");
   return 0;
 }
 
@@ -152,15 +152,15 @@ static struct {
   const char *description;
   int (*handler) (char *);
 } cmd_table [] = {
-  { "help", "打印命令的帮助信息 Display information about all supported commands", cmd_help },
-  { "c", "继续运行被暂停的程序 Continue the execution of the program", cmd_c },
-  { "q", "退出NEMU Exit NEMU", cmd_q },
-  { "si", "让程序单步执行N条指令后暂停执行, 当N没有给出时, 缺省为1 Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
-  { "info", "info r: 打印寄存器状态 info w: 打印监视点信息 info r: print the state of register, info w: point the information of monitor point", cmd_info},
-  { "x", "求出表达式EXPR的值, 将结果作为起始内存地址, 以十六进制形式输出连续的N个4字节solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
-  { "p", "求出表达式EXPR的值 slove the expression EXPR", cmd_p},
-  { "w", "当表达式EXPR的值发生变化时, 暂停程序执行 when the value of EXPR changes, suspend the program", cmd_w},
-  { "d", "删除序号为N的监视点 delete the monitor point with number N", cmd_d}
+  { "help", "Display information about all supported commands", cmd_help },
+  { "c", "Continue the execution of the program", cmd_c },
+  { "q", "Exit NEMU", cmd_q },
+  { "si", "Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
+  { "info", "info r: print the state of register, info w: print the information of watch point(s)", cmd_info},
+  { "x", "solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
+  { "p", "slove the expression EXPR", cmd_p},
+  { "w", "when the value of EXPR changes, suspend the program", cmd_w},
+  { "d", "delete the monitor point with number N", cmd_d}
 };
 
 #define NR_CMD ARRLEN(cmd_table)
