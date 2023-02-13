@@ -115,7 +115,7 @@ static int cmd_x(char *args){
   for(int i = 0; i < print_length; i = i + 1)
   {
     int this_memory_address = start_memory_address + i * 4;
-    printf("Address: %x , Data: %lx\n", this_memory_address, paddr_read(this_memory_address, 4));
+    printf("Address: %x , Data: %x\n", this_memory_address, paddr_read(this_memory_address, 4));
   }
   printf("==== 执行完毕,程序退出 ====\n\n");
   return 0;
