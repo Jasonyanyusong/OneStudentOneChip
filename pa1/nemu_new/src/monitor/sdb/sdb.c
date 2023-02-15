@@ -72,7 +72,7 @@ static int cmd_si(char *args){
     printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
     cpu_exec(cmd_si_n);
   }
-  printf("==== Execution finished, program ends ====\n\n");
+  printf("==== Execution finished ====\n\n");
   return 0;
 }
 
@@ -100,13 +100,51 @@ static int cmd_info(char *args){
       printf("!!!! Subcommand Not Defined !!!!\n");
     }
   }
-  printf("==== Execution finished, program ends ====\n\n");
+  printf("==== Execution finished ====\n\n");
   return 0;
+}
+
+// Due to config ISA as riscv64 and make it easy to compile, other ISA's print memory was setted as "%lx", however, should be "%x"
+
+void print_memory_riscv64(int riscv64_memory_address)
+{
+  // RISCV64 Codes:
+  printf("Address: 0x%x :\n", riscv64_memory_address);
+  printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n8 Byte Data (paddr): %lx\n", paddr_read(riscv64_memory_address, 1), paddr_read(riscv64_memory_address, 2),paddr_read(riscv64_memory_address, 4), paddr_read(riscv64_memory_address, 8));
+  printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n8 Byte Data (vaddr): %lx\n", vaddr_read(riscv64_memory_address, 1), vaddr_read(riscv64_memory_address, 2),vaddr_read(riscv64_memory_address, 4), vaddr_read(riscv64_memory_address, 8));
+  printf("\n");
+}
+
+void print_memory_riscv32(int riscv32_memory_address)
+{
+  // RISCV32 Codes:
+  printf("Address: 0x%x :\n", riscv32_memory_address);
+  printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(riscv32_memory_address, 1), paddr_read(riscv32_memory_address, 2),paddr_read(riscv32_memory_address, 4));
+  printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(riscv32_memory_address, 1), vaddr_read(riscv32_memory_address, 2),vaddr_read(riscv32_memory_address, 4));
+  printf("\n");
+}
+
+void print_memory_mips32(int mips32_memory_address)
+{
+  // RISCV32 Codes:
+  printf("Address: 0x%x :\n", mips32_memory_address);
+  printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(mips32_memory_address, 1), paddr_read(mips32_memory_address, 2),paddr_read(mips32_memory_address, 4));
+  printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(mips32_memory_address, 1), vaddr_read(mips32_memory_address, 2),vaddr_read(mips32_memory_address, 4));
+  printf("\n");
+}
+
+void print_memory_loongarch32r(int loongarch32r_memory_address)
+{
+  // RISCV32 Codes:
+  printf("Address: 0x%x :\n", loongarch32r_memory_address);
+  printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(loongarch32r_memory_address, 1), paddr_read(loongarch32r_memory_address, 2),paddr_read(loongarch32r_memory_address, 4));
+  printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(loongarch32r_memory_address, 1), vaddr_read(loongarch32r_memory_address, 2),vaddr_read(loongarch32r_memory_address, 4));
+  printf("\n");
 }
 
 static int cmd_x(char *args){
   printf("++++ cmd_x command ++++\n");
-  printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte ====\n");
+  printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 1/2/4(/8) Byte ====\n");
   int print_length;
   int start_memory_address;
   char *last_part_of_args;
@@ -119,15 +157,15 @@ static int cmd_x(char *args){
   printf("---- start_memory_address (decimal) is: %d ----\n", start_memory_address);
   for(int i = 0; i < print_length; i = i + 1)
   {
-    int this_memory_address = start_memory_address + i * 4;
-    printf("Address: %x , Data: %x\n", this_memory_address, paddr_read(this_memory_address, 4));
-    // RISCV64: printf("Address: %x , Data: %lx\n", this_memory_address, paddr_read(this_memory_address, 4));
-    // RISCV32: printf("Address: %x , Data: %x\n", this_memory_address, paddr_read(this_memory_address, 4));
-    // MIPS32: printf("Address: %x , Data: %x\n", this_memory_address, paddr_read(this_memory_address, 4));
-    // Loongarch32: printf("Address: %x , Data: %x\n", this_memory_address, paddr_read(this_memory_address, 4));
-    // For different ISAs, the code line above need to be dynamically changed.
+    int this_memory_address = start_memory_address + i;
+    // For different ISAs, enable different types of code
+
+    print_memory_riscv64(this_memory_address);
+    // print_memory_riscv32(this_memory_address);
+    // print_memory_mips32(this_memory_address);
+    // print_memory_loongarch32r(this_memory_address);
   }
-  printf("==== Execution finished, program ends ====\n\n");
+  printf("==== Execution finished ====\n\n");
   return 0;
 }
 
@@ -148,6 +186,7 @@ static int cmd_d(char *args){
 
 static int cmd_q(char *args) {
   printf("++++ cmd_q command ++++\n");
+  printf("==== q: Exit NEMU ====\n");
   nemu_state.state = NEMU_QUIT;
   // Refined the function for quiting NEMU, so the system will not report bug.
   // Principle: this is the function that calls the quit of NEMU, bu defalt, the function will not change the NEMU state when quiting.
