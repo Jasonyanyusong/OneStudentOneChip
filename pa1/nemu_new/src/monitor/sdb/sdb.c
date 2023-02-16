@@ -106,13 +106,22 @@ static int cmd_info(char *args){
 
 // Due to config ISA as riscv64 and make it easy to compile, other ISA's print memory was setted as "%lx", however, should be "%x"
 
-void print_memory_riscv64(int riscv64_memory_address)
+void print_memory_riscv64(int riscv64_start_memory_address, int steps)
 {
   // RISCV64 Codes:
-  printf("Address: 0x%x :\n", riscv64_memory_address);
-  printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n8 Byte Data (paddr): %lx\n", paddr_read(riscv64_memory_address, 1), paddr_read(riscv64_memory_address, 2),paddr_read(riscv64_memory_address, 4), paddr_read(riscv64_memory_address, 8));
-  printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n8 Byte Data (vaddr): %lx\n", vaddr_read(riscv64_memory_address, 1), vaddr_read(riscv64_memory_address, 2),vaddr_read(riscv64_memory_address, 4), vaddr_read(riscv64_memory_address, 8));
-  printf("\n");
+  //printf("Address: 0x%x :\n", riscv64_memory_address);
+  //printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n8 Byte Data (paddr): %lx\n", paddr_read(riscv64_memory_address, 1), paddr_read(riscv64_memory_address, 2),paddr_read(riscv64_memory_address, 4), paddr_read(riscv64_memory_address, 8));
+  //printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n8 Byte Data (vaddr): %lx\n", vaddr_read(riscv64_memory_address, 1), vaddr_read(riscv64_memory_address, 2),vaddr_read(riscv64_memory_address, 4), vaddr_read(riscv64_memory_address, 8));
+  //printf("\n");
+
+  printf("******************************************************************************************************************\n");
+  printf("|  Address   | 1b Phys | 2b Phys | 4b Phys  |     8b Phys      | 1b Virt | 2b Virt | 4b Virt  |     8b Virt      |\n");
+  for (int i = riscv64_start_memory_address; i < riscv64_start_memory_address + steps; i = i + 1)
+  {
+    printf("| 0x%x | %7lx | %7lx | %8lx | %16lx | %7lx | %7lx | %8lx | %16lx |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), paddr_read(i, 8), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4), vaddr_read(i, 8));
+  }
+  printf("******************************************************************************************************************\n");
+
 }
 
 void print_memory_riscv32(int riscv32_memory_address)
@@ -154,17 +163,22 @@ static int cmd_x(char *args){
   printf("==== print_length is : \"%d\" ====\n", print_length);
   printf("==== last_part_of_args is : \"%s\" ====\n", last_part_of_args);
   sscanf(last_part_of_args, "%x", &start_memory_address);
-  printf("---- start_memory_address (decimal) is: %d ----\n", start_memory_address);
+  printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
+  //printf("________________________________________________________________________________________________\n");
+  //printf("| Address  |1b Phys|2b Phys|4b Phys |    8b Phys     |1b Virt|2b Virt|4b Virt |    8b Virt     |\n");
+
+  print_memory_riscv64(start_memory_address, print_length);
+
   for(int i = 0; i < print_length; i = i + 1)
   {
-    int this_memory_address = start_memory_address + i;
+    //int this_memory_address = start_memory_address + i;
     // For different ISAs, enable different types of code
-
-    print_memory_riscv64(this_memory_address);
+    //print_memory_riscv64(this_memory_address);
     // print_memory_riscv32(this_memory_address);
     // print_memory_mips32(this_memory_address);
     // print_memory_loongarch32r(this_memory_address);
   }
+  //printf("________________________________________________________________________________________________\n");
   printf("==== Execution finished ====\n\n");
   return 0;
 }
