@@ -26,6 +26,10 @@
 
 static int is_batch_mode = false;
 
+// To enable sdb print usage instruction for each call or print debug messge, set these two bool values to true
+static bool print_instruction = false;
+static bool print_debug_message = false;
+
 void init_regex();
 void init_wp_pool();
 
@@ -54,11 +58,17 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_si(char *args){
-  printf("++++ cmd_si command ++++\n\n");
-  printf("==== Run the program for N steps and then suspend, if N is not given, defalt is 1 ==== \n");
-  printf("==== Subcommnd Received: \"%s\" ====\n", args);
+  if (print_instruction)
+  {
+    printf("++++ cmd_si command ++++\n\n");
+    printf("==== Run the program for N steps and then suspend, if N is not given, defalt is 1 ==== \n");
+    printf("==== Subcommnd Received: \"%s\" ====\n", args);
+  }
   if (args == NULL){
-    printf("^^^^ No Subcommand received, default 1 ^^^^\n");
+    if (print_debug_message)
+    {
+      printf("^^^^ No Subcommand received, default 1 ^^^^\n");
+    }
     cpu_exec(1);
   }
   else{
@@ -69,30 +79,47 @@ static int cmd_si(char *args){
       printf("!!!! Invalid input !!!!\n");
       return 0;
     }
-    printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
+    if (print_debug_message)
+    {
+      printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
+    }
     cpu_exec(cmd_si_n);
   }
-  printf("==== Execution finished ====\n\n");
+  if (print_debug_message)
+  {
+    printf("==== Execution finished ====\n\n");
+  }
   return 0;
 }
 
 static int cmd_info(char *args){
-  printf("++++ cmd_info command ++++\n\n");
-  printf("==== info r: Print the state of register info w: Print the information of watch point(s) ====\n");
+  if (print_instruction)
+  {
+    printf("++++ cmd_info command ++++\n\n");
+    printf("==== info r: Print the state of register info w: Print the information of watch point(s) ====\n");
+  }
+
   if (args == NULL)
   {
     printf("!!!! No Subcommand !!!!\n");
+    return 0;
   }
   else
   {
     if (strcmp(args, "r") == 0)
     {
-      printf("==== Received Subcommand “r”: print the state of register ====\n");
+      if (print_debug_message)
+      {
+        printf("==== Received Subcommand “r”: print the state of register ====\n");
+      }
       isa_reg_display();
     }
   else if (strcmp(args, "w") == 0)
     {
-      printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
+      if (print_debug_message)
+      {
+        printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
+      }
       // Implement Later
     }
   else
@@ -100,7 +127,10 @@ static int cmd_info(char *args){
       printf("!!!! Subcommand Not Defined !!!!\n");
     }
   }
-  printf("==== Execution finished ====\n\n");
+  if (print_debug_message)
+  {
+    printf("==== Execution finished ====\n\n");
+  }
   return 0;
 }
 
@@ -172,27 +202,35 @@ void print_memory_loongarch32r(int loongarch32r_memory_address)
   printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(loongarch32r_memory_address, 1), vaddr_read(loongarch32r_memory_address, 2),vaddr_read(loongarch32r_memory_address, 4));
   printf("\n");
   */
- 
+
 }
 
 static int cmd_x(char *args){
-  printf("++++ cmd_x command ++++\n");
-  printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 1/2/4(/8) Byte ====\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_x command ++++\n");
+    printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 1/2/4(/8) Byte ====\n");
+  }
   int print_length;
   int start_memory_address;
   char *last_part_of_args;
   char *string_token_first = strtok_r(args, " ", &last_part_of_args);
-  printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
   print_length = atoi(string_token_first);
-  printf("==== print_length is : \"%d\" ====\n", print_length);
-  printf("==== last_part_of_args is : \"%s\" ====\n", last_part_of_args);
   sscanf(last_part_of_args, "%x", &start_memory_address);
-  printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
+  if(print_debug_message)
+  {
+    printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
+    printf("==== print_length is : \"%d\" ====\n", print_length);
+    printf("==== last_part_of_args is : \"%s\" ====\n", last_part_of_args);
+    printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
+  }
+
   //printf("________________________________________________________________________________________________\n");
   //printf("| Address  |1b Phys|2b Phys|4b Phys |    8b Phys     |1b Virt|2b Virt|4b Virt |    8b Virt     |\n");
 
   print_memory_allisa(start_memory_address, print_length);
 
+  /*
   for(int i = 0; i < print_length; i = i + 1)
   {
     //int this_memory_address = start_memory_address + i;
@@ -203,33 +241,71 @@ static int cmd_x(char *args){
     // print_memory_loongarch32r(this_memory_address);
   }
   //printf("________________________________________________________________________________________________\n");
-  printf("==== Execution finished ====\n\n");
+  */
+  if(print_debug_message)
+  {
+    printf("==== Execution finished ====\n\n");
+  }
   return 0;
 }
 
 static int cmd_p(char *args){
-  printf("++++ cmd_p command ++++\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_p command ++++\n");
+  }
   return 0;
 }
 
 static int cmd_w(char *args){
-  printf("++++ cmd_w command ++++\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_w command ++++\n");
+  }
   return 0;
 }
 
 static int cmd_d(char *args){
-  printf("++++ cmd_d command ++++\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_d command ++++\n");
+  }
   return 0;
 }
 
 static int cmd_q(char *args) {
-  printf("++++ cmd_q command ++++\n");
-  printf("==== q: Exit NEMU ====\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_q command ++++\n");
+  }
+  if(print_debug_message)
+  {
+    printf("==== q: Exit NEMU ====\n");
+  }
   nemu_state.state = NEMU_QUIT;
   // Refined the function for quiting NEMU, so the system will not report bug.
   // Principle: this is the function that calls the quit of NEMU, bu defalt, the function will not change the NEMU state when quiting.
   // If we add "nemu_state.state = NEMU_QUIT;" the system will know that NEMU quit with status "NEMU_QUIT", there will no bug generated.
   return -1;
+}
+
+static int cmd_version(char *args) {
+  if(print_instruction)
+  {
+    printf("++++ cmd_verison command ++++\n");
+  }
+  if(print_debug_message)
+  {
+    printf("==== version: Print version of current NEMU ====\n");
+  }
+  printf("Version: 1.0.1, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n");
+  printf("Version 1.0.0: Refine NEMU structure\n");
+  printf("Version 1.0.1: Optimize output of \"info r\" and \"x N EXPR\"\n");
+  if(print_debug_message)
+  {
+    printf("==== Execution finished ====\n\n");
+  }
+  return 0;
 }
 
 static int cmd_help(char *args);
@@ -244,16 +320,20 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si", "Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
   { "info", "info r: Print the state of register, info w: Print the information of watch point(s)", cmd_info},
-  { "x", "Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 4 Byte", cmd_x},
+  { "x", "Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue memory", cmd_x},
   { "p", "Solve the expression EXPR", cmd_p},
   { "w", "When the value of EXPR changes, suspend the program", cmd_w},
-  { "d", "Delete the watch point with number N", cmd_d}
+  { "d", "Delete the watch point with number N", cmd_d},
+  { "version", "Print version of current NEMU", cmd_version}
 };
 
 #define NR_CMD ARRLEN(cmd_table)
 
 static int cmd_help(char *args) {
-  printf("++++ cmd_help command ++++\n");
+  if(print_instruction)
+  {
+    printf("++++ cmd_help command ++++\n");
+  }
   /* extract the first argument */
   char *arg = strtok(NULL, " ");
   int i;
@@ -325,4 +405,3 @@ void init_sdb() {
   /* Initialize the watchpoint pool. */
   init_wp_pool();
 }
-
