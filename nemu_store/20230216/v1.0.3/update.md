@@ -1,0 +1,1 @@
+Optimize version function, optimize output

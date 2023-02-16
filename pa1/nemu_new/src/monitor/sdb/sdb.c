@@ -222,10 +222,14 @@ static int cmd_version(char *args) {
   {
     printf("==== version: Print version of current NEMU ====\n");
   }
-  printf("Version: 1.0.1, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n");
+  printf("Version: 1.0.3, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n");
+
+  printf("\n");
   printf("Version 1.0.0: Refine NEMU structure\n");
   printf("Version 1.0.1: Optimize output of \"info r\" and \"x N EXPR\"\n");
   printf("Version 1.0.2: Remove redundant codes\n");
+  printf("Version 1.0.3: Optimize \"version\" function, optimize output\n");
+
   if(print_debug_message)
   {
     printf("==== Execution finished ====\n\n");
@@ -326,6 +330,8 @@ void sdb_mainloop() {
 void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
+
+  printf("\nVersion: 1.0.3, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n\n");
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
