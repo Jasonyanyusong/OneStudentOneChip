@@ -114,6 +114,7 @@ void print_memory_riscv64(int riscv64_start_memory_address, int steps)
   //printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n8 Byte Data (vaddr): %lx\n", vaddr_read(riscv64_memory_address, 1), vaddr_read(riscv64_memory_address, 2),vaddr_read(riscv64_memory_address, 4), vaddr_read(riscv64_memory_address, 8));
   //printf("\n");
 
+  /*
   printf("******************************************************************************************************************\n");
   printf("|  Address   | 1b Phys | 2b Phys | 4b Phys  |     8b Phys      | 1b Virt | 2b Virt | 4b Virt  |     8b Virt      |\n");
   for (int i = riscv64_start_memory_address; i < riscv64_start_memory_address + steps; i = i + 1)
@@ -121,34 +122,57 @@ void print_memory_riscv64(int riscv64_start_memory_address, int steps)
     printf("| 0x%x | %7lx | %7lx | %8lx | %16lx | %7lx | %7lx | %8lx | %16lx |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), paddr_read(i, 8), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4), vaddr_read(i, 8));
   }
   printf("******************************************************************************************************************\n");
+  */
 
+}
+
+void print_memory_allisa(int allisa_start_memory_address, int steps)
+{
+  printf("******************************************************************************************************************\n");
+  printf("|  Address   | 1b Phys | 2b Phys | 4b Phys  |     8b Phys      | 1b Virt | 2b Virt | 4b Virt  |     8b Virt      |\n");
+  for (int i = allisa_start_memory_address; i < allisa_start_memory_address + steps; i = i + 1)
+  {
+    IFDEF(CONFIG_ISA64, printf("| 0x%x | %7lx | %7lx | %8lx | %16lx | %7lx | %7lx | %8lx | %16lx |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), paddr_read(i, 8), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4), vaddr_read(i, 8)););
+    IFNDEF(CONFIG_ISA64, printf("| 0x%x | %7x | %7x | %8x |        NA        | %7x | %7x | %8x |        NA        |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4)););
+  }
+  printf("******************************************************************************************************************\n");
 }
 
 void print_memory_riscv32(int riscv32_memory_address)
 {
   // RISCV32 Codes:
+
+  /*
   printf("Address: 0x%x :\n", riscv32_memory_address);
   printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(riscv32_memory_address, 1), paddr_read(riscv32_memory_address, 2),paddr_read(riscv32_memory_address, 4));
   printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(riscv32_memory_address, 1), vaddr_read(riscv32_memory_address, 2),vaddr_read(riscv32_memory_address, 4));
   printf("\n");
+  */
+
 }
 
 void print_memory_mips32(int mips32_memory_address)
 {
-  // RISCV32 Codes:
+  // MIPS32 Codes:
+  /*
   printf("Address: 0x%x :\n", mips32_memory_address);
   printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(mips32_memory_address, 1), paddr_read(mips32_memory_address, 2),paddr_read(mips32_memory_address, 4));
   printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(mips32_memory_address, 1), vaddr_read(mips32_memory_address, 2),vaddr_read(mips32_memory_address, 4));
   printf("\n");
+  */
+
 }
 
 void print_memory_loongarch32r(int loongarch32r_memory_address)
 {
-  // RISCV32 Codes:
+  // Loongarch32r Codes:
+  /*
   printf("Address: 0x%x :\n", loongarch32r_memory_address);
   printf("1 Byte Data (paddr): %lx\n2 Byte Data (paddr): %lx\n4 Byte Data (paddr): %lx\n", paddr_read(loongarch32r_memory_address, 1), paddr_read(loongarch32r_memory_address, 2),paddr_read(loongarch32r_memory_address, 4));
   printf("1 Byte Data (vaddr): %lx\n2 Byte Data (vaddr): %lx\n4 Byte Data (vaddr): %lx\n", vaddr_read(loongarch32r_memory_address, 1), vaddr_read(loongarch32r_memory_address, 2),vaddr_read(loongarch32r_memory_address, 4));
   printf("\n");
+  */
+ 
 }
 
 static int cmd_x(char *args){
@@ -167,7 +191,7 @@ static int cmd_x(char *args){
   //printf("________________________________________________________________________________________________\n");
   //printf("| Address  |1b Phys|2b Phys|4b Phys |    8b Phys     |1b Virt|2b Virt|4b Virt |    8b Virt     |\n");
 
-  print_memory_riscv64(start_memory_address, print_length);
+  print_memory_allisa(start_memory_address, print_length);
 
   for(int i = 0; i < print_length; i = i + 1)
   {
