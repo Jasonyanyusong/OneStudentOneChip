@@ -150,7 +150,7 @@ static int cmd_x(char *args){
   if(print_instruction)
   {
     printf("++++ cmd_x command ++++\n");
-    printf("==== Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue 1/2/4(/8) Byte ====\n");
+    printf("==== x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit ====\n");
   }
   int print_length;
   int start_memory_address;
@@ -213,6 +213,52 @@ static int cmd_q(char *args) {
   return -1;
 }
 
+static int cmd_debug(char *args){
+  if(print_instruction)
+  {
+    printf("++++ cmd_debug command ++++\n");
+    printf("==== debug: Switch mode of debug behavior ====\n");
+  }
+  if(true)
+  {
+    if(print_debug_message)
+    {
+      printf("==== Current mode of debug: Enabled ====\n");
+      printf("==== Will change to mode: Disabled ====\n");
+    }
+    else
+    {
+      printf("==== Current mode of debug: Disabled ====\n");
+      printf("==== Will change to mode: Enabled ====\n");
+    }
+  }
+  print_debug_message = !print_debug_message;
+  return 0;
+}
+
+static int cmd_instruction(char *args){
+  if(print_instruction)
+  {
+    printf("++++ cmd_instruction command ++++\n");
+    printf("==== instruction: Switch mode of instruction behavior ====\n");
+  }
+  if(true)
+  {
+    if(print_instruction)
+    {
+      printf("==== Current mode of instruction: Enabled ====\n");
+      printf("==== Will change to mode: Disabled ====\n");
+    }
+    else
+    {
+      printf("==== Current mode of instruction: Disabled ====\n");
+      printf("==== Will change to mode: Enabled ====\n");
+    }
+  }
+  print_instruction = !print_instruction;
+  return 0;
+}
+
 static int cmd_version(char *args) {
   if(print_instruction)
   {
@@ -222,13 +268,14 @@ static int cmd_version(char *args) {
   {
     printf("==== version: Print version of current NEMU ====\n");
   }
-  printf("Version: 1.0.3, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n");
+  printf("Version: 1.0.4, Date: 2023.02.17, Jasonyanyusong, Beijing 101 High School\n");
 
   printf("\n");
   printf("Version 1.0.0: Refine NEMU structure\n");
   printf("Version 1.0.1: Optimize output of \"info r\" and \"x N EXPR\"\n");
   printf("Version 1.0.2: Remove redundant codes\n");
   printf("Version 1.0.3: Optimize \"version\" function, optimize output\n");
+  printf("Version 1.0.4: Add enable and disable of printing debug and instruction message\n");
 
   if(print_debug_message)
   {
@@ -253,7 +300,9 @@ static struct {
   { "p", "Solve the expression EXPR", cmd_p},
   { "w", "When the value of EXPR changes, suspend the program", cmd_w},
   { "d", "Delete the watch point with number N", cmd_d},
-  { "version", "Print version of current NEMU", cmd_version}
+  { "version", "Print version of current NEMU", cmd_version},
+  { "debug", "Switch mode of debug behavior", cmd_debug},
+  { "instruction", "Switch mode of instruction behavior", cmd_instruction},
 };
 
 #define NR_CMD ARRLEN(cmd_table)
@@ -331,7 +380,7 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
 
-  printf("\nVersion: 1.0.3, Date: 2023.02.16, Jasonyanyusong, Beijing 101 High School\n\n");
+  printf("\nVersion: 1.0.4, Date: 2023.02.17, Jasonyanyusong, Beijing 101 High School\n\n");
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
