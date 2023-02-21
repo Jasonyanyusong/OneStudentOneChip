@@ -28,12 +28,13 @@
 // Test Token #5: p 0x8fff + 0x1234
 
 enum {
- TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245,
+ TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245, TK_OCTNUMBER = 244,
   /* TODO: Add more token types */
   // THIS TODO FINISHED
 };
 
 bool check_parentheses(int left_index, int right_index);
+bool* valid_call;
 
 static struct rule {
   const char *regex;
@@ -49,6 +50,7 @@ static struct rule {
   //{" +", TK_NOTYPE}, // tab
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
   {"[0-9]+", TK_NUMBER}, // Dec Numbers
+  {"0o[0-7]+", TK_OCTNUMBER},
   {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
   {"\\(", '('}, // Left Parenthesis
   {"\\)", ')'}, // Right Parenthesis
@@ -189,6 +191,16 @@ static bool make_token(char *e) {
             nr_token = nr_token + 1;
             break;
           }*/
+          case TK_OCTNUMBER:
+          {
+            printf("$$$$ Found a TK_OCTNUMBER TOKEN $$$$\n");
+            tokens[nr_token].type = TK_OCTNUMBER;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
           case TK_NUMBER:
           {
             printf("$$$$ Found a TK_NUMBER TOKEN $$$$\n");
@@ -292,14 +304,14 @@ bool check_parentheses(int left_index, int right_index)
   if(tokens[left_index].type != '(')
   {
     // Check Type I
-    printf("At Tokens Index: %d, get Type 1 Fail, Left side is not parenthese\n", left_index);
+    printf("&&&& At Tokens Index: %d, get Type 1 Fail, Left side is not parenthese &&&&\n", left_index);
     return false;
   }
 
   if(tokens[right_index].type != ')')
   {
     // Check Type II
-    printf("At Tokens Index: %d, get Type 2 Fail, Right side is not parenthese\n", right_index);
+    printf("&&&& At Tokens Index: %d, get Type 2 Fail, Right side is not parenthese &&&&\n", right_index);
     return false;
   }
 
@@ -316,7 +328,7 @@ bool check_parentheses(int left_index, int right_index)
     if(current_index != right_index && left_right_balance == 0)
     {
       // Check Type III
-      printf("At Tokens Index: %d, get Type 3 Fail, Balance before reaching end\n", current_index);
+      printf("&&&& At Tokens Index: %d, get Type 3 Fail, Balance before reaching end &&&&\n", current_index);
       return false;
     }
   }
@@ -324,21 +336,71 @@ bool check_parentheses(int left_index, int right_index)
   if(left_right_balance == 0)
   {
     // Check Type IV
-    printf("Check success, parentheses are balanced!\n");
+    printf("&&&& Check success, parentheses are balanced! &&&&\n");
     return true;
   }
   else
   {
-    printf("At Tokens Index: %d, get Type 4 Fail, Not Balance after reaching end\n", right_index);
+    printf("&&&& At Tokens Index: %d, get Type 4 Fail, Not Balance after reaching end &&&&\n", right_index);
     return false;
   }
 }
 
+u_int64_t eval(int p, int q) // p = left index, q = right index
+{
+  if(valid_call == false)
+  {
+    printf("!!!! Invalid Call !!!!\n");
+    return 0;
+  }
+  if(q > p)
+  {
+    valid_call = false;
+    printf("!!!! Invalid eval() call !!!!\n");
+    return 0;
+  }
+  if(p == q)
+  {
+    printf("~~~~ eval(p,q) call with p=q, will just return the number\n");
+    u_int64_t number = 0;
+    if(tokens[p].type == TK_NUMBER)
+    {
+      sscanf(tokens[p].str, "%ld", &number);
+      return number;
+    }
+    if(tokens[p].type == TK_HEXNUMBER)
+    {
+      sscanf(tokens[p].str, "%lx", &number);
+      return number;
+    }
+    if(tokens[p].type == TK_OCTNUMBER)
+    {
+      sscanf(tokens[p].str, "%lo", &number);
+      return number;
+    }
+    return number;
+  }
+
+  u_int64_t answer = 0;
+  if(check_parentheses(p, q) == true)
+  {
+    return eval(p + 1, q - 1);
+  }
+  else
+  {
+    printf("//// Assert Point #1 ////\n");
+    assert(0);
+  }
+  return answer;
+}
+
 word_t expr(char *e, bool *success) {
+  //eval();
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
+  valid_call = true;
 
   /* TODO: Insert codes to evaluate the expression. */
   //TODO();

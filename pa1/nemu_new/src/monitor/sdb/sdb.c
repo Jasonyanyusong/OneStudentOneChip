@@ -281,7 +281,7 @@ static int cmd_version(char *args) {
   {
     printf("==== version: Print version of current NEMU ====\n");
   }
-  printf("Version: 1.1.3, Date: 2023.02.19, Jasonyanyusong, Beijing 101 High School\n");
+  printf("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School\n");
 
   printf("\nVersion History:\n");
   printf("Version 1.0.0: Refine NEMU structure\n");
@@ -293,6 +293,7 @@ static int cmd_version(char *args) {
   printf("Version 1.1.1: Implement switch structure (default, NOTYPE, EQ, NEQ AND, OR, NUMBER, HEXNUMBER) in make_token()\n");
   printf("Version 1.1.2: Add display of token number, token type and token string at the end of make_token()\n");
   printf("Version 1.1.3: Add check_parenthese(p,q) in expr.c\n");
+  printf("Version 1.1.4: Add eval() function, evaluate expressions\n");
 
   if(print_debug_message)
   {
@@ -397,7 +398,7 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
 
-  Log("Version: 1.1.3, Date: 2023.02.19, Jasonyanyusong, Beijing 101 High School");
+  Log("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School");
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
