@@ -28,13 +28,24 @@
 // Test Token #5: p 0x8fff + 0x1234
 
 enum {
- TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245, TK_OCTNUMBER = 244,
+ TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245, TK_OCTNUMBER = 244, TK_BINNUMBER = 243,
   /* TODO: Add more token types */
   // THIS TODO FINISHED
 };
 
-bool check_parentheses(int left_index, int right_index);
+bool check_parentheses(int left_index, int right_index); // Used in eval()
+bool check_parentheses_balance(); // Used in expr()
 bool* valid_call;
+
+struct OperatorToken
+{
+  const char *regex;
+  int token_type;
+  int priority;
+  int position;
+} operator_tokens[32];
+
+int nr_operator_token = 0;
 
 static struct rule {
   const char *regex;
@@ -47,10 +58,10 @@ static struct rule {
   // THIS TODO FINISHED
 
   {" +", TK_NOTYPE}, // spaces
-  //{" +", TK_NOTYPE}, // tab
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
   {"[0-9]+", TK_NUMBER}, // Dec Numbers
-  {"0o[0-7]+", TK_OCTNUMBER},
+  {"0o[0-7]+", TK_OCTNUMBER}, // Oct Numbers
+  {"0b[0-1]+", TK_BINNUMBER}, // Bin Numbers
   {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
   {"\\(", '('}, // Left Parenthesis
   {"\\)", ')'}, // Right Parenthesis
@@ -63,7 +74,6 @@ static struct rule {
   {"&&", TK_AND}, // And
   {"\\|\\|", TK_OR}, // Or
   {"!", '!'}, // Not
-
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -191,6 +201,16 @@ static bool make_token(char *e) {
             nr_token = nr_token + 1;
             break;
           }*/
+          case TK_BINNUMBER:
+          {
+            printf("$$$$ Found a TK_BINNUMBER TOKEN $$$$\n");
+            tokens[nr_token].type = TK_BINNUMBER;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
           case TK_OCTNUMBER:
           {
             printf("$$$$ Found a TK_OCTNUMBER TOKEN $$$$\n");
@@ -281,11 +301,11 @@ static bool make_token(char *e) {
   // Debug Point: Only Two Side Parentheses Check
   if(check_parentheses(0, nr_token - 1))
   {
-    printf("Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED\n", 0, nr_token - 1);
+    printf("!!!! Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED !!!!\n", 0, nr_token - 1);
   }
   else
   {
-    printf("Left: %d, Right: %d. Only Two Side Parentheses Check FAILED\n", 0, nr_token - 1);
+    printf("!!!! Left: %d, Right: %d. Only Two Side Parentheses Check FAILED !!!!\n", 0, nr_token - 1);
   }
 
   return true;
@@ -304,14 +324,14 @@ bool check_parentheses(int left_index, int right_index)
   if(tokens[left_index].type != '(')
   {
     // Check Type I
-    printf("&&&& At Tokens Index: %d, get Type 1 Fail, Left side is not parenthese &&&&\n", left_index);
+    printf("&&&& At Tokens Index: %d, get Type I Fail, Left side is not parenthese &&&&\n", left_index);
     return false;
   }
 
   if(tokens[right_index].type != ')')
   {
     // Check Type II
-    printf("&&&& At Tokens Index: %d, get Type 2 Fail, Right side is not parenthese &&&&\n", right_index);
+    printf("&&&& At Tokens Index: %d, get Type II Fail, Right side is not parenthese &&&&\n", right_index);
     return false;
   }
 
@@ -328,7 +348,7 @@ bool check_parentheses(int left_index, int right_index)
     if(current_index != right_index && left_right_balance == 0)
     {
       // Check Type III
-      printf("&&&& At Tokens Index: %d, get Type 3 Fail, Balance before reaching end &&&&\n", current_index);
+      printf("&&&& At Tokens Index: %d, get Type III Fail, Balance before reaching end &&&&\n", current_index);
       return false;
     }
   }
@@ -341,9 +361,39 @@ bool check_parentheses(int left_index, int right_index)
   }
   else
   {
-    printf("&&&& At Tokens Index: %d, get Type 4 Fail, Not Balance after reaching end &&&&\n", right_index);
+    // Check Type IV
+    printf("&&&& At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end &&&&\n", right_index);
     return false;
   }
+}
+
+bool check_parentheses_balance()
+{
+  // This function is a more convenient version of check_parentheses(int left_index, int right_index)
+  // With default left_index = 0 and right_index = nr_token - 1, and tolerence for Type I and Type II parentheses error
+  // This can make it more efficient when the cmd_p command execute, for expr with different left parentheses count and right parentheses count, the cmd_p can quit immediately
+  int check_parentheses_balance_left_count = 0;
+  int check_parentheses_balance_right_count = 0;
+  for(int current_check_index = 0; current_check_index < nr_token; current_check_index = current_check_index + 1)
+  {
+    if(tokens[current_check_index].type == '(')
+    {
+      check_parentheses_balance_left_count = check_parentheses_balance_left_count + 1;
+    }
+    if(tokens[current_check_index].type == ')')
+    {
+      check_parentheses_balance_right_count = check_parentheses_balance_right_count + 1;
+    }
+  }
+  printf("==== In function check_parentheses_balance(), get check_parentheses_balance_left_count = %d. ====\n", check_parentheses_balance_left_count);
+  printf("==== In function check_parentheses_balance(), get check_parentheses_balance_right_count = %d. ====\n", check_parentheses_balance_right_count);
+  if(check_parentheses_balance_left_count == check_parentheses_balance_right_count)
+  {
+    printf("!!!! BALANCED !!!!\n");
+    return true;
+  }
+  printf("!!!! NOT BALANCED !!!!\n");
+  return false;
 }
 
 u_int64_t eval(int p, int q) // p = left index, q = right index
@@ -351,17 +401,19 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   if(valid_call == false)
   {
     printf("!!!! Invalid Call !!!!\n");
+    // OK
     return 0;
   }
   if(q > p)
   {
     valid_call = false;
     printf("!!!! Invalid eval() call !!!!\n");
+    // OK
     return 0;
   }
   if(p == q)
   {
-    printf("~~~~ eval(p,q) call with p=q, will just return the number\n");
+    printf("~~~~ eval(p,q) call with p=q, will just return the number ~~~~\n");
     u_int64_t number = 0;
     if(tokens[p].type == TK_NUMBER)
     {
@@ -378,17 +430,20 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
       sscanf(tokens[p].str, "%lo", &number);
       return number;
     }
+    // We should add more codes here.
     return number;
   }
 
   u_int64_t answer = 0;
   if(check_parentheses(p, q) == true)
   {
+    // OK
     return eval(p + 1, q - 1);
   }
   else
   {
     printf("//// Assert Point #1 ////\n");
+    // We should do more things here.
     assert(0);
   }
   return answer;
@@ -396,15 +451,32 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 
 word_t expr(char *e, bool *success) {
   //eval();
-  if (!make_token(e)) {
+  printf("@@@@ word_t expr(char *e, bool *success) CKPT #01 @@@@\n");
+
+  if(!check_parentheses_balance())
+  {
+    printf("@@@@ word_t expr(char *e, bool *success) CKPT #02 @@@@\n");
     *success = false;
+    *valid_call = false;
+    printf("!!!! expr() exited because check_parentheses_balance() returned FALSE !!!!\n");
     return 0;
   }
-  valid_call = true;
+    printf("@@@@ word_t expr(char *e, bool *success) CKPT #03 @@@@\n");
 
-  /* TODO: Insert codes to evaluate the expression. */
-  //TODO();
+  if (!make_token(e)) {
+    printf("@@@@ word_t expr(char *e, bool *success) CKPT #04 @@@@\n");
+    *success = false;
+    *valid_call = false;
+    return 0;
+  }
+  printf("@@@@ word_t expr(char *e, bool *success) CKPT #05 @@@@\n");
+  //*valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
 
+  *success = true;
+  printf("@@@@ word_t expr(char *e, bool *success) CKPT #06 @@@@\n");
+  u_int64_t expr_ans = eval(0, nr_token - 1);
+  printf("@@@@ word_t expr(char *e, bool *success) CKPT #07 @@@@\n");
+
+  printf("&&&& Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo &&&&\n", expr_ans, expr_ans, expr_ans);
   return 0;
 }
-
