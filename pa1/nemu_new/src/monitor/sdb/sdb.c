@@ -179,18 +179,13 @@ static int cmd_p(char *args){
     printf("++++ cmd_p command ++++\n");
     printf("==== p EXPR: Solve the expression EXPR ====\n");
   }
-  u_int64_t expression_ans;
   bool expression_success;
   expression_success = false;
   if(sdb_print_debug_message)
   {
     printf("---- Received Expression: \"%s\" , evaluating ----\n", args);
   }
-  expression_ans = expr(args, &expression_success);
-  if(expression_success)
-  {
-    printf("Ans: %lx\n", expression_ans);
-  }
+  expr(args, &expression_success);
   return 0;
 }
 
