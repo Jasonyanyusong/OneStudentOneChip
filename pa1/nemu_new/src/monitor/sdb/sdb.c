@@ -27,8 +27,10 @@
 static int is_batch_mode = false;
 
 // To enable sdb print usage instruction for each call or print debug messge, set these two bool values to true
-static bool sdb_print_instruction = false;
-static bool sdb_print_debug_message = false;
+bool sdb_print_instruction = false;
+bool sdb_print_debug_message = false;
+bool sdb_print_checkpoint = false;
+bool sdb_print_assertpoint = false;
 
 void init_regex();
 void init_wp_pool();

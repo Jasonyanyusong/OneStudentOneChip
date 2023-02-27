@@ -28,6 +28,11 @@ typedef struct watchpoint {
 static WP wp_pool[NR_WP] = {};
 static WP *head = NULL, *free_ = NULL;
 
+bool watchpoint_print_instruction = false;
+bool watchpoint_print_debug_message = false;
+bool watchpoint_print_checkpoint = false;
+bool watchpoint_print_assertpoint = false;
+
 void init_wp_pool() {
   int i;
   for (i = 0; i < NR_WP; i ++) {
