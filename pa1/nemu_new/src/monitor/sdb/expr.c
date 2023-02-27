@@ -28,13 +28,33 @@
 // Test Token #5: p 0x8fff + 0x1234
 
 enum {
- TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245, TK_OCTNUMBER = 244, TK_BINNUMBER = 243,
-  /* TODO: Add more token types */
-  // THIS TODO FINISHED
+ TK_NOTYPE = 256,
+ TK_EQ = 255,
+ TK_NEQ = 254,
+ TK_AND = 253,
+ TK_OR = 252,
+ TK_NOT = 250,
+ TK_POINTER = 249,
+ TK_NUMBER = 248,
+ TK_HEXNUMBER = 247,
+ TK_REGISTER = 246,
+ TK_MARK = 245,
+ TK_OCTNUMBER = 244,
+ TK_BINNUMBER = 243,
+ TK_PLUS = 242,
+ TK_MINUS = 241,
+ TK_MULTIPLY = 240,
+ TK_DIVIDE = 239,
+ TK_LEFT_PARENTHESES = 238,
+ TK_RIGHT_PARENTHESES = 237,
 };
 
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
+void process_operator_token();
+static bool expr_print_instruction = false;
+static bool expr_print_debug_message = false;
+void expr_debug_instruction_status();
 bool* valid_call;
 
 struct OperatorToken
@@ -51,34 +71,48 @@ static struct rule {
   const char *regex;
   int token_type;
 } rules[] = {
-
-  /* TODO: Add more rules.
-   * Pay attention to the precedence level of different rules.
-   */
-  // THIS TODO FINISHED
-
-  {" +", TK_NOTYPE}, // spaces
+  {" +", TK_NOTYPE}, // Spaces
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
   {"[0-9]+", TK_NUMBER}, // Dec Numbers
   {"0o[0-7]+", TK_OCTNUMBER}, // Oct Numbers
   {"0b[0-1]+", TK_BINNUMBER}, // Bin Numbers
   {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
-  {"\\(", '('}, // Left Parenthesis
-  {"\\)", ')'}, // Right Parenthesis
-  {"\\*", '*'}, // Multiply
-  {"\\/", '/'}, // Devide
-  {"\\+", '+'}, // Plus
-  {"\\-", '-'}, // Minus
-  {"==", TK_EQ}, // Equal
-  {"!=", TK_NEQ}, // Not Equal
-  {"&&", TK_AND}, // And
-  {"\\|\\|", TK_OR}, // Or
-  {"!", '!'}, // Not
+  {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
+  {"\\)", TK_RIGHT_PARENTHESES}, // Right Parenthesis IS_OPERATOR_TOKEN
+  {"\\*", TK_MULTIPLY}, // Multiply IS_OPERATOR_TOKEN
+  {"\\/", TK_DIVIDE}, // Devide IS_OPERATOR_TOKEN
+  {"\\+", TK_PLUS}, // Plus IS_OPERATOR_TOKEN
+  {"\\-", TK_MINUS}, // Minus IS_OPERATOR_TOKEN
+  {"==", TK_EQ}, // Equal IS_OPERATOR_TOKEN
+  {"!=", TK_NEQ}, // Not Equal IS_OPERATOR_TOKEN
+  {"&&", TK_AND}, // And IS_OPERATOR_TOKEN
+  {"\\|\\|", TK_OR}, // Or IS_OPERATOR_TOKEN
+  {"!", TK_NOT}, // Not IS_OPERATOR_TOKEN
 };
 
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
+
+void expr_debug_instruction_status()
+{
+  if(expr_print_instruction)
+  {
+    printf("==== Instruction information display is ENABLED in Expression Evaluation module ====\n");
+  }
+  else
+  {
+    printf("==== Instruction information display is DISABLED in Expression Evaluation module ====\n");
+  }
+  if(expr_print_debug_message)
+  {
+    printf("==== Debug message display is ENABLED in Expression Evaluation module ====\n");
+  }
+  else
+  {
+    printf("==== Debug message display is DISABLED in Expression Evaluation module ====\n");
+  }
+}
 
 /* Rules are used for many times.
  * Therefore we compile them only once before any usage.
@@ -147,13 +181,16 @@ static bool make_token(char *e) {
           }
           case TK_NOTYPE:
           {
+            // Case No.1
             printf("$$$$ Found a TK_NOTYPE TOKEN $$$$\n");
             printf("*** TK_NOTYPE will be thrown away directly ****\n");
             break;
           }
           case TK_EQ:
           {
+            // Case No.2
             printf("$$$$ Found a TK_EQ TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
             tokens[nr_token].type = TK_EQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -163,8 +200,22 @@ static bool make_token(char *e) {
           }
           case TK_NEQ:
           {
+            // Case No.3
             printf("$$$$ Found a TK_NEQ TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
             tokens[nr_token].type = TK_NEQ;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_NOT:
+          {
+            // Case No.4
+            printf("$$$$ Found a TK_NOT TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_NOT;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
             printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
@@ -173,7 +224,9 @@ static bool make_token(char *e) {
           }
           case TK_AND:
           {
+            // Case No.5
             printf("$$$$ Found a TK_AND TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
             tokens[nr_token].type = TK_AND;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -183,7 +236,9 @@ static bool make_token(char *e) {
           }
           case TK_OR:
           {
+            // Case No.6
             printf("$$$$ Found a TK_OR TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
             tokens[nr_token].type = TK_OR;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -191,18 +246,21 @@ static bool make_token(char *e) {
             nr_token = nr_token + 1;
             break;
           }
-          /*case TK_POINTER:
+          case TK_POINTER:
           {
+            // Case No.7
             printf("$$$$ Found a TK_POINTER TOKEN $$$$\n");
+            
             tokens[nr_token].type = TK_POINTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
             printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
             nr_token = nr_token + 1;
             break;
-          }*/
+          }
           case TK_BINNUMBER:
           {
+            // Case No.8
             printf("$$$$ Found a TK_BINNUMBER TOKEN $$$$\n");
             tokens[nr_token].type = TK_BINNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -213,6 +271,7 @@ static bool make_token(char *e) {
           }
           case TK_OCTNUMBER:
           {
+            // Case No.9
             printf("$$$$ Found a TK_OCTNUMBER TOKEN $$$$\n");
             tokens[nr_token].type = TK_OCTNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -223,6 +282,7 @@ static bool make_token(char *e) {
           }
           case TK_NUMBER:
           {
+            // Case No.10
             printf("$$$$ Found a TK_NUMBER TOKEN $$$$\n");
             tokens[nr_token].type = TK_NUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -233,6 +293,7 @@ static bool make_token(char *e) {
           }
           case TK_HEXNUMBER:
           {
+            // Case No.11
             printf("$$$$ Found a TK_HEXNUMBER TOKEN $$$$\n");
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -243,7 +304,9 @@ static bool make_token(char *e) {
           }
           case TK_REGISTER: // !!! Special Case
           {
+            // Case No.12
             printf("$$$$ Found a TK_REGISTER TOKEN $$$$\n");
+
             tokens[nr_token].type = TK_REGISTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -251,16 +314,90 @@ static bool make_token(char *e) {
             nr_token = nr_token + 1;
             break;
           }
-          /*case TK_MARK:
+          case TK_MARK:
           {
+            // Case No.13
             printf("$$$$ Found a TK_MARK TOKEN $$$$\n");
+
             tokens[nr_token].type = TK_MARK;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
             printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
             nr_token = nr_token + 1;
             break;
-          }*/
+          }
+          case TK_LEFT_PARENTHESES:
+          {
+            // Case No.14
+            printf("$$$$ Found a TK_LEFT_PARENTHESES TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_LEFT_PARENTHESES;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_RIGHT_PARENTHESES:
+          {
+            // Case No.15
+            printf("$$$$ Found a TK_RIGHT_PARENTHESES TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_RIGHT_PARENTHESES;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_MULTIPLY:
+          {
+            // Case No.16
+            printf("$$$$ Found a TK_MULTIPLY TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_MULTIPLY;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_DIVIDE:
+          {
+            // Case No.17
+            printf("$$$$ Found a TK_DIVIDE TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_DIVIDE;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_PLUS:
+          {
+            // Case No.18
+            printf("$$$$ Found a TK_PLUS TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_PLUS;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
+          case TK_MINUS:
+          {
+            // Case No.19
+            printf("$$$$ Found a TK_MINUS TOKEN $$$$\n");
+            printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
+            tokens[nr_token].type = TK_MINUS;
+            strncpy(tokens[nr_token].str, substr_start, substr_len);
+            printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
+            printf("**** tokens[nr_token].str is: \"%s\" ****\n", tokens[nr_token].str);
+            nr_token = nr_token + 1;
+            break;
+          }
         }
         // printf("make_token() Check Point #5\n");
         break;
@@ -321,14 +458,14 @@ bool check_parentheses(int left_index, int right_index)
 
   int left_right_balance = 0;
 
-  if(tokens[left_index].type != '(')
+  if(tokens[left_index].type != TK_LEFT_PARENTHESES)
   {
     // Check Type I
     printf("&&&& At Tokens Index: %d, get Type I Fail, Left side is not parenthese &&&&\n", left_index);
     return false;
   }
 
-  if(tokens[right_index].type != ')')
+  if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
   {
     // Check Type II
     printf("&&&& At Tokens Index: %d, get Type II Fail, Right side is not parenthese &&&&\n", right_index);
@@ -337,11 +474,11 @@ bool check_parentheses(int left_index, int right_index)
 
   for(int current_index = left_index; current_index <= right_index; current_index = current_index + 1)
   {
-    if(tokens[current_index].type == '(')
+    if(tokens[current_index].type == TK_LEFT_PARENTHESES)
     {
       left_right_balance = left_right_balance + 1;
     }
-    if(tokens[current_index].type == ')')
+    if(tokens[current_index].type == TK_RIGHT_PARENTHESES)
     {
       left_right_balance = left_right_balance - 1;
     }
@@ -376,11 +513,11 @@ bool check_parentheses_balance()
   int check_parentheses_balance_right_count = 0;
   for(int current_check_index = 0; current_check_index < nr_token; current_check_index = current_check_index + 1)
   {
-    if(tokens[current_check_index].type == '(')
+    if(tokens[current_check_index].type == TK_LEFT_PARENTHESES)
     {
       check_parentheses_balance_left_count = check_parentheses_balance_left_count + 1;
     }
-    if(tokens[current_check_index].type == ')')
+    if(tokens[current_check_index].type == TK_RIGHT_PARENTHESES)
     {
       check_parentheses_balance_right_count = check_parentheses_balance_right_count + 1;
     }
@@ -394,6 +531,12 @@ bool check_parentheses_balance()
   }
   printf("!!!! NOT BALANCED !!!!\n");
   return false;
+}
+
+void process_operator_token()
+{
+  printf("==== In function void process_operator_token() ====\n");
+  return;
 }
 
 u_int64_t eval(int p, int q) // p = left index, q = right index
@@ -450,6 +593,7 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 }
 
 word_t expr(char *e, bool *success) {
+  expr_debug_instruction_status();
   //eval();
   printf("@@@@ word_t expr(char *e, bool *success) CKPT #01 @@@@\n");
 

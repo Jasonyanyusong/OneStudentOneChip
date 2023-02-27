@@ -27,8 +27,8 @@
 static int is_batch_mode = false;
 
 // To enable sdb print usage instruction for each call or print debug messge, set these two bool values to true
-static bool print_instruction = false;
-static bool print_debug_message = false;
+static bool sdb_print_instruction = false;
+static bool sdb_print_debug_message = false;
 
 void init_regex();
 void init_wp_pool();
@@ -58,14 +58,14 @@ static int cmd_c(char *args) {
 }
 
 static int cmd_si(char *args){
-  if (print_instruction)
+  if (sdb_print_instruction)
   {
     printf("++++ cmd_si command ++++\n\n");
     printf("==== Run the program for N steps and then suspend, if N is not given, defalt is 1 ==== \n");
     printf("==== Subcommnd Received: \"%s\" ====\n", args);
   }
   if (args == NULL){
-    if (print_debug_message)
+    if (sdb_print_debug_message)
     {
       printf("^^^^ No Subcommand received, default 1 ^^^^\n");
     }
@@ -79,13 +79,13 @@ static int cmd_si(char *args){
       printf("!!!! Invalid input !!!!\n");
       return 0;
     }
-    if (print_debug_message)
+    if (sdb_print_debug_message)
     {
       printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
     }
     cpu_exec(cmd_si_n);
   }
-  if (print_debug_message)
+  if (sdb_print_debug_message)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -93,7 +93,7 @@ static int cmd_si(char *args){
 }
 
 static int cmd_info(char *args){
-  if (print_instruction)
+  if (sdb_print_instruction)
   {
     printf("++++ cmd_info command ++++\n\n");
     printf("==== info r: Print the state of register info w: Print the information of watch point(s) ====\n");
@@ -108,7 +108,7 @@ static int cmd_info(char *args){
   {
     if (strcmp(args, "r") == 0)
     {
-      if (print_debug_message)
+      if (sdb_print_debug_message)
       {
         printf("==== Received Subcommand “r”: print the state of register ====\n");
       }
@@ -116,7 +116,7 @@ static int cmd_info(char *args){
     }
   else if (strcmp(args, "w") == 0)
     {
-      if (print_debug_message)
+      if (sdb_print_debug_message)
       {
         printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
       }
@@ -127,7 +127,7 @@ static int cmd_info(char *args){
       printf("!!!! Subcommand Not Defined !!!!\n");
     }
   }
-  if (print_debug_message)
+  if (sdb_print_debug_message)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -147,7 +147,7 @@ void print_memory_allisa(int allisa_start_memory_address, int steps)
 }
 
 static int cmd_x(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_x command ++++\n");
     printf("==== x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit ====\n");
@@ -158,7 +158,7 @@ static int cmd_x(char *args){
   char *string_token_first = strtok_r(args, " ", &last_part_of_args);
   print_length = atoi(string_token_first);
   sscanf(last_part_of_args, "%x", &start_memory_address);
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
     printf("==== print_length is : \"%d\" ====\n", print_length);
@@ -166,7 +166,7 @@ static int cmd_x(char *args){
     printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
   }
   print_memory_allisa(start_memory_address, print_length);
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -174,7 +174,7 @@ static int cmd_x(char *args){
 }
 
 static int cmd_p(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_p command ++++\n");
     printf("==== p EXPR: Solve the expression EXPR ====\n");
@@ -182,7 +182,7 @@ static int cmd_p(char *args){
   u_int64_t expression_ans;
   bool expression_success;
   expression_success = false;
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("---- Received Expression: \"%s\" , evaluating ----\n", args);
   }
@@ -195,7 +195,7 @@ static int cmd_p(char *args){
 }
 
 static int cmd_w(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_w command ++++\n");
   }
@@ -203,7 +203,7 @@ static int cmd_w(char *args){
 }
 
 static int cmd_d(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_d command ++++\n");
   }
@@ -211,11 +211,11 @@ static int cmd_d(char *args){
 }
 
 static int cmd_q(char *args) {
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_q command ++++\n");
   }
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("==== q: Exit NEMU ====\n");
   }
@@ -227,14 +227,14 @@ static int cmd_q(char *args) {
 }
 
 static int cmd_debug(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_debug command ++++\n");
     printf("==== debug: Switch mode of debug behavior ====\n");
   }
   if(true)
   {
-    if(print_debug_message)
+    if(sdb_print_debug_message)
     {
       printf("==== Current mode of debug: Enabled ====\n");
       printf("==== Will change to mode: Disabled ====\n");
@@ -245,19 +245,19 @@ static int cmd_debug(char *args){
       printf("==== Will change to mode: Enabled ====\n");
     }
   }
-  print_debug_message = !print_debug_message;
+  sdb_print_debug_message = !sdb_print_debug_message;
   return 0;
 }
 
 static int cmd_instruction(char *args){
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_instruction command ++++\n");
     printf("==== instruction: Switch mode of instruction behavior ====\n");
   }
   if(true)
   {
-    if(print_instruction)
+    if(sdb_print_instruction)
     {
       printf("==== Current mode of instruction: Enabled ====\n");
       printf("==== Will change to mode: Disabled ====\n");
@@ -268,16 +268,16 @@ static int cmd_instruction(char *args){
       printf("==== Will change to mode: Enabled ====\n");
     }
   }
-  print_instruction = !print_instruction;
+  sdb_print_instruction = !sdb_print_instruction;
   return 0;
 }
 
 static int cmd_version(char *args) {
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_verison command ++++\n");
   }
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("==== version: Print version of current NEMU ====\n");
   }
@@ -295,7 +295,7 @@ static int cmd_version(char *args) {
   printf("Version 1.1.3: Add check_parenthese(p,q) in expr.c\n");
   printf("Version 1.1.4: Add eval() function, evaluate expressions\n");
 
-  if(print_debug_message)
+  if(sdb_print_debug_message)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -326,7 +326,7 @@ static struct {
 #define NR_CMD ARRLEN(cmd_table)
 
 static int cmd_help(char *args) {
-  if(print_instruction)
+  if(sdb_print_instruction)
   {
     printf("++++ cmd_help command ++++\n");
   }
