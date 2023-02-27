@@ -31,9 +31,69 @@ bool sdb_print_instruction = false;
 bool sdb_print_debug_message = false;
 bool sdb_print_checkpoint = false;
 bool sdb_print_assertpoint = false;
+void set_sdb_print_instruction(bool target_sdb_print_instruction);
+void set_sdb_print_debug_message(bool target_sdb_print_debug_message);
+void set_sdb_print_checkpoint(bool target_sdb_print_checkpoint);
+void set_sdb_print_assertpoint(bool target_sdb_print_assertpoint);
 
 void init_regex();
 void init_wp_pool();
+
+void set_sdb_print_instruction(bool target_sdb_print_instruction)
+{
+  sdb_print_instruction = target_sdb_print_instruction;
+  if(sdb_print_instruction)
+  {
+    printf("sdb_print_instruction: ON\n");
+  }
+  else
+  {
+    printf("sdb_print_instruction: OFF\n");
+  }
+  return;
+}
+
+void set_sdb_print_debug_message(bool target_sdb_print_debug_message)
+{
+  sdb_print_debug_message = target_sdb_print_debug_message;
+  if(sdb_print_debug_message)
+  {
+    printf("sdb_print_debug_message: ON\n");
+  }
+  else
+  {
+    printf("sdb_print_debug_message: OFF\n");
+  }
+  return;
+}
+
+void set_sdb_print_checkpoint(bool target_sdb_print_checkpoint)
+{
+  sdb_print_checkpoint = target_sdb_print_checkpoint;
+  if(sdb_print_checkpoint)
+  {
+    printf("sdb_print_checkpoint: ON\n");
+  }
+  else
+  {
+    printf("sdb_print_checkpoint: OFF\n");
+  }
+  return;
+}
+
+void set_sdb_print_assertpoint(bool target_sdb_print_assertpoint)
+{
+  sdb_print_assertpoint = target_sdb_print_assertpoint;
+  if(sdb_print_assertpoint)
+  {
+    printf("sdb_print_assertpoint: ON\n");
+  }
+  else
+  {
+    printf("sdb_print_assertpoint: OFF\n");
+  }
+  return;
+}
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {

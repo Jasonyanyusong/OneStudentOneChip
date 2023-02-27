@@ -32,6 +32,67 @@ bool watchpoint_print_instruction = false;
 bool watchpoint_print_debug_message = false;
 bool watchpoint_print_checkpoint = false;
 bool watchpoint_print_assertpoint = false;
+void set_watchpoint_print_instruction(bool target_watchpoint_print_instruction);
+void set_watchpoint_print_debug_message(bool target_watchpoint_print_debug_message);
+void set_watchpoint_print_checkpoint(bool target_watchpoint_print_checkpoint);
+void set_watchpoint_print_assertpoint(bool target_watchpoint_print_assertpoint);
+
+void set_watchpoint_print_instruction(bool target_watchpoint_print_instruction)
+{
+  watchpoint_print_instruction = target_watchpoint_print_instruction;
+  if(watchpoint_print_instruction)
+  {
+    printf("watchpoint_print_instruction: ON\n");
+  }
+  else
+  {
+    printf("watchpoint_print_instruction: OFF\n");
+  }
+  return;
+}
+
+void set_watchpoint_print_debug_message(bool target_watchpoint_print_debug_message)
+{
+  watchpoint_print_debug_message = target_watchpoint_print_debug_message;
+  if(watchpoint_print_debug_message)
+  {
+    printf("watchpoint_print_debug_message: ON\n");
+  }
+  else
+  {
+    printf("watchpoint_print_debug_message: OFF\n");
+  }
+  return;
+}
+
+void set_watchpoint_print_checkpoint(bool target_watchpoint_print_checkpoint)
+{
+  watchpoint_print_checkpoint = target_watchpoint_print_checkpoint;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("watchpoint_print_checkpoint: ON\n");
+  }
+  else
+  {
+    printf("watchpoint_print_checkpoint: OFF\n");
+  }
+  return;
+}
+
+void set_watchpoint_print_assertpoint(bool target_watchpoint_print_assertpoint)
+{
+  watchpoint_print_assertpoint = target_watchpoint_print_assertpoint;
+  if(watchpoint_print_assertpoint)
+  {
+    printf("watchpoint_print_assertpoint: ON\n");
+  }
+  else
+  {
+    printf("watchpoint_print_assertpoint: OFF\n");
+  }
+  return;
+}
+
 
 void init_wp_pool() {
   int i;

@@ -52,12 +52,17 @@ enum {
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
 void process_operator_token();
+void expr_debug_instruction_status();
+bool* valid_call;
+
 bool expr_print_instruction = false;
 bool expr_print_debug_message = false;
 bool expr_print_checkpoint = false;
 bool expr_print_assertpoint = false;
-void expr_debug_instruction_status();
-bool* valid_call;
+void set_expr_print_instruction(bool target_expr_print_instruction);
+void set_expr_print_debug_message(bool target_expr_print_debug_message);
+void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
+void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
 
 struct OperatorToken
 {
@@ -95,6 +100,62 @@ static struct rule {
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
+
+void set_expr_print_instruction(bool target_expr_print_instruction)
+{
+  expr_print_instruction = target_expr_print_instruction;
+  if(expr_print_instruction)
+  {
+    printf("expr_print_instruction: ON\n");
+  }
+  else
+  {
+    printf("expr_print_instruction: OFF\n");
+  }
+  return;
+}
+
+void set_expr_print_debug_message(bool target_expr_print_debug_message)
+{
+  expr_print_debug_message = target_expr_print_debug_message;
+  if(expr_print_debug_message)
+  {
+    printf("expr_print_debug_message: ON\n");
+  }
+  else
+  {
+    printf("expr_print_debug_message: OFF\n");
+  }
+  return;
+}
+
+void set_expr_print_checkpoint(bool target_expr_print_checkpoint)
+{
+  expr_print_checkpoint = target_expr_print_checkpoint;
+  if(expr_print_checkpoint)
+  {
+    printf("expr_print_checkpoint: ON\n");
+  }
+  else
+  {
+    printf("expr_print_checkpoint: OFF\n");
+  }
+  return;
+}
+
+void set_expr_print_assertpoint(bool target_expr_print_assertpoint)
+{
+  expr_print_assertpoint = target_expr_print_assertpoint;
+  if(expr_print_assertpoint)
+  {
+    printf("expr_print_assertpoint: ON\n");
+  }
+  else
+  {
+    printf("expr_print_assertpoint: OFF\n");
+  }
+  return;
+}
 
 void expr_debug_instruction_status()
 {
