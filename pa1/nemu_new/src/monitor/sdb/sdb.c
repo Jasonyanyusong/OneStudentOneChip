@@ -109,45 +109,6 @@ bool get_sdb_print_assertpoint()
   return sdb_print_assertpoint;
 }
 
-void sdb_debug_instruction_status()
-{
-  if(sdb_print_debug)
-  {
-    if(sdb_print_instruction)
-    {
-      printf("==== Instruction information display is ENABLED in Simple Debuger module ====\n");
-    }
-    else
-    {
-      printf("==== Instruction information display is DISABLED in Simple Debuger module ====\n");
-    }
-    if(sdb_print_debug)
-    {
-      printf("==== Debug message display is ENABLED in Simple Debuger module ====\n");
-    }
-    else
-    {
-      printf("==== Debug message display is DISABLED in Simple Debuger module ====\n");
-    }
-    if(sdb_print_checkpoint)
-    {
-      printf("==== Checkpoint display is ENABLED in Simple Debuger module ====\n");
-    }
-    else
-    {
-      printf("==== Checkpoint display is DISABLED in Simple Debuger module ====\n");
-    }
-    if(sdb_print_assertpoint)
-    {
-      printf("==== Assertpoint display is ENABLED in Simple Debuger module ====\n");
-    }
-    else
-    {
-      printf("==== Assertpoint display is DISABLED in Simple Debuger module ====\n");
-    }
-  }
-}
-
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
@@ -414,7 +375,7 @@ static int cmd_q(char *args) {
 
 void message_set_instruction()
 {
-  //assert(0);
+  printf("\n");
   printf("Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
   printf("1) First, declare the area of changing massage status, type \"sdb\", \"expr\" or \"watchpoint\" with a space at the end\n");
   printf("2) Second, declare what type of message to modify, use \"instruction\", \"debug\", \"checkpoint\" or \"assertpoint\" with a space at the end\n");
@@ -426,7 +387,7 @@ void message_set_instruction()
 
 void print_message_status()
 {
-  //assert(0);
+  printf("\n");
   printf("1) In Simple Debuger Module:\n");
   if(get_sdb_print_instruction())
   {
@@ -542,8 +503,164 @@ static int cmd_message(char *args)
   {
     printf("++++ cmd_message command ++++\n");
   }
+  //message_set_instruction();
+  //print_message_status();
+
+  if(strcmp(args, "sdb instruction on") == 0)
+  {
+    set_sdb_print_instruction(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb instruction off") == 0)
+  {
+    set_sdb_print_instruction(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb debug on") == 0)
+  {
+    set_sdb_print_debug(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb debug off") == 0)
+  {
+    set_sdb_print_debug(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb checkpoint on") == 0)
+  {
+    set_sdb_print_checkpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb checkpoint off") == 0)
+  {
+    set_sdb_print_checkpoint(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb assertpoint on") == 0)
+  {
+    set_sdb_print_assertpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "sdb assertpoint off") == 0)
+  {
+    set_sdb_print_assertpoint(false);
+    print_message_status();
+    return 0;
+  }
+
+  if(strcmp(args, "expr instruction on") == 0)
+  {
+    set_expr_print_instruction(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr instruction off") == 0)
+  {
+    set_expr_print_instruction(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr debug on") == 0)
+  {
+    set_expr_print_debug(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr debug off") == 0)
+  {
+    set_expr_print_debug(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr checkpoint on") == 0)
+  {
+    set_expr_print_checkpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr checkpoint off") == 0)
+  {
+    set_expr_print_checkpoint(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr assertpoint on") == 0)
+  {
+    set_expr_print_assertpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "expr assertpoint off") == 0)
+  {
+    set_expr_print_assertpoint(false);
+    print_message_status();
+    return 0;
+  }
+
+  if(strcmp(args, "watchpoint instruction on") == 0)
+  {
+    set_watchpoint_print_instruction(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint instruction off") == 0)
+  {
+    set_watchpoint_print_instruction(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint debug on") == 0)
+  {
+    set_watchpoint_print_debug(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint debug off") == 0)
+  {
+    set_watchpoint_print_debug(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint checkpoint on") == 0)
+  {
+    set_watchpoint_print_checkpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint checkpoint off") == 0)
+  {
+    set_watchpoint_print_checkpoint(false);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint assertpoint on") == 0)
+  {
+    set_watchpoint_print_assertpoint(true);
+    print_message_status();
+    return 0;
+  }
+  if(strcmp(args, "watchpoint assertpoint off") == 0)
+  {
+    set_watchpoint_print_assertpoint(false);
+    print_message_status();
+    return 0;
+  }
+
+  if(strcmp(args, "help") == 0)
+  {
+    message_set_instruction();
+    return 0;
+  }
+
+  printf("Usage Error!\n");
   message_set_instruction();
-  print_message_status();
   return 0;
 }
 

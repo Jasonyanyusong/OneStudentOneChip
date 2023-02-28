@@ -110,46 +110,6 @@ bool get_watchpoint_print_assertpoint()
   return watchpoint_print_assertpoint;
 }
 
-void watchpoint_debug_instruction_status()
-{
-  if(watchpoint_print_debug)
-  {
-    if(watchpoint_print_instruction)
-    {
-      printf("==== Instruction information display is ENABLED in Watch Point module ====\n");
-    }
-    else
-    {
-      printf("==== Instruction information display is DISABLED in Watch Point module ====\n");
-    }
-    if(watchpoint_print_debug)
-    {
-      printf("==== Debug message display is ENABLED in Watch Point module ====\n");
-    }
-    else
-    {
-      printf("==== Debug message display is DISABLED in Watch Point module ====\n");
-    }
-    if(watchpoint_print_checkpoint)
-    {
-      printf("==== Checkpoint display is ENABLED in Watch Point module ====\n");
-    }
-    else
-    {
-      printf("==== Checkpoint display is DISABLED in Watch Point module ====\n");
-    }
-    if(watchpoint_print_assertpoint)
-    {
-      printf("==== Assertpoint display is ENABLED in Watch Point module ====\n");
-    }
-    else
-    {
-      printf("==== Assertpoint display is DISABLED in Watch Point module ====\n");
-    }
-  }
-}
-
-
 void init_wp_pool() {
   int i;
   for (i = 0; i < NR_WP; i ++) {

@@ -174,45 +174,6 @@ bool get_expr_print_assertpoint()
   return expr_print_assertpoint;
 }
 
-void expr_debug_instruction_status()
-{
-  if(expr_print_debug)
-  {
-    if(expr_print_instruction)
-    {
-      printf("==== Instruction information display is ENABLED in Expression Evaluation module ====\n");
-    }
-    else
-    {
-      printf("==== Instruction information display is DISABLED in Expression Evaluation module ====\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("==== Debug message display is ENABLED in Expression Evaluation module ====\n");
-    }
-    else
-    {
-      printf("==== Debug message display is DISABLED in Expression Evaluation module ====\n");
-    }
-    if(expr_print_checkpoint)
-    {
-      printf("==== Checkpoint display is ENABLED in Expression Evaluation module ====\n");
-    }
-    else
-    {
-      printf("==== Checkpoint display is DISABLED in Expression Evaluation module ====\n");
-    }
-    if(expr_print_assertpoint)
-    {
-      printf("==== Assertpoint display is ENABLED in Expression Evaluation module ====\n");
-    }
-    else
-    {
-      printf("==== Assertpoint display is DISABLED in Expression Evaluation module ====\n");
-    }
-  }
-}
-
 /* Rules are used for many times.
  * Therefore we compile them only once before any usage.
  */
@@ -806,7 +767,6 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 }
 
 word_t expr(char *e, bool *success) {
-  expr_debug_instruction_status();
   //eval();
   if(expr_print_checkpoint)
   {
