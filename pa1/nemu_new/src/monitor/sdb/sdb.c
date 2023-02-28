@@ -26,7 +26,6 @@
 
 static int is_batch_mode = false;
 
-// To enable sdb print usage instruction for each call or print debug messge, set these two bool values to true
 bool sdb_print_instruction = false;
 bool sdb_print_debug = false;
 bool sdb_print_checkpoint = false;
@@ -297,82 +296,6 @@ static int cmd_q(char *args) {
   return -1;
 }
 
-/*static int cmd_debug(char *args){
-  if(sdb_print_instruction)
-  {
-    printf("++++ cmd_debug command ++++\n");
-    printf("==== debug: Switch mode of debug behavior ====\n");
-  }
-  if(true)
-  {
-    if(sdb_print_debug)
-    {
-      printf("==== Current mode of debug: Enabled ====\n");
-      printf("==== Will change to mode: Disabled ====\n");
-    }
-    else
-    {
-      printf("==== Current mode of debug: Disabled ====\n");
-      printf("==== Will change to mode: Enabled ====\n");
-    }
-  }
-  sdb_print_debug = !sdb_print_debug;
-  return 0;
-}*/
-
-/*static int cmd_instruction(char *args){
-  if(sdb_print_instruction)
-  {
-    printf("++++ cmd_instruction command ++++\n");
-    printf("==== instruction: Switch mode of instruction behavior ====\n");
-  }
-  if(true)
-  {
-    if(sdb_print_instruction)
-    {
-      printf("==== Current mode of instruction: Enabled ====\n");
-      printf("==== Will change to mode: Disabled ====\n");
-    }
-    else
-    {
-      printf("==== Current mode of instruction: Disabled ====\n");
-      printf("==== Will change to mode: Enabled ====\n");
-    }
-  }
-  sdb_print_instruction = !sdb_print_instruction;
-  return 0;
-}*/
-
-/*static int cmd_version(char *args) {
-  if(sdb_print_instruction)
-  {
-    printf("++++ cmd_verison command ++++\n");
-  }
-  if(sdb_print_debug)
-  {
-    printf("==== version: Print version of current NEMU ====\n");
-  }
-  printf("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School\n");
-
-  printf("\nVersion History:\n");
-  printf("Version 1.0.0: Refine NEMU structure\n");
-  printf("Version 1.0.1: Optimize output of \"info r\" and \"x N EXPR\"\n");
-  printf("Version 1.0.2: Remove redundant codes\n");
-  printf("Version 1.0.3: Optimize \"version\" function, optimize output\n");
-  printf("Version 1.0.4: Add enable and disable of printing debug and instruction message\n");
-  printf("Version 1.1.0: Add Command Line Interface for expression evaluation\n");
-  printf("Version 1.1.1: Implement switch structure (default, NOTYPE, EQ, NEQ AND, OR, NUMBER, HEXNUMBER) in make_token()\n");
-  printf("Version 1.1.2: Add display of token number, token type and token string at the end of make_token()\n");
-  printf("Version 1.1.3: Add check_parenthese(p,q) in expr.c\n");
-  printf("Version 1.1.4: Add eval() function, evaluate expressions\n");
-
-  if(sdb_print_debug)
-  {
-    printf("==== Execution finished ====\n\n");
-  }
-  return 0;
-}*/
-
 void message_set_instruction()
 {
   printf("\n");
@@ -498,13 +421,10 @@ void print_message_status()
 
 static int cmd_message(char *args)
 {
-  //assert(0);
   if(sdb_print_instruction)
   {
     printf("++++ cmd_message command ++++\n");
   }
-  //message_set_instruction();
-  //print_message_status();
 
   if(strcmp(args, "sdb instruction on") == 0)
   {
@@ -680,9 +600,6 @@ static struct {
   { "p", "Solve the expression EXPR", cmd_p},
   { "w", "When the value of EXPR changes, suspend the program", cmd_w},
   { "d", "Delete the watch point with number N", cmd_d},
-  //{ "version", "Print version of current NEMU", cmd_version}, // Disabled cmd_version()
-  //{ "debug", "Switch mode of debug behavior", cmd_debug},
-  //{ "instruction", "Switch mode of instruction behavior", cmd_instruction},
   { "message", "Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)", cmd_message},
 };
 
@@ -760,8 +677,6 @@ void sdb_mainloop() {
 void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
-
-  //Log("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School"); // Disable version printing
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
