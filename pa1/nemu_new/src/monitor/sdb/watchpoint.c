@@ -29,11 +29,11 @@ static WP wp_pool[NR_WP] = {};
 static WP *head = NULL, *free_ = NULL;
 
 bool watchpoint_print_instruction = false;
-bool watchpoint_print_debug_message = false;
+bool watchpoint_print_debug = false;
 bool watchpoint_print_checkpoint = false;
 bool watchpoint_print_assertpoint = false;
 void set_watchpoint_print_instruction(bool target_watchpoint_print_instruction);
-void set_watchpoint_print_debug_message(bool target_watchpoint_print_debug_message);
+void set_watchpoint_print_debug(bool target_watchpoint_print_debug);
 void set_watchpoint_print_checkpoint(bool target_watchpoint_print_checkpoint);
 void set_watchpoint_print_assertpoint(bool target_watchpoint_print_assertpoint);
 
@@ -51,16 +51,16 @@ void set_watchpoint_print_instruction(bool target_watchpoint_print_instruction)
   return;
 }
 
-void set_watchpoint_print_debug_message(bool target_watchpoint_print_debug_message)
+void set_watchpoint_print_debug(bool target_watchpoint_print_debug)
 {
-  watchpoint_print_debug_message = target_watchpoint_print_debug_message;
-  if(watchpoint_print_debug_message)
+  watchpoint_print_debug = target_watchpoint_print_debug;
+  if(watchpoint_print_debug)
   {
-    printf("watchpoint_print_debug_message: ON\n");
+    printf("watchpoint_print_debug: ON\n");
   }
   else
   {
-    printf("watchpoint_print_debug_message: OFF\n");
+    printf("watchpoint_print_debug: OFF\n");
   }
   return;
 }
@@ -91,6 +91,62 @@ void set_watchpoint_print_assertpoint(bool target_watchpoint_print_assertpoint)
     printf("watchpoint_print_assertpoint: OFF\n");
   }
   return;
+}
+
+bool get_watchpoint_print_instruction()
+{
+  return watchpoint_print_instruction;
+}
+bool get_watchpoint_print_debug()
+{
+  return watchpoint_print_debug;
+}
+bool get_watchpoint_print_checkpoint()
+{
+  return watchpoint_print_checkpoint;
+}
+bool get_watchpoint_print_assertpoint()
+{
+  return watchpoint_print_assertpoint;
+}
+
+void watchpoint_debug_instruction_status()
+{
+  if(watchpoint_print_debug)
+  {
+    if(watchpoint_print_instruction)
+    {
+      printf("==== Instruction information display is ENABLED in Watch Point module ====\n");
+    }
+    else
+    {
+      printf("==== Instruction information display is DISABLED in Watch Point module ====\n");
+    }
+    if(watchpoint_print_debug)
+    {
+      printf("==== Debug message display is ENABLED in Watch Point module ====\n");
+    }
+    else
+    {
+      printf("==== Debug message display is DISABLED in Watch Point module ====\n");
+    }
+    if(watchpoint_print_checkpoint)
+    {
+      printf("==== Checkpoint display is ENABLED in Watch Point module ====\n");
+    }
+    else
+    {
+      printf("==== Checkpoint display is DISABLED in Watch Point module ====\n");
+    }
+    if(watchpoint_print_assertpoint)
+    {
+      printf("==== Assertpoint display is ENABLED in Watch Point module ====\n");
+    }
+    else
+    {
+      printf("==== Assertpoint display is DISABLED in Watch Point module ====\n");
+    }
+  }
 }
 
 
