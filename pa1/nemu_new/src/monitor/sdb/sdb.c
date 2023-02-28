@@ -283,7 +283,7 @@ static int cmd_q(char *args) {
   return -1;
 }
 
-static int cmd_debug(char *args){
+/*static int cmd_debug(char *args){
   if(sdb_print_instruction)
   {
     printf("++++ cmd_debug command ++++\n");
@@ -304,9 +304,9 @@ static int cmd_debug(char *args){
   }
   sdb_print_debug_message = !sdb_print_debug_message;
   return 0;
-}
+}*/
 
-static int cmd_instruction(char *args){
+/*static int cmd_instruction(char *args){
   if(sdb_print_instruction)
   {
     printf("++++ cmd_instruction command ++++\n");
@@ -327,9 +327,9 @@ static int cmd_instruction(char *args){
   }
   sdb_print_instruction = !sdb_print_instruction;
   return 0;
-}
+}*/
 
-static int cmd_version(char *args) {
+/*static int cmd_version(char *args) {
   if(sdb_print_instruction)
   {
     printf("++++ cmd_verison command ++++\n");
@@ -357,7 +357,7 @@ static int cmd_version(char *args) {
     printf("==== Execution finished ====\n\n");
   }
   return 0;
-}
+}*/
 
 static int cmd_message(char *args)
 {
@@ -380,9 +380,9 @@ static struct {
   { "p", "Solve the expression EXPR", cmd_p},
   { "w", "When the value of EXPR changes, suspend the program", cmd_w},
   { "d", "Delete the watch point with number N", cmd_d},
-  { "version", "Print version of current NEMU", cmd_version},
-  { "debug", "Switch mode of debug behavior", cmd_debug},
-  { "instruction", "Switch mode of instruction behavior", cmd_instruction},
+  //{ "version", "Print version of current NEMU", cmd_version}, // Disabled cmd_version()
+  //{ "debug", "Switch mode of debug behavior", cmd_debug},
+  //{ "instruction", "Switch mode of instruction behavior", cmd_instruction},
   { "message", "Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)", cmd_message},
 };
 
@@ -461,7 +461,7 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
 
-  Log("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School");
+  //Log("Version: 1.1.4, Date: 2023.02.21, Jasonyanyusong, Beijing 101 High School"); // Disable version printing
 
   /* Initialize the watchpoint pool. */
   init_wp_pool();
