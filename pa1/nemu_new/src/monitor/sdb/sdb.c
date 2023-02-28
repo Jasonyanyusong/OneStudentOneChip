@@ -359,8 +359,32 @@ static int cmd_q(char *args) {
   return 0;
 }*/
 
+void message_set_instruction()
+{
+  //assert(0);
+  printf("Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
+  printf("1) First, declare the area of changing massage status, type \"sdb\", \"expr\" or \"watchpoint\" with a space at the end\n");
+  printf("2) Second, declare what type of message to modify, use \"instruction\", \"debug\", \"checkpoint\" or \"assertpoint\" with a space at the end\n");
+  printf("3) Third, declare the status of message, use \"on\" or \"off\" with no space or any other character at the end\n");
+  printf("Only inputs that match the 3 rules can be interpreted by cmd_message()\n");
+  printf("Inputs are like :\"message AREA TYPE STATUS\"\n");
+  return;
+}
+
+void print_message_status()
+{
+  assert(0);
+  return;
+}
+
 static int cmd_message(char *args)
 {
+  //assert(0);
+  if(sdb_print_instruction)
+  {
+    printf("++++ cmd_message command ++++\n");
+  }
+  message_set_instruction();
   return 0;
 }
 
