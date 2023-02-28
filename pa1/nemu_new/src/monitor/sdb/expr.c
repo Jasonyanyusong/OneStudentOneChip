@@ -14,6 +14,7 @@
 ***************************************************************************************/
 
 #include <isa.h>
+#include "sdb.h"
 
 /* We use the POSIX regex functions to process regular expressions.
  * Type 'man regex' for more information about POSIX regex functions.
@@ -52,15 +53,14 @@ enum {
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
 void process_operator_token();
-void expr_debug_instruction_status();
 bool* valid_call;
 
 bool expr_print_instruction = false;
-bool expr_print_debug_message = false;
+bool expr_print_debug = false;
 bool expr_print_checkpoint = false;
 bool expr_print_assertpoint = false;
 void set_expr_print_instruction(bool target_expr_print_instruction);
-void set_expr_print_debug_message(bool target_expr_print_debug_message);
+void set_expr_print_debug(bool target_expr_print_debug);
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
 void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
 
@@ -115,16 +115,16 @@ void set_expr_print_instruction(bool target_expr_print_instruction)
   return;
 }
 
-void set_expr_print_debug_message(bool target_expr_print_debug_message)
+void set_expr_print_debug(bool target_expr_print_debug)
 {
-  expr_print_debug_message = target_expr_print_debug_message;
-  if(expr_print_debug_message)
+  expr_print_debug = target_expr_print_debug;
+  if(expr_print_debug)
   {
-    printf("expr_print_debug_message: ON\n");
+    printf("expr_print_debug: ON\n");
   }
   else
   {
-    printf("expr_print_debug_message: OFF\n");
+    printf("expr_print_debug: OFF\n");
   }
   return;
 }
@@ -157,9 +157,26 @@ void set_expr_print_assertpoint(bool target_expr_print_assertpoint)
   return;
 }
 
+bool get_expr_print_instruction()
+{
+  return expr_print_instruction;
+}
+bool get_expr_print_debug()
+{
+  return expr_print_debug;
+}
+bool get_expr_print_checkpoint()
+{
+  return expr_print_checkpoint;
+}
+bool get_expr_print_assertpoint()
+{
+  return expr_print_assertpoint;
+}
+
 void expr_debug_instruction_status()
 {
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     if(expr_print_instruction)
     {
@@ -169,7 +186,7 @@ void expr_debug_instruction_status()
     {
       printf("==== Instruction information display is DISABLED in Expression Evaluation module ====\n");
     }
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("==== Debug message display is ENABLED in Expression Evaluation module ====\n");
     }
@@ -255,7 +272,7 @@ static bool make_token(char *e) {
           {
             tokens[nr_token].type = rules[i].token_type;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("&&&& Use Default &&&&\n");
               printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -267,7 +284,7 @@ static bool make_token(char *e) {
           case TK_NOTYPE:
           {
             // Case No.1
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_NOTYPE TOKEN $$$$\n");
               printf("**** TK_NOTYPE will be thrown away directly ****\n");
@@ -279,7 +296,7 @@ static bool make_token(char *e) {
             // Case No.2
             tokens[nr_token].type = TK_EQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_EQ TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -294,7 +311,7 @@ static bool make_token(char *e) {
             // Case No.3
             tokens[nr_token].type = TK_NEQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_NEQ TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -309,7 +326,7 @@ static bool make_token(char *e) {
             // Case No.4
             tokens[nr_token].type = TK_NOT;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_NOT TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -324,7 +341,7 @@ static bool make_token(char *e) {
             // Case No.5
             tokens[nr_token].type = TK_AND;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_AND TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -339,7 +356,7 @@ static bool make_token(char *e) {
             // Case No.6
             tokens[nr_token].type = TK_OR;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_OR TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -354,7 +371,7 @@ static bool make_token(char *e) {
             // Case No.7
             tokens[nr_token].type = TK_POINTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_POINTER TOKEN $$$$\n");
 
@@ -369,7 +386,7 @@ static bool make_token(char *e) {
             // Case No.8
             tokens[nr_token].type = TK_BINNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_BINNUMBER TOKEN $$$$\n");
               printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -383,7 +400,7 @@ static bool make_token(char *e) {
             // Case No.9
             tokens[nr_token].type = TK_OCTNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_OCTNUMBER TOKEN $$$$\n");
               printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -397,7 +414,7 @@ static bool make_token(char *e) {
             // Case No.10
             tokens[nr_token].type = TK_NUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_NUMBER TOKEN $$$$\n");
               printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -411,7 +428,7 @@ static bool make_token(char *e) {
             // Case No.11
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_HEXNUMBER TOKEN $$$$\n");
               printf("**** tokens[nr_token].type is: %d ****\n", tokens[nr_token].type);
@@ -425,7 +442,7 @@ static bool make_token(char *e) {
             // Case No.12
             tokens[nr_token].type = TK_REGISTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_REGISTER TOKEN $$$$\n");
 
@@ -440,7 +457,7 @@ static bool make_token(char *e) {
             // Case No.13
             tokens[nr_token].type = TK_MARK;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_MARK TOKEN $$$$\n");
 
@@ -455,7 +472,7 @@ static bool make_token(char *e) {
             // Case No.14
             tokens[nr_token].type = TK_LEFT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_LEFT_PARENTHESES TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -470,7 +487,7 @@ static bool make_token(char *e) {
             // Case No.15
             tokens[nr_token].type = TK_RIGHT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_RIGHT_PARENTHESES TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -485,7 +502,7 @@ static bool make_token(char *e) {
             // Case No.16
             tokens[nr_token].type = TK_MULTIPLY;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_MULTIPLY TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -500,7 +517,7 @@ static bool make_token(char *e) {
             // Case No.17
             tokens[nr_token].type = TK_DIVIDE;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_DIVIDE TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -515,7 +532,7 @@ static bool make_token(char *e) {
             // Case No.18
             tokens[nr_token].type = TK_PLUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_PLUS TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -530,7 +547,7 @@ static bool make_token(char *e) {
             // Case No.19
             tokens[nr_token].type = TK_MINUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug_message)
+            if(expr_print_debug)
             {
               printf("$$$$ Found a TK_MINUS TOKEN $$$$\n");
               printf("$$$$ This is a OPERATOR_TOKEN $$$$\n");
@@ -554,13 +571,13 @@ static bool make_token(char *e) {
   }
 
   // Debug Point: Print Tokens
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     printf("Token Numbers (Decimal): %d\n", nr_token);
   }
   for(int display_index = 0; display_index < nr_token; display_index = display_index + 1)
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
     }
@@ -573,14 +590,14 @@ static bool make_token(char *e) {
     {
       if(check_parentheses(left_scan_index, right_scan_index))
       {
-        if(expr_print_debug_message)
+        if(expr_print_debug)
         {
           printf("**** Paired Success, Left Index: %d, Right Index: %d ****\n", left_scan_index, right_scan_index);
         }
       }
       else
       {
-        if(expr_print_debug_message)
+        if(expr_print_debug)
         {
           printf("**** Paired Failed, Left Index: %d, Right Index: %d ****\n", left_scan_index, right_scan_index);
         }
@@ -588,21 +605,21 @@ static bool make_token(char *e) {
     }
   }
 
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     printf("$$$$ Start Only Two Side Parentheses Check $$$$\n");
   }
   // Debug Point: Only Two Side Parentheses Check
   if(check_parentheses(0, nr_token - 1))
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("!!!! Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED !!!!\n", 0, nr_token - 1);
     }
   }
   else
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("!!!! Left: %d, Right: %d. Only Two Side Parentheses Check FAILED !!!!\n", 0, nr_token - 1);
     }
@@ -624,7 +641,7 @@ bool check_parentheses(int left_index, int right_index)
   if(tokens[left_index].type != TK_LEFT_PARENTHESES)
   {
     // Check Type I
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("&&&& At Tokens Index: %d, get Type I Fail, Left side is not parenthese &&&&\n", left_index);
     }
@@ -634,7 +651,7 @@ bool check_parentheses(int left_index, int right_index)
   if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
   {
     // Check Type II
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("&&&& At Tokens Index: %d, get Type II Fail, Right side is not parenthese &&&&\n", right_index);
     }
@@ -654,7 +671,7 @@ bool check_parentheses(int left_index, int right_index)
     if(current_index != right_index && left_right_balance == 0)
     {
       // Check Type III
-      if(expr_print_debug_message)
+      if(expr_print_debug)
       {
         printf("&&&& At Tokens Index: %d, get Type III Fail, Balance before reaching end &&&&\n", current_index);
       }
@@ -665,7 +682,7 @@ bool check_parentheses(int left_index, int right_index)
   if(left_right_balance == 0)
   {
     // Check Type IV
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("&&&& Check success, parentheses are balanced! &&&&\n");
     }
@@ -674,7 +691,7 @@ bool check_parentheses(int left_index, int right_index)
   else
   {
     // Check Type IV
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("&&&& At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end &&&&\n", right_index);
     }
@@ -700,20 +717,20 @@ bool check_parentheses_balance()
       check_parentheses_balance_right_count = check_parentheses_balance_right_count + 1;
     }
   }
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     printf("==== In function check_parentheses_balance(), get check_parentheses_balance_left_count = %d. ====\n", check_parentheses_balance_left_count);
     printf("==== In function check_parentheses_balance(), get check_parentheses_balance_right_count = %d. ====\n", check_parentheses_balance_right_count);
   }
   if(check_parentheses_balance_left_count == check_parentheses_balance_right_count)
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("!!!! BALANCED !!!!\n");
     }
     return true;
   }
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     printf("!!!! NOT BALANCED !!!!\n");
   }
@@ -722,7 +739,7 @@ bool check_parentheses_balance()
 
 void process_operator_token()
 {
-  if(expr_print_debug_message)
+  if(expr_print_debug)
   {
     printf("==== In function void process_operator_token() ====\n");
   }
@@ -746,7 +763,7 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   if(p == q)
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("~~~~ eval(p,q) call with p=q, will just return the number ~~~~\n");
     }
@@ -778,7 +795,7 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   else
   {
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("//// Assert Point #1 ////\n");
     }
@@ -804,7 +821,7 @@ word_t expr(char *e, bool *success) {
     }
     *success = false;
     *valid_call = false;
-    if(expr_print_debug_message)
+    if(expr_print_debug)
     {
       printf("!!!! expr() exited because check_parentheses_balance() returned FALSE !!!!\n");
     }

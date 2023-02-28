@@ -28,13 +28,10 @@ static int is_batch_mode = false;
 
 // To enable sdb print usage instruction for each call or print debug messge, set these two bool values to true
 bool sdb_print_instruction = false;
-bool sdb_print_debug_message = false;
+bool sdb_print_debug = false;
 bool sdb_print_checkpoint = false;
 bool sdb_print_assertpoint = false;
-void set_sdb_print_instruction(bool target_sdb_print_instruction);
-void set_sdb_print_debug_message(bool target_sdb_print_debug_message);
-void set_sdb_print_checkpoint(bool target_sdb_print_checkpoint);
-void set_sdb_print_assertpoint(bool target_sdb_print_assertpoint);
+
 
 void init_regex();
 void init_wp_pool();
@@ -53,16 +50,16 @@ void set_sdb_print_instruction(bool target_sdb_print_instruction)
   return;
 }
 
-void set_sdb_print_debug_message(bool target_sdb_print_debug_message)
+void set_sdb_print_debug(bool target_sdb_print_debug)
 {
-  sdb_print_debug_message = target_sdb_print_debug_message;
-  if(sdb_print_debug_message)
+  sdb_print_debug = target_sdb_print_debug;
+  if(sdb_print_debug)
   {
-    printf("sdb_print_debug_message: ON\n");
+    printf("sdb_print_debug: ON\n");
   }
   else
   {
-    printf("sdb_print_debug_message: OFF\n");
+    printf("sdb_print_debug: OFF\n");
   }
   return;
 }
@@ -93,6 +90,62 @@ void set_sdb_print_assertpoint(bool target_sdb_print_assertpoint)
     printf("sdb_print_assertpoint: OFF\n");
   }
   return;
+}
+
+bool get_sdb_print_instruction()
+{
+  return sdb_print_instruction;
+}
+bool get_sdb_print_debug()
+{
+  return sdb_print_debug;
+}
+bool get_sdb_print_checkpoint()
+{
+  return sdb_print_checkpoint;
+}
+bool get_sdb_print_assertpoint()
+{
+  return sdb_print_assertpoint;
+}
+
+void sdb_debug_instruction_status()
+{
+  if(sdb_print_debug)
+  {
+    if(sdb_print_instruction)
+    {
+      printf("==== Instruction information display is ENABLED in Simple Debuger module ====\n");
+    }
+    else
+    {
+      printf("==== Instruction information display is DISABLED in Simple Debuger module ====\n");
+    }
+    if(sdb_print_debug)
+    {
+      printf("==== Debug message display is ENABLED in Simple Debuger module ====\n");
+    }
+    else
+    {
+      printf("==== Debug message display is DISABLED in Simple Debuger module ====\n");
+    }
+    if(sdb_print_checkpoint)
+    {
+      printf("==== Checkpoint display is ENABLED in Simple Debuger module ====\n");
+    }
+    else
+    {
+      printf("==== Checkpoint display is DISABLED in Simple Debuger module ====\n");
+    }
+    if(sdb_print_assertpoint)
+    {
+      printf("==== Assertpoint display is ENABLED in Simple Debuger module ====\n");
+    }
+    else
+    {
+      printf("==== Assertpoint display is DISABLED in Simple Debuger module ====\n");
+    }
+  }
 }
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
@@ -127,7 +180,7 @@ static int cmd_si(char *args){
     printf("==== Subcommnd Received: \"%s\" ====\n", args);
   }
   if (args == NULL){
-    if (sdb_print_debug_message)
+    if (sdb_print_debug)
     {
       printf("^^^^ No Subcommand received, default 1 ^^^^\n");
     }
@@ -141,13 +194,13 @@ static int cmd_si(char *args){
       printf("!!!! Invalid input !!!!\n");
       return 0;
     }
-    if (sdb_print_debug_message)
+    if (sdb_print_debug)
     {
       printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
     }
     cpu_exec(cmd_si_n);
   }
-  if (sdb_print_debug_message)
+  if (sdb_print_debug)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -170,7 +223,7 @@ static int cmd_info(char *args){
   {
     if (strcmp(args, "r") == 0)
     {
-      if (sdb_print_debug_message)
+      if (sdb_print_debug)
       {
         printf("==== Received Subcommand “r”: print the state of register ====\n");
       }
@@ -178,7 +231,7 @@ static int cmd_info(char *args){
     }
   else if (strcmp(args, "w") == 0)
     {
-      if (sdb_print_debug_message)
+      if (sdb_print_debug)
       {
         printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
       }
@@ -189,7 +242,7 @@ static int cmd_info(char *args){
       printf("!!!! Subcommand Not Defined !!!!\n");
     }
   }
-  if (sdb_print_debug_message)
+  if (sdb_print_debug)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -220,7 +273,7 @@ static int cmd_x(char *args){
   char *string_token_first = strtok_r(args, " ", &last_part_of_args);
   print_length = atoi(string_token_first);
   sscanf(last_part_of_args, "%x", &start_memory_address);
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
     printf("==== print_length is : \"%d\" ====\n", print_length);
@@ -228,7 +281,7 @@ static int cmd_x(char *args){
     printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
   }
   print_memory_allisa(start_memory_address, print_length);
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -243,7 +296,7 @@ static int cmd_p(char *args){
   }
   bool expression_success;
   expression_success = false;
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("---- Received Expression: \"%s\" , evaluating ----\n", args);
   }
@@ -272,7 +325,7 @@ static int cmd_q(char *args) {
   {
     printf("++++ cmd_q command ++++\n");
   }
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("==== q: Exit NEMU ====\n");
   }
@@ -291,7 +344,7 @@ static int cmd_q(char *args) {
   }
   if(true)
   {
-    if(sdb_print_debug_message)
+    if(sdb_print_debug)
     {
       printf("==== Current mode of debug: Enabled ====\n");
       printf("==== Will change to mode: Disabled ====\n");
@@ -302,7 +355,7 @@ static int cmd_q(char *args) {
       printf("==== Will change to mode: Enabled ====\n");
     }
   }
-  sdb_print_debug_message = !sdb_print_debug_message;
+  sdb_print_debug = !sdb_print_debug;
   return 0;
 }*/
 
@@ -334,7 +387,7 @@ static int cmd_q(char *args) {
   {
     printf("++++ cmd_verison command ++++\n");
   }
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("==== version: Print version of current NEMU ====\n");
   }
@@ -352,7 +405,7 @@ static int cmd_q(char *args) {
   printf("Version 1.1.3: Add check_parenthese(p,q) in expr.c\n");
   printf("Version 1.1.4: Add eval() function, evaluate expressions\n");
 
-  if(sdb_print_debug_message)
+  if(sdb_print_debug)
   {
     printf("==== Execution finished ====\n\n");
   }
@@ -373,7 +426,112 @@ void message_set_instruction()
 
 void print_message_status()
 {
-  assert(0);
+  //assert(0);
+  printf("1) In Simple Debuger Module:\n");
+  if(get_sdb_print_instruction())
+  {
+    printf("Instruction Message: ON \n");
+  }
+  else
+  {
+    printf("Instruction Message: OFF \n");
+  }
+  if(get_sdb_print_debug())
+  {
+    printf("Debug Message: ON \n");
+  }
+  else
+  {
+    printf("Debug Message: OFF \n");
+  }
+  if(get_sdb_print_checkpoint())
+  {
+    printf("Checkpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Checkpoint Message: OFF \n");
+  }
+  if(get_sdb_print_assertpoint())
+  {
+    printf("Assertpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Assertpoint Message: OFF \n");
+  }
+  printf("\n");
+
+  printf("2) In Expression Evaluation Module:\n");
+  if(get_expr_print_instruction())
+  {
+    printf("Instruction Message: ON \n");
+  }
+  else
+  {
+    printf("Instruction Message: OFF \n");
+  }
+  if(get_expr_print_debug())
+  {
+    printf("Debug Message: ON \n");
+  }
+  else
+  {
+    printf("Debug Message: OFF \n");
+  }
+  if(get_expr_print_checkpoint())
+  {
+    printf("Checkpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Checkpoint Message: OFF \n");
+  }
+  if(get_expr_print_assertpoint())
+  {
+    printf("Assertpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Assertpoint Message: OFF \n");
+  }
+  printf("\n");
+
+  printf("3) In Watch Point Module:\n");
+  if(get_watchpoint_print_instruction())
+  {
+    printf("Instruction Message: ON \n");
+  }
+  else
+  {
+    printf("Instruction Message: OFF \n");
+  }
+  if(get_watchpoint_print_debug())
+  {
+    printf("Debug Message: ON \n");
+  }
+  else
+  {
+    printf("Debug Message: OFF \n");
+  }
+  if(get_watchpoint_print_checkpoint())
+  {
+    printf("Checkpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Checkpoint Message: OFF \n");
+  }
+  if(get_watchpoint_print_assertpoint())
+  {
+    printf("Assertpoint Message: ON \n");
+  }
+  else
+  {
+    printf("Assertpoint Message: OFF \n");
+  }
+  printf("\n");
+
   return;
 }
 
@@ -385,6 +543,7 @@ static int cmd_message(char *args)
     printf("++++ cmd_message command ++++\n");
   }
   message_set_instruction();
+  print_message_status();
   return 0;
 }
 
