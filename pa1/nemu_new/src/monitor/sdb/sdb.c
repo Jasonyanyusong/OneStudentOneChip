@@ -359,6 +359,11 @@ static int cmd_version(char *args) {
   return 0;
 }
 
+static int cmd_message(char *args)
+{
+  return 0;
+}
+
 static int cmd_help(char *args);
 
 static struct {
@@ -378,6 +383,7 @@ static struct {
   { "version", "Print version of current NEMU", cmd_version},
   { "debug", "Switch mode of debug behavior", cmd_debug},
   { "instruction", "Switch mode of instruction behavior", cmd_instruction},
+  { "message", "Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)", cmd_message},
 };
 
 #define NR_CMD ARRLEN(cmd_table)
