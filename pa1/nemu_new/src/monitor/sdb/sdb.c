@@ -26,10 +26,10 @@
 
 static int is_batch_mode = false;
 
-bool sdb_print_instruction = false;
-bool sdb_print_debug = false;
-bool sdb_print_checkpoint = false;
-bool sdb_print_assertpoint = false;
+bool sdb_print_instruction = true;
+bool sdb_print_debug = true;
+bool sdb_print_checkpoint = true;
+bool sdb_print_assertpoint = true;
 
 
 void init_regex();
@@ -127,7 +127,11 @@ static char* rl_gets() {
 }
 
 static int cmd_c(char *args) {
-  printf("++++ cmd_c command ++++\n");
+  if (sdb_print_instruction)
+  {
+    printf("[SDB INSTRUCTION: static int cmd_c(char *args)] cmd_c command\n");
+    printf("[SDB INSTRUCTION: static int cmd_c(char *args)] Continue the execution of the program\n");
+  }
   cpu_exec(-1);
   return 0;
 }
@@ -135,14 +139,14 @@ static int cmd_c(char *args) {
 static int cmd_si(char *args){
   if (sdb_print_instruction)
   {
-    printf("++++ cmd_si command ++++\n\n");
-    printf("==== Run the program for N steps and then suspend, if N is not given, defalt is 1 ==== \n");
-    printf("==== Subcommnd Received: \"%s\" ====\n", args);
+    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] cmd_si command\n");
+    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] Run the program for N steps and then suspend, if N is not given, defalt is 1\n");
+    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] Subcommnd Received: \"%s\"\n", args);
   }
   if (args == NULL){
     if (sdb_print_debug)
     {
-      printf("^^^^ No Subcommand received, default 1 ^^^^\n");
+      printf("[SDB DEBUG: static int cmd_si(char *args)] No Subcommand received, default 1\n");
     }
     cpu_exec(1);
   }
@@ -151,18 +155,18 @@ static int cmd_si(char *args){
     cmd_si_n = atoi(args);
     if(cmd_si_n < -1)
     {
-      printf("!!!! Invalid input !!!!\n");
+      printf("Invalid input\n");
       return 0;
     }
     if (sdb_print_debug)
     {
-      printf("==== Will execute cpu_exec %d times ====\n", cmd_si_n);
+      printf("[SDB DEBUG: static int cmd_si(char *args)] Will execute cpu_exec %d times\n", cmd_si_n);
     }
     cpu_exec(cmd_si_n);
   }
   if (sdb_print_debug)
   {
-    printf("==== Execution finished ====\n\n");
+    printf("[SDB DEBUG: static int cmd_si(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -170,13 +174,14 @@ static int cmd_si(char *args){
 static int cmd_info(char *args){
   if (sdb_print_instruction)
   {
-    printf("++++ cmd_info command ++++\n\n");
-    printf("==== info r: Print the state of register info w: Print the information of watch point(s) ====\n");
+    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] cmd_info command\n");
+    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] info r: Print the state of register\n");
+    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] info w: Print the information of watch point(s)\n");
   }
 
   if (args == NULL)
   {
-    printf("!!!! No Subcommand !!!!\n");
+    printf("No Subcommand\n");
     return 0;
   }
   else
@@ -185,7 +190,7 @@ static int cmd_info(char *args){
     {
       if (sdb_print_debug)
       {
-        printf("==== Received Subcommand “r”: print the state of register ====\n");
+        printf("[SDB DEBUG: static int cmd_info(char *args)] Received Subcommand “r”: print the state of register\n");
       }
       isa_reg_display();
     }
@@ -193,18 +198,18 @@ static int cmd_info(char *args){
     {
       if (sdb_print_debug)
       {
-        printf("==== Received Subcommand “w”: print the information of watch point(s) ====\n");
+        printf("[SDB DEBUG: static int cmd_info(char *args)] Received Subcommand “w”: print the information of watch point(s)\n");
       }
       // Implement Later
     }
   else
     {
-      printf("!!!! Subcommand Not Defined !!!!\n");
+      printf("Subcommand Not Defined\n");
     }
   }
   if (sdb_print_debug)
   {
-    printf("==== Execution finished ====\n\n");
+    printf("[SDB DEBUG: static int cmd_info(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -224,8 +229,8 @@ void print_memory_allisa(int allisa_start_memory_address, int steps)
 static int cmd_x(char *args){
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_x command ++++\n");
-    printf("==== x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit ====\n");
+    printf("[SDB INSTRUCTION: static int cmd_x(char *args)] cmd_x command\n");
+    printf("[SDB INSTRUCTION: static int cmd_x(char *args)] x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit\n");
   }
   int print_length;
   int start_memory_address;
@@ -235,15 +240,17 @@ static int cmd_x(char *args){
   sscanf(last_part_of_args, "%x", &start_memory_address);
   if(sdb_print_debug)
   {
-    printf("==== string_token_first is : \"%s\" ====\n", string_token_first);
-    printf("==== print_length is : \"%d\" ====\n", print_length);
-    printf("==== last_part_of_args is : \"%s\" ====\n", last_part_of_args);
-    printf("---- start_memory_address (decimal) is: %d ----\n\n", start_memory_address);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] string_token_first is : \"%s\"\n", string_token_first);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] print_length is : \"%d\"\n", print_length);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] last_part_of_args is : \"%s\"\n", last_part_of_args);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Oct) is: 0o%o\n", start_memory_address);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Dec) is: 00%d\n", start_memory_address);
+    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Hex) is: 0x%x\n", start_memory_address);
   }
   print_memory_allisa(start_memory_address, print_length);
   if(sdb_print_debug)
   {
-    printf("==== Execution finished ====\n\n");
+    printf("[SDB DEBUG: static int cmd_x(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -251,14 +258,14 @@ static int cmd_x(char *args){
 static int cmd_p(char *args){
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_p command ++++\n");
-    printf("==== p EXPR: Solve the expression EXPR ====\n");
+    printf("[SDB INSTRUCTION: static int cmd_p(char *args)] cmd_p command\n");
+    printf("[SDB INSTRUCTION: static int cmd_p(char *args)] p EXPR: Solve the expression EXPR\n");
   }
   bool expression_success;
   expression_success = false;
   if(sdb_print_debug)
   {
-    printf("---- Received Expression: \"%s\" , evaluating ----\n", args);
+    printf("[SDB DEBUG: static int cmd_p(char *args)] Received Expression: \"%s\" , evaluating\n", args);
   }
   expr(args, &expression_success);
   return 0;
@@ -267,7 +274,8 @@ static int cmd_p(char *args){
 static int cmd_w(char *args){
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_w command ++++\n");
+    printf("[SDB INSTRUCTION: static int cmd_w(char *args)] cmd_w command\n");
+    printf("[SDB INSTRUCTION: static int cmd_w(char *args)] When the value of EXPR changes, suspend the program\n");
   }
   return 0;
 }
@@ -275,7 +283,8 @@ static int cmd_w(char *args){
 static int cmd_d(char *args){
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_d command ++++\n");
+    printf("[SDB INSTRUCTION: static int cmd_d(char *args)] cmd_d command\n");
+    printf("[SDB INSTRUCTION: static int cmd_d(char *args)] Delete the watch point with number N\n");
   }
   return 0;
 }
@@ -283,11 +292,8 @@ static int cmd_d(char *args){
 static int cmd_q(char *args) {
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_q command ++++\n");
-  }
-  if(sdb_print_debug)
-  {
-    printf("==== q: Exit NEMU ====\n");
+    printf("[SDB INSTRUCTION: static int cmd_q(char *args)] cmd_q command\n");
+    printf("[SDB INSTRUCTION: static int cmd_q(char *args)] Exit NEMU\n");
   }
   nemu_state.state = NEMU_QUIT;
   // Refined the function for quiting NEMU, so the system will not report bug.
@@ -423,7 +429,8 @@ static int cmd_message(char *args)
 {
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_message command ++++\n");
+    printf("[SDB INSTRUCTION: static int cmd_message(char *args)] cmd_message command\n");
+    printf("[SDB INSTRUCTION: static int cmd_message(char *args)] Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
   }
 
   if(args != NULL)
@@ -610,7 +617,8 @@ static struct {
 static int cmd_help(char *args) {
   if(sdb_print_instruction)
   {
-    printf("++++ cmd_help command ++++\n");
+    printf("[SDB INSTRUCTION: static int cmd_help(char *args)] cmd_help command\n");
+    printf("[SDB INSTRUCTION: static int cmd_help(char *args)] Display information about all supported commands\n");
   }
   /* extract the first argument */
   char *arg = strtok(NULL, " ");

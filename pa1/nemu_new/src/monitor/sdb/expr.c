@@ -53,12 +53,12 @@ enum {
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
 void process_operator_token();
-bool* valid_call;
+bool valid_call;
 
-bool expr_print_instruction = false;
-bool expr_print_debug = false;
-bool expr_print_checkpoint = false;
-bool expr_print_assertpoint = false;
+bool expr_print_instruction = true;
+bool expr_print_debug = true;
+bool expr_print_checkpoint = true;
+bool expr_print_assertpoint = true;
 void set_expr_print_instruction(bool target_expr_print_instruction);
 void set_expr_print_debug(bool target_expr_print_debug);
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
@@ -709,11 +709,19 @@ void process_operator_token()
 
 u_int64_t eval(int p, int q) // p = left index, q = right index
 {
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #01 @@@@\n");
+  }
   if(valid_call == false)
   {
     printf("Invalid Call\n");
     // OK
     return 0;
+  }
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #02 @@@@\n");
   }
   if(q > p)
   {
@@ -722,33 +730,68 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
     // OK
     return 0;
   }
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #03 @@@@\n");
+  }
   if(p == q)
   {
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #04 @@@@\n");
+    }
     if(expr_print_debug)
     {
       printf("~~~~ eval(p,q) call with p=q, will just return the number ~~~~\n");
     }
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #05 @@@@\n");
+    }
     u_int64_t number = 0;
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #06 @@@@\n");
+    }
     if(tokens[p].type == TK_NUMBER)
     {
       sscanf(tokens[p].str, "%ld", &number);
       return number;
+    }
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #07 @@@@\n");
     }
     if(tokens[p].type == TK_HEXNUMBER)
     {
       sscanf(tokens[p].str, "%lx", &number);
       return number;
     }
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #08 @@@@\n");
+    }
     if(tokens[p].type == TK_OCTNUMBER)
     {
       sscanf(tokens[p].str, "%lo", &number);
       return number;
     }
+    if(expr_print_checkpoint)
+    {
+      printf("@@@@ u_int64_t eval(int p, int q) CKPT #09 @@@@\n");
+    }
     // We should add more codes here.
     return number;
   }
-
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #10 @@@@\n");
+  }
   u_int64_t answer = 0;
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #11 @@@@\n");
+  }
   if(check_parentheses(p, q) == true)
   {
     // OK
@@ -756,12 +799,16 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   else
   {
-    if(expr_print_debug)
+    if(expr_print_assertpoint)
     {
       printf("//// Assert Point #1 ////\n");
     }
     // We should do more things here.
     assert(0);
+  }
+  if(expr_print_checkpoint)
+  {
+    printf("@@@@ u_int64_t eval(int p, int q) CKPT #12 @@@@\n");
   }
   return answer;
 }
@@ -780,7 +827,7 @@ word_t expr(char *e, bool *success) {
       printf("@@@@ word_t expr(char *e, bool *success) CKPT #02 @@@@\n");
     }
     *success = false;
-    *valid_call = false;
+    valid_call = false;
     if(expr_print_debug)
     {
       printf("!!!! expr() exited because check_parentheses_balance() returned FALSE !!!!\n");
@@ -798,14 +845,14 @@ word_t expr(char *e, bool *success) {
       printf("@@@@ word_t expr(char *e, bool *success) CKPT #04 @@@@\n");
     }
     *success = false;
-    *valid_call = false;
+    valid_call = false;
     return 0;
   }
   if(expr_print_checkpoint)
   {
     printf("@@@@ word_t expr(char *e, bool *success) CKPT #05 @@@@\n");
   }
-  //*valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
+  valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
 
   *success = true;
   if(expr_print_checkpoint)
