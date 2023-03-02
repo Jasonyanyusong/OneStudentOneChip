@@ -883,7 +883,7 @@ void process_operator_token()
 {
   if(expr_print_debug)
   {
-    //printf("==== In function void process_operator_token() ====\n");
+    printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01\n");
   }
   return;
 }
