@@ -63,6 +63,8 @@ void set_expr_print_instruction(bool target_expr_print_instruction);
 void set_expr_print_debug(bool target_expr_print_debug);
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
 void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
+char* decimal_number_to_binary_string(int number);
+int find_dominant_operator(int left, int right, bool *expr_valid_call);
 
 struct OperatorToken
 {
@@ -80,9 +82,9 @@ static struct rule {
 } rules[] = {
   {" +", TK_NOTYPE}, // Spaces
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
-  {"[0-9]+", TK_NUMBER}, // Dec Numbers
   {"0o[0-7]+", TK_OCTNUMBER}, // Oct Numbers
   {"0b[0-1]+", TK_BINNUMBER}, // Bin Numbers
+  {"[0-9]+", TK_NUMBER}, // Dec Numbers
   {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
   {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
   {"\\)", TK_RIGHT_PARENTHESES}, // Right Parenthesis IS_OPERATOR_TOKEN
@@ -100,6 +102,11 @@ static struct rule {
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
+
+char* decimal_number_to_binary_string(int number)
+{
+  return NULL;
+}
 
 void set_expr_print_instruction(bool target_expr_print_instruction)
 {
@@ -940,11 +947,41 @@ bool check_parentheses_balance()
 
 void process_operator_token()
 {
-  if(expr_print_debug)
+  // We should do more things here 20230303
+  if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01\n");
+    printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
+  }
+  int current_index_of_operator_tokens = 0;
+  for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1)
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #02: In scanning tokens loop\n");
+    }
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void process_operator_token()] current_scanning_index = %d\n", current_scanning_index);
+      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
+      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = %s\n", current_scanning_index, tokens[current_scanning_index].str);
+    }
+    if(tokens[current_scanning_index].type != TK_BINNUMBER || tokens[current_scanning_index].type != TK_OCTNUMBER || tokens[current_scanning_index].type != TK_NUMBER || tokens[current_scanning_index].type != TK_HEXNUMBER)
+    {
+      // Now the token is a operator token, implement codes to register them to operator_tokens
+    }
+    // TODO
   }
   return;
+}
+
+int find_dominant_operator(int left, int right, bool *expr_valid_call)
+{
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: find_dominant_operator(int left, int right, bool *expr_valid_call)] CKPT #01: Enter function int find_dominant_operator(int left, int right, bool *expr_valid_call)\n");
+  }
+  // TODO
+  return 0;
 }
 
 u_int64_t eval(int p, int q) // p = left index, q = right index
@@ -1057,14 +1094,14 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   {
     if(expr_print_assertpoint)
     {
-      //printf("//// Assert Point #1 ////\n");
+      printf("[EXPR ASSERTPOINT: u_int64_t eval(int p, int q)] ASPT #01: expr_print_checkpoint == false\n");
     }
     // We should do more things here.
     assert(0);
   }
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #12 @@@@\n");
+    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #16: End of function\n");
   }
   return answer;
 }
@@ -1099,7 +1136,6 @@ word_t expr(char *e, bool *success) {
     if(expr_print_checkpoint)
     {
       printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #04\n");
-      //printf("@@@@ word_t expr(char *e, bool *success) CKPT #04 @@@@\n");
     }
     *success = false;
     valid_call = false;
@@ -1108,7 +1144,6 @@ word_t expr(char *e, bool *success) {
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
-    //printf("@@@@ word_t expr(char *e, bool *success) CKPT #05 @@@@\n");
   }
   valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
 
@@ -1116,14 +1151,13 @@ word_t expr(char *e, bool *success) {
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
-    //printf("@@@@ word_t expr(char *e, bool *success) CKPT #06 @@@@\n");
   }
   u_int64_t expr_ans = eval(0, nr_token - 1);
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
-    //printf("@@@@ word_t expr(char *e, bool *success) CKPT #07 @@@@\n");
   }
+  process_operator_token();
 
   printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
