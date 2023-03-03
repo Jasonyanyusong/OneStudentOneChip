@@ -242,12 +242,15 @@ static bool make_token(char *e) {
           {
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #04\n");
+              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #04: switch (rules[i].token_type) to DEFAULT\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = rules[i].token_type;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Use Default\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
@@ -264,6 +267,8 @@ static bool make_token(char *e) {
             }
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NOTYPE TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] TK_NOTYPE will be thrown away directly\n");
             }
@@ -276,10 +281,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #06\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_EQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_EQ TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -295,10 +303,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #07\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NEQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NEQ TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -314,10 +325,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #08\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NOT;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NOT TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -333,10 +347,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #09\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_AND;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_AND TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -352,10 +369,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #10\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_OR;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_OR TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -371,10 +391,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #11\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_POINTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_POINTER TOKEN\n");
 
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -390,10 +413,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #12\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_BINNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_BINNUMBER TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
@@ -408,10 +434,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #13\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_OCTNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_OCTNUMBER TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
@@ -426,10 +455,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #14\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NUMBER TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
@@ -444,10 +476,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #15\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_HEXNUMBER TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
@@ -462,10 +497,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #16\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_REGISTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_REGISTER TOKEN\n");
 
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -481,10 +519,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #17\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MARK;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MARK TOKEN\n");
 
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -500,10 +541,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #18\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_LEFT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_LEFT_PARENTHESES TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -519,10 +563,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #19\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_RIGHT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_RIGHT_PARENTHESES TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -538,10 +585,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #20\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MULTIPLY;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MULTIPLY TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -557,10 +607,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #21\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_DIVIDE;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_DIVIDE TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -576,10 +629,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #22\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_PLUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_PLUS TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -595,10 +651,13 @@ static bool make_token(char *e) {
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #23\n");
             }
+            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MINUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MINUS TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
@@ -892,20 +951,28 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 {
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #01 @@@@\n");
+    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #01: Enter function u_int64_t eval(int p, int q)\n");
   }
   if(valid_call == false)
   {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #02: valid_call == false\n");
+    }
     printf("Invalid Call\n");
     // OK
     return 0;
   }
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #02 @@@@\n");
+    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #03: Exit the \"if\" evaluation\n");
   }
   if(q > p)
   {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #04: q > p\n");
+    }
     valid_call = false;
     printf("Invalid eval() call\n");
     // OK
@@ -913,69 +980,77 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #03 @@@@\n");
+    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #05: Exit the \"if\" evaluation\n");
   }
   if(p == q)
   {
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #04 @@@@\n");
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #06: p == q\n");
     }
     if(expr_print_debug)
     {
-      //printf("~~~~ eval(p,q) call with p=q, will just return the number ~~~~\n");
-    }
-    if(expr_print_checkpoint)
-    {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #05 @@@@\n");
+      printf("[EXPR DEBUG: u_int64_t eval(int p, int q)] eval(p,q) call with p=q, will just return the number\n");
     }
     u_int64_t number = 0;
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #06 @@@@\n");
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #07: created u_int64_t number with initial value = 0\n");
     }
     if(tokens[p].type == TK_NUMBER)
     {
+      if(expr_print_checkpoint)
+      {
+        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_NUMBER\n", p);
+      }
       sscanf(tokens[p].str, "%ld", &number);
       return number;
     }
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #07 @@@@\n");
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #09\n");
     }
     if(tokens[p].type == TK_HEXNUMBER)
     {
+      if(expr_print_checkpoint)
+      {
+        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_HEXNUMBER\n", p);
+      }
       sscanf(tokens[p].str, "%lx", &number);
       return number;
     }
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #08 @@@@\n");
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #11\n");
     }
     if(tokens[p].type == TK_OCTNUMBER)
     {
+      if(expr_print_checkpoint)
+      {
+        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_OCTNUMBER\n", p);
+      }
       sscanf(tokens[p].str, "%lo", &number);
       return number;
     }
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ u_int64_t eval(int p, int q) CKPT #09 @@@@\n");
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #13\n");
     }
     // We should add more codes here.
     return number;
   }
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #10 @@@@\n");
+    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #14: Exit if evaluation of \"if(p == q)\"\n");
   }
   u_int64_t answer = 0;
-  if(expr_print_checkpoint)
-  {
-    //printf("@@@@ u_int64_t eval(int p, int q) CKPT #11 @@@@\n");
-  }
   if(check_parentheses(p, q) == true)
   {
     // OK
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #15: check_parentheses(p, q) == true\n");
+    }
     return eval(p + 1, q - 1);
   }
   else
@@ -998,31 +1073,32 @@ word_t expr(char *e, bool *success) {
   //eval();
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ word_t expr(char *e, bool *success) CKPT #01 @@@@\n");
+    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #01: Enter function word_t expr(char *e, bool *success)\n");
   }
   
   if(!check_parentheses_balance())
   {
     if(expr_print_checkpoint)
     {
-      //printf("@@@@ word_t expr(char *e, bool *success) CKPT #02 @@@@\n");
+      printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #02: check_parentheses_balance() = false\n");
     }
     *success = false;
     valid_call = false;
     if(expr_print_debug)
     {
-      //printf("!!!! expr() exited because check_parentheses_balance() returned FALSE !!!!\n");
+      printf("[EXPR DEBUG: word_t expr(char *e, bool *success)] expr() exited because check_parentheses_balance() returned FALSE\n");
     }
     return 0;
   }
   if(expr_print_checkpoint)
   {
-    //printf("@@@@ word_t expr(char *e, bool *success) CKPT #03 @@@@\n");
+    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #03\n");
   }
 
   if (!make_token(e)) {
     if(expr_print_checkpoint)
     {
+      printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #04\n");
       //printf("@@@@ word_t expr(char *e, bool *success) CKPT #04 @@@@\n");
     }
     *success = false;
@@ -1031,6 +1107,7 @@ word_t expr(char *e, bool *success) {
   }
   if(expr_print_checkpoint)
   {
+    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
     //printf("@@@@ word_t expr(char *e, bool *success) CKPT #05 @@@@\n");
   }
   valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
@@ -1038,11 +1115,13 @@ word_t expr(char *e, bool *success) {
   *success = true;
   if(expr_print_checkpoint)
   {
+    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
     //printf("@@@@ word_t expr(char *e, bool *success) CKPT #06 @@@@\n");
   }
   u_int64_t expr_ans = eval(0, nr_token - 1);
   if(expr_print_checkpoint)
   {
+    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
     //printf("@@@@ word_t expr(char *e, bool *success) CKPT #07 @@@@\n");
   }
 
