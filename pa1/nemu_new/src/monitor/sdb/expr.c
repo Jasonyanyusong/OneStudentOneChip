@@ -52,8 +52,8 @@ enum {
 
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
-bool check_left_token_is_number_or_bool(int check_index, bool *result);
-bool check_right_token_is_number_or_bool(int check_index, bool *result);
+bool check_left_token_is_number_or_bool(int check_index);
+bool check_right_token_is_number_or_bool(int check_index);
 void process_operator_token();
 void give_priority();
 void give_priority_no_parentheses();
@@ -822,13 +822,29 @@ int bool_to_int(bool bool_value)
   return 0;
 }
 
-bool check_left_token_is_number_or_bool(int check_index, bool *result)
+bool check_left_token_is_number_or_bool(int check_index)
 {
   // TODO
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
+  }
+  if(tokens[check_index - 1].type == TK_BINNUMBER || tokens[check_index - 1].type == TK_OCTNUMBER || tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is one of the NUMBER type\n", check_index - 1);
+    }
+    return true;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is NOT one of the NUMBER type\n", check_index - 1);
+  }
   return false;
 }
 
-bool check_right_token_is_number_or_bool(int check_index, bool *result)
+bool check_right_token_is_number_or_bool(int check_index)
 {
   // TODO
   return false;
