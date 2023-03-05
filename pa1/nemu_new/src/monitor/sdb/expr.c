@@ -53,6 +53,9 @@ enum {
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
 void process_operator_token();
+void give_priority();
+void give_priority_no_parentheses();
+int bool_to_int(bool bool_value);
 bool valid_call;
 
 bool expr_print_instruction = true;
@@ -66,6 +69,16 @@ void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
 char* decimal_number_to_binary_string(int number);
 int find_dominant_operator(int left, int right, bool *expr_valid_call);
 
+int process_add(int add_operator_index);
+int process_minus(int minus_operator_index);
+int process_multiply(int multiply_operator_index);
+int process_devide(int devide_operator_index);
+int process_equal(int equal_operator_index);
+int process_not_equal(int not_equal_operator_index);
+int process_and(int and_operator_index);
+int process_or(int or_operator_index);
+int process_not(int not_operator_index);
+
 struct OperatorToken
 {
   const char *regex;
@@ -73,6 +86,14 @@ struct OperatorToken
   int priority;
   int position;
 } operator_tokens[32];
+
+struct OperatorTokenNoParentheses
+{
+  const char *regex;
+  int token_type;
+  int priority_level;
+  int position;
+} operator_tokens_no_parentheses[32];
 
 int nr_operator_token = 0;
 
@@ -102,6 +123,78 @@ static struct rule {
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
+
+void give_priority()
+{
+  // Give priority ignoring the parentheses
+  return;
+}
+
+void give_priority_no_parentheses()
+{
+  // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
+  return;
+}
+
+int bool_to_int(bool bool_value)
+{
+  // We received a bool value, convert it to 0 or 1
+  return 0;
+}
+
+int process_add(int add_operator_index)
+{
+  // We recognized the add_operator, evaluate it
+  return 0;
+}
+
+int process_minus(int minus_operator_index)
+{
+  // We recognized the minus_operator, evaluate it
+  return 0;
+}
+
+int process_multiply(int multiply_operator_index)
+{
+  // We recognized the multiply_operator, evaluate it
+  return 0;
+}
+
+int process_devide(int devide_operator_index)
+{
+  // We recognized the devide_operator, evaluate it
+  return 0;
+}
+
+int process_equal(int equal_operator_index)
+{
+  // We recognized the equal_operator, evaluate it
+  return 0;
+}
+
+int process_not_equal(int not_equal_operator_index)
+{
+  // We recognized the not_equal_operator, evaluate it
+  return 0;
+}
+
+int process_and(int and_operator_index)
+{
+  // We recognized the and_operator, evaluate it
+  return 0;
+}
+
+int process_or(int or_operator_index)
+{
+  // We recognized the or_operator, evaluate it
+  return 0;
+}
+
+int process_not(int not_operator_index)
+{
+  // We recognized the not_operator, evaluate it
+  return 0;
+}
 
 char* decimal_number_to_binary_string(int number)
 {
