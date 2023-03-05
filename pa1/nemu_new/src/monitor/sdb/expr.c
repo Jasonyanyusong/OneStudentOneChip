@@ -821,6 +821,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_AND:
@@ -836,6 +837,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_EQ:
@@ -851,6 +853,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_NEQ:
@@ -866,6 +869,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_PLUS:
@@ -881,6 +885,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_MINUS:
@@ -896,6 +901,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_MULTIPLY:
@@ -911,6 +917,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_DIVIDE:
@@ -926,6 +933,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
       case TK_NOT:
@@ -941,6 +949,7 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
+        break;
         // TODO
       }
     }
