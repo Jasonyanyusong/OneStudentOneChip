@@ -60,6 +60,7 @@ void give_priority_no_parentheses();
 int bool_to_int(bool bool_value);
 bool valid_call;
 int nr_operator_token;
+int nr_optimized_token;
 
 bool expr_print_instruction = true;
 bool expr_print_debug = true;
@@ -82,6 +83,12 @@ int process_and(int and_operator_index);
 int process_or(int or_operator_index);
 int process_not(int not_operator_index);
 
+void expr_init();
+void init_tokens();
+void init_operator_tokens();
+void init_operator_tokens_no_parentheses();
+void init_optimized_tokens();
+
 struct OperatorToken
 {
   const char *regex;
@@ -98,6 +105,13 @@ struct OperatorTokenNoParentheses
   int position;
 } operator_tokens_no_parentheses[32];
 
+struct OptimizedToken
+{
+  int type;
+  char str[32];
+} optimized_tokens[32];
+
+int nr_optimized_token = 0;
 int nr_operator_token = 0;
 
 static struct rule {
@@ -129,6 +143,7 @@ static regex_t re[NR_REGEX] = {};
 
 char* decimal_number_to_binary_string(int number)
 {
+  // TODO
   return NULL;
 }
 
@@ -145,7 +160,6 @@ void set_expr_print_instruction(bool target_expr_print_instruction)
   }
   return;
 }
-
 void set_expr_print_debug(bool target_expr_print_debug)
 {
   expr_print_debug = target_expr_print_debug;
@@ -159,7 +173,6 @@ void set_expr_print_debug(bool target_expr_print_debug)
   }
   return;
 }
-
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint)
 {
   expr_print_checkpoint = target_expr_print_checkpoint;
@@ -173,7 +186,6 @@ void set_expr_print_checkpoint(bool target_expr_print_checkpoint)
   }
   return;
 }
-
 void set_expr_print_assertpoint(bool target_expr_print_assertpoint)
 {
   expr_print_assertpoint = target_expr_print_assertpoint;
@@ -187,7 +199,6 @@ void set_expr_print_assertpoint(bool target_expr_print_assertpoint)
   }
   return;
 }
-
 bool get_expr_print_instruction()
 {
   return expr_print_instruction;
@@ -229,6 +240,39 @@ typedef struct token {
 
 static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
+
+void expr_init()
+{
+  init_tokens();
+  init_operator_tokens();
+  init_operator_tokens_no_parentheses();
+  init_optimized_tokens();
+  return;
+}
+
+void init_tokens()
+{
+  // TODO
+  return;
+}
+
+void init_operator_tokens()
+{
+  // TODO
+  return;
+}
+
+void init_operator_tokens_no_parentheses()
+{
+  // TODO
+  return;
+}
+
+void init_optimized_tokens()
+{
+  // TODO
+  return;
+}
 
 static bool make_token(char *e) {
   int position = 0;
@@ -734,7 +778,7 @@ static bool make_token(char *e) {
   }
 
   // Debug Point: Check Parentheses
-  if(expr_print_checkpoint)
+  /*if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #27\n");
   }
@@ -757,7 +801,7 @@ static bool make_token(char *e) {
         }
       }
     }
-  }
+  }*/
 
   if(expr_print_checkpoint)
   {
@@ -965,13 +1009,46 @@ void give_priority()
       printf("[EXPR DEBUG: void give_priority()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
     }
   }
-  // TODO
   return;
 }
 
 void give_priority_no_parentheses()
 {
   // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #01: Enter function\n");
+  }
+  int local_highest_priority = -1;
+  for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1)
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current_scan_local_highest_priority_index = %d\n", current_scan_local_highest_priority_index);
+      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current local_highest_priority = %d\n", local_highest_priority);
+    }
+    if(operator_tokens[current_scan_local_highest_priority_index].priority > local_highest_priority)
+    {
+      if(expr_print_checkpoint)
+      {
+        printf("[EXPR DEBUG: void give_priority_no_parentheses()] at index %4d, find priority %4d, higher than local_highest_priority %4d\n", current_scan_local_highest_priority_index, operator_tokens[current_scan_local_highest_priority_index].priority , local_highest_priority);
+      }
+      local_highest_priority = operator_tokens[current_scan_local_highest_priority_index].priority;
+      if(expr_print_checkpoint)
+      {
+        printf("[EXPR DEBUG: void give_priority_no_parentheses()] set local_highest_priority to %4d\n", local_highest_priority);
+      }
+    }
+  }
+  if(local_highest_priority < 0)
+  {
+    // Invalid
+    if(expr_print_assertpoint)
+    {
+      printf("[EXPR ASSERTPOINT: void give_priority_no_parentheses()] ASPT #01: local_highest_priority < 0\n");
+    }
+    assert(0);
+  }
   // TODO
   return;
 }
@@ -1787,6 +1864,7 @@ word_t expr(char *e, bool *success) {
   }
   process_operator_token();
   give_priority();
+  give_priority_no_parentheses();
 
   printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
