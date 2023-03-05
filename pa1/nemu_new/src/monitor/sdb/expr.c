@@ -945,6 +945,17 @@ void give_priority()
       }
     }
   }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
+  }
+  for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void give_priority()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
+    }
+  }
   // TODO
   return;
 }
