@@ -947,12 +947,14 @@ bool check_parentheses_balance()
 
 void process_operator_token()
 {
+  // Test Token: p 11 + 2 * 3 - (4 + 1) * 10
   // We should do more things here 20230303
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
   }
   int current_index_of_operator_tokens = 0;
+  int nr_operator_token = 0;
   for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1)
   {
     if(expr_print_checkpoint)
@@ -962,14 +964,44 @@ void process_operator_token()
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: void process_operator_token()] current_scanning_index = %d\n", current_scanning_index);
+      printf("[EXPR DEBUG: void process_operator_token()] current_index_of_operator_tokens = %d\n", current_index_of_operator_tokens);
       printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
-      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = %s\n", current_scanning_index, tokens[current_scanning_index].str);
+      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = \"%s\"\n", current_scanning_index, tokens[current_scanning_index].str);
     }
-    if(tokens[current_scanning_index].type != TK_BINNUMBER || tokens[current_scanning_index].type != TK_OCTNUMBER || tokens[current_scanning_index].type != TK_NUMBER || tokens[current_scanning_index].type != TK_HEXNUMBER)
+    if(tokens[current_scanning_index].type != TK_BINNUMBER && tokens[current_scanning_index].type != TK_OCTNUMBER && tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
     {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void process_operator_token()] find an operator token at nr_token index %d\n", current_scanning_index);
+      }
+      operator_tokens[current_index_of_operator_tokens].position = current_scanning_index;
+      operator_tokens[current_index_of_operator_tokens].token_type = tokens[current_scanning_index].type;
+      operator_tokens[current_index_of_operator_tokens].regex = tokens[current_scanning_index].str;
+      operator_tokens[current_index_of_operator_tokens].priority = 0; // We set all Operator tokens to 0 first, and then we will change them in another function
+      current_index_of_operator_tokens = current_index_of_operator_tokens + 1;
+      nr_operator_token = nr_operator_token + 1;
       // Now the token is a operator token, implement codes to register them to operator_tokens
     }
+    else
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void process_operator_token()] not an operator token at nr_token index %d, ignore in this scope\n", current_scanning_index);
+      }
+    }
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
+    }
     // TODO
+  }
+  // To make debug easier, we print all operator tokens if expr_print_debug is true
+  for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void process_operator_token()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
+    }
   }
   return;
 }
