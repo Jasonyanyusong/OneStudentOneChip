@@ -15,8 +15,13 @@
 
 #include <isa.h>
 #include <cpu/cpu.h>
+#include <stdlib.h>
+#include <math.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <memory/paddr.h>
+#include <memory/vaddr.h>
+#include <memory/host.h>
 #include "sdb.h"
 
 static int is_batch_mode = false;
@@ -47,8 +52,87 @@ static int cmd_c(char *args) {
   return 0;
 }
 
+static int cmd_si(char *args){
+  if (args == NULL){
+    cpu_exec(1);
+  }
+  else{
+    int cmd_si_n;
+    cmd_si_n = atoi(args);
+    if(cmd_si_n < -1)
+    {
+      printf("Invalid input\n");
+      return 0;
+    }
+    cpu_exec(cmd_si_n);
+  }
+  return 0;
+}
+
+static int cmd_info(char *args){
+  if (args == NULL)
+  {
+    printf("No Subcommand\n");
+    return 0;
+  }
+  else
+  {
+    if (strcmp(args, "r") == 0)
+    {
+      isa_reg_display();
+    }
+  else if (strcmp(args, "w") == 0)
+    {
+      // NOTHING
+    }
+  else
+    {
+      printf("Subcommand Not Defined\n");
+    }
+  }
+  return 0;
+}
+
+void print_memory_allisa(int allisa_start_memory_address, int steps)
+{
+  printf("******************************************************************************************************************\n");
+  printf("|  Address   | 1b Phys | 2b Phys | 4b Phys  |     8b Phys      | 1b Virt | 2b Virt | 4b Virt  |     8b Virt      |\n");
+  for (int i = allisa_start_memory_address; i < allisa_start_memory_address + steps; i = i + 1)
+  {
+    IFDEF(CONFIG_ISA64, printf("| 0x%x | %7lx | %7lx | %8lx | %16lx | %7lx | %7lx | %8lx | %16lx |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), paddr_read(i, 8), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4), vaddr_read(i, 8)););
+    IFNDEF(CONFIG_ISA64, printf("| 0x%x | %7x | %7x | %8x |        NA        | %7x | %7x | %8x |        NA        |\n", i, paddr_read(i, 1), paddr_read(i, 2),paddr_read(i, 4), vaddr_read(i, 1), vaddr_read(i, 2),vaddr_read(i, 4)););
+  }
+  printf("******************************************************************************************************************\n");
+}
+
+static int cmd_x(char *args){
+  int print_length;
+  int start_memory_address;
+  char *last_part_of_args;
+  char *string_token_first = strtok_r(args, " ", &last_part_of_args);
+  print_length = atoi(string_token_first);
+  sscanf(last_part_of_args, "%x", &start_memory_address);
+  print_memory_allisa(start_memory_address, print_length);
+  return 0;
+}
+
+static int cmd_p(char *args){
+  bool expression_success;
+  expression_success = false;
+  expr(args, &expression_success);
+  return 0;
+}
+
+static int cmd_w(char *args){
+  return 0;
+}
+
+static int cmd_d(char *args){
+  return 0;
+}
 
 static int cmd_q(char *args) {
+  nemu_state.state = NEMU_QUIT;
   return -1;
 }
 
@@ -62,9 +146,12 @@ static struct {
   { "help", "Display information about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
-
-  /* TODO: Add more commands */
-
+  { "si", "Run the program for N steps and then suspend, if N is not given, defalt is 1", cmd_si},
+  { "info", "info r: Print the state of register, info w: Print the information of watch point(s)", cmd_info},
+  { "x", "Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print N continue memory", cmd_x},
+  { "p", "Solve the expression EXPR", cmd_p},
+  { "w", "When the value of EXPR changes, suspend the program", cmd_w},
+  { "d", "Delete the watch point with number N", cmd_d},
 };
 
 #define NR_CMD ARRLEN(cmd_table)
