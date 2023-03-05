@@ -52,6 +52,7 @@ enum {
 
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
+bool check_parentheses_valid(); // Used in give_priority_no_parentheses()
 bool check_left_token_is_number_or_bool(int check_index);
 bool check_right_token_is_number_or_bool(int check_index);
 void process_operator_token();
@@ -1589,6 +1590,38 @@ bool check_parentheses_balance()
   {
     printf("[EXPR DEBUG: bool check_parentheses_balance()] NOT BALANCED\n");
   }
+  return false;
+}
+
+bool check_parentheses_valid()
+{
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #01: Enter function\n");
+    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #02: Check parentheses number balance\n");
+  }
+  if(check_parentheses_balance())
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() SUCCESS\n");
+    }
+  }
+  else
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() FAILED\n");
+    }
+    return false;
+  }
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #03: Check inside balance\n");
+  }
+  int check_parentheses_valid_left_parentheses_count = 0;
+  int check_parentheses_valid_right_parentheses_count = 0;
+  // TODO
   return false;
 }
 
