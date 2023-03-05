@@ -1602,14 +1602,14 @@ bool check_parentheses_valid()
   }
   if(check_parentheses_balance())
   {
-    if(expr_print_checkpoint)
+    if(expr_print_debug)
     {
       printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() SUCCESS\n");
     }
   }
   else
   {
-    if(expr_print_checkpoint)
+    if(expr_print_debug)
     {
       printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() FAILED\n");
     }
@@ -1621,7 +1621,49 @@ bool check_parentheses_valid()
   }
   int check_parentheses_valid_left_parentheses_count = 0;
   int check_parentheses_valid_right_parentheses_count = 0;
-  // TODO
+  for(int check_inside_parentheses_valid_index = 0; check_inside_parentheses_valid_index < nr_token; check_inside_parentheses_valid_index = check_inside_parentheses_valid_index + 1)
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #04: In for loop for check inside balance\n");
+    }
+    if(tokens[check_inside_parentheses_valid_index].type == TK_LEFT_PARENTHESES)
+    {
+      check_parentheses_valid_left_parentheses_count = check_parentheses_valid_left_parentheses_count + 1;
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: bool check_parentheses_valid()] found a TK_RIGHT_PARENTHESES at index %2d, check_parentheses_valid_right_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_right_parentheses_count);
+      }
+    }
+    if(tokens[check_inside_parentheses_valid_index].type == TK_RIGHT_PARENTHESES)
+    {
+      check_parentheses_valid_right_parentheses_count = check_parentheses_valid_right_parentheses_count + 1;
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: bool check_parentheses_valid()] found a TK_LEFT_PARENTHESES at index %2d, check_parentheses_valid_left_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_left_parentheses_count);
+      }
+    }
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count = %d\n", check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count);
+    }
+    if(check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count < 0)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: bool check_parentheses_valid()] check inside balance FAILED\n");
+      }
+      return false;
+    }
+    else
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: bool check_parentheses_valid()] check inside balance SUCCESS\n");
+      }
+      return true;
+    }
+  }
   return false;
 }
 
