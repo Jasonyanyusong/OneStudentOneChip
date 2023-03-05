@@ -1004,7 +1004,40 @@ int process_equal(int equal_operator_index)
 int process_not_equal(int not_equal_operator_index)
 {
   // We recognized the not_equal_operator, evaluate it
-  return 0;
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int process_not_equal(int not_equal_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_not_equal_answer = 0;
+  int left_token_index = not_equal_operator_index - 1;
+  int right_token_index = not_equal_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] add_operator_index = %d\n", not_equal_operator_index);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int left_token_int_value = atoi(tokens[left_token_index].str);
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  if(left_token_int_value != right_token_int_value)
+  {
+    process_not_equal_answer = 1;
+  }
+  else
+  {
+    process_not_equal_answer = 0;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] process_not_equal_answer = %d\n", process_not_equal_answer);
+  }
+  return process_not_equal_answer;
 }
 
 int process_and(int and_operator_index)
