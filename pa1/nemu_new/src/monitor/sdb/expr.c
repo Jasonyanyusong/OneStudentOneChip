@@ -801,51 +801,145 @@ void give_priority()
   }
   for(int give_priority_index = 0; give_priority_index < nr_operator_token; give_priority_index = give_priority_index + 1)
   {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: void give_priority()] CKPT #02: Enter give priority loop at give_priority_index = %d\n", give_priority_index);
+    }
     switch(operator_tokens[give_priority_index].token_type)
     {
       case TK_OR:
       {
         // Precidency Level: 1
+        operator_tokens[give_priority_index].priority = 1;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_OR operator, set priority to 1\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_AND:
       {
         // Precidency Level: 2
+        operator_tokens[give_priority_index].priority = 2;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_AND operator, set priority to 2\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_EQ:
       {
         // Precidency Level: 3
+        operator_tokens[give_priority_index].priority = 3;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_EQ operator, set priority to 3\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_NEQ:
       {
         // Precidency Level: 3
+        operator_tokens[give_priority_index].priority = 3;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_NEQ operator, set priority to 3\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_PLUS:
       {
         // Precidency Level: 4
+        operator_tokens[give_priority_index].priority = 4;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_PLUS operator, set priority to 4\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_MINUS:
       {
         // Precidency Level: 4
+        operator_tokens[give_priority_index].priority = 4;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_MINUS operator, set priority to 4\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_MULTIPLY:
       {
         // Precidency Level: 5
+        operator_tokens[give_priority_index].priority = 5;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_MULTIPLY operator, set priority to 5\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_DIVIDE:
       {
         // Precidency Level: 5
+        operator_tokens[give_priority_index].priority = 5;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_DIVIDE operator, set priority to 5\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
       case TK_NOT:
       {
         // Precidency Level: 6
+        operator_tokens[give_priority_index].priority = 6;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_priority()] found a TK_NOT operator, set priority to 6\n");
+          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+        }
         // TODO
       }
     }
