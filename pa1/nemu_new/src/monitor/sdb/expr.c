@@ -59,6 +59,7 @@ void give_priority();
 void give_priority_no_parentheses();
 int bool_to_int(bool bool_value);
 bool valid_call;
+int nr_operator_token;
 
 bool expr_print_instruction = true;
 bool expr_print_debug = true;
@@ -1529,7 +1530,7 @@ void process_operator_token()
     printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
   }
   int current_index_of_operator_tokens = 0;
-  int nr_operator_token = 0;
+  nr_operator_token = 0;
   for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1)
   {
     if(expr_print_checkpoint)
@@ -1765,6 +1766,7 @@ word_t expr(char *e, bool *success) {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
   }
   process_operator_token();
+  give_priority();
 
   printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
