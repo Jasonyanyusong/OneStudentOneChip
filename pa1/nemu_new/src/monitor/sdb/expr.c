@@ -777,32 +777,6 @@ static bool make_token(char *e) {
     }
   }
 
-  // Debug Point: Check Parentheses
-  /*if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #27\n");
-  }
-  for(int left_scan_index = 0; left_scan_index < nr_token; left_scan_index = left_scan_index + 1)
-  {
-    for(int right_scan_index = left_scan_index + 1; right_scan_index < nr_token; right_scan_index = right_scan_index + 1)
-    {
-      if(check_parentheses(left_scan_index, right_scan_index))
-      {
-        if(expr_print_debug)
-        {
-          printf("[EXPR DEBUG: static bool make_token(char *e)] Paired Success, Left Index: %d, Right Index: %d\n", left_scan_index, right_scan_index);
-        }
-      }
-      else
-      {
-        if(expr_print_debug)
-        {
-          printf("[EXPR DEBUG: static bool make_token(char *e)] Paired Failed, Left Index: %d, Right Index: %d\n", left_scan_index, right_scan_index);
-        }
-      }
-    }
-  }*/
-
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #28\n");
