@@ -933,7 +933,33 @@ int process_multiply(int multiply_operator_index)
 int process_devide(int devide_operator_index)
 {
   // We recognized the devide_operator, evaluate it
-  return 0;
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int process_devide(int devide_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_devide_answer = 0;
+  int left_token_index = devide_operator_index - 1;
+  int right_token_index = devide_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] add_operator_index = %d\n", devide_operator_index);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int left_token_int_value = atoi(tokens[left_token_index].str);
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  process_devide_answer = left_token_int_value + right_token_int_value;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] process_devide_answer = %d\n", process_devide_answer);
+  }
+  return process_devide_answer;
 }
 
 int process_equal(int equal_operator_index)
