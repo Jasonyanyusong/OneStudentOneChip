@@ -789,6 +789,67 @@ static bool make_token(char *e) {
 void give_priority()
 {
   // Give priority ignoring the parentheses
+  // Current Precidency Level: (No Parentheses Considered)
+  // 1) Or 2) AND 3) EQ/NEQ 4) PLUS/MINUS 5) MULTIPLY/DEVIDE 6) NOT
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void give_priority()] CKPT #01: Enter function\n");
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
+  }
+  for(int give_priority_index = 0; give_priority_index < nr_operator_token; give_priority_index = give_priority_index + 1)
+  {
+    switch(operator_tokens[give_priority_index].token_type)
+    {
+      case TK_OR:
+      {
+        // Precidency Level: 1
+        // TODO
+      }
+      case TK_AND:
+      {
+        // Precidency Level: 2
+        // TODO
+      }
+      case TK_EQ:
+      {
+        // Precidency Level: 3
+        // TODO
+      }
+      case TK_NEQ:
+      {
+        // Precidency Level: 3
+        // TODO
+      }
+      case TK_PLUS:
+      {
+        // Precidency Level: 4
+        // TODO
+      }
+      case TK_MINUS:
+      {
+        // Precidency Level: 4
+        // TODO
+      }
+      case TK_MULTIPLY:
+      {
+        // Precidency Level: 5
+        // TODO
+      }
+      case TK_DIVIDE:
+      {
+        // Precidency Level: 5
+        // TODO
+      }
+      case TK_NOT:
+      {
+        // Precidency Level: 6
+        // TODO
+      }
+    }
+  }
   // TODO
   return;
 }
