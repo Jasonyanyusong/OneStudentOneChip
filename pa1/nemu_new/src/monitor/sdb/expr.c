@@ -1121,7 +1121,34 @@ int process_or(int or_operator_index)
 int process_not(int not_operator_index)
 {
   // We recognized the not_operator, evaluate it
-  return 0;
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int process_not(int not_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_not_answer = 0;
+  int right_token_index = not_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] add_operator_index = %d\n", not_operator_index);
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  if(right_token_int_value == 1)
+  {
+    process_not_answer = 0;
+  }
+  else
+  {
+    process_not_answer = 1;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[EXPR DEBUG: int process_not(int not_operator_index)] process_or_answer = %d\n", process_not_answer);
+  }
+  return process_not_answer;
 }
 
 bool check_parentheses(int left_index, int right_index)
