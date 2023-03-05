@@ -139,6 +139,22 @@ void give_priority_no_parentheses()
 int bool_to_int(bool bool_value)
 {
   // We received a bool value, convert it to 0 or 1
+  if(expr_print_ckeckpoint)
+  {
+    printf("[EXPR CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
+  }
+  if(bool_value)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
+    }
+    return 1;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
+  }
   return 0;
 }
 
