@@ -52,8 +52,8 @@ enum {
 
 bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
-bool check_left_token_is_number_or_bool(int check_index, bool &result);
-bool check_right_token_is_number_or_bool(int check_index, bool &result);
+bool check_left_token_is_number_or_bool(int check_index, bool *result);
+bool check_right_token_is_number_or_bool(int check_index, bool *result);
 void process_operator_token();
 void give_priority();
 void give_priority_no_parentheses();
@@ -125,160 +125,6 @@ static struct rule {
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
-
-void give_priority()
-{
-  // Give priority ignoring the parentheses
-  // TODO
-  return;
-}
-
-void give_priority_no_parentheses()
-{
-  // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
-  // TODO
-  return;
-}
-
-int bool_to_int(bool bool_value)
-{
-  // We received a bool value, convert it to 0 or 1
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
-  }
-  if(bool_value)
-  {
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
-    }
-    return 1;
-  }
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
-  }
-  return 0;
-}
-
-bool check_left_token_is_number_or_bool(int check_index, bool &result)
-{
-  // TODO
-  return false;
-}
-
-bool check_right_token_is_number_or_bool(int check_index, bool &result)
-{
-  // TODO
-  return false;
-}
-
-int process_add(int add_operator_index)
-{
-  // We recognized the add_operator, evaluate it
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: int process_add(int add_operator_index)] CKPT #01: Enter function\n");
-  }
-  int process_add_answer = 0;
-  int left_token_index = add_operator_index - 1;
-  int right_token_index = add_operator_index + 1;
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] add_operator_index = %d\n", add_operator_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
-  }
-  int left_token_int_value = atoi(tokens[left_token_index].str);
-  int right_token_int_value = atoi(tokens[right_token_index].str);
-  process_add_answer = left_token_int_value + right_token_int_value;
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] process_add_answer = %d\n", process_add_answer);
-  }
-  return process_add_answer;
-}
-
-int process_minus(int minus_operator_index)
-{
-  // We recognized the minus_operator, evaluate it
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: int process_minus(int minus_operator_index)] CKPT #01: Enter function\n");
-  }
-  int process_minus_answer = 0;
-  int left_token_index = minus_operator_index - 1;
-  int right_token_index = minus_operator_index + 1;
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] add_operator_index = %d\n", minus_operator_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
-  }
-  int left_token_int_value = atoi(tokens[left_token_index].str);
-  int right_token_int_value = atoi(tokens[right_token_index].str);
-  process_minus_answer = left_token_int_value + right_token_int_value;
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] process_minus_answer = %d\n", process_minus_answer);
-  }
-  return process_minus_answer;
-}
-
-int process_multiply(int multiply_operator_index)
-{
-  // We recognized the multiply_operator, evaluate it
-  return 0;
-}
-
-int process_devide(int devide_operator_index)
-{
-  // We recognized the devide_operator, evaluate it
-  return 0;
-}
-
-int process_equal(int equal_operator_index)
-{
-  // We recognized the equal_operator, evaluate it
-  return 0;
-}
-
-int process_not_equal(int not_equal_operator_index)
-{
-  // We recognized the not_equal_operator, evaluate it
-  return 0;
-}
-
-int process_and(int and_operator_index)
-{
-  // We recognized the and_operator, evaluate it
-  return 0;
-}
-
-int process_or(int or_operator_index)
-{
-  // We recognized the or_operator, evaluate it
-  return 0;
-}
-
-int process_not(int not_operator_index)
-{
-  // We recognized the not_operator, evaluate it
-  return 0;
-}
 
 char* decimal_number_to_binary_string(int number)
 {
@@ -938,6 +784,160 @@ static bool make_token(char *e) {
   }
 
   return true;
+}
+
+void give_priority()
+{
+  // Give priority ignoring the parentheses
+  // TODO
+  return;
+}
+
+void give_priority_no_parentheses()
+{
+  // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
+  // TODO
+  return;
+}
+
+int bool_to_int(bool bool_value)
+{
+  // We received a bool value, convert it to 0 or 1
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
+  }
+  if(bool_value)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
+    }
+    return 1;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
+  }
+  return 0;
+}
+
+bool check_left_token_is_number_or_bool(int check_index, bool *result)
+{
+  // TODO
+  return false;
+}
+
+bool check_right_token_is_number_or_bool(int check_index, bool *result)
+{
+  // TODO
+  return false;
+}
+
+int process_add(int add_operator_index)
+{
+  // We recognized the add_operator, evaluate it
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int process_add(int add_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_add_answer = 0;
+  int left_token_index = add_operator_index - 1;
+  int right_token_index = add_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] add_operator_index = %d\n", add_operator_index);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int left_token_int_value = atoi(tokens[left_token_index].str);
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  process_add_answer = left_token_int_value + right_token_int_value;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[EXPR DEBUG: int process_add(int add_operator_index)] process_add_answer = %d\n", process_add_answer);
+  }
+  return process_add_answer;
+}
+
+int process_minus(int minus_operator_index)
+{
+  // We recognized the minus_operator, evaluate it
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: int process_minus(int minus_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_minus_answer = 0;
+  int left_token_index = minus_operator_index - 1;
+  int right_token_index = minus_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] add_operator_index = %d\n", minus_operator_index);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int left_token_int_value = atoi(tokens[left_token_index].str);
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  process_minus_answer = left_token_int_value + right_token_int_value;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] process_minus_answer = %d\n", process_minus_answer);
+  }
+  return process_minus_answer;
+}
+
+int process_multiply(int multiply_operator_index)
+{
+  // We recognized the multiply_operator, evaluate it
+  return 0;
+}
+
+int process_devide(int devide_operator_index)
+{
+  // We recognized the devide_operator, evaluate it
+  return 0;
+}
+
+int process_equal(int equal_operator_index)
+{
+  // We recognized the equal_operator, evaluate it
+  return 0;
+}
+
+int process_not_equal(int not_equal_operator_index)
+{
+  // We recognized the not_equal_operator, evaluate it
+  return 0;
+}
+
+int process_and(int and_operator_index)
+{
+  // We recognized the and_operator, evaluate it
+  return 0;
+}
+
+int process_or(int or_operator_index)
+{
+  // We recognized the or_operator, evaluate it
+  return 0;
+}
+
+int process_not(int not_operator_index)
+{
+  // We recognized the not_operator, evaluate it
+  return 0;
 }
 
 bool check_parentheses(int left_index, int right_index)
