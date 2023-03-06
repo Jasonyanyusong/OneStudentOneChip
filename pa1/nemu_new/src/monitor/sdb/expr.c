@@ -110,7 +110,7 @@ struct OptimizedToken
 {
   int type;
   char str[32];
-} optimized_tokens[32];
+} optimized_tokens_a[32], optimized_tokens_b[32];
 
 int nr_optimized_token = 0;
 int nr_operator_tokens_no_parentheses = 0;
@@ -255,24 +255,54 @@ void expr_init()
 void init_tokens()
 {
   // TODO
+  for(int init_tokens_index = 0; init_tokens_index < 32; init_tokens_index = init_tokens_index + 1)
+  {
+    memset(tokens[init_tokens_index].str,0,sizeof(tokens[init_tokens_index].str));
+    tokens[init_tokens_index].type = -1;
+    // TODO
+  }
   return;
 }
 
 void init_operator_tokens()
 {
   // TODO
+  for(int init_operator_tokens_index = 0; init_operator_tokens_index < 32; init_operator_tokens_index = init_operator_tokens_index + 1)
+  {
+    operator_tokens[init_operator_tokens_index].regex = NULL;
+    operator_tokens[init_operator_tokens_index].position = -1;
+    operator_tokens[init_operator_tokens_index].priority = -1;
+    operator_tokens[init_operator_tokens_index].token_type = -1;
+    // TODO
+  }
   return;
 }
 
 void init_operator_tokens_no_parentheses()
 {
   // TODO
+  for(int init_operator_tokens_no_parentheses_index = 0; init_operator_tokens_no_parentheses_index < 32; init_operator_tokens_no_parentheses_index = init_operator_tokens_no_parentheses_index + 1)
+  {
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].regex = NULL;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].position = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
+    // TODO
+  }
   return;
 }
 
 void init_optimized_tokens()
 {
   // TODO
+  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
+  {
+    memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
+    memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
+    optimized_tokens_a[init_optimized_tokens_index].type = -1;
+    optimized_tokens_b[init_optimized_tokens_index].type = -1;
+    // TODO
+  }
   return;
 }
 
@@ -995,7 +1025,7 @@ void give_priority_no_parentheses()
   {
     printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #01: Enter function\n");
   }
-  int local_highest_priority = -1;
+  int local_highest_priority = 0;
   for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1)
   {
     if(expr_print_checkpoint)
@@ -1942,6 +1972,7 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 }
 
 word_t expr(char *e, bool *success) {
+  expr_init();
   //eval();
   if(expr_print_checkpoint)
   {
