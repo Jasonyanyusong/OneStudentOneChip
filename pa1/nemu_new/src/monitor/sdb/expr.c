@@ -285,7 +285,7 @@ void init_operator_tokens_no_parentheses()
   {
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].regex = NULL;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].position = -1;
-    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority_level = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
     // TODO
   }
