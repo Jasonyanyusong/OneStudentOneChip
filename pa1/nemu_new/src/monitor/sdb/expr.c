@@ -40,8 +40,6 @@ enum {
  TK_HEXNUMBER = 247,
  TK_REGISTER = 246,
  TK_MARK = 245,
- TK_OCTNUMBER = 244,
- TK_BINNUMBER = 243,
  TK_PLUS = 242,
  TK_MINUS = 241,
  TK_MULTIPLY = 240,
@@ -60,8 +58,6 @@ void give_priority();
 void give_priority_no_parentheses();
 int bool_to_int(bool bool_value);
 bool valid_call;
-int nr_operator_token;
-int nr_optimized_token;
 
 bool expr_print_instruction = true;
 bool expr_print_debug = true;
@@ -112,7 +108,8 @@ struct OptimizedToken
   char str[32];
 } optimized_tokens_a[32], optimized_tokens_b[32];
 
-int nr_optimized_token = 0;
+int nr_optimized_token_a = 0;
+int nr_optimized_token_b = 0;
 int nr_operator_tokens_no_parentheses = 0;
 int nr_operator_token = 0;
 
@@ -122,8 +119,6 @@ static struct rule {
 } rules[] = {
   {" +", TK_NOTYPE}, // Spaces
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
-  {"0o[0-7]+", TK_OCTNUMBER}, // Oct Numbers
-  {"0b[0-1]+", TK_BINNUMBER}, // Bin Numbers
   {"[0-9]+", TK_NUMBER}, // Dec Numbers
   {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
   {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
@@ -142,12 +137,6 @@ static struct rule {
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
-
-char* decimal_number_to_binary_string(int number)
-{
-  // TODO
-  return NULL;
-}
 
 void set_expr_print_instruction(bool target_expr_print_instruction)
 {
@@ -255,6 +244,7 @@ void expr_init()
 void init_tokens()
 {
   // TODO
+  nr_token = 0;
   for(int init_tokens_index = 0; init_tokens_index < 32; init_tokens_index = init_tokens_index + 1)
   {
     memset(tokens[init_tokens_index].str,0,sizeof(tokens[init_tokens_index].str));
@@ -267,6 +257,7 @@ void init_tokens()
 void init_operator_tokens()
 {
   // TODO
+  nr_operator_token = 0;
   for(int init_operator_tokens_index = 0; init_operator_tokens_index < 32; init_operator_tokens_index = init_operator_tokens_index + 1)
   {
     operator_tokens[init_operator_tokens_index].regex = NULL;
@@ -281,6 +272,7 @@ void init_operator_tokens()
 void init_operator_tokens_no_parentheses()
 {
   // TODO
+  nr_operator_tokens_no_parentheses = 0;
   for(int init_operator_tokens_no_parentheses_index = 0; init_operator_tokens_no_parentheses_index < 32; init_operator_tokens_no_parentheses_index = init_operator_tokens_no_parentheses_index + 1)
   {
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].regex = NULL;
@@ -295,6 +287,8 @@ void init_operator_tokens_no_parentheses()
 void init_optimized_tokens()
 {
   // TODO
+  nr_optimized_token_a = 0;
+  nr_optimized_token_b = 0;
   for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
   {
     memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
@@ -507,48 +501,6 @@ static bool make_token(char *e) {
               printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
               printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_POINTER TOKEN\n");
 
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
-            }
-            nr_token = nr_token + 1;
-            break;
-          }
-          case TK_BINNUMBER:
-          {
-            // Case No.8
-            if(expr_print_checkpoint)
-            {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #12\n");
-            }
-            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
-            tokens[nr_token].type = TK_BINNUMBER;
-            strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug)
-            {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_BINNUMBER TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
-            }
-            nr_token = nr_token + 1;
-            break;
-          }
-          case TK_OCTNUMBER:
-          {
-            // Case No.9
-            if(expr_print_checkpoint)
-            {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #13\n");
-            }
-            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
-            tokens[nr_token].type = TK_OCTNUMBER;
-            strncpy(tokens[nr_token].str, substr_start, substr_len);
-            if(expr_print_debug)
-            {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_OCTNUMBER TOKEN\n");
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
@@ -1168,7 +1120,7 @@ bool check_left_token_is_number_or_bool(int check_index)
   {
     printf("[EXPR CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
   }
-  if(tokens[check_index - 1].type == TK_BINNUMBER || tokens[check_index - 1].type == TK_OCTNUMBER || tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
+  if(tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
   {
     if(expr_print_debug)
     {
@@ -1190,7 +1142,7 @@ bool check_right_token_is_number_or_bool(int check_index)
   {
     printf("[EXPR CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
   }
-  if(tokens[check_index + 1].type == TK_BINNUMBER || tokens[check_index + 1].type == TK_OCTNUMBER || tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER)
+  if(tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER)
   {
     if(expr_print_debug)
     {
@@ -1801,7 +1753,7 @@ void process_operator_token()
       printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
       printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = \"%s\"\n", current_scanning_index, tokens[current_scanning_index].str);
     }
-    if(tokens[current_scanning_index].type != TK_BINNUMBER && tokens[current_scanning_index].type != TK_OCTNUMBER && tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
+    if(tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
     {
       if(expr_print_debug)
       {
@@ -1924,15 +1876,6 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
     if(expr_print_checkpoint)
     {
       printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #11\n");
-    }
-    if(tokens[p].type == TK_OCTNUMBER)
-    {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_OCTNUMBER\n", p);
-      }
-      sscanf(tokens[p].str, "%lo", &number);
-      return number;
     }
     if(expr_print_checkpoint)
     {
