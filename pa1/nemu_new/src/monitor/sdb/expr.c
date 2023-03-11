@@ -1800,119 +1800,6 @@ void process_operator_token()
   return;
 }
 
-u_int64_t eval(int p, int q) // p = left index, q = right index
-{
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #01: Enter function u_int64_t eval(int p, int q)\n");
-  }
-  if(valid_call == false)
-  {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #02: valid_call == false\n");
-    }
-    printf("Invalid Call\n");
-    // OK
-    return 0;
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #03: Exit the \"if\" evaluation\n");
-  }
-  if(q > p)
-  {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #04: q > p\n");
-    }
-    valid_call = false;
-    printf("Invalid eval() call\n");
-    // OK
-    return 0;
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #05: Exit the \"if\" evaluation\n");
-  }
-  if(p == q)
-  {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #06: p == q\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: u_int64_t eval(int p, int q)] eval(p,q) call with p=q, will just return the number\n");
-    }
-    u_int64_t number = 0;
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #07: created u_int64_t number with initial value = 0\n");
-    }
-    if(tokens[p].type == TK_NUMBER)
-    {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_NUMBER\n", p);
-      }
-      sscanf(tokens[p].str, "%ld", &number);
-      return number;
-    }
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #09\n");
-    }
-    if(tokens[p].type == TK_HEXNUMBER)
-    {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_HEXNUMBER\n", p);
-      }
-      sscanf(tokens[p].str, "%lx", &number);
-      return number;
-    }
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #11\n");
-    }
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #13\n");
-    }
-    // We should add more codes here.
-    return number;
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #14: Exit if evaluation of \"if(p == q)\"\n");
-  }
-  u_int64_t answer = 0;
-  if(check_parentheses(p, q) == true)
-  {
-    // OK
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #15: check_parentheses(p, q) == true\n");
-    }
-    return eval(p + 1, q - 1);
-  }
-  else
-  {
-    if(expr_print_assertpoint)
-    {
-      printf("[EXPR ASSERTPOINT: u_int64_t eval(int p, int q)] ASPT #01: expr_print_checkpoint == false\n");
-    }
-    // We should do more things here.
-    assert(0);
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #16: End of function\n");
-  }
-  return answer;
-}
-
 word_t expr(char *e, bool *success) {
   expr_init();
   if(!check_parentheses_balance())
@@ -1936,7 +1823,7 @@ word_t expr(char *e, bool *success) {
   }
   valid_call = true;
   *success = true;
-  
+
   process_operator_token();
   give_priority();
   give_priority_no_parentheses();
