@@ -1278,9 +1278,11 @@ int process_devide(int devide_operator_index, bool* valid_process_devide_call)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] DIVIDER is ZREO, INVALID\n");
+      printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] DIVIDER is ZREO, INVALID, reruen result = 0\n");
     }
     *valid_process_devide_call = false;
+    process_devide_answer = 0;
+    return process_devide_answer;
   }
   process_devide_answer = left_token_int_value / right_token_int_value;
   if(expr_print_debug)
@@ -1913,12 +1915,6 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 
 word_t expr(char *e, bool *success) {
   expr_init();
-  //eval();
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #01: Enter function word_t expr(char *e, bool *success)\n");
-  }
-  
   if(!check_parentheses_balance())
   {
     if(expr_print_checkpoint)
@@ -1927,17 +1923,8 @@ word_t expr(char *e, bool *success) {
     }
     *success = false;
     valid_call = false;
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: word_t expr(char *e, bool *success)] expr() exited because check_parentheses_balance() returned FALSE\n");
-    }
     return 0;
   }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #03\n");
-  }
-
   if (!make_token(e)) {
     if(expr_print_checkpoint)
     {
@@ -1947,22 +1934,9 @@ word_t expr(char *e, bool *success) {
     valid_call = false;
     return 0;
   }
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
-  }
-  valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
-
+  valid_call = true;
   *success = true;
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
-  }
-  //u_int64_t expr_ans = eval(0, nr_token - 1);
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
-  }
+  
   process_operator_token();
   give_priority();
   give_priority_no_parentheses();
