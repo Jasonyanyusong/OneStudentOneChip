@@ -325,20 +325,8 @@ static bool make_token(char *e) {
 
   while (e[position] != '\0') {
     /* Try all rules one by one. */
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #01\n");
-    }
     for (i = 0; i < NR_REGEX; i ++) {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #02\n");
-      }
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
-        if(expr_print_checkpoint)
-        {
-          printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #03\n");
-        }
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
@@ -351,10 +339,6 @@ static bool make_token(char *e) {
         {
           default:
           {
-            if(expr_print_checkpoint)
-            {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #04: switch (rules[i].token_type) to DEFAULT\n");
-            }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = rules[i].token_type;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -519,11 +503,7 @@ static bool make_token(char *e) {
       printf("[EXPR DEBUG: static bool make_token(char *e)] Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
     }
   }
-  
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: static bool make_token(char *e)] Start Only Two Side Parentheses Check\n");
-  }
+
   // Debug Point: Only Two Side Parentheses Check
   if(check_parentheses(0, nr_token - 1))
   {
@@ -548,10 +528,6 @@ void give_priority()
   // Give priority ignoring the parentheses
   // Current Precidency Level: (No Parentheses Considered)
   // 1) Or 2) AND 3) EQ/NEQ 4) PLUS/MINUS 5) MULTIPLY/DEVIDE 6) NOT
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: void give_priority()] CKPT #01: Enter function\n");
-  }
   if(expr_print_debug)
   {
     printf("[EXPR DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
@@ -637,98 +613,38 @@ void give_priority()
 void give_priority_no_parentheses()
 {
   // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #01: Enter function\n");
-  }
   int local_highest_priority = 0;
   for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1)
   {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #02: Enter scan local highest priority loop\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current_scan_local_highest_priority_index = %d\n", current_scan_local_highest_priority_index);
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current local_highest_priority = %d\n", local_highest_priority);
-    }
     if(operator_tokens[current_scan_local_highest_priority_index].priority > local_highest_priority)
     {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] at index %4d, find priority %4d, higher than local_highest_priority %4d\n", current_scan_local_highest_priority_index, operator_tokens[current_scan_local_highest_priority_index].priority , local_highest_priority);
-      }
       local_highest_priority = operator_tokens[current_scan_local_highest_priority_index].priority;
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] set local_highest_priority to %4d\n", local_highest_priority);
-      }
     }
   }
   if(local_highest_priority < 0)
   {
     // Invalid
-    if(expr_print_assertpoint)
-    {
-      printf("[EXPR ASSERTPOINT: void give_priority_no_parentheses()] ASPT #01: local_highest_priority < 0\n");
-    }
     assert(0);
   }
   if(!check_parentheses_valid())
   {
     // Invalid
-    if(expr_print_assertpoint)
-    {
-      printf("[EXPR ASSERTPOINT: void give_priority_no_parentheses()] ASPT #02: !check_parentheses_valid()\n");
-    }
     assert(0);
   }
   int give_priority_no_parentheses_parentheses_level = 0;
   for(int give_priority_no_parentheses_increase_priority_index = 0; give_priority_no_parentheses_increase_priority_index < nr_operator_token; give_priority_no_parentheses_increase_priority_index = give_priority_no_parentheses_increase_priority_index + 1)
   {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #03: Enter increase priority loop\n");
-    }
     if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type == TK_LEFT_PARENTHESES)
     {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a TK_LEFT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level + 1);
-      }
       give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level + 1;
     }
     if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type == TK_RIGHT_PARENTHESES)
     {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a TK_RIGHT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level - 1);
-      }
       give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level - 1;
     }
     if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type != TK_LEFT_PARENTHESES && operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type != TK_RIGHT_PARENTHESES)
     {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a NON_PARENTHESES_TOKEN at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Original priority: %d, new priority: %d\n", operator_tokens[give_priority_no_parentheses_increase_priority_index].priority, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority);
-      }
       operator_tokens[give_priority_no_parentheses_increase_priority_index].priority = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority;
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #04: Copy information about non_parentheses tokens to operator_tokens_no_parentheses[32]\n");
-      }
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].position = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].position);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].priority_level = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].regex = \"%s\"\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].regex);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].token_type = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses + 1);
-      }
       operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].position = operator_tokens[give_priority_no_parentheses_increase_priority_index].position;
       operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].priority_level = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority;
       operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].regex = operator_tokens[give_priority_no_parentheses_increase_priority_index].regex;
@@ -757,7 +673,6 @@ void give_priority_no_parentheses()
 
 int bool_to_int(bool bool_value)
 {
-  // We received a bool value, convert it to 0 or 1
   if(bool_value)
   {
     return 1;
@@ -785,7 +700,6 @@ bool check_right_token_is_number_or_bool(int check_index)
 
 int process_add(int add_operator_index)
 {
-  // We recognized the add_operator, evaluate it
   int process_add_answer = 0;
   int left_token_index = add_operator_index - 1;
   int right_token_index = add_operator_index + 1;
@@ -1124,54 +1038,25 @@ bool check_parentheses_valid()
 void process_operator_token()
 {
   // Test Token: p 11 + 2 * 3 - (4 + 1) * 10
-  // We should do more things here 20230303
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
-  }
   int current_index_of_operator_tokens = 0;
   nr_operator_token = 0;
   for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1)
   {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #02: In scanning tokens loop\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: void process_operator_token()] current_scanning_index = %d\n", current_scanning_index);
-      printf("[EXPR DEBUG: void process_operator_token()] current_index_of_operator_tokens = %d\n", current_index_of_operator_tokens);
-      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
-      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = \"%s\"\n", current_scanning_index, tokens[current_scanning_index].str);
-    }
     if(tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
     {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void process_operator_token()] find an operator token at nr_token index %d\n", current_scanning_index);
-      }
       operator_tokens[current_index_of_operator_tokens].position = current_scanning_index;
       operator_tokens[current_index_of_operator_tokens].token_type = tokens[current_scanning_index].type;
       operator_tokens[current_index_of_operator_tokens].regex = tokens[current_scanning_index].str;
       operator_tokens[current_index_of_operator_tokens].priority = 0; // We set all Operator tokens to 0 first, and then we will change them in another function
       current_index_of_operator_tokens = current_index_of_operator_tokens + 1;
       nr_operator_token = nr_operator_token + 1;
-      // Now the token is a operator token, implement codes to register them to operator_tokens
     }
-    else
-    {
-      if(expr_print_debug)
-      {
-        printf("[EXPR DEBUG: void process_operator_token()] not an operator token at nr_token index %d, ignore in this scope\n", current_scanning_index);
-      }
-    }
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
-    }
-    // TODO
   }
   // To make debug easier, we print all operator tokens if expr_print_debug is true
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
+  }
   for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
   {
     if(expr_print_debug)
