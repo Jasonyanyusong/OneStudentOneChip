@@ -68,7 +68,6 @@ void set_expr_print_debug(bool target_expr_print_debug);
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
 void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
 char* decimal_number_to_binary_string(int number);
-int find_dominant_operator(int left, int right, bool *expr_valid_call);
 
 int process_add(int add_operator_index);
 int process_minus(int minus_operator_index);
@@ -1791,16 +1790,6 @@ void process_operator_token()
   return;
 }
 
-int find_dominant_operator(int left, int right, bool *expr_valid_call)
-{
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: find_dominant_operator(int left, int right, bool *expr_valid_call)] CKPT #01: Enter function int find_dominant_operator(int left, int right, bool *expr_valid_call)\n");
-  }
-  // TODO
-  return 0;
-}
-
 u_int64_t eval(int p, int q) // p = left index, q = right index
 {
   if(expr_print_checkpoint)
@@ -1961,7 +1950,7 @@ word_t expr(char *e, bool *success) {
   {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
   }
-  u_int64_t expr_ans = eval(0, nr_token - 1);
+  //u_int64_t expr_ans = eval(0, nr_token - 1);
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
@@ -1970,6 +1959,6 @@ word_t expr(char *e, bool *success) {
   give_priority();
   give_priority_no_parentheses();
 
-  printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
+  //printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
 }
