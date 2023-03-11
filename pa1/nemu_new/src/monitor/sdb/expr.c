@@ -931,19 +931,9 @@ bool check_parentheses(int left_index, int right_index)
   // 4): Not Balance after reaching end, Example: "(1 + (2 + 3)"
 
   int left_right_balance = 0;
-
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #01\n");
-  }
-
   if(tokens[left_index].type != TK_LEFT_PARENTHESES)
   {
     // Check Type I
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #02\n");
-    }
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type I Fail, Left side is not parenthese\n", left_index);
@@ -951,18 +941,9 @@ bool check_parentheses(int left_index, int right_index)
     return false;
   }
 
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #03\n");
-  }
-
   if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
   {
     // Check Type II
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #04\n");
-    }
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type II Fail, Right side is not parenthese\n", right_index);
@@ -970,40 +951,19 @@ bool check_parentheses(int left_index, int right_index)
     return false;
   }
 
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #05\n");
-  }
-
   for(int current_index = left_index; current_index <= right_index; current_index = current_index + 1)
   {
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #06\n");
-    }
     if(tokens[current_index].type == TK_LEFT_PARENTHESES)
     {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #07\n");
-      }
       left_right_balance = left_right_balance + 1;
     }
     if(tokens[current_index].type == TK_RIGHT_PARENTHESES)
     {
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #08\n");
-      }
       left_right_balance = left_right_balance - 1;
     }
     if(current_index != right_index && left_right_balance == 0)
     {
       // Check Type III
-      if(expr_print_checkpoint)
-      {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #09\n");
-      }
       if(expr_print_debug)
       {
         printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type III Fail, Balance before reaching end\n", current_index);
@@ -1012,31 +972,14 @@ bool check_parentheses(int left_index, int right_index)
     }
   }
 
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #10\n");
-  }
-
   if(left_right_balance == 0)
   {
     // Check Type IV
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #11\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] Check SUCCESS, parentheses are balanced!\n");
-    }
     return true;
   }
   else
   {
     // Check Type IV
-    if(expr_print_checkpoint)
-    {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #12\n");
-    }
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end\n", right_index);
