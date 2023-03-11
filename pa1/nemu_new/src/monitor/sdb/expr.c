@@ -758,63 +758,27 @@ void give_priority_no_parentheses()
 int bool_to_int(bool bool_value)
 {
   // We received a bool value, convert it to 0 or 1
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
-  }
   if(bool_value)
   {
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
-    }
     return 1;
-  }
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
   }
   return 0;
 }
 
 bool check_left_token_is_number_or_bool(int check_index)
 {
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
-  }
   if(tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
   {
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is one of the NUMBER type\n", check_index - 1);
-    }
     return true;
-  }
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is NOT one of the NUMBER type\n", check_index - 1);
   }
   return false;
 }
 
 bool check_right_token_is_number_or_bool(int check_index)
 {
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
-  }
   if(tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER)
   {
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is one of the NUMBER type\n", check_index - 1);
-    }
     return true;
-  }
-  if(expr_print_debug)
-  {
-    printf("[EXPR DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is NOT one of the NUMBER type\n", check_index - 1);
   }
   return false;
 }
