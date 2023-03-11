@@ -84,6 +84,8 @@ void init_tokens();
 void init_operator_tokens();
 void init_operator_tokens_no_parentheses();
 void init_optimized_tokens();
+void init_optimized_tokens_a();
+void init_optimized_tokens_b()
 
 struct OperatorToken
 {
@@ -242,20 +244,17 @@ void expr_init()
 
 void init_tokens()
 {
-  // TODO
   nr_token = 0;
   for(int init_tokens_index = 0; init_tokens_index < 32; init_tokens_index = init_tokens_index + 1)
   {
     memset(tokens[init_tokens_index].str,0,sizeof(tokens[init_tokens_index].str));
     tokens[init_tokens_index].type = -1;
-    // TODO
   }
   return;
 }
 
 void init_operator_tokens()
 {
-  // TODO
   nr_operator_token = 0;
   for(int init_operator_tokens_index = 0; init_operator_tokens_index < 32; init_operator_tokens_index = init_operator_tokens_index + 1)
   {
@@ -263,14 +262,12 @@ void init_operator_tokens()
     operator_tokens[init_operator_tokens_index].position = -1;
     operator_tokens[init_operator_tokens_index].priority = -1;
     operator_tokens[init_operator_tokens_index].token_type = -1;
-    // TODO
   }
   return;
 }
 
 void init_operator_tokens_no_parentheses()
 {
-  // TODO
   nr_operator_tokens_no_parentheses = 0;
   for(int init_operator_tokens_no_parentheses_index = 0; init_operator_tokens_no_parentheses_index < 32; init_operator_tokens_no_parentheses_index = init_operator_tokens_no_parentheses_index + 1)
   {
@@ -285,7 +282,6 @@ void init_operator_tokens_no_parentheses()
 
 void init_optimized_tokens()
 {
-  // TODO
   nr_optimized_token_a = 0;
   nr_optimized_token_b = 0;
   for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
@@ -294,7 +290,28 @@ void init_optimized_tokens()
     memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
     optimized_tokens_a[init_optimized_tokens_index].type = -1;
     optimized_tokens_b[init_optimized_tokens_index].type = -1;
-    // TODO
+  }
+  return;
+}
+
+void init_optimized_tokens_a()
+{
+  nr_optimized_token_a = 0;
+  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
+  {
+    memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
+    optimized_tokens_a[init_optimized_tokens_index].type = -1;
+  }
+  return;
+}
+
+void init_optimized_tokens_b()
+{
+  nr_optimized_token_b = 0;
+  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
+  {
+    memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
+    optimized_tokens_b[init_optimized_tokens_index].type = -1;
   }
   return;
 }
@@ -330,12 +347,6 @@ static bool make_token(char *e) {
 
         position += substr_len;
 
-        /* TODO: Now a new token is recognized with rules[i]. Add codes
-         * to record the token in the array `tokens'. For certain types
-         * of tokens, some extra actions should be performed.
-         */
-
-        // printf("make_token() Check Point #4\n");
         switch (rules[i].token_type) 
         {
           default:
@@ -360,7 +371,6 @@ static bool make_token(char *e) {
           }
           case TK_NOTYPE:
           {
-            // Case No.1
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #05\n");
@@ -376,7 +386,6 @@ static bool make_token(char *e) {
           }
           case TK_EQ:
           {
-            // Case No.2
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #06\n");
@@ -398,7 +407,6 @@ static bool make_token(char *e) {
           }
           case TK_NEQ:
           {
-            // Case No.3
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #07\n");
@@ -420,7 +428,6 @@ static bool make_token(char *e) {
           }
           case TK_NOT:
           {
-            // Case No.4
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #08\n");
@@ -442,7 +449,6 @@ static bool make_token(char *e) {
           }
           case TK_AND:
           {
-            // Case No.5
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #09\n");
@@ -464,7 +470,6 @@ static bool make_token(char *e) {
           }
           case TK_OR:
           {
-            // Case No.6
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #10\n");
@@ -486,7 +491,6 @@ static bool make_token(char *e) {
           }
           case TK_POINTER:
           {
-            // Case No.7
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #11\n");
@@ -508,7 +512,6 @@ static bool make_token(char *e) {
           }
           case TK_NUMBER:
           {
-            // Case No.10
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #14\n");
@@ -529,7 +532,6 @@ static bool make_token(char *e) {
           }
           case TK_HEXNUMBER:
           {
-            // Case No.11
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #15\n");
@@ -550,7 +552,6 @@ static bool make_token(char *e) {
           }
           case TK_REGISTER: // !!! Special Case
           {
-            // Case No.12
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #16\n");
@@ -572,7 +573,6 @@ static bool make_token(char *e) {
           }
           case TK_MARK:
           {
-            // Case No.13
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #17\n");
@@ -594,7 +594,6 @@ static bool make_token(char *e) {
           }
           case TK_LEFT_PARENTHESES:
           {
-            // Case No.14
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #18\n");
@@ -616,7 +615,6 @@ static bool make_token(char *e) {
           }
           case TK_RIGHT_PARENTHESES:
           {
-            // Case No.15
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #19\n");
@@ -638,7 +636,6 @@ static bool make_token(char *e) {
           }
           case TK_MULTIPLY:
           {
-            // Case No.16
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #20\n");
@@ -660,7 +657,6 @@ static bool make_token(char *e) {
           }
           case TK_DIVIDE:
           {
-            // Case No.17
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #21\n");
@@ -682,7 +678,6 @@ static bool make_token(char *e) {
           }
           case TK_PLUS:
           {
-            // Case No.18
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #22\n");
@@ -704,7 +699,6 @@ static bool make_token(char *e) {
           }
           case TK_MINUS:
           {
-            // Case No.19
             if(expr_print_checkpoint)
             {
               printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #23\n");
@@ -743,11 +737,6 @@ static bool make_token(char *e) {
     }
   }
 
-  // Debug Point: Print Tokens
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #26\n");
-  }
   if(expr_print_debug)
   {
     printf("[EXPR DEBUG: static bool make_token(char *e)] Token Numbers (Decimal): %d\n", nr_token);
@@ -758,11 +747,6 @@ static bool make_token(char *e) {
     {
       printf("[EXPR DEBUG: static bool make_token(char *e)] Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
     }
-  }
-
-  if(expr_print_checkpoint)
-  {
-    printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #28\n");
   }
   
   if(expr_print_debug)
@@ -823,7 +807,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_AND:
       {
@@ -839,7 +822,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_EQ:
       {
@@ -855,7 +837,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_NEQ:
       {
@@ -871,7 +852,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_PLUS:
       {
@@ -887,7 +867,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_MINUS:
       {
@@ -903,7 +882,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_MULTIPLY:
       {
@@ -919,7 +897,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_DIVIDE:
       {
@@ -935,7 +912,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_NOT:
       {
@@ -951,7 +927,6 @@ void give_priority()
           printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
     }
   }
@@ -1114,7 +1089,6 @@ int bool_to_int(bool bool_value)
 
 bool check_left_token_is_number_or_bool(int check_index)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
@@ -1136,7 +1110,6 @@ bool check_left_token_is_number_or_bool(int check_index)
 
 bool check_right_token_is_number_or_bool(int check_index)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
