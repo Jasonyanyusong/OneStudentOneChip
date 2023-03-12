@@ -73,7 +73,7 @@ char* decimal_number_to_binary_string(int number);
 int process_add(int add_operator_index);
 int process_minus(int minus_operator_index);
 int process_multiply(int multiply_operator_index);
-int process_devide(int devide_operator_index, bool* valid_process_devide_call);
+int process_devide(int devide_operator_index);
 int process_equal(int equal_operator_index);
 int process_not_equal(int not_equal_operator_index);
 int process_and(int and_operator_index);
@@ -1373,7 +1373,7 @@ int process_multiply(int multiply_operator_index)
   return process_multiply_answer;
 }
 
-int process_devide(int devide_operator_index, bool* valid_process_devide_call)
+int process_devide(int devide_operator_index)
 {
   // We recognized the devide_operator, evaluate it
   if(expr_print_checkpoint)
@@ -1395,14 +1395,6 @@ int process_devide(int devide_operator_index, bool* valid_process_devide_call)
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(right_token_int_value == 0)
-  {
-    if(expr_print_debug)
-    {
-      printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] DIVIDER is ZREO, INVALID\n");
-    }
-    *valid_process_devide_call = false;
-  }
   process_devide_answer = left_token_int_value / right_token_int_value;
   if(expr_print_debug)
   {
@@ -1726,6 +1718,28 @@ void calculate_one_round(bool* success_calculate_one_round_call)
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
+  }
+  u_int64_t this_round_calculation_answer = 0;
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS)
+  {
+    this_round_calculation_answer = process_add(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MINUS)
+  {
+    this_round_calculation_answer = process_minus(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MULTIPLY)
+  {
+    this_round_calculation_answer = process_multiply(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE)
+  {
+    this_round_calculation_answer = process_devide(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
   }
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
   if(expr_print_checkpoint)
