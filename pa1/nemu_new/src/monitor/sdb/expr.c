@@ -56,6 +56,7 @@ bool check_right_token_is_number_or_bool(int check_index);
 void process_operator_token();
 void give_priority();
 void give_priority_no_parentheses();
+void give_sub_priority();
 int bool_to_int(bool bool_value);
 bool valid_call;
 
@@ -101,6 +102,7 @@ struct OperatorTokenNoParentheses
   int token_type;
   int priority_level;
   int position;
+  int sub_priority_level;
 } operator_tokens_no_parentheses[32];
 
 struct OptimizedToken
@@ -280,6 +282,7 @@ void init_operator_tokens_no_parentheses()
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].position = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority_level = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
     // TODO
   }
   return;
@@ -1087,6 +1090,86 @@ void give_priority_no_parentheses()
     for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
     {
       printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
+    }
+  }
+  return;
+}
+
+void give_sub_priority()
+{
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void give_sub_priority()] CKPT #01: Enter function\n");
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_token = %d\n", nr_operator_token);
+    for(int print_operator_token_index = 0; print_operator_token_index < nr_operator_token; print_operator_token_index = print_operator_token_index + 1)
+    {
+      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_index, operator_tokens[print_operator_token_index].position, operator_tokens[print_operator_token_index].priority, operator_tokens[print_operator_token_index].regex, operator_tokens[print_operator_token_index].token_type);
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
+    for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
+    {
+      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
+    }
+  }
+  // Now we give sub calculation priority by considering the position of operators
+  int global_highest_priority = -1;
+  for(int find_global_highest_priority_index = 0; find_global_highest_priority_index < nr_operator_tokens_no_parentheses; find_global_highest_priority_index = find_global_highest_priority_index + 1)
+  {
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR CHECKPOINT: void give_sub_priority()] CKPT #02: find_global_highest_priority loop\n");
+    }
+    if(operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level > global_highest_priority)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void give_sub_priority()] At find_global_highest_priority_index = %d, find priority_level = %d, higher than current global_highest_priority = %d\n", find_global_highest_priority_index, operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level, global_highest_priority);
+      }
+      global_highest_priority = operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level;
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_sub_priority()] global_highest_priority = %d\n", global_highest_priority);
+  }
+  for(int current_processing_global_priority = global_highest_priority; current_processing_global_priority > 0; current_processing_global_priority = current_processing_global_priority - 1)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+    }
+    int current_processing_local_priority = 1;
+    for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
+      }
+      if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority)
+      {
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_sub_priority()] Find operator_tokens_no_parentheses[%d].priority_level == current_processing_global_priority (Val: %d)\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_global_priority);
+          printf("[EXPR DEBUG: void give_sub_priority()] Set operator_tokens_no_parentheses[%d].sub_priority_level = %d\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_local_priority);
+        }
+        operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].sub_priority_level = current_processing_local_priority;
+        current_processing_local_priority = current_processing_local_priority + 1;
+      }
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
+    for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
+    {
+      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
     }
   }
   return;
@@ -1968,6 +2051,7 @@ word_t expr(char *e, bool *success) {
   process_operator_token();
   give_priority();
   give_priority_no_parentheses();
+  give_sub_priority();
 
   //printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
