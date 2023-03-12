@@ -1,6 +1,8 @@
 import random
 
 print("Generate expr expressions for NEMU EXPR")
+print("Example:")
+print("p 1 + (2 + (3 + 4) + (5 + 6 + (7 * 8 * 9) + 10) * 11 + 12)")
 NEMU_EXPR_TOKEN_MAX_NUMBER = 32
 
 HAVE_PLUS = True

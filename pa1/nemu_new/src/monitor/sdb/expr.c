@@ -1610,6 +1610,23 @@ void calculate_one_round(bool* success_calculate_one_round_call)
     printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #01\n");
   }
   // First, find the highest priority and sub_priority, then get the index in tokens[32]
+  int calculate_one_round_highest_priority = -1;
+  int calculate_one_round_highest_sub_priority = -1;
+  for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1)
+  {
+    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level > calculate_one_round_highest_priority)
+    {
+      calculate_one_round_highest_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level;
+    }
+    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level == calculate_one_round_highest_priority && operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level > calculate_one_round_highest_sub_priority)
+    {
+      calculate_one_round_highest_sub_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level;
+    }
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
+    }
+  }
   // Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false
   // Third, implement specific calls to evaluate the result
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
@@ -2102,6 +2119,7 @@ word_t expr(char *e, bool *success) {
   give_priority();
   give_priority_no_parentheses();
   give_sub_priority();
+  calculate_one_round(success);
 
   //printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
