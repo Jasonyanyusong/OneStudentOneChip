@@ -21,6 +21,7 @@
  */
 #include <regex.h>
 #include <string.h>
+#include <stdlib.h>
 
 // Tesk Token #1: p 0x8000 + 123 - 6 * (5 + 4)
 // Test Token #2: p 123 + 456 + 789
@@ -1745,6 +1746,71 @@ void calculate_one_round(bool* success_calculate_one_round_call)
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
+  }
+  bool left_and_right_is_paired_parentheses = false;
+  char* result_token = malloc(256);
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type == TK_RIGHT_PARENTHESES)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] left and right is paired parentheses\n");
+    }
+    left_and_right_is_paired_parentheses = true;
+  }
+  for(int current_copying_tokens_index = 0; current_copying_tokens_index < nr_token; current_copying_tokens_index = current_copying_tokens_index + 1)
+  {
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2 && left_and_right_is_paired_parentheses == true)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] is the left number, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] is the operator, skip copying\n");
+      }
+      sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] is the right number, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2 && left_and_right_is_paired_parentheses == true)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    strcat(result_token, tokens[current_copying_tokens_index].str);
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
+    }
+    // TODO
   }
   *success_calculate_one_round_call = true;
   return;
