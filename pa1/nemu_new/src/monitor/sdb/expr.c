@@ -88,6 +88,8 @@ void init_optimized_tokens();
 void init_optimized_tokens_a();
 void init_optimized_tokens_b();
 
+void calculate_one_round(bool* success_calculate_one_round_call);
+
 struct OperatorToken
 {
   const char *regex;
@@ -1112,6 +1114,7 @@ void give_priority_no_parentheses()
 
 void give_sub_priority()
 {
+  // Test Token for this function: p 1 + (2 + (3 + 4) + (5 + 6 + (7 * 8 * 9) + 10) * 11 + 12)
   if(expr_print_checkpoint)
   {
     printf("[EXPR CHECKPOINT: void give_sub_priority()] CKPT #01: Enter function\n");
@@ -1159,9 +1162,10 @@ void give_sub_priority()
     {
       printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
     }
-    int current_processing_local_priority = 1;
+    int current_processing_local_priority = 0;
     for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1)
     {
+      // First, we need to find out how many operators have the same global priority, by scanning each operator_token_no_parentheses and we count them
       if(expr_print_debug)
       {
         printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
@@ -1171,13 +1175,30 @@ void give_sub_priority()
       {
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_sub_priority()] Find operator_tokens_no_parentheses[%d].priority_level == current_processing_global_priority (Val: %d)\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_global_priority);
-          printf("[EXPR DEBUG: void give_sub_priority()] Set operator_tokens_no_parentheses[%d].sub_priority_level = %d\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_local_priority);
+          printf("[EXPR DEBUG: void give_sub_priority()] switch operator_tokens_no_parentheses from %d to %d\n", current_processing_local_priority, current_processing_local_priority + 1);
         }
-        operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].sub_priority_level = current_processing_local_priority;
         current_processing_local_priority = current_processing_local_priority + 1;
       }
     }
+    for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1)
+    {
+      // Second, we give the highest local priority to the first operator token with the same global priority, then we minus 1 to current_processing_local_priority
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
+      }
+      if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority)
+      {
+        operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].sub_priority_level = current_processing_local_priority;
+        current_processing_local_priority = current_processing_local_priority - 1;
+        if(expr_print_debug)
+        {
+          printf("[EXPR DEBUG: void give_sub_priority()] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_local_priority);
+        }
+      }
+    }
+    // TODO
   }
   if(expr_print_debug)
   {
@@ -1579,6 +1600,16 @@ int process_not(int not_operator_index)
     printf("[EXPR DEBUG: int process_not(int not_operator_index)] process_or_answer = %d\n", process_not_answer);
   }
   return process_not_answer;
+}
+
+void calculate_one_round(bool* success_calculate_one_round_call)
+{
+  // TODO
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #01\n");
+  }
+  return;
 }
 
 bool check_parentheses(int left_index, int right_index)
