@@ -1678,27 +1678,49 @@ void calculate_one_round(bool* success_calculate_one_round_call)
     }
     return;
   }
-  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER || tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER)
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER)
   {
     // Error: Left is not a Dec or Hex number
     *success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return;
   }
-  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER || tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
   {
     // Error: Right is not a Dec or Hex number
     *success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] All tests are passed, continue\n");
   }
   // Third, implement specific calls to evaluate the result
   if(expr_print_checkpoint)
