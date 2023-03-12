@@ -246,20 +246,17 @@ void expr_init()
 
 void init_tokens()
 {
-  // TODO
   nr_token = 0;
   for(int init_tokens_index = 0; init_tokens_index < 32; init_tokens_index = init_tokens_index + 1)
   {
     memset(tokens[init_tokens_index].str,0,sizeof(tokens[init_tokens_index].str));
     tokens[init_tokens_index].type = -1;
-    // TODO
   }
   return;
 }
 
 void init_operator_tokens()
 {
-  // TODO
   nr_operator_token = 0;
   for(int init_operator_tokens_index = 0; init_operator_tokens_index < 32; init_operator_tokens_index = init_operator_tokens_index + 1)
   {
@@ -267,14 +264,12 @@ void init_operator_tokens()
     operator_tokens[init_operator_tokens_index].position = -1;
     operator_tokens[init_operator_tokens_index].priority = -1;
     operator_tokens[init_operator_tokens_index].token_type = -1;
-    // TODO
   }
   return;
 }
 
 void init_operator_tokens_no_parentheses()
 {
-  // TODO
   nr_operator_tokens_no_parentheses = 0;
   for(int init_operator_tokens_no_parentheses_index = 0; init_operator_tokens_no_parentheses_index < 32; init_operator_tokens_no_parentheses_index = init_operator_tokens_no_parentheses_index + 1)
   {
@@ -283,14 +278,12 @@ void init_operator_tokens_no_parentheses()
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority_level = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
-    // TODO
   }
   return;
 }
 
 void init_optimized_tokens()
 {
-  // TODO
   nr_optimized_token_a = 0;
   nr_optimized_token_b = 0;
   for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
@@ -299,7 +292,29 @@ void init_optimized_tokens()
     memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
     optimized_tokens_a[init_optimized_tokens_index].type = -1;
     optimized_tokens_b[init_optimized_tokens_index].type = -1;
-    // TODO
+  }
+  return;
+}
+
+void init_optimized_tokens_a()
+{
+  nr_optimized_token_a = 0;
+  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
+  {
+    memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
+    optimized_tokens_a[init_optimized_tokens_index].type = -1;
+  }
+  return;
+}
+
+void init_optimized_tokens_b()
+{
+  nr_optimized_token_a = 0;
+  nr_optimized_token_b = 0;
+  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
+  {
+    memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
+    optimized_tokens_b[init_optimized_tokens_index].type = -1;
   }
   return;
 }
