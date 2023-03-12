@@ -15,51 +15,25 @@
 
 #include <isa.h>
 #include "sdb.h"
-
-/* We use the POSIX regex functions to process regular expressions.
- * Type 'man regex' for more information about POSIX regex functions.
- */
 #include <regex.h>
 #include <string.h>
+#include <stdlib.h>
 
 enum {
- TK_NOTYPE = 256,
- TK_EQ = 255,
- TK_NEQ = 254,
- TK_AND = 253,
- TK_OR = 252,
- TK_NOT = 250,
- TK_POINTER = 249,
- TK_NUMBER = 248,
- TK_HEXNUMBER = 247,
- TK_REGISTER = 246,
- TK_MARK = 245,
- TK_OCTNUMBER = 244,
- TK_BINNUMBER = 243,
- TK_PLUS = 242,
- TK_MINUS = 241,
- TK_MULTIPLY = 240,
- TK_DIVIDE = 239,
- TK_LEFT_PARENTHESES = 238,
- TK_RIGHT_PARENTHESES = 237,
+ TK_NOTYPE = 256, TK_EQ = 255, TK_NEQ = 254, TK_AND = 253, TK_OR = 252, TK_NOT = 250, TK_POINTER = 249, TK_NUMBER = 248, TK_HEXNUMBER = 247, TK_REGISTER = 246, TK_MARK = 245, TK_PLUS = 242, TK_MINUS = 241, TK_MULTIPLY = 240, TK_DIVIDE = 239, TK_LEFT_PARENTHESES = 238, TK_RIGHT_PARENTHESES = 237,
 };
 
-bool check_parentheses(int left_index, int right_index); // Used in eval()
-bool check_parentheses_balance(); // Used in expr()
-bool check_parentheses_valid(); // Used in give_priority_no_parentheses()
+bool check_parentheses_balance();
+bool check_parentheses_valid();
 bool check_left_token_is_number_or_bool(int check_index);
 bool check_right_token_is_number_or_bool(int check_index);
 void process_operator_token();
 void give_priority();
 void give_priority_no_parentheses();
+void give_sub_priority();
 int bool_to_int(bool bool_value);
 bool valid_call;
-int nr_operator_token;
-int nr_optimized_token;
-
 char* decimal_number_to_binary_string(int number);
-int find_dominant_operator(int left, int right, bool *expr_valid_call);
-
 int process_add(int add_operator_index);
 int process_minus(int minus_operator_index);
 int process_multiply(int multiply_operator_index);
@@ -69,12 +43,13 @@ int process_not_equal(int not_equal_operator_index);
 int process_and(int and_operator_index);
 int process_or(int or_operator_index);
 int process_not(int not_operator_index);
-
 void expr_init();
 void init_tokens();
 void init_operator_tokens();
 void init_operator_tokens_no_parentheses();
-void init_optimized_tokens();
+char* calculate_one_round(bool success_calculate_one_round_call);
+char* calculate(bool* success_calculate_call);
+char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished);
 
 struct OperatorToken
 {
@@ -90,58 +65,26 @@ struct OperatorTokenNoParentheses
   int token_type;
   int priority_level;
   int position;
+  int sub_priority_level;
 } operator_tokens_no_parentheses[32];
 
-struct OptimizedToken
-{
-  int type;
-  char str[32];
-} optimized_tokens[32];
-
-int nr_optimized_token = 0;
+int nr_operator_tokens_no_parentheses = 0;
 int nr_operator_token = 0;
 
 static struct rule {
   const char *regex;
   int token_type;
 } rules[] = {
-  {" +", TK_NOTYPE}, // Spaces
-  {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
-  {"0o[0-7]+", TK_OCTNUMBER}, // Oct Numbers
-  {"0b[0-1]+", TK_BINNUMBER}, // Bin Numbers
-  {"[0-9]+", TK_NUMBER}, // Dec Numbers
-  {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
-  {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
-  {"\\)", TK_RIGHT_PARENTHESES}, // Right Parenthesis IS_OPERATOR_TOKEN
-  {"\\*", TK_MULTIPLY}, // Multiply IS_OPERATOR_TOKEN
-  {"\\/", TK_DIVIDE}, // Devide IS_OPERATOR_TOKEN
-  {"\\+", TK_PLUS}, // Plus IS_OPERATOR_TOKEN
-  {"\\-", TK_MINUS}, // Minus IS_OPERATOR_TOKEN
-  {"==", TK_EQ}, // Equal IS_OPERATOR_TOKEN
-  {"!=", TK_NEQ}, // Not Equal IS_OPERATOR_TOKEN
-  {"&&", TK_AND}, // And IS_OPERATOR_TOKEN
-  {"\\|\\|", TK_OR}, // Or IS_OPERATOR_TOKEN
-  {"!", TK_NOT}, // Not IS_OPERATOR_TOKEN
+  {" +", TK_NOTYPE}, {"0x[0-9,a-f]+", TK_HEXNUMBER}, {"[0-9]+", TK_NUMBER}, {"\\$[a-z]{2,3}", TK_REGISTER}, {"\\(", TK_LEFT_PARENTHESES}, {"\\)", TK_RIGHT_PARENTHESES}, {"\\*", TK_MULTIPLY}, {"\\/", TK_DIVIDE}, {"\\+", TK_PLUS}, {"\\-", TK_MINUS}, {"==", TK_EQ}, {"!=", TK_NEQ}, {"&&", TK_AND}, {"\\|\\|", TK_OR}, {"!", TK_NOT},
 };
 
 #define NR_REGEX ARRLEN(rules)
-
 static regex_t re[NR_REGEX] = {};
 
-char* decimal_number_to_binary_string(int number)
-{
-  // TODO
-  return NULL;
-}
-
-/* Rules are used for many times.
- * Therefore we compile them only once before any usage.
- */
 void init_regex() {
   int i;
   char error_msg[128];
   int ret;
-
   for (i = 0; i < NR_REGEX; i ++) {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
     if (ret != 0) {
@@ -159,36 +102,39 @@ typedef struct token {
 static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
-void expr_init()
-{
+void expr_init(){
   init_tokens();
   init_operator_tokens();
   init_operator_tokens_no_parentheses();
-  init_optimized_tokens();
   return;
 }
-
-void init_tokens()
-{
-  // TODO
+void init_tokens(){
+  nr_token = 0;
+  for(int init_tokens_index = 0; init_tokens_index < 32; init_tokens_index = init_tokens_index + 1){
+    memset(tokens[init_tokens_index].str,0,sizeof(tokens[init_tokens_index].str));
+    tokens[init_tokens_index].type = -1;
+  }
   return;
 }
-
-void init_operator_tokens()
-{
-  // TODO
+void init_operator_tokens(){
+  nr_operator_token = 0;
+  for(int init_operator_tokens_index = 0; init_operator_tokens_index < 32; init_operator_tokens_index = init_operator_tokens_index + 1){
+    operator_tokens[init_operator_tokens_index].regex = NULL;
+    operator_tokens[init_operator_tokens_index].position = -1;
+    operator_tokens[init_operator_tokens_index].priority = -1;
+    operator_tokens[init_operator_tokens_index].token_type = -1;
+  }
   return;
 }
-
-void init_operator_tokens_no_parentheses()
-{
-  // TODO
-  return;
-}
-
-void init_optimized_tokens()
-{
-  // TODO
+void init_operator_tokens_no_parentheses(){
+  nr_operator_tokens_no_parentheses = 0;
+  for(int init_operator_tokens_no_parentheses_index = 0; init_operator_tokens_no_parentheses_index < 32; init_operator_tokens_no_parentheses_index = init_operator_tokens_no_parentheses_index + 1){
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].regex = NULL;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].position = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority_level = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
+    operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
+  }
   return;
 }
 
@@ -196,181 +142,132 @@ static bool make_token(char *e) {
   int position = 0;
   int i;
   regmatch_t pmatch;
-
   nr_token = 0;
-
   while (e[position] != '\0') {
-    /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-
         Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
             i, rules[i].regex, position, substr_len, substr_len, substr_start);
-
         position += substr_len;
-
-        /* TODO: Now a new token is recognized with rules[i]. Add codes
-         * to record the token in the array `tokens'. For certain types
-         * of tokens, some extra actions should be performed.
-         */
-
-        // printf("make_token() Check Point #4\n");
-        switch (rules[i].token_type) 
-        {
-          default:
-          {
+        switch (rules[i].token_type) {
+          default:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = rules[i].token_type;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_NOTYPE:
-          {
+          case TK_NOTYPE:{
             break;
           }
-          case TK_EQ:
-          {
+          case TK_EQ:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_EQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_NEQ:
-          {
-            // Case No.3
+          case TK_NEQ:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NEQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_NOT:
-          {
+          case TK_NOT:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NOT;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_AND:
-          {
+          case TK_AND:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_AND;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_OR:
-          {
+          case TK_OR:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_OR;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_POINTER:
-          {
+          case TK_POINTER:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_POINTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_BINNUMBER:
-          {
-            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
-            tokens[nr_token].type = TK_BINNUMBER;
-            strncpy(tokens[nr_token].str, substr_start, substr_len);
-            nr_token = nr_token + 1;
-            break;
-          }
-          case TK_OCTNUMBER:
-          {
-            memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
-            tokens[nr_token].type = TK_OCTNUMBER;
-            strncpy(tokens[nr_token].str, substr_start, substr_len);
-            nr_token = nr_token + 1;
-            break;
-          }
-          case TK_NUMBER:
-          {
+          case TK_NUMBER:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_HEXNUMBER:
-          {
+          case TK_HEXNUMBER:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_REGISTER:
-          {
+          case TK_REGISTER:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_REGISTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_MARK:
-          {
+          case TK_MARK:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MARK;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_LEFT_PARENTHESES:
-          {
-            // Case No.14
+          case TK_LEFT_PARENTHESES:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_LEFT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_RIGHT_PARENTHESES:
-          {
+          case TK_RIGHT_PARENTHESES:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_RIGHT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_MULTIPLY:
-          {
+          case TK_MULTIPLY:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MULTIPLY;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_DIVIDE:
-          {
+          case TK_DIVIDE:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_DIVIDE;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_PLUS:
-          {
+          case TK_PLUS:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_PLUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             nr_token = nr_token + 1;
             break;
           }
-          case TK_MINUS:
-          {
+          case TK_MINUS:{
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MINUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
@@ -387,130 +284,132 @@ static bool make_token(char *e) {
       return false;
     }
   }
-
-  for(int display_index = 0; display_index < nr_token; display_index = display_index + 1)
-  {
-    // NOTHING
-  }
-
-  if(check_parentheses(0, nr_token - 1))
-  {
-    // NOTHING
-  }
-  else
-  {
-    // NOTHING
-  }
-
   return true;
 }
 
-void give_priority()
-{
-  for(int give_priority_index = 0; give_priority_index < nr_operator_token; give_priority_index = give_priority_index + 1)
-  {
-    switch(operator_tokens[give_priority_index].token_type)
-    {
-      case TK_OR:
-      {
+void give_priority(){
+  for(int give_priority_index = 0; give_priority_index < nr_operator_token; give_priority_index = give_priority_index + 1){
+    switch(operator_tokens[give_priority_index].token_type){
+      case TK_OR:{
         operator_tokens[give_priority_index].priority = 1;
         break;
       }
-      case TK_AND:
-      {
+      case TK_AND:{
         operator_tokens[give_priority_index].priority = 2;
         break;
       }
-      case TK_EQ:
-      {
+      case TK_EQ:{
         operator_tokens[give_priority_index].priority = 3;
         break;
       }
-      case TK_NEQ:
-      {
+      case TK_NEQ:{
         operator_tokens[give_priority_index].priority = 3;
         break;
       }
-      case TK_PLUS:
-      {
+      case TK_PLUS:{
         operator_tokens[give_priority_index].priority = 4;
         break;
       }
-      case TK_MINUS:
-      {
+      case TK_MINUS:{
         operator_tokens[give_priority_index].priority = 4;
         break;
       }
-      case TK_MULTIPLY:
-      {
+      case TK_MULTIPLY:{
         operator_tokens[give_priority_index].priority = 5;
         break;
       }
-      case TK_DIVIDE:
-      {
+      case TK_DIVIDE:{
         operator_tokens[give_priority_index].priority = 5;
         break;
       }
-      case TK_NOT:
-      {
+      case TK_NOT:{
         operator_tokens[give_priority_index].priority = 6;
         break;
       }
     }
   }
-  for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
-  {
-    // NOTHING
-  }
   return;
 }
 
-void give_priority_no_parentheses()
-{
-  int local_highest_priority = -1;
-  for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1)
-  {
-    if(operator_tokens[current_scan_local_highest_priority_index].priority > local_highest_priority)
-    {
+void give_priority_no_parentheses(){
+  int local_highest_priority = 0;
+  for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1){
+    if(operator_tokens[current_scan_local_highest_priority_index].priority > local_highest_priority){
       local_highest_priority = operator_tokens[current_scan_local_highest_priority_index].priority;
     }
   }
-  if(local_highest_priority < 0)
-  {
+  if(local_highest_priority < 0){
     assert(0);
+  }
+  if(!check_parentheses_valid()){
+    assert(0);
+  }
+  int give_priority_no_parentheses_parentheses_level = 0;
+  for(int give_priority_no_parentheses_increase_priority_index = 0; give_priority_no_parentheses_increase_priority_index < nr_operator_token; give_priority_no_parentheses_increase_priority_index = give_priority_no_parentheses_increase_priority_index + 1){
+    if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type == TK_LEFT_PARENTHESES){
+      give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level + 1;
+    }
+    if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type == TK_RIGHT_PARENTHESES){
+      give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level - 1;
+    }
+    if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type != TK_LEFT_PARENTHESES && operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type != TK_RIGHT_PARENTHESES){
+      operator_tokens[give_priority_no_parentheses_increase_priority_index].priority = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority;
+      operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].position = operator_tokens[give_priority_no_parentheses_increase_priority_index].position;
+      operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].priority_level = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority;
+      operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].regex = operator_tokens[give_priority_no_parentheses_increase_priority_index].regex;
+      operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].token_type = operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type;
+      nr_operator_tokens_no_parentheses = nr_operator_tokens_no_parentheses + 1;
+    }
   }
   return;
 }
 
-int bool_to_int(bool bool_value)
-{
-  if(bool_value)
-  {
+void give_sub_priority(){
+  int global_highest_priority = -1;
+  for(int find_global_highest_priority_index = 0; find_global_highest_priority_index < nr_operator_tokens_no_parentheses; find_global_highest_priority_index = find_global_highest_priority_index + 1){
+    if(operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level > global_highest_priority){
+      global_highest_priority = operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level;
+    }
+  }
+  for(int current_processing_global_priority = global_highest_priority; current_processing_global_priority > 0; current_processing_global_priority = current_processing_global_priority - 1){
+    int current_processing_local_priority = 0;
+    for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1){
+      if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority){
+        current_processing_local_priority = current_processing_local_priority + 1;
+      }
+    }
+    for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1){
+      if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority){
+        operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].sub_priority_level = current_processing_local_priority;
+        current_processing_local_priority = current_processing_local_priority - 1;
+      }
+    }
+  }
+  return;
+}
+
+int bool_to_int(bool bool_value){
+  if(bool_value){
     return 1;
   }
   return 0;
 }
 
-bool check_left_token_is_number_or_bool(int check_index)
-{
-  if(tokens[check_index - 1].type == TK_BINNUMBER || tokens[check_index - 1].type == TK_OCTNUMBER || tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
-  {
+bool check_left_token_is_number_or_bool(int check_index){
+  if(tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER){
     return true;
   }
   return false;
 }
 
-bool check_right_token_is_number_or_bool(int check_index)
-{
-  if(tokens[check_index + 1].type == TK_BINNUMBER || tokens[check_index + 1].type == TK_OCTNUMBER || tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER)
-  {
+bool check_right_token_is_number_or_bool(int check_index){
+  if(tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER){
     return true;
   }
   return false;
 }
 
-int process_add(int add_operator_index)
-{
+int process_add(int add_operator_index){
   int process_add_answer = 0;
   int left_token_index = add_operator_index - 1;
   int right_token_index = add_operator_index + 1;
@@ -520,8 +419,7 @@ int process_add(int add_operator_index)
   return process_add_answer;
 }
 
-int process_minus(int minus_operator_index)
-{
+int process_minus(int minus_operator_index){
   int process_minus_answer = 0;
   int left_token_index = minus_operator_index - 1;
   int right_token_index = minus_operator_index + 1;
@@ -531,8 +429,7 @@ int process_minus(int minus_operator_index)
   return process_minus_answer;
 }
 
-int process_multiply(int multiply_operator_index)
-{
+int process_multiply(int multiply_operator_index){
   int process_multiply_answer = 0;
   int left_token_index = multiply_operator_index - 1;
   int right_token_index = multiply_operator_index + 1;
@@ -542,8 +439,7 @@ int process_multiply(int multiply_operator_index)
   return process_multiply_answer;
 }
 
-int process_devide(int devide_operator_index)
-{
+int process_devide(int devide_operator_index){
   int process_devide_answer = 0;
   int left_token_index = devide_operator_index - 1;
   int right_token_index = devide_operator_index + 1;
@@ -553,37 +449,31 @@ int process_devide(int devide_operator_index)
   return process_devide_answer;
 }
 
-int process_equal(int equal_operator_index)
-{
+int process_equal(int equal_operator_index){
   int process_equal_answer = 0;
   int left_token_index = equal_operator_index - 1;
   int right_token_index = equal_operator_index + 1;
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value == right_token_int_value)
-  {
+  if(left_token_int_value == right_token_int_value){
     process_equal_answer = 1;
   }
-  else
-  {
+  else{
     process_equal_answer = 0;
   }
   return process_equal_answer;
 }
 
-int process_not_equal(int not_equal_operator_index)
-{
+int process_not_equal(int not_equal_operator_index){
   int process_not_equal_answer = 0;
   int left_token_index = not_equal_operator_index - 1;
   int right_token_index = not_equal_operator_index + 1;
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value != right_token_int_value)
-  {
+  if(left_token_int_value != right_token_int_value){
     process_not_equal_answer = 1;
   }
-  else
-  {
+  else{
     process_not_equal_answer = 0;
   }
   return process_not_equal_answer;
@@ -596,110 +486,129 @@ int process_and(int and_operator_index)
   int right_token_index = and_operator_index + 1;
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value == 1 && right_token_int_value == 1)
-  {
+  if(left_token_int_value == 1 && right_token_int_value == 1){
     process_and_answer = 1;
   }
-  else
-  {
+  else{
     process_and_answer = 0;
   }
   return process_and_answer;
 }
 
-int process_or(int or_operator_index)
-{
+int process_or(int or_operator_index){
   int process_or_answer = 0;
   int left_token_index = or_operator_index - 1;
   int right_token_index = or_operator_index + 1;
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value == 1 || right_token_int_value == 1)
-  {
+  if(left_token_int_value == 1 || right_token_int_value == 1){
     process_or_answer = 1;
   }
-  else
-  {
+  else{
     process_or_answer = 0;
   }
   return process_or_answer;
 }
 
-int process_not(int not_operator_index)
-{
+int process_not(int not_operator_index){
   int process_not_answer = 0;
   int right_token_index = not_operator_index + 1;
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(right_token_int_value == 1)
-  {
+  if(right_token_int_value == 1){
     process_not_answer = 0;
   }
-  else
-  {
+  else{
     process_not_answer = 1;
   }
   return process_not_answer;
 }
 
-bool check_parentheses(int left_index, int right_index)
-{
-  int left_right_balance = 0;
-
-  if(tokens[left_index].type != TK_LEFT_PARENTHESES)
-  {
-    return false;
-  }
-
-  if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
-  {
-    return false;
-  }
-
-  for(int current_index = left_index; current_index <= right_index; current_index = current_index + 1)
-  {
-    if(tokens[current_index].type == TK_LEFT_PARENTHESES)
-    {
-      left_right_balance = left_right_balance + 1;
-    }
-    if(tokens[current_index].type == TK_RIGHT_PARENTHESES)
-    {
-      left_right_balance = left_right_balance - 1;
-    }
-    if(current_index != right_index && left_right_balance == 0)
-    {
-      return false;
+char* calculate_one_round(bool success_calculate_one_round_call){
+  int calculate_one_round_highest_priority = -1;
+  int calculate_one_round_highest_sub_priority = -1;
+  for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1){
+    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level > calculate_one_round_highest_priority){
+      calculate_one_round_highest_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level;
     }
   }
-
-  if(left_right_balance == 0)
-  {
-    return true;
+  for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1){
+    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level == calculate_one_round_highest_priority){
+      if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level > calculate_one_round_highest_sub_priority){
+        calculate_one_round_highest_sub_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level;
+      }
+    }
   }
-  else
-  {
-    return false;
+  int this_round_calculation_operator_token_index = -1;
+  for(int scan_index = 0; scan_index < nr_operator_tokens_no_parentheses; scan_index = scan_index + 1){
+    if(operator_tokens_no_parentheses[scan_index].priority_level == calculate_one_round_highest_priority && operator_tokens_no_parentheses[scan_index].sub_priority_level == calculate_one_round_highest_sub_priority){
+      this_round_calculation_operator_token_index = scan_index;
+    }
   }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0){
+    success_calculate_one_round_call = false;
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER){
+    success_calculate_one_round_call = false;
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER){
+    success_calculate_one_round_call = false;
+    return NULL;
+  }
+  u_int64_t this_round_calculation_answer = 0;
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS){
+    this_round_calculation_answer = process_add(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MINUS){
+    this_round_calculation_answer = process_minus(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MULTIPLY){
+    this_round_calculation_answer = process_multiply(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE){
+    this_round_calculation_answer = process_devide(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  bool left_and_right_is_paired_parentheses = false;
+  char* result_token = malloc(256);
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2].type == TK_RIGHT_PARENTHESES){
+    left_and_right_is_paired_parentheses = true;
+  }
+  for(int current_copying_tokens_index = 0; current_copying_tokens_index < nr_token; current_copying_tokens_index = current_copying_tokens_index + 1){
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2 && left_and_right_is_paired_parentheses == true){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position){
+      sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2 && left_and_right_is_paired_parentheses == true){
+      continue;
+    }
+    strcat(result_token, tokens[current_copying_tokens_index].str);
+  }
+  success_calculate_one_round_call = true;
+  return result_token;
 }
 
-bool check_parentheses_balance()
-{
+bool check_parentheses_balance(){
   int check_parentheses_balance_left_count = 0;
   int check_parentheses_balance_right_count = 0;
-
-  for(int current_check_index = 0; current_check_index < nr_token; current_check_index = current_check_index + 1)
-  {
-    if(tokens[current_check_index].type == TK_LEFT_PARENTHESES)
-    {
+  for(int current_check_index = 0; current_check_index < nr_token; current_check_index = current_check_index + 1){
+    if(tokens[current_check_index].type == TK_LEFT_PARENTHESES){
       check_parentheses_balance_left_count = check_parentheses_balance_left_count + 1;
     }
-    if(tokens[current_check_index].type == TK_RIGHT_PARENTHESES)
-    {
+    if(tokens[current_check_index].type == TK_RIGHT_PARENTHESES){
       check_parentheses_balance_right_count = check_parentheses_balance_right_count + 1;
     }
   }
-
-  if(check_parentheses_balance_left_count == check_parentheses_balance_right_count)
-  {
+  if(check_parentheses_balance_left_count == check_parentheses_balance_right_count){
     return true;
   }
   return false;
@@ -707,46 +616,110 @@ bool check_parentheses_balance()
 
 bool check_parentheses_valid()
 {
-  if(check_parentheses_balance())
-  {
+  if(check_parentheses_balance()){
     // NOTHING
   }
-  else
-  {
+  else{
     return false;
   }
   int check_parentheses_valid_left_parentheses_count = 0;
   int check_parentheses_valid_right_parentheses_count = 0;
-  for(int check_inside_parentheses_valid_index = 0; check_inside_parentheses_valid_index < nr_token; check_inside_parentheses_valid_index = check_inside_parentheses_valid_index + 1)
-  {
-    if(tokens[check_inside_parentheses_valid_index].type == TK_LEFT_PARENTHESES)
-    {
+  for(int check_inside_parentheses_valid_index = 0; check_inside_parentheses_valid_index < nr_token; check_inside_parentheses_valid_index = check_inside_parentheses_valid_index + 1){
+    if(tokens[check_inside_parentheses_valid_index].type == TK_LEFT_PARENTHESES){
       check_parentheses_valid_left_parentheses_count = check_parentheses_valid_left_parentheses_count + 1;
     }
-    if(tokens[check_inside_parentheses_valid_index].type == TK_RIGHT_PARENTHESES)
-    {
+    if(tokens[check_inside_parentheses_valid_index].type == TK_RIGHT_PARENTHESES){
       check_parentheses_valid_right_parentheses_count = check_parentheses_valid_right_parentheses_count + 1;
     }
-    if(check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count < 0)
-    {
+    if(check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count < 0){
       return false;
     }
-    else
-    {
+    else{
       return true;
     }
   }
   return false;
 }
 
-void process_operator_token()
-{
+char* calculate(bool* success_calculate_call){
+  int calculate_highest_priority = -1;
+  int calculate_highest_sub_priority = -1;
+  for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1){
+    if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level > calculate_highest_priority){
+      calculate_highest_priority = operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level;
+    }
+  }
+  for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1){
+    if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level == calculate_highest_priority){
+      if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].sub_priority_level > calculate_highest_sub_priority){
+        calculate_highest_sub_priority = operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].sub_priority_level;
+      }
+    }
+  }
+  int this_round_calculation_operator_token_index = -1;
+  for(int scan_index = 0; scan_index < nr_operator_tokens_no_parentheses; scan_index = scan_index + 1){
+    if(operator_tokens_no_parentheses[scan_index].priority_level == calculate_highest_priority && operator_tokens_no_parentheses[scan_index].sub_priority_level == calculate_highest_sub_priority){
+      this_round_calculation_operator_token_index = scan_index;
+    }
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0){
+    *success_calculate_call = false;
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER){
+    *success_calculate_call = false;
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER){
+    *success_calculate_call = false;
+    return NULL;
+  }
+  u_int64_t this_round_calculation_answer = 0;
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS){
+    this_round_calculation_answer = process_add(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MINUS){
+    this_round_calculation_answer = process_minus(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MULTIPLY){
+    this_round_calculation_answer = process_multiply(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE){
+    this_round_calculation_answer = process_devide(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  bool left_and_right_is_paired_parentheses = false;
+  char* result_token = malloc(256);
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2].type == TK_RIGHT_PARENTHESES){
+    left_and_right_is_paired_parentheses = true;
+  }
+  for(int current_copying_tokens_index = 0; current_copying_tokens_index < nr_token; current_copying_tokens_index = current_copying_tokens_index + 1){
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2 && left_and_right_is_paired_parentheses == true){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position){
+      sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1){
+      continue;
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2 && left_and_right_is_paired_parentheses == true){
+      continue;
+    }
+    strcat(result_token, tokens[current_copying_tokens_index].str);
+  }
+  *success_calculate_call = true;
+  return result_token;
+}
+
+void process_operator_token(){
   int current_index_of_operator_tokens = 0;
   nr_operator_token = 0;
-  for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1)
-  {
-    if(tokens[current_scanning_index].type != TK_BINNUMBER && tokens[current_scanning_index].type != TK_OCTNUMBER && tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
-    {
+  for(int current_scanning_index = 0; current_scanning_index < nr_token; current_scanning_index = current_scanning_index + 1){
+    if(tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER){
       operator_tokens[current_index_of_operator_tokens].position = current_scanning_index;
       operator_tokens[current_index_of_operator_tokens].token_type = tokens[current_scanning_index].type;
       operator_tokens[current_index_of_operator_tokens].regex = tokens[current_scanning_index].str;
@@ -754,83 +727,44 @@ void process_operator_token()
       current_index_of_operator_tokens = current_index_of_operator_tokens + 1;
       nr_operator_token = nr_operator_token + 1;
     }
-    else
-    {
-      // NOTHING
-    }
   }
   return;
 }
 
-int find_dominant_operator(int left, int right, bool *expr_valid_call)
-{
-  return 0;
-}
-
-u_int64_t eval(int p, int q)
-{
-  if(valid_call == false)
-  {
-    printf("Invalid Call\n");
-    return 0;
+char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished){
+  expr_init();
+  if(!check_parentheses_balance()){
+    *success_main_loop = false;
+    *finished = false;
+    return NULL;
   }
-  if(q > p)
-  {
-    valid_call = false;
-    printf("Invalid eval() call\n");
-    return 0;
+  if(!make_token(token_input)){
+    *success_main_loop = false;
+    *finished = false;
+    return NULL;
   }
-  if(p == q)
-  {
-    u_int64_t number = 0;
-    if(tokens[p].type == TK_NUMBER)
-    {
-      sscanf(tokens[p].str, "%ld", &number);
-      return number;
-    }
-    if(tokens[p].type == TK_HEXNUMBER)
-    {
-      sscanf(tokens[p].str, "%lx", &number);
-      return number;
-    }
-    if(tokens[p].type == TK_OCTNUMBER)
-    {
-      sscanf(tokens[p].str, "%lo", &number);
-      return number;
-    }
-    return number;
+  if(nr_token == 1){
+    *success_main_loop = true;
+    *finished = true;
+    printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", atoi(tokens[0].str), atoi(tokens[0].str));
+    return NULL;
   }
-  u_int64_t answer = 0;
-  if(check_parentheses(p, q) == true)
-  {
-    return eval(p + 1, q - 1);
+  else{
+    process_operator_token();
+    give_priority();
+    give_priority_no_parentheses();
+    give_sub_priority();
+    *success_main_loop = true;
+    *finished = false;
+    return calculate_one_round(*success_main_loop);
   }
-  else
-  {
-    assert(0);
-  }
-  return answer;
 }
 
 word_t expr(char *e, bool *success) {
-  if(!check_parentheses_balance())
-  {
-    *success = false;
-    valid_call = false;
-    return 0;
+  bool success_expr = true;
+  bool finished_expr = false;
+  while(success_expr && !finished_expr){
+    e = expr_main_loop(e, &success_expr, &finished_expr);
   }
-  if (!make_token(e)) {
-    *success = false;
-    valid_call = false;
-    return 0;
-  }
-  valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
-  *success = true;
-  u_int64_t expr_ans = eval(0, nr_token - 1);
-  process_operator_token();
-  give_priority();
-  give_priority_no_parentheses();
-
-  printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
   return 0;
 }
