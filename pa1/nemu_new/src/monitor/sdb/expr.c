@@ -1609,6 +1609,10 @@ void calculate_one_round(bool* success_calculate_one_round_call)
   {
     printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #01\n");
   }
+  // First, find the highest priority and sub_priority, then get the index in tokens[32]
+  // Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false
+  // Third, implement specific calls to evaluate the result
+  // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
   return;
 }
 
