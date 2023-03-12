@@ -1645,9 +1645,72 @@ void calculate_one_round(bool* success_calculate_one_round_call)
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
     }
   }
+  int this_round_calculation_operator_token_index = -1;
+  for(int scan_index = 0; scan_index < nr_operator_tokens_no_parentheses; scan_index = scan_index + 1)
+  {
+    if(operator_tokens_no_parentheses[scan_index].priority_level == calculate_one_round_highest_priority && operator_tokens_no_parentheses[scan_index].sub_priority_level == calculate_one_round_highest_sub_priority)
+    {
+      this_round_calculation_operator_token_index = scan_index;
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+  }
   // Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false\n");
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0)
+  {
+    // Error: Divide by 0
+    *success_calculate_one_round_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] ERROR, details in the next two lines\n");
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
+    }
+    return;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER || tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER)
+  {
+    // Error: Left is not a Dec or Hex number
+    *success_calculate_one_round_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+    }
+    return;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER || tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
+  {
+    // Error: Right is not a Dec or Hex number
+    *success_calculate_one_round_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+    }
+    return;
+  }
   // Third, implement specific calls to evaluate the result
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
+  }
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
+  }
+  *success_calculate_one_round_call = true;
   return;
 }
 
