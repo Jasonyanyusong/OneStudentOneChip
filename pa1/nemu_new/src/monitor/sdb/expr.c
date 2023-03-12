@@ -1749,7 +1749,7 @@ void calculate_one_round(bool* success_calculate_one_round_call)
   }
   bool left_and_right_is_paired_parentheses = false;
   char* result_token = malloc(256);
-  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type == TK_RIGHT_PARENTHESES)
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2].type == TK_RIGHT_PARENTHESES)
   {
     if(expr_print_debug)
     {
@@ -1811,6 +1811,10 @@ void calculate_one_round(bool* success_calculate_one_round_call)
       printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
     }
     // TODO
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
   }
   *success_calculate_one_round_call = true;
   return;
