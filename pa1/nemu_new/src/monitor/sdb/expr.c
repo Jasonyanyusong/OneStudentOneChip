@@ -1607,20 +1607,38 @@ void calculate_one_round(bool* success_calculate_one_round_call)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #01\n");
+    printf("[EXPR CHECKPOINT: void calculate_one_round(bool* success_calculate_one_round_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
   }
   // First, find the highest priority and sub_priority, then get the index in tokens[32]
   int calculate_one_round_highest_priority = -1;
   int calculate_one_round_highest_sub_priority = -1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] Finding calculate_one_round_highest_priority\n");
+  }
   for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1)
   {
     if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level > calculate_one_round_highest_priority)
     {
       calculate_one_round_highest_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level;
     }
-    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level == calculate_one_round_highest_priority && operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level > calculate_one_round_highest_sub_priority)
+    if(expr_print_checkpoint)
     {
-      calculate_one_round_highest_sub_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level;
+      printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate_one_round(bool* success_calculate_one_round_call)] Finding calculate_one_round_highest_sub_priority\n");
+  }
+  for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1)
+  {
+    if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].priority_level == calculate_one_round_highest_priority)
+    {
+      if(operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level > calculate_one_round_highest_sub_priority)
+      {
+        calculate_one_round_highest_sub_priority = operator_tokens_no_parentheses[calculate_one_round_highest_priority_scanning_index].sub_priority_level;
+      }
     }
     if(expr_print_checkpoint)
     {
