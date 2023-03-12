@@ -90,6 +90,7 @@ void init_optimized_tokens_a();
 void init_optimized_tokens_b();
 
 void calculate_one_round(bool* success_calculate_one_round_call);
+char* calculate(bool* success_calculate_call);
 
 struct OperatorToken
 {
@@ -2074,6 +2075,231 @@ bool check_parentheses_valid()
     }
   }
   return false;
+}
+
+char* calculate(bool* success_calculate_call)
+{
+  // TODO
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
+  }
+  // First, find the highest priority and sub_priority, then get the index in tokens[32]
+  int calculate_highest_priority = -1;
+  int calculate_highest_sub_priority = -1;
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_priority\n");
+  }
+  for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1)
+  {
+    if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level > calculate_highest_priority)
+    {
+      calculate_highest_priority = operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level;
+    }
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_sub_priority\n");
+  }
+  for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1)
+  {
+    if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].priority_level == calculate_highest_priority)
+    {
+      if(operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].sub_priority_level > calculate_highest_sub_priority)
+      {
+        calculate_highest_sub_priority = operator_tokens_no_parentheses[calculate_highest_priority_scanning_index].sub_priority_level;
+      }
+    }
+    if(expr_print_checkpoint)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
+    }
+  }
+  int this_round_calculation_operator_token_index = -1;
+  for(int scan_index = 0; scan_index < nr_operator_tokens_no_parentheses; scan_index = scan_index + 1)
+  {
+    if(operator_tokens_no_parentheses[scan_index].priority_level == calculate_highest_priority && operator_tokens_no_parentheses[scan_index].sub_priority_level == calculate_highest_sub_priority)
+    {
+      this_round_calculation_operator_token_index = scan_index;
+    }
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+  }
+  // Scend, check the condition to make a success call, if not success, set success_calculate_call to false
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_call to false\n");
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0)
+  {
+    // Error: Divide by 0
+    *success_calculate_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next two lines\n");
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
+    }
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type != TK_NUMBER)
+  {
+    // Error: Left is not a Dec or Hex number
+    *success_calculate_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+    }
+    return NULL;
+  }
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
+  {
+    // Error: Right is not a Dec or Hex number
+    *success_calculate_call = false;
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+    }
+    return NULL;
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] All tests are passed, continue\n");
+  }
+  // Third, implement specific calls to evaluate the result
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
+  }
+  u_int64_t this_round_calculation_answer = 0;
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS)
+  {
+    this_round_calculation_answer = process_add(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MINUS)
+  {
+    this_round_calculation_answer = process_minus(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_MULTIPLY)
+  {
+    this_round_calculation_answer = process_multiply(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE)
+  {
+    this_round_calculation_answer = process_devide(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
+  }
+  // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
+  if(expr_print_checkpoint)
+  {
+    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
+  }
+  bool left_and_right_is_paired_parentheses = false;
+  char* result_token = malloc(256);
+  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2].type == TK_LEFT_PARENTHESES && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2].type == TK_RIGHT_PARENTHESES)
+  {
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses\n");
+    }
+    left_and_right_is_paired_parentheses = true;
+  }
+  for(int current_copying_tokens_index = 0; current_copying_tokens_index < nr_token; current_copying_tokens_index = current_copying_tokens_index + 1)
+  {
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 2 && left_and_right_is_paired_parentheses == true)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the left number, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the operator, skip copying\n");
+      }
+      sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the right number, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    if(current_copying_tokens_index == operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 2 && left_and_right_is_paired_parentheses == true)
+    {
+      if(expr_print_debug)
+      {
+        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
+      }
+      continue;
+      // Do not copy
+    }
+    strcat(result_token, tokens[current_copying_tokens_index].str);
+    if(expr_print_debug)
+    {
+      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
+    }
+    // TODO
+  }
+  if(expr_print_debug)
+  {
+    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
+  }
+  *success_calculate_call = true;
+  return result_token;
 }
 
 void process_operator_token()
