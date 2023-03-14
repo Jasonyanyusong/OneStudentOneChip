@@ -129,8 +129,8 @@ static char* rl_gets() {
 static int cmd_c(char *args) {
   if (sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_c(char *args)] cmd_c command\n");
-    printf("[SDB INSTRUCTION: static int cmd_c(char *args)] Continue the execution of the program\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_c(char *args)] cmd_c command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_c(char *args)] Continue the execution of the program\n");
   }
   cpu_exec(-1);
   return 0;
@@ -139,14 +139,14 @@ static int cmd_c(char *args) {
 static int cmd_si(char *args){
   if (sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] cmd_si command\n");
-    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] Run the program for N steps and then suspend, if N is not given, defalt is 1\n");
-    printf("[SDB INSTRUCTION: static int cmd_si(char *args)] Subcommnd Received: \"%s\"\n", args);
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_si(char *args)] cmd_si command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_si(char *args)] Run the program for N steps and then suspend, if N is not given, defalt is 1\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_si(char *args)] Subcommnd Received: \"%s\"\n", args);
   }
   if (args == NULL){
     if (sdb_print_debug)
     {
-      printf("[SDB DEBUG: static int cmd_si(char *args)] No Subcommand received, default 1\n");
+      printf("[NEMU_SDB_DEBUG: static int cmd_si(char *args)] No Subcommand received, default 1\n");
     }
     cpu_exec(1);
   }
@@ -160,13 +160,13 @@ static int cmd_si(char *args){
     }
     if (sdb_print_debug)
     {
-      printf("[SDB DEBUG: static int cmd_si(char *args)] Will execute cpu_exec %d times\n", cmd_si_n);
+      printf("[NEMU_SDB_DEBUG: static int cmd_si(char *args)] Will execute cpu_exec %d times\n", cmd_si_n);
     }
     cpu_exec(cmd_si_n);
   }
   if (sdb_print_debug)
   {
-    printf("[SDB DEBUG: static int cmd_si(char *args)] Execution finished\n");
+    printf("[NEMU_SDB_DEBUG: static int cmd_si(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -174,9 +174,9 @@ static int cmd_si(char *args){
 static int cmd_info(char *args){
   if (sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] cmd_info command\n");
-    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] info r: Print the state of register\n");
-    printf("[SDB INSTRUCTION: static int cmd_info(char *args)] info w: Print the information of watch point(s)\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_info(char *args)] cmd_info command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_info(char *args)] info r: Print the state of register\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_info(char *args)] info w: Print the information of watch point(s)\n");
   }
 
   if (args == NULL)
@@ -190,7 +190,7 @@ static int cmd_info(char *args){
     {
       if (sdb_print_debug)
       {
-        printf("[SDB DEBUG: static int cmd_info(char *args)] Received Subcommand “r”: print the state of register\n");
+        printf("[NEMU_SDB_DEBUG: static int cmd_info(char *args)] Received Subcommand “r”: print the state of register\n");
       }
       isa_reg_display();
     }
@@ -198,7 +198,7 @@ static int cmd_info(char *args){
     {
       if (sdb_print_debug)
       {
-        printf("[SDB DEBUG: static int cmd_info(char *args)] Received Subcommand “w”: print the information of watch point(s)\n");
+        printf("[NEMU_SDB_DEBUG: static int cmd_info(char *args)] Received Subcommand “w”: print the information of watch point(s)\n");
       }
       // Implement Later
     }
@@ -209,7 +209,7 @@ static int cmd_info(char *args){
   }
   if (sdb_print_debug)
   {
-    printf("[SDB DEBUG: static int cmd_info(char *args)] Execution finished\n");
+    printf("[NEMU_SDB_DEBUG: static int cmd_info(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -229,8 +229,8 @@ void print_memory_allisa(int allisa_start_memory_address, int steps)
 static int cmd_x(char *args){
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_x(char *args)] cmd_x command\n");
-    printf("[SDB INSTRUCTION: static int cmd_x(char *args)] x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_x(char *args)] cmd_x command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_x(char *args)] x N EXPR: Solve the value of EXPR, set the result of the start of memory address, using hexadecimal as output, print 1/2/4(/8 RISCV64 Only) continue Bit\n");
   }
   int print_length;
   int start_memory_address;
@@ -240,17 +240,17 @@ static int cmd_x(char *args){
   sscanf(last_part_of_args, "%x", &start_memory_address);
   if(sdb_print_debug)
   {
-    printf("[SDB DEBUG: static int cmd_x(char *args)] string_token_first is : \"%s\"\n", string_token_first);
-    printf("[SDB DEBUG: static int cmd_x(char *args)] print_length is : \"%d\"\n", print_length);
-    printf("[SDB DEBUG: static int cmd_x(char *args)] last_part_of_args is : \"%s\"\n", last_part_of_args);
-    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Oct) is: 0o%o\n", start_memory_address);
-    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Dec) is: 00%d\n", start_memory_address);
-    printf("[SDB DEBUG: static int cmd_x(char *args)] start_memory_address (Hex) is: 0x%x\n", start_memory_address);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] string_token_first is : \"%s\"\n", string_token_first);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] print_length is : \"%d\"\n", print_length);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] last_part_of_args is : \"%s\"\n", last_part_of_args);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] start_memory_address (Oct) is: 0o%o\n", start_memory_address);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] start_memory_address (Dec) is: 00%d\n", start_memory_address);
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] start_memory_address (Hex) is: 0x%x\n", start_memory_address);
   }
   print_memory_allisa(start_memory_address, print_length);
   if(sdb_print_debug)
   {
-    printf("[SDB DEBUG: static int cmd_x(char *args)] Execution finished\n");
+    printf("[NEMU_SDB_DEBUG: static int cmd_x(char *args)] Execution finished\n");
   }
   return 0;
 }
@@ -258,14 +258,14 @@ static int cmd_x(char *args){
 static int cmd_p(char *args){
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_p(char *args)] cmd_p command\n");
-    printf("[SDB INSTRUCTION: static int cmd_p(char *args)] p EXPR: Solve the expression EXPR\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_p(char *args)] cmd_p command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_p(char *args)] p EXPR: Solve the expression EXPR\n");
   }
   bool expression_success;
   expression_success = false;
   if(sdb_print_debug)
   {
-    printf("[SDB DEBUG: static int cmd_p(char *args)] Received Expression: \"%s\" , evaluating\n", args);
+    printf("[NEMU_SDB_DEBUG: static int cmd_p(char *args)] Received Expression: \"%s\" , evaluating\n", args);
   }
   expr(args, &expression_success);
   return 0;
@@ -274,8 +274,8 @@ static int cmd_p(char *args){
 static int cmd_w(char *args){
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_w(char *args)] cmd_w command\n");
-    printf("[SDB INSTRUCTION: static int cmd_w(char *args)] When the value of EXPR changes, suspend the program\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_w(char *args)] cmd_w command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_w(char *args)] When the value of EXPR changes, suspend the program\n");
   }
   return 0;
 }
@@ -283,8 +283,8 @@ static int cmd_w(char *args){
 static int cmd_d(char *args){
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_d(char *args)] cmd_d command\n");
-    printf("[SDB INSTRUCTION: static int cmd_d(char *args)] Delete the watch point with number N\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_d(char *args)] cmd_d command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_d(char *args)] Delete the watch point with number N\n");
   }
   return 0;
 }
@@ -292,8 +292,8 @@ static int cmd_d(char *args){
 static int cmd_q(char *args) {
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_q(char *args)] cmd_q command\n");
-    printf("[SDB INSTRUCTION: static int cmd_q(char *args)] Exit NEMU\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_q(char *args)] cmd_q command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_q(char *args)] Exit NEMU\n");
   }
   nemu_state.state = NEMU_QUIT;
   // Refined the function for quiting NEMU, so the system will not report bug.
@@ -306,9 +306,10 @@ void message_set_instruction()
 {
   printf("\n");
   printf("Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
-  printf("1) First, declare the area of changing massage status, type \"sdb\", \"expr\" or \"watchpoint\" with a space at the end\n");
-  printf("2) Second, declare what type of message to modify, use \"instruction\", \"debug\", \"checkpoint\" or \"assertpoint\" with a space at the end\n");
-  printf("3) Third, declare the status of message, use \"on\" or \"off\" with no space or any other character at the end\n");
+  printf("1) Type the tool to make modification, in this tool type \"NEMU\" with a \"_\" at the end\n");
+  printf("2) Declare the area of changing massage status, type \"SDB\", \"EXPR\" or \"WATCHPOINT\" with a \"_\" at the end\n");
+  printf("3) Declare what type of message to modify, use \"INSTRUCTION\", \"DEBUG\", \"CHECKPOINT\" or \"ASSERTPOINT\" with a \"_\" at the end\n");
+  printf("4) Declare the status of message, use \"on\" or \"off\" with no space or any other character at the end\n");
   printf("Only inputs that match the 3 rules can be interpreted by cmd_message()\n");
   printf("Inputs are like :\"message AREA TYPE STATUS\"\n");
   return;
@@ -429,153 +430,153 @@ static int cmd_message(char *args)
 {
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_message(char *args)] cmd_message command\n");
-    printf("[SDB INSTRUCTION: static int cmd_message(char *args)] Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_message(char *args)] cmd_message command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_message(char *args)] Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)\n");
   }
 
   if(args != NULL)
   {
-    if(strcmp(args, "sdb instruction on") == 0)
+    if(strcmp(args, "NEMU_SDB_INSTRUCTION on") == 0)
     {
       set_sdb_print_instruction(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb instruction off") == 0)
+    if(strcmp(args, "NEMU_SDB_INSTRUCTION off") == 0)
     {
       set_sdb_print_instruction(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb debug on") == 0)
+    if(strcmp(args, "NEMU_SDB_DEBUG on") == 0)
     {
       set_sdb_print_debug(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb debug off") == 0)
+    if(strcmp(args, "NEMU_SDB_DEBUG off") == 0)
     {
       set_sdb_print_debug(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb checkpoint on") == 0)
+    if(strcmp(args, "NEMU_SDB_CHECKPOINT on") == 0)
     {
       set_sdb_print_checkpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb checkpoint off") == 0)
+    if(strcmp(args, "NEMU_SDB_CHECKPOINT off") == 0)
     {
       set_sdb_print_checkpoint(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb assertpoint on") == 0)
+    if(strcmp(args, "NEMU_SDB_ASSERTPOINT on") == 0)
     {
       set_sdb_print_assertpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "sdb assertpoint off") == 0)
+    if(strcmp(args, "NEMU_SDB_ASSERTPOINT off") == 0)
     {
       set_sdb_print_assertpoint(false);
       print_message_status();
       return 0;
     }
 
-    if(strcmp(args, "expr instruction on") == 0)
+    if(strcmp(args, "NEMU_EXPR_INSTRUCTION on") == 0)
     {
       set_expr_print_instruction(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr instruction off") == 0)
+    if(strcmp(args, "NEMU_EXPR_INSTRUCTION off") == 0)
     {
       set_expr_print_instruction(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr debug on") == 0)
+    if(strcmp(args, "NEMU_EXPR_DEBUG on") == 0)
     {
       set_expr_print_debug(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr debug off") == 0)
+    if(strcmp(args, "NEMU_EXPR_DEBUG off") == 0)
     {
       set_expr_print_debug(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr checkpoint on") == 0)
+    if(strcmp(args, "NEMU_EXPR_CHECKPOINT on") == 0)
     {
       set_expr_print_checkpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr checkpoint off") == 0)
+    if(strcmp(args, "NEMU_EXPR_CHECKPOINT off") == 0)
     {
       set_expr_print_checkpoint(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr assertpoint on") == 0)
+    if(strcmp(args, "NEMU_EXPR_ASSERTPOINT on") == 0)
     {
       set_expr_print_assertpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "expr assertpoint off") == 0)
+    if(strcmp(args, "NEMU_EXPR_ASSERTPOINT off") == 0)
     {
       set_expr_print_assertpoint(false);
       print_message_status();
       return 0;
     }
 
-    if(strcmp(args, "watchpoint instruction on") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_INSTRUCTION on") == 0)
     {
       set_watchpoint_print_instruction(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint instruction off") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_INSTRUCTION off") == 0)
     {
       set_watchpoint_print_instruction(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint debug on") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_DEBUG on") == 0)
     {
       set_watchpoint_print_debug(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint debug off") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_DEBUG off") == 0)
     {
       set_watchpoint_print_debug(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint checkpoint on") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_CHECKPOINT on") == 0)
     {
       set_watchpoint_print_checkpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint checkpoint off") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_CHECKPOINT off") == 0)
     {
       set_watchpoint_print_checkpoint(false);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint assertpoint on") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_ASSERTPOINT on") == 0)
     {
       set_watchpoint_print_assertpoint(true);
       print_message_status();
       return 0;
     }
-    if(strcmp(args, "watchpoint assertpoint off") == 0)
+    if(strcmp(args, "NEMU_WATCHPOINT_ASSERTPOINT off") == 0)
     {
       set_watchpoint_print_assertpoint(false);
       print_message_status();
@@ -617,8 +618,8 @@ static struct {
 static int cmd_help(char *args) {
   if(sdb_print_instruction)
   {
-    printf("[SDB INSTRUCTION: static int cmd_help(char *args)] cmd_help command\n");
-    printf("[SDB INSTRUCTION: static int cmd_help(char *args)] Display information about all supported commands\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_help(char *args)] cmd_help command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_help(char *args)] Display information about all supported commands\n");
   }
   /* extract the first argument */
   char *arg = strtok(NULL, " ");

@@ -338,17 +338,17 @@ static bool make_token(char *e) {
     /* Try all rules one by one. */
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #01\n");
+      printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #01\n");
     }
     for (i = 0; i < NR_REGEX; i ++) {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #02\n");
+        printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #02\n");
       }
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0) {
         if(expr_print_checkpoint)
         {
-          printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #03\n");
+          printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #03\n");
         }
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
@@ -370,18 +370,18 @@ static bool make_token(char *e) {
           {
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #04: switch (rules[i].token_type) to DEFAULT\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #04: switch (rules[i].token_type) to DEFAULT\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = rules[i].token_type;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Use Default\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Use Default\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -391,14 +391,14 @@ static bool make_token(char *e) {
             // Case No.1
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #05\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #05\n");
             }
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NOTYPE TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] TK_NOTYPE will be thrown away directly\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_NOTYPE TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] TK_NOTYPE will be thrown away directly\n");
             }
             break;
           }
@@ -407,19 +407,19 @@ static bool make_token(char *e) {
             // Case No.2
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #06\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #06\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_EQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_EQ TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_EQ TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -429,19 +429,19 @@ static bool make_token(char *e) {
             // Case No.3
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #07\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #07\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NEQ;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NEQ TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_NEQ TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -451,19 +451,19 @@ static bool make_token(char *e) {
             // Case No.4
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #08\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #08\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NOT;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NOT TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_NOT TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -473,19 +473,19 @@ static bool make_token(char *e) {
             // Case No.5
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #09\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #09\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_AND;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_AND TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_AND TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -495,19 +495,19 @@ static bool make_token(char *e) {
             // Case No.6
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #10\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #10\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_OR;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_OR TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_OR TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -517,19 +517,19 @@ static bool make_token(char *e) {
             // Case No.7
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #11\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #11\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_POINTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_POINTER TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_POINTER TOKEN\n");
 
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -539,18 +539,18 @@ static bool make_token(char *e) {
             // Case No.10
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #14\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #14\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_NUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_NUMBER TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_NUMBER TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -560,18 +560,18 @@ static bool make_token(char *e) {
             // Case No.11
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #15\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #15\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_HEXNUMBER TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_HEXNUMBER TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -581,19 +581,19 @@ static bool make_token(char *e) {
             // Case No.12
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #16\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #16\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_REGISTER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_REGISTER TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_REGISTER TOKEN\n");
 
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -603,19 +603,19 @@ static bool make_token(char *e) {
             // Case No.13
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #17\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #17\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MARK;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MARK TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_MARK TOKEN\n");
 
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -625,19 +625,19 @@ static bool make_token(char *e) {
             // Case No.14
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #18\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #18\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_LEFT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_LEFT_PARENTHESES TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_LEFT_PARENTHESES TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -647,19 +647,19 @@ static bool make_token(char *e) {
             // Case No.15
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #19\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #19\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_RIGHT_PARENTHESES;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_RIGHT_PARENTHESES TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_RIGHT_PARENTHESES TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -669,19 +669,19 @@ static bool make_token(char *e) {
             // Case No.16
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #20\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #20\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MULTIPLY;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MULTIPLY TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_MULTIPLY TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -691,19 +691,19 @@ static bool make_token(char *e) {
             // Case No.17
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #21\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #21\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_DIVIDE;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_DIVIDE TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_DIVIDE TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -713,19 +713,19 @@ static bool make_token(char *e) {
             // Case No.18
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #22\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #22\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_PLUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_PLUS TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_PLUS TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -735,19 +735,19 @@ static bool make_token(char *e) {
             // Case No.19
             if(expr_print_checkpoint)
             {
-              printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #23\n");
+              printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #23\n");
             }
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MINUS;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
             if(expr_print_debug)
             {
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] Found a TK_MINUS TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
-              printf("[EXPR DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_start is \"%s\"\n", substr_start);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] substr_len is \"%d\"\n", substr_len);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Found a TK_MINUS TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] This is a OPERATOR_TOKEN\n");
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
             break;
@@ -755,7 +755,7 @@ static bool make_token(char *e) {
         }
         if(expr_print_checkpoint)
         {
-          printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #24\n");
+          printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #24\n");
         }
         break;
       }
@@ -764,7 +764,7 @@ static bool make_token(char *e) {
     if (i == NR_REGEX) {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #25\n");
+        printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #25\n");
       }
       Log("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
@@ -774,42 +774,42 @@ static bool make_token(char *e) {
   // Debug Point: Print Tokens
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #26\n");
+    printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #26\n");
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: static bool make_token(char *e)] Token Numbers (Decimal): %d\n", nr_token);
+    printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Token Numbers (Decimal): %d\n", nr_token);
   }
   for(int display_index = 0; display_index < nr_token; display_index = display_index + 1)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: static bool make_token(char *e)] Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
+      printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
     }
   }
 
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: static bool make_token(char *e)] CKPT #28\n");
+    printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #28\n");
   }
   
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: static bool make_token(char *e)] Start Only Two Side Parentheses Check\n");
+    printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Start Only Two Side Parentheses Check\n");
   }
   // Debug Point: Only Two Side Parentheses Check
   if(check_parentheses(0, nr_token - 1))
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED\n", 0, nr_token - 1);
+      printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED\n", 0, nr_token - 1);
     }
   }
   else
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check FAILED\n", 0, nr_token - 1);
+      printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check FAILED\n", 0, nr_token - 1);
     }
   }
 
@@ -823,17 +823,17 @@ void give_priority()
   // 1) Or 2) AND 3) EQ/NEQ 4) PLUS/MINUS 5) MULTIPLY/DEVIDE 6) NOT
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void give_priority()] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void give_priority()] CKPT #01: Enter function\n");
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
+    printf("[NEMU_EXPR_DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
   }
   for(int give_priority_index = 0; give_priority_index < nr_operator_token; give_priority_index = give_priority_index + 1)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: void give_priority()] CKPT #02: Enter give priority loop at give_priority_index = %d\n", give_priority_index);
+      printf("[NEMU_EXPR_CHECKPOINT: void give_priority()] CKPT #02: Enter give priority loop at give_priority_index = %d\n", give_priority_index);
     }
     switch(operator_tokens[give_priority_index].token_type)
     {
@@ -843,12 +843,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 1;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_OR operator, set priority to 1\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_OR operator, set priority to 1\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -859,12 +859,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 2;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_AND operator, set priority to 2\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_AND operator, set priority to 2\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -875,12 +875,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 3;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_EQ operator, set priority to 3\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_EQ operator, set priority to 3\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -891,12 +891,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 3;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_NEQ operator, set priority to 3\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_NEQ operator, set priority to 3\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -907,12 +907,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 4;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_PLUS operator, set priority to 4\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_PLUS operator, set priority to 4\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -923,12 +923,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 4;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_MINUS operator, set priority to 4\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_MINUS operator, set priority to 4\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -939,12 +939,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 5;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_MULTIPLY operator, set priority to 5\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_MULTIPLY operator, set priority to 5\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -955,12 +955,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 5;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_DIVIDE operator, set priority to 5\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_DIVIDE operator, set priority to 5\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -971,12 +971,12 @@ void give_priority()
         operator_tokens[give_priority_index].priority = 6;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_priority()] found a TK_NOT operator, set priority to 6\n");
-          printf("[EXPR DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
-          printf("[EXPR DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] found a TK_NOT operator, set priority to 6\n");
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] give_priority_index = %d\n", give_priority_index);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].position = %d\n", operator_tokens[give_priority_index].position);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].priority = %d\n", operator_tokens[give_priority_index].priority);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].regex = \"%s\"\n", operator_tokens[give_priority_index].regex);
+          printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
         // TODO
@@ -985,13 +985,13 @@ void give_priority()
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
+    printf("[NEMU_EXPR_DEBUG: void give_priority()] nr_operator_token = %d\n", nr_operator_token);
   }
   for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void give_priority()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
+      printf("[NEMU_EXPR_DEBUG: void give_priority()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
     }
   }
   return;
@@ -1002,30 +1002,30 @@ void give_priority_no_parentheses()
   // In function give_priority() we just give pripority ignoring the parentheses, now we need to add them back
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void give_priority_no_parentheses()] CKPT #01: Enter function\n");
   }
   int local_highest_priority = 0;
   for(int current_scan_local_highest_priority_index = 1; current_scan_local_highest_priority_index < nr_operator_token - 1; current_scan_local_highest_priority_index = current_scan_local_highest_priority_index + 1)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #02: Enter scan local highest priority loop\n");
+      printf("[NEMU_EXPR_CHECKPOINT: void give_priority_no_parentheses()] CKPT #02: Enter scan local highest priority loop\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current_scan_local_highest_priority_index = %d\n", current_scan_local_highest_priority_index);
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] enter loop, current local_highest_priority = %d\n", local_highest_priority);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] enter loop, current_scan_local_highest_priority_index = %d\n", current_scan_local_highest_priority_index);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] enter loop, current local_highest_priority = %d\n", local_highest_priority);
     }
     if(operator_tokens[current_scan_local_highest_priority_index].priority > local_highest_priority)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] at index %4d, find priority %4d, higher than local_highest_priority %4d\n", current_scan_local_highest_priority_index, operator_tokens[current_scan_local_highest_priority_index].priority , local_highest_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] at index %4d, find priority %4d, higher than local_highest_priority %4d\n", current_scan_local_highest_priority_index, operator_tokens[current_scan_local_highest_priority_index].priority , local_highest_priority);
       }
       local_highest_priority = operator_tokens[current_scan_local_highest_priority_index].priority;
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] set local_highest_priority to %4d\n", local_highest_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] set local_highest_priority to %4d\n", local_highest_priority);
       }
     }
   }
@@ -1034,7 +1034,7 @@ void give_priority_no_parentheses()
     // Invalid
     if(expr_print_assertpoint)
     {
-      printf("[EXPR ASSERTPOINT: void give_priority_no_parentheses()] ASPT #01: local_highest_priority < 0\n");
+      printf("[NEMU_EXPR_ASSERTPOINT: void give_priority_no_parentheses()] ASPT #01: local_highest_priority < 0\n");
     }
     assert(0);
   }
@@ -1043,7 +1043,7 @@ void give_priority_no_parentheses()
     // Invalid
     if(expr_print_assertpoint)
     {
-      printf("[EXPR ASSERTPOINT: void give_priority_no_parentheses()] ASPT #02: !check_parentheses_valid()\n");
+      printf("[NEMU_EXPR_ASSERTPOINT: void give_priority_no_parentheses()] ASPT #02: !check_parentheses_valid()\n");
     }
     assert(0);
   }
@@ -1052,14 +1052,14 @@ void give_priority_no_parentheses()
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #03: Enter increase priority loop\n");
+      printf("[NEMU_EXPR_CHECKPOINT: void give_priority_no_parentheses()] CKPT #03: Enter increase priority loop\n");
     }
     if(operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type == TK_LEFT_PARENTHESES)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a TK_LEFT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level + 1);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Find a TK_LEFT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level + 1);
       }
       give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level + 1;
     }
@@ -1067,8 +1067,8 @@ void give_priority_no_parentheses()
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a TK_RIGHT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level - 1);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Find a TK_RIGHT_PARENTHESES at index %d\n", give_priority_no_parentheses_increase_priority_index);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Previous give_priority_no_parentheses_parentheses_level = %d, Current give_priority_no_parentheses_parentheses_level = %d\n", give_priority_no_parentheses_parentheses_level, give_priority_no_parentheses_parentheses_level - 1);
       }
       give_priority_no_parentheses_parentheses_level = give_priority_no_parentheses_parentheses_level - 1;
     }
@@ -1076,21 +1076,21 @@ void give_priority_no_parentheses()
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Find a NON_PARENTHESES_TOKEN at index %d\n", give_priority_no_parentheses_increase_priority_index);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] Original priority: %d, new priority: %d\n", operator_tokens[give_priority_no_parentheses_increase_priority_index].priority, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Find a NON_PARENTHESES_TOKEN at index %d\n", give_priority_no_parentheses_increase_priority_index);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Original priority: %d, new priority: %d\n", operator_tokens[give_priority_no_parentheses_increase_priority_index].priority, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority);
       }
       operator_tokens[give_priority_no_parentheses_increase_priority_index].priority = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority + give_priority_no_parentheses_parentheses_level * local_highest_priority;
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: void give_priority_no_parentheses()] CKPT #04: Copy information about non_parentheses tokens to operator_tokens_no_parentheses[32]\n");
+        printf("[NEMU_EXPR_CHECKPOINT: void give_priority_no_parentheses()] CKPT #04: Copy information about non_parentheses tokens to operator_tokens_no_parentheses[32]\n");
       }
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].position = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].position);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].priority_level = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].regex = \"%s\"\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].regex);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].token_type = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type);
-        printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses + 1);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].position = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].position);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].priority_level = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].priority);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].regex = \"%s\"\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].regex);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] operator_tokens_no_parentheses[%d].token_type = %d\n", nr_operator_tokens_no_parentheses, operator_tokens[give_priority_no_parentheses_increase_priority_index].token_type);
+        printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses + 1);
       }
       operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].position = operator_tokens[give_priority_no_parentheses_increase_priority_index].position;
       operator_tokens_no_parentheses[nr_operator_tokens_no_parentheses].priority_level = operator_tokens[give_priority_no_parentheses_increase_priority_index].priority;
@@ -1101,18 +1101,18 @@ void give_priority_no_parentheses()
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_token = %d\n", nr_operator_token);
+    printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_token = %d\n", nr_operator_token);
     for(int print_operator_token_index = 0; print_operator_token_index < nr_operator_token; print_operator_token_index = print_operator_token_index + 1)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_index, operator_tokens[print_operator_token_index].position, operator_tokens[print_operator_token_index].priority, operator_tokens[print_operator_token_index].regex, operator_tokens[print_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_index, operator_tokens[print_operator_token_index].position, operator_tokens[print_operator_token_index].priority, operator_tokens[print_operator_token_index].regex, operator_tokens[print_operator_token_index].token_type);
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
+    printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
     for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
     }
   }
   return;
@@ -1123,22 +1123,22 @@ void give_sub_priority()
   // Test Token for this function: p 1 + (2 + (3 + 4) + (5 + 6 + (7 * 8 * 9) + 10) * 11 + 12)
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void give_sub_priority()] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void give_sub_priority()] CKPT #01: Enter function\n");
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_token = %d\n", nr_operator_token);
+    printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_token = %d\n", nr_operator_token);
     for(int print_operator_token_index = 0; print_operator_token_index < nr_operator_token; print_operator_token_index = print_operator_token_index + 1)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_index, operator_tokens[print_operator_token_index].position, operator_tokens[print_operator_token_index].priority, operator_tokens[print_operator_token_index].regex, operator_tokens[print_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_index, operator_tokens[print_operator_token_index].position, operator_tokens[print_operator_token_index].priority, operator_tokens[print_operator_token_index].regex, operator_tokens[print_operator_token_index].token_type);
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
+    printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
     for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
     }
   }
   // Now we give sub calculation priority by considering the position of operators
@@ -1147,26 +1147,26 @@ void give_sub_priority()
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: void give_sub_priority()] CKPT #02: find_global_highest_priority loop\n");
+      printf("[NEMU_EXPR_CHECKPOINT: void give_sub_priority()] CKPT #02: find_global_highest_priority loop\n");
     }
     if(operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level > global_highest_priority)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_sub_priority()] At find_global_highest_priority_index = %d, find priority_level = %d, higher than current global_highest_priority = %d\n", find_global_highest_priority_index, operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level, global_highest_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] At find_global_highest_priority_index = %d, find priority_level = %d, higher than current global_highest_priority = %d\n", find_global_highest_priority_index, operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level, global_highest_priority);
       }
       global_highest_priority = operator_tokens_no_parentheses[find_global_highest_priority_index].priority_level;
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_sub_priority()] global_highest_priority = %d\n", global_highest_priority);
+    printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] global_highest_priority = %d\n", global_highest_priority);
   }
   for(int current_processing_global_priority = global_highest_priority; current_processing_global_priority > 0; current_processing_global_priority = current_processing_global_priority - 1)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+      printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
     }
     int current_processing_local_priority = 0;
     for(int current_scanning_operator_tokens_no_parentheses_index = 0; current_scanning_operator_tokens_no_parentheses_index < nr_operator_tokens_no_parentheses; current_scanning_operator_tokens_no_parentheses_index = current_scanning_operator_tokens_no_parentheses_index + 1)
@@ -1174,14 +1174,14 @@ void give_sub_priority()
       // First, we need to find out how many operators have the same global priority, by scanning each operator_token_no_parentheses and we count them
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
-        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
       }
       if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority)
       {
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_sub_priority()] switch operator_tokens_no_parentheses from %d to %d\n", current_processing_local_priority, current_processing_local_priority + 1);
+          printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] switch operator_tokens_no_parentheses from %d to %d\n", current_processing_local_priority, current_processing_local_priority + 1);
         }
         current_processing_local_priority = current_processing_local_priority + 1;
       }
@@ -1191,8 +1191,8 @@ void give_sub_priority()
       // Second, we give the highest local priority to the first operator token with the same global priority, then we minus 1 to current_processing_local_priority
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
-        printf("[EXPR DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] current_processing_global_priority = %d\n", current_processing_global_priority);
+        printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] current_processing_local_priority = %d\n", current_processing_local_priority);
       }
       if(operator_tokens_no_parentheses[current_scanning_operator_tokens_no_parentheses_index].priority_level == current_processing_global_priority)
       {
@@ -1200,7 +1200,7 @@ void give_sub_priority()
         current_processing_local_priority = current_processing_local_priority - 1;
         if(expr_print_debug)
         {
-          printf("[EXPR DEBUG: void give_sub_priority()] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_local_priority);
+          printf("[NEMU_EXPR_DEBUG: void give_sub_priority()] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n", current_scanning_operator_tokens_no_parentheses_index, current_processing_local_priority);
         }
       }
     }
@@ -1208,10 +1208,10 @@ void give_sub_priority()
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
+    printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] nr_operator_tokens_no_parentheses = %d\n", nr_operator_tokens_no_parentheses);
     for(int print_operator_token_no_parentheses_index = 0; print_operator_token_no_parentheses_index < nr_operator_tokens_no_parentheses; print_operator_token_no_parentheses_index = print_operator_token_no_parentheses_index + 1)
     {
-      printf("[EXPR DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void give_priority_no_parentheses()] Token Number: %2d, Position: %2d, Priority: %2d, Sub-Priority: %2d, Token String: \"%s\", Token Type: %d\n", print_operator_token_no_parentheses_index, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].position, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].sub_priority_level, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].regex, operator_tokens_no_parentheses[print_operator_token_no_parentheses_index].token_type);
     }
   }
   return;
@@ -1222,19 +1222,19 @@ int bool_to_int(bool bool_value)
   // We received a bool value, convert it to 0 or 1
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int bool_to_int(bool bool_value)] CKPT #01: Enter function\n");
   }
   if(bool_value)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
+      printf("[NEMU_EXPR_DEBUG: int bool_to_int(bool bool_value)] Get bool_value = true, return 1\n");
     }
     return 1;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
+    printf("[NEMU_EXPR_DEBUG: int bool_to_int(bool bool_value)] Get bool_value = false, return 0\n");
   }
   return 0;
 }
@@ -1244,19 +1244,19 @@ bool check_left_token_is_number_or_bool(int check_index)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
   }
   if(tokens[check_index - 1].type == TK_NUMBER || tokens[check_index - 1].type == TK_HEXNUMBER)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is one of the NUMBER type\n", check_index - 1);
+      printf("[NEMU_EXPR_DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is one of the NUMBER type\n", check_index - 1);
     }
     return true;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is NOT one of the NUMBER type\n", check_index - 1);
+    printf("[NEMU_EXPR_DEBUG: bool check_left_token_is_number_or_bool(int check_index)] Token at %d (left) is NOT one of the NUMBER type\n", check_index - 1);
   }
   return false;
 }
@@ -1266,19 +1266,19 @@ bool check_right_token_is_number_or_bool(int check_index)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
   }
   if(tokens[check_index + 1].type == TK_NUMBER || tokens[check_index + 1].type == TK_HEXNUMBER)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is one of the NUMBER type\n", check_index - 1);
+      printf("[NEMU_EXPR_DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is one of the NUMBER type\n", check_index - 1);
     }
     return true;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is NOT one of the NUMBER type\n", check_index - 1);
+    printf("[NEMU_EXPR_DEBUG: bool check_right_token_is_number_or_bool(int check_index)] Token at %d (right) is NOT one of the NUMBER type\n", check_index - 1);
   }
   return false;
 }
@@ -1288,29 +1288,29 @@ int process_add(int add_operator_index)
   // We recognized the add_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_add(int add_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_add(int add_operator_index)] CKPT #01: Enter function\n");
   }
   int process_add_answer = 0;
   int left_token_index = add_operator_index - 1;
   int right_token_index = add_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] add_operator_index = %d\n", add_operator_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] add_operator_index = %d\n", add_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
   process_add_answer = left_token_int_value + right_token_int_value;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_add(int add_operator_index)] process_add_answer = %d\n", process_add_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_add(int add_operator_index)] process_add_answer = %d\n", process_add_answer);
   }
   return process_add_answer;
 }
@@ -1320,29 +1320,29 @@ int process_minus(int minus_operator_index)
   // We recognized the minus_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_minus(int minus_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_minus(int minus_operator_index)] CKPT #01: Enter function\n");
   }
   int process_minus_answer = 0;
   int left_token_index = minus_operator_index - 1;
   int right_token_index = minus_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] add_operator_index = %d\n", minus_operator_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] add_operator_index = %d\n", minus_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
   process_minus_answer = left_token_int_value - right_token_int_value;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_minus(int minus_operator_index)] process_minus_answer = %d\n", process_minus_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_minus(int minus_operator_index)] process_minus_answer = %d\n", process_minus_answer);
   }
   return process_minus_answer;
 }
@@ -1352,29 +1352,29 @@ int process_multiply(int multiply_operator_index)
   // We recognized the multiply_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_multiply(int multiply_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_multiply(int multiply_operator_index)] CKPT #01: Enter function\n");
   }
   int process_multiply_answer = 0;
   int left_token_index = multiply_operator_index - 1;
   int right_token_index = multiply_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] add_operator_index = %d\n", multiply_operator_index);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] add_operator_index = %d\n", multiply_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
   process_multiply_answer = left_token_int_value * right_token_int_value;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_multiply(int multiply_operator_index)] process_multiply_answer = %d\n", process_multiply_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_multiply(int multiply_operator_index)] process_multiply_answer = %d\n", process_multiply_answer);
   }
   return process_multiply_answer;
 }
@@ -1384,29 +1384,29 @@ int process_devide(int devide_operator_index)
   // We recognized the devide_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_devide(int devide_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_devide(int devide_operator_index)] CKPT #01: Enter function\n");
   }
   int process_devide_answer = 0;
   int left_token_index = devide_operator_index - 1;
   int right_token_index = devide_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] add_operator_index = %d\n", devide_operator_index);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] add_operator_index = %d\n", devide_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
   process_devide_answer = left_token_int_value / right_token_int_value;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_devide(int devide_operator_index)] process_devide_answer = %d\n", process_devide_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_devide(int devide_operator_index)] process_devide_answer = %d\n", process_devide_answer);
   }
   return process_devide_answer;
 }
@@ -1416,20 +1416,20 @@ int process_equal(int equal_operator_index)
   // We recognized the equal_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_equal(int equal_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_equal(int equal_operator_index)] CKPT #01: Enter function\n");
   }
   int process_equal_answer = 0;
   int left_token_index = equal_operator_index - 1;
   int right_token_index = equal_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] add_operator_index = %d\n", equal_operator_index);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] add_operator_index = %d\n", equal_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
@@ -1443,9 +1443,9 @@ int process_equal(int equal_operator_index)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_equal(int equal_operator_index)] process_equal_answer = %d\n", process_equal_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_equal(int equal_operator_index)] process_equal_answer = %d\n", process_equal_answer);
   }
   return process_equal_answer;
 }
@@ -1455,20 +1455,20 @@ int process_not_equal(int not_equal_operator_index)
   // We recognized the not_equal_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_not_equal(int not_equal_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_not_equal(int not_equal_operator_index)] CKPT #01: Enter function\n");
   }
   int process_not_equal_answer = 0;
   int left_token_index = not_equal_operator_index - 1;
   int right_token_index = not_equal_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] add_operator_index = %d\n", not_equal_operator_index);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] add_operator_index = %d\n", not_equal_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
@@ -1482,9 +1482,9 @@ int process_not_equal(int not_equal_operator_index)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_not_equal(int not_equal_operator_index)] process_not_equal_answer = %d\n", process_not_equal_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_not_equal(int not_equal_operator_index)] process_not_equal_answer = %d\n", process_not_equal_answer);
   }
   return process_not_equal_answer;
 }
@@ -1494,20 +1494,20 @@ int process_and(int and_operator_index)
   // We recognized the and_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_and(int and_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_and(int and_operator_index)] CKPT #01: Enter function\n");
   }
   int process_and_answer = 0;
   int left_token_index = and_operator_index - 1;
   int right_token_index = and_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] add_operator_index = %d\n", and_operator_index);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] add_operator_index = %d\n", and_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
@@ -1521,9 +1521,9 @@ int process_and(int and_operator_index)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_and(int and_operator_index)] process_and_answer = %d\n", process_and_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] process_and_answer = %d\n", process_and_answer);
   }
   return process_and_answer;
 }
@@ -1533,20 +1533,20 @@ int process_or(int or_operator_index)
   // We recognized the or_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_or(int or_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_or(int or_operator_index)] CKPT #01: Enter function\n");
   }
   int process_or_answer = 0;
   int left_token_index = or_operator_index - 1;
   int right_token_index = or_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] add_operator_index = %d\n", or_operator_index);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] left_token_index = %d\n", left_token_index);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] left token type : %d\n", tokens[left_token_index].type);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] add_operator_index = %d\n", or_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
@@ -1560,9 +1560,9 @@ int process_or(int or_operator_index)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] left_token_int_value = %d\n", left_token_int_value);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_or(int or_operator_index)] process_or_answer = %d\n", process_or_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] process_or_answer = %d\n", process_or_answer);
   }
   return process_or_answer;
 }
@@ -1572,16 +1572,16 @@ int process_not(int not_operator_index)
   // We recognized the not_operator, evaluate it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: int process_not(int not_operator_index)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: int process_not(int not_operator_index)] CKPT #01: Enter function\n");
   }
   int process_not_answer = 0;
   int right_token_index = not_operator_index + 1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] add_operator_index = %d\n", not_operator_index);
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right_token_index = %d\n", right_token_index);
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right token type : %d\n", tokens[right_token_index].type);
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] add_operator_index = %d\n", not_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int right_token_int_value = atoi(tokens[right_token_index].str);
   if(right_token_int_value == 1)
@@ -1594,8 +1594,8 @@ int process_not(int not_operator_index)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] right_token_int_value = %d\n", right_token_int_value);
-    printf("[EXPR DEBUG: int process_not(int not_operator_index)] process_or_answer = %d\n", process_not_answer);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] process_or_answer = %d\n", process_not_answer);
   }
   return process_not_answer;
 }
@@ -1605,14 +1605,14 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
   }
   // First, find the highest priority and sub_priority, then get the index in tokens[32]
   int calculate_one_round_highest_priority = -1;
   int calculate_one_round_highest_sub_priority = -1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] Finding calculate_one_round_highest_priority\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] Finding calculate_one_round_highest_priority\n");
   }
   for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1)
   {
@@ -1622,12 +1622,12 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] Finding calculate_one_round_highest_sub_priority\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] Finding calculate_one_round_highest_sub_priority\n");
   }
   for (int calculate_one_round_highest_priority_scanning_index = 0; calculate_one_round_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_one_round_highest_priority_scanning_index = calculate_one_round_highest_priority_scanning_index + 1)
   {
@@ -1640,7 +1640,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] calculate_one_round_highest_priority = %d, calculate_one_round_highest_sub_priority = %d\n", calculate_one_round_highest_priority, calculate_one_round_highest_sub_priority);
     }
   }
   int this_round_calculation_operator_token_index = -1;
@@ -1653,16 +1653,16 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
   }
   // Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false\n");
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
   }
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0)
   {
@@ -1670,9 +1670,9 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next two lines\n");
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next two lines\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
     }
     return NULL;
   }
@@ -1682,17 +1682,17 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next line\n");
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return NULL;
   }
@@ -1702,28 +1702,28 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next line\n");
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] ERROR, details in the next line\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return NULL;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] All tests are passed, continue\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] All tests are passed, continue\n");
   }
   // Third, implement specific calls to evaluate the result
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
   }
   u_int64_t this_round_calculation_answer = 0;
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS)
@@ -1744,13 +1744,13 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
   }
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
   }
   bool left_and_right_is_paired_parentheses = false;
   char* result_token = malloc(256);
@@ -1758,7 +1758,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses\n");
     }
     left_and_right_is_paired_parentheses = true;
   }
@@ -1768,7 +1768,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
       }
       continue;
       // Do not copy
@@ -1777,7 +1777,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the left number, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the left number, skip copying\n");
       }
       continue;
       // Do not copy
@@ -1786,7 +1786,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the operator, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the operator, skip copying\n");
       }
       sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
       continue;
@@ -1796,7 +1796,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the right number, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] is the right number, skip copying\n");
       }
       continue;
       // Do not copy
@@ -1805,7 +1805,7 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] left and right is paired parentheses, skip copying\n");
       }
       continue;
       // Do not copy
@@ -1813,13 +1813,13 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     strcat(result_token, tokens[current_copying_tokens_index].str);
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
+      printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
     }
     // TODO
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
+    printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
   }
   success_calculate_one_round_call = true;
   return result_token;
@@ -1837,7 +1837,7 @@ bool check_parentheses(int left_index, int right_index)
 
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #01\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #01\n");
   }
 
   if(tokens[left_index].type != TK_LEFT_PARENTHESES)
@@ -1845,18 +1845,18 @@ bool check_parentheses(int left_index, int right_index)
     // Check Type I
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #02\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #02\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type I Fail, Left side is not parenthese\n", left_index);
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type I Fail, Left side is not parenthese\n", left_index);
     }
     return false;
   }
 
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #03\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #03\n");
   }
 
   if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
@@ -1864,31 +1864,31 @@ bool check_parentheses(int left_index, int right_index)
     // Check Type II
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #04\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #04\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type II Fail, Right side is not parenthese\n", right_index);
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type II Fail, Right side is not parenthese\n", right_index);
     }
     return false;
   }
 
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #05\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #05\n");
   }
 
   for(int current_index = left_index; current_index <= right_index; current_index = current_index + 1)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #06\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #06\n");
     }
     if(tokens[current_index].type == TK_LEFT_PARENTHESES)
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #07\n");
+        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #07\n");
       }
       left_right_balance = left_right_balance + 1;
     }
@@ -1896,7 +1896,7 @@ bool check_parentheses(int left_index, int right_index)
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #08\n");
+        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #08\n");
       }
       left_right_balance = left_right_balance - 1;
     }
@@ -1905,11 +1905,11 @@ bool check_parentheses(int left_index, int right_index)
       // Check Type III
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #09\n");
+        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #09\n");
       }
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type III Fail, Balance before reaching end\n", current_index);
+        printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type III Fail, Balance before reaching end\n", current_index);
       }
       return false;
     }
@@ -1917,7 +1917,7 @@ bool check_parentheses(int left_index, int right_index)
 
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #10\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #10\n");
   }
 
   if(left_right_balance == 0)
@@ -1925,11 +1925,11 @@ bool check_parentheses(int left_index, int right_index)
     // Check Type IV
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #11\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #11\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] Check SUCCESS, parentheses are balanced!\n");
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] Check SUCCESS, parentheses are balanced!\n");
     }
     return true;
   }
@@ -1938,11 +1938,11 @@ bool check_parentheses(int left_index, int right_index)
     // Check Type IV
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #12\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #12\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end\n", right_index);
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end\n", right_index);
     }
     return false;
   }
@@ -1957,20 +1957,20 @@ bool check_parentheses_balance()
   int check_parentheses_balance_right_count = 0;
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses_balance()] CKPT #01\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_balance()] CKPT #01\n");
   }
 
   for(int current_check_index = 0; current_check_index < nr_token; current_check_index = current_check_index + 1)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses_balance()] CKPT #02\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_balance()] CKPT #02\n");
     }
     if(tokens[current_check_index].type == TK_LEFT_PARENTHESES)
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: bool check_parentheses_balance()] CKPT #03\n");
+        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_balance()] CKPT #03\n");
       }
       check_parentheses_balance_left_count = check_parentheses_balance_left_count + 1;
     }
@@ -1978,31 +1978,31 @@ bool check_parentheses_balance()
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: bool check_parentheses_balance()] CKPT #04\n");
+        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_balance()] CKPT #04\n");
       }
       check_parentheses_balance_right_count = check_parentheses_balance_right_count + 1;
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: bool check_parentheses_balance()] get check_parentheses_balance_left_count = %d\n", check_parentheses_balance_left_count);
-    printf("[EXPR DEBUG: bool check_parentheses_balance()] get check_parentheses_balance_right_count = %d\n", check_parentheses_balance_right_count);
+    printf("[NEMU_EXPR_DEBUG: bool check_parentheses_balance()] get check_parentheses_balance_left_count = %d\n", check_parentheses_balance_left_count);
+    printf("[NEMU_EXPR_DEBUG: bool check_parentheses_balance()] get check_parentheses_balance_right_count = %d\n", check_parentheses_balance_right_count);
   }
   if(check_parentheses_balance_left_count == check_parentheses_balance_right_count)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses_balance()] CKPT #05\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_balance()] CKPT #05\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses_balance()] BALANCED\n");
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses_balance()] BALANCED\n");
     }
     return true;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: bool check_parentheses_balance()] NOT BALANCED\n");
+    printf("[NEMU_EXPR_DEBUG: bool check_parentheses_balance()] NOT BALANCED\n");
   }
   return false;
 }
@@ -2011,27 +2011,27 @@ bool check_parentheses_valid()
 {
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #01: Enter function\n");
-    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #02: Check parentheses number balance\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_valid()] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_valid()] CKPT #02: Check parentheses number balance\n");
   }
   if(check_parentheses_balance())
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() SUCCESS\n");
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] check_parentheses_balance() SUCCESS\n");
     }
   }
   else
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_balance() FAILED\n");
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] check_parentheses_balance() FAILED\n");
     }
     return false;
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #03: Check inside balance\n");
+    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_valid()] CKPT #03: Check inside balance\n");
   }
   int check_parentheses_valid_left_parentheses_count = 0;
   int check_parentheses_valid_right_parentheses_count = 0;
@@ -2039,14 +2039,14 @@ bool check_parentheses_valid()
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: bool check_parentheses_valid()] CKPT #04: In for loop for check inside balance\n");
+      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses_valid()] CKPT #04: In for loop for check inside balance\n");
     }
     if(tokens[check_inside_parentheses_valid_index].type == TK_LEFT_PARENTHESES)
     {
       check_parentheses_valid_left_parentheses_count = check_parentheses_valid_left_parentheses_count + 1;
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: bool check_parentheses_valid()] found a TK_RIGHT_PARENTHESES at index %2d, check_parentheses_valid_right_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_right_parentheses_count);
+        printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] found a TK_RIGHT_PARENTHESES at index %2d, check_parentheses_valid_right_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_right_parentheses_count);
       }
     }
     if(tokens[check_inside_parentheses_valid_index].type == TK_RIGHT_PARENTHESES)
@@ -2054,18 +2054,18 @@ bool check_parentheses_valid()
       check_parentheses_valid_right_parentheses_count = check_parentheses_valid_right_parentheses_count + 1;
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: bool check_parentheses_valid()] found a TK_LEFT_PARENTHESES at index %2d, check_parentheses_valid_left_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_left_parentheses_count);
+        printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] found a TK_LEFT_PARENTHESES at index %2d, check_parentheses_valid_left_parentheses_count = %2d\n", check_inside_parentheses_valid_index, check_parentheses_valid_left_parentheses_count);
       }
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: bool check_parentheses_valid()] check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count = %d\n", check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count);
+      printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count = %d\n", check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count);
     }
     if(check_parentheses_valid_left_parentheses_count - check_parentheses_valid_right_parentheses_count < 0)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: bool check_parentheses_valid()] check inside balance FAILED\n");
+        printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] check inside balance FAILED\n");
       }
       return false;
     }
@@ -2073,7 +2073,7 @@ bool check_parentheses_valid()
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: bool check_parentheses_valid()] check inside balance SUCCESS\n");
+        printf("[NEMU_EXPR_DEBUG: bool check_parentheses_valid()] check inside balance SUCCESS\n");
       }
       return true;
     }
@@ -2086,14 +2086,14 @@ char* calculate(bool* success_calculate_call)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
   }
   // First, find the highest priority and sub_priority, then get the index in tokens[32]
   int calculate_highest_priority = -1;
   int calculate_highest_sub_priority = -1;
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_priority\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_priority\n");
   }
   for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1)
   {
@@ -2103,12 +2103,12 @@ char* calculate(bool* success_calculate_call)
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
     }
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_sub_priority\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] Finding calculate_highest_sub_priority\n");
   }
   for (int calculate_highest_priority_scanning_index = 0; calculate_highest_priority_scanning_index < nr_operator_tokens_no_parentheses; calculate_highest_priority_scanning_index = calculate_highest_priority_scanning_index + 1)
   {
@@ -2121,7 +2121,7 @@ char* calculate(bool* success_calculate_call)
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] calculate_highest_priority = %d, calculate_highest_sub_priority = %d\n", calculate_highest_priority, calculate_highest_sub_priority);
     }
   }
   int this_round_calculation_operator_token_index = -1;
@@ -2134,16 +2134,16 @@ char* calculate(bool* success_calculate_call)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
   }
   // Scend, check the condition to make a success call, if not success, set success_calculate_call to false
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_call to false\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #02: Scend, check the condition to make a success call, if not success, set success_calculate_call to false\n");
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d]: Position = %d, Priority Level = %d, Sub Priority = %d, Token String = \"%s\", Type = %d\n", this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
   }
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0)
   {
@@ -2151,9 +2151,9 @@ char* calculate(bool* success_calculate_call)
     *success_calculate_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next two lines\n");
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next two lines\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type == TK_DIVIDE\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] atoi(tokens[operator_tokens_no_parentheses[%d].position + 1].str) == 0\n", this_round_calculation_operator_token_index);
     }
     return NULL;
   }
@@ -2163,17 +2163,17 @@ char* calculate(bool* success_calculate_call)
     *success_calculate_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].str);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position - 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return NULL;
   }
@@ -2183,28 +2183,28 @@ char* calculate(bool* success_calculate_call)
     *success_calculate_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] ERROR, details in the next line\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] TK_NUMBER's Type ID = %d, TK_HEXNUMBER's Type ID = %d\n", TK_NUMBER, TK_HEXNUMBER);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].position = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].sub_priority_level = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].sub_priority_level);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].regex = \"%s\"\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].regex);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] operator_tokens_no_parentheses[%d].token_type = %d\n",this_round_calculation_operator_token_index, operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].str =\"%s\"\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[%d].type = %d\n", operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1, tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type is NOT (TK_HECNUMBER or TK_NUMBER)\n");
     }
     return NULL;
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] All tests are passed, continue\n");
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] All tests are passed, continue\n");
   }
   // Third, implement specific calls to evaluate the result
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #03: Third, implement specific calls to evaluate the result\n");
   }
   u_int64_t this_round_calculation_answer = 0;
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_PLUS)
@@ -2225,13 +2225,13 @@ char* calculate(bool* success_calculate_call)
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] this_round_calculation_answer (Hex) = %lx\n", this_round_calculation_answer);
   }
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void calculate(bool* success_calculate_call)] CKPT #04: Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it\n");
   }
   bool left_and_right_is_paired_parentheses = false;
   char* result_token = malloc(256);
@@ -2239,7 +2239,7 @@ char* calculate(bool* success_calculate_call)
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses\n");
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses\n");
     }
     left_and_right_is_paired_parentheses = true;
   }
@@ -2249,7 +2249,7 @@ char* calculate(bool* success_calculate_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
       }
       continue;
       // Do not copy
@@ -2258,7 +2258,7 @@ char* calculate(bool* success_calculate_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the left number, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] is the left number, skip copying\n");
       }
       continue;
       // Do not copy
@@ -2267,7 +2267,7 @@ char* calculate(bool* success_calculate_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the operator, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] is the operator, skip copying\n");
       }
       sprintf(result_token + strlen(result_token), "%ld", this_round_calculation_answer);
       continue;
@@ -2277,7 +2277,7 @@ char* calculate(bool* success_calculate_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] is the right number, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] is the right number, skip copying\n");
       }
       continue;
       // Do not copy
@@ -2286,7 +2286,7 @@ char* calculate(bool* success_calculate_call)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
+        printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] left and right is paired parentheses, skip copying\n");
       }
       continue;
       // Do not copy
@@ -2294,13 +2294,13 @@ char* calculate(bool* success_calculate_call)
     strcat(result_token, tokens[current_copying_tokens_index].str);
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
+      printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
     }
     // TODO
   }
   if(expr_print_debug)
   {
-    printf("[EXPR DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
+    printf("[NEMU_EXPR_DEBUG: void calculate(bool* success_calculate_call)] result_token = \"%s\"\n", result_token);
   }
   *success_calculate_call = true;
   return result_token;
@@ -2312,7 +2312,7 @@ void process_operator_token()
   // We should do more things here 20230303
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void process_operator_token()] CKPT #01: Enter function\n");
   }
   int current_index_of_operator_tokens = 0;
   nr_operator_token = 0;
@@ -2320,20 +2320,20 @@ void process_operator_token()
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: void process_operator_token()] CKPT #02: In scanning tokens loop\n");
+      printf("[NEMU_EXPR_CHECKPOINT: void process_operator_token()] CKPT #02: In scanning tokens loop\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void process_operator_token()] current_scanning_index = %d\n", current_scanning_index);
-      printf("[EXPR DEBUG: void process_operator_token()] current_index_of_operator_tokens = %d\n", current_index_of_operator_tokens);
-      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
-      printf("[EXPR DEBUG: void process_operator_token()] tokens[%d].str = \"%s\"\n", current_scanning_index, tokens[current_scanning_index].str);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] current_scanning_index = %d\n", current_scanning_index);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] current_index_of_operator_tokens = %d\n", current_index_of_operator_tokens);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] tokens[%d].type = %d\n", current_scanning_index, tokens[current_scanning_index].type);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] tokens[%d].str = \"%s\"\n", current_scanning_index, tokens[current_scanning_index].str);
     }
     if(tokens[current_scanning_index].type != TK_NUMBER && tokens[current_scanning_index].type != TK_HEXNUMBER)
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void process_operator_token()] find an operator token at nr_token index %d\n", current_scanning_index);
+        printf("[NEMU_EXPR_DEBUG: void process_operator_token()] find an operator token at nr_token index %d\n", current_scanning_index);
       }
       operator_tokens[current_index_of_operator_tokens].position = current_scanning_index;
       operator_tokens[current_index_of_operator_tokens].token_type = tokens[current_scanning_index].type;
@@ -2347,12 +2347,12 @@ void process_operator_token()
     {
       if(expr_print_debug)
       {
-        printf("[EXPR DEBUG: void process_operator_token()] not an operator token at nr_token index %d, ignore in this scope\n", current_scanning_index);
+        printf("[NEMU_EXPR_DEBUG: void process_operator_token()] not an operator token at nr_token index %d, ignore in this scope\n", current_scanning_index);
       }
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
     }
     // TODO
   }
@@ -2361,7 +2361,7 @@ void process_operator_token()
   {
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: void process_operator_token()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
+      printf("[NEMU_EXPR_DEBUG: void process_operator_token()] Operator Token Number: %4d, Position: %4d, Token Type: %4d, Token String: \"%s\", Priority: %4d\n", operator_token_print_index, operator_tokens[operator_token_print_index].position, operator_tokens[operator_token_print_index].token_type, operator_tokens[operator_token_print_index].regex, operator_tokens[operator_token_print_index].priority);
     }
   }
   return;
@@ -2371,13 +2371,13 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
 {
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #01: Enter function u_int64_t eval(int p, int q)\n");
+    printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #01: Enter function u_int64_t eval(int p, int q)\n");
   }
   if(valid_call == false)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #02: valid_call == false\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #02: valid_call == false\n");
     }
     printf("Invalid Call\n");
     // OK
@@ -2385,13 +2385,13 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #03: Exit the \"if\" evaluation\n");
+    printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #03: Exit the \"if\" evaluation\n");
   }
   if(q > p)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #04: q > p\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #04: q > p\n");
     }
     valid_call = false;
     printf("Invalid eval() call\n");
@@ -2400,59 +2400,59 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #05: Exit the \"if\" evaluation\n");
+    printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #05: Exit the \"if\" evaluation\n");
   }
   if(p == q)
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #06: p == q\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #06: p == q\n");
     }
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: u_int64_t eval(int p, int q)] eval(p,q) call with p=q, will just return the number\n");
+      printf("[NEMU_EXPR_DEBUG: u_int64_t eval(int p, int q)] eval(p,q) call with p=q, will just return the number\n");
     }
     u_int64_t number = 0;
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #07: created u_int64_t number with initial value = 0\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #07: created u_int64_t number with initial value = 0\n");
     }
     if(tokens[p].type == TK_NUMBER)
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_NUMBER\n", p);
+        printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_NUMBER\n", p);
       }
       sscanf(tokens[p].str, "%ld", &number);
       return number;
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #09\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #09\n");
     }
     if(tokens[p].type == TK_HEXNUMBER)
     {
       if(expr_print_checkpoint)
       {
-        printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_HEXNUMBER\n", p);
+        printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #08: tokens[%d].type == TK_HEXNUMBER\n", p);
       }
       sscanf(tokens[p].str, "%lx", &number);
       return number;
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #11\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #11\n");
     }
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #13\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #13\n");
     }
     // We should add more codes here.
     return number;
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #14: Exit if evaluation of \"if(p == q)\"\n");
+    printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #14: Exit if evaluation of \"if(p == q)\"\n");
   }
   u_int64_t answer = 0;
   if(check_parentheses(p, q) == true)
@@ -2460,7 +2460,7 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
     // OK
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #15: check_parentheses(p, q) == true\n");
+      printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #15: check_parentheses(p, q) == true\n");
     }
     return eval(p + 1, q - 1);
   }
@@ -2468,14 +2468,14 @@ u_int64_t eval(int p, int q) // p = left index, q = right index
   {
     if(expr_print_assertpoint)
     {
-      printf("[EXPR ASSERTPOINT: u_int64_t eval(int p, int q)] ASPT #01: expr_print_checkpoint == false\n");
+      printf("[NEMU_EXPR_ASSERTPOINT: u_int64_t eval(int p, int q)] ASPT #01: expr_print_checkpoint == false\n");
     }
     // We should do more things here.
     assert(0);
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #16: End of function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: u_int64_t eval(int p, int q)] CKPT #16: End of function\n");
   }
   return answer;
 }
@@ -2485,12 +2485,12 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   // TODO
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #01: Enter function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #01: Enter function\n");
   }
   expr_init();
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #02: expr_init() finished\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #02: expr_init() finished\n");
   }
   if(!check_parentheses_balance())
   {
@@ -2500,7 +2500,7 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #03: check_parentheses_balance() finished\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #03: check_parentheses_balance() finished\n");
   }
   /*if(!check_parentheses_valid())
   {
@@ -2510,7 +2510,7 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: check_parentheses_valid() finished\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: check_parentheses_valid() finished\n");
   }*/
   // TODO: Fix check_parentheses_valid()'s problems
   if(!make_token(token_input))
@@ -2521,7 +2521,7 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: make_token() finished\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: make_token() finished\n");
   }
   if(nr_token == 1)
   {
@@ -2544,7 +2544,7 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #05: End of function\n");
+    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #05: End of function\n");
   }
 }
 
@@ -2553,32 +2553,32 @@ word_t expr(char *e, bool *success) {
   //eval();
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #01: Enter function word_t expr(char *e, bool *success)\n");
+    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #01: Enter function word_t expr(char *e, bool *success)\n");
   }
   
   if(!check_parentheses_balance())
   {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #02: check_parentheses_balance() = false\n");
+      printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #02: check_parentheses_balance() = false\n");
     }
     *success = false;
     valid_call = false;
     if(expr_print_debug)
     {
-      printf("[EXPR DEBUG: word_t expr(char *e, bool *success)] expr() exited because check_parentheses_balance() returned FALSE\n");
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] expr() exited because check_parentheses_balance() returned FALSE\n");
     }
     return 0;
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #03\n");
+    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #03\n");
   }
 
   if (!make_token(e)) {
     if(expr_print_checkpoint)
     {
-      printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #04\n");
+      printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #04\n");
     }
     *success = false;
     valid_call = false;
@@ -2586,19 +2586,19 @@ word_t expr(char *e, bool *success) {
   }
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
+    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
   }
   valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
 
   *success = true;
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
+    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
   }
   //u_int64_t expr_ans = eval(0, nr_token - 1);
   if(expr_print_checkpoint)
   {
-    printf("[EXPR CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
+    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
   }
   process_operator_token();
   give_priority();
