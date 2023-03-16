@@ -80,6 +80,7 @@ int process_equal(int equal_operator_index);
 int process_not_equal(int not_equal_operator_index);
 int process_and(int and_operator_index);
 int process_or(int or_operator_index);
+int process_exor(int exor_operator_index);
 int process_not(int not_operator_index);
 
 void expr_init();
@@ -1528,14 +1529,7 @@ int process_and(int and_operator_index)
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value == 1 && right_token_int_value == 1)
-  {
-    process_and_answer = 1;
-  }
-  else
-  {
-    process_and_answer = 0;
-  }
+  process_and_answer = left_token_int_value & right_token_int_value;
   if(expr_print_debug)
   {
     printf("[NEMU_EXPR_DEBUG: int process_and(int and_operator_index)] left_token_int_value = %d\n", left_token_int_value);
@@ -1567,14 +1561,7 @@ int process_or(int or_operator_index)
   }
   int left_token_int_value = atoi(tokens[left_token_index].str);
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(left_token_int_value == 1 || right_token_int_value == 1)
-  {
-    process_or_answer = 1;
-  }
-  else
-  {
-    process_or_answer = 0;
-  }
+  process_or_answer = left_token_int_value | right_token_int_value;
   if(expr_print_debug)
   {
     printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] left_token_int_value = %d\n", left_token_int_value);
@@ -1582,6 +1569,38 @@ int process_or(int or_operator_index)
     printf("[NEMU_EXPR_DEBUG: int process_or(int or_operator_index)] process_or_answer = %d\n", process_or_answer);
   }
   return process_or_answer;
+}
+
+int process_exor(int exor_operator_index)
+{
+  // We recognized the exor_operator, evaluate it
+  if(expr_print_checkpoint)
+  {
+    printf("[NEMU_EXPR_CHECKPOINT: int process_exor(int exor_operator_index)] CKPT #01: Enter function\n");
+  }
+  int process_exor_answer = 0;
+  int left_token_index = exor_operator_index - 1;
+  int right_token_index = exor_operator_index + 1;
+  if(expr_print_debug)
+  {
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] add_operator_index = %d\n", exor_operator_index);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] left_token_index = %d\n", left_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] left token type : %d\n", tokens[left_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] left token string : \"%s\"\n", tokens[left_token_index].str);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] right_token_index = %d\n", right_token_index);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] right token type : %d\n", tokens[right_token_index].type);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
+  }
+  int left_token_int_value = atoi(tokens[left_token_index].str);
+  int right_token_int_value = atoi(tokens[right_token_index].str);
+  process_exor_answer = left_token_int_value ^ right_token_int_value;
+  if(expr_print_debug)
+  {
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] left_token_int_value = %d\n", left_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] right_token_int_value = %d\n", right_token_int_value);
+    printf("[NEMU_EXPR_DEBUG: int process_exor(int exor_operator_index)] process_exor_answer = %d\n", process_exor_answer);
+  }
+  return process_exor_answer;
 }
 
 int process_not(int not_operator_index)
@@ -1601,14 +1620,7 @@ int process_not(int not_operator_index)
     printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   int right_token_int_value = atoi(tokens[right_token_index].str);
-  if(right_token_int_value == 1)
-  {
-    process_not_answer = 0;
-  }
-  else
-  {
-    process_not_answer = 1;
-  }
+  process_not_answer = ~ right_token_int_value;
   if(expr_print_debug)
   {
     printf("[NEMU_EXPR_DEBUG: int process_not(int not_operator_index)] right_token_int_value = %d\n", right_token_int_value);
