@@ -34,5 +34,14 @@ void isa_reg_display() {
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
+  *success = true;
+  for(int current_string_compare_index = 0; current_string_compare_index < 32; current_string_compare_index = current_string_compare_index + 1)
+  {
+    if(strcmp(regs[current_string_compare_index], s) == 0)
+    {
+      return cpu.gpr[current_string_compare_index];
+    }
+  }
+  *success = false;
   return 0;
 }
