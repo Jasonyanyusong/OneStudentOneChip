@@ -35,6 +35,7 @@ enum {
  TK_NEQ = 254,
  TK_AND = 253,
  TK_OR = 252,
+ TK_NEGATIVESIGN = 251,
  TK_NOT = 250,
  TK_POINTER = 249,
  TK_NUMBER = 248,
@@ -684,6 +685,14 @@ static bool make_token(char *e) {
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
+            if(tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER)
+            {
+              if(expr_print_debug)
+              {
+                printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] By Double Check, this is actually a TK_POINTER TOKEN\n");
+              }
+              tokens[nr_token].type = TK_POINTER;
+            }
             break;
           }
           case TK_DIVIDE:
@@ -750,6 +759,14 @@ static bool make_token(char *e) {
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
             nr_token = nr_token + 1;
+            if(tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER)
+            {
+              if(expr_print_debug)
+              {
+                printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] By Double Check, this is actually a TK_NEGATIVESIGN TOKEN\n");
+              }
+              tokens[nr_token].type = TK_NEGATIVESIGN;
+            }
             break;
           }
         }
