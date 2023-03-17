@@ -367,12 +367,6 @@ static bool make_token(char *e) {
 
         position += substr_len;
 
-        /* TODO: Now a new token is recognized with rules[i]. Add codes
-         * to record the token in the array `tokens'. For certain types
-         * of tokens, some extra actions should be performed.
-         */
-
-        // printf("make_token() Check Point #4\n");
         switch (rules[i].token_type) 
         {
           default:
@@ -888,7 +882,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_EXOR:
       {
@@ -906,7 +899,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_AND:
       {
@@ -924,7 +916,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_EQ:
       {
@@ -942,7 +933,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_NEQ:
       {
@@ -960,7 +950,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_PLUS:
       {
@@ -978,7 +967,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_MINUS:
       {
@@ -996,7 +984,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_MULTIPLY:
       {
@@ -1014,7 +1001,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_DIVIDE:
       {
@@ -1032,7 +1018,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_MOD:
       {
@@ -1050,7 +1035,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_NOT:
       {
@@ -1068,7 +1052,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_POSITIVESIGN:
       {
@@ -1086,7 +1069,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_NEGATIVESIGN:
       {
@@ -1104,7 +1086,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
       case TK_POINTER:
       {
@@ -1122,7 +1103,6 @@ void give_priority()
           printf("[NEMU_EXPR_DEBUG: void give_priority()] operator_tokens[give_priority_index].token_type = %d\n", operator_tokens[give_priority_index].token_type);
         }
         break;
-        // TODO
       }
     }
   }
@@ -1347,7 +1327,6 @@ void give_sub_priority()
         }
       }
     }
-    // TODO
   }
   if(expr_print_debug)
   {
@@ -1384,7 +1363,6 @@ int bool_to_int(bool bool_value)
 
 bool check_left_token_is_number_or_bool(int check_index)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[NEMU_EXPR_CHECKPOINT: bool check_left_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
@@ -1406,7 +1384,6 @@ bool check_left_token_is_number_or_bool(int check_index)
 
 bool check_right_token_is_number_or_bool(int check_index)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[NEMU_EXPR_CHECKPOINT: bool check_right_token_is_number_or_bool(int check_index)] CKPT #01: Enter function\n");
@@ -1880,7 +1857,6 @@ int process_pointer_dereference(int pointer_dereference_index)
 
 char* calculate_one_round(bool success_calculate_one_round_call)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[NEMU_EXPR_CHECKPOINT: void calculate_one_round(bool success_calculate_one_round_call)] CKPT #01: First, find the highest priority and sub_priority, then get the index in tokens[32]\n");
@@ -2122,7 +2098,6 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     {
       printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] result_token = \"%s\"\n", result_token);
     }
-    // TODO
   }
   if(expr_print_debug)
   {
@@ -2440,7 +2415,6 @@ void process_operator_token()
     {
       printf("[NEMU_EXPR_DEBUG: void process_operator_token()] nr_operator_token = %d\n", nr_operator_token);
     }
-    // TODO
   }
   // To make debug easier, we print all operator tokens if expr_print_debug is true
   for(int operator_token_print_index = 0; operator_token_print_index < nr_operator_token; operator_token_print_index = operator_token_print_index + 1)
@@ -2455,7 +2429,6 @@ void process_operator_token()
 
 char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
 {
-  // TODO
   if(expr_print_checkpoint)
   {
     printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #01: Enter function\n");
@@ -2480,7 +2453,6 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   {
     printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: check_parentheses_valid() finished\n");
   }
-  // TODO: Fix check_parentheses_valid()'s problems
   if(!make_token(token_input))
   {
     *success_main_loop = false;
@@ -2506,12 +2478,12 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
     *finished = true;
     if(tokens[0].type == TK_NEGATIVESIGN)
     {
-      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", -1 * atoi(tokens[1].str), -1 * atoi(tokens[1].str));
+      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d, Ans (Oct): %o\n", -1 * atoi(tokens[1].str), -1 * atoi(tokens[1].str), -1 * atoi(tokens[1].str));
       return NULL;
     }
     if(tokens[0].type == TK_POSITIVESIGN)
     {
-      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", atoi(tokens[1].str), atoi(tokens[1].str));
+      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d, Ans (Oct): %o\n", atoi(tokens[1].str), atoi(tokens[1].str), atoi(tokens[1].str));
       return NULL;
     }
     *success_main_loop = false;
