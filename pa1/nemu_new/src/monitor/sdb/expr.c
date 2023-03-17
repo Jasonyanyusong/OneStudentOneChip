@@ -53,7 +53,6 @@ enum {
  TK_MOD = 236, 
 };
 
-bool check_parentheses(int left_index, int right_index); // Used in eval()
 bool check_parentheses_balance(); // Used in expr()
 bool check_parentheses_valid(); // Used in give_priority_no_parentheses()
 bool check_left_token_is_number_or_bool(int check_index);
@@ -93,9 +92,6 @@ void expr_init();
 void init_tokens();
 void init_operator_tokens();
 void init_operator_tokens_no_parentheses();
-void init_optimized_tokens();
-void init_optimized_tokens_a();
-void init_optimized_tokens_b();
 
 char* calculate_one_round(bool success_calculate_one_round_call);
 
@@ -118,14 +114,6 @@ struct OperatorTokenNoParentheses
   int sub_priority_level;
 } operator_tokens_no_parentheses[32];
 
-struct OptimizedToken
-{
-  int type;
-  char str[32];
-} optimized_tokens_a[32], optimized_tokens_b[32];
-
-int nr_optimized_token_a = 0;
-int nr_optimized_token_b = 0;
 int nr_operator_tokens_no_parentheses = 0;
 int nr_operator_token = 0;
 
@@ -255,9 +243,6 @@ void expr_init()
   init_tokens();
   init_operator_tokens();
   init_operator_tokens_no_parentheses();
-  init_optimized_tokens();
-  init_optimized_tokens_a();
-  init_optimized_tokens_b();
   return;
 }
 
@@ -295,43 +280,6 @@ void init_operator_tokens_no_parentheses()
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].priority_level = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].token_type = -1;
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
-  }
-  return;
-}
-
-void init_optimized_tokens()
-{
-  nr_optimized_token_a = 0;
-  nr_optimized_token_b = 0;
-  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
-  {
-    memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
-    memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
-    optimized_tokens_a[init_optimized_tokens_index].type = -1;
-    optimized_tokens_b[init_optimized_tokens_index].type = -1;
-  }
-  return;
-}
-
-void init_optimized_tokens_a()
-{
-  nr_optimized_token_a = 0;
-  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
-  {
-    memset(optimized_tokens_a[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_a[init_optimized_tokens_index].str));
-    optimized_tokens_a[init_optimized_tokens_index].type = -1;
-  }
-  return;
-}
-
-void init_optimized_tokens_b()
-{
-  nr_optimized_token_a = 0;
-  nr_optimized_token_b = 0;
-  for(int init_optimized_tokens_index = 0; init_optimized_tokens_index < 32; init_optimized_tokens_index = init_optimized_tokens_index + 1)
-  {
-    memset(optimized_tokens_b[init_optimized_tokens_index].str,0,sizeof(optimized_tokens_b[init_optimized_tokens_index].str));
-    optimized_tokens_b[init_optimized_tokens_index].type = -1;
   }
   return;
 }
@@ -814,32 +762,6 @@ static bool make_token(char *e) {
       printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Token Number: %4d, Token Type (Decimal ID): %4d, Token String: \"%s\"\n", display_index, tokens[display_index].type, tokens[display_index].str);
     }
   }
-
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: static bool make_token(char *e)] CKPT #28\n");
-  }
-  
-  if(expr_print_debug)
-  {
-    printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Start Only Two Side Parentheses Check\n");
-  }
-  // Debug Point: Only Two Side Parentheses Check
-  if(check_parentheses(0, nr_token - 1))
-  {
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check MATCHED\n", 0, nr_token - 1);
-    }
-  }
-  else
-  {
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] Left: %d, Right: %d. Only Two Side Parentheses Check FAILED\n", 0, nr_token - 1);
-    }
-  }
-
   return true;
 }
 
@@ -2105,129 +2027,6 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   }
   success_calculate_one_round_call = true;
   return result_token;
-}
-
-bool check_parentheses(int left_index, int right_index)
-{
-  // Fail conditions:
-  // 1): Left side is not parenthese, Example: "1 + (2 + 3)"
-  // 2): Right side is not parenthese, Example: "(1 + 2) + 3"
-  // 3): Balance before reaching end, Example: "(1 + ))"
-  // 4): Not Balance after reaching end, Example: "(1 + (2 + 3)"
-
-  int left_right_balance = 0;
-
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #01\n");
-  }
-
-  if(tokens[left_index].type != TK_LEFT_PARENTHESES)
-  {
-    // Check Type I
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #02\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type I Fail, Left side is not parenthese\n", left_index);
-    }
-    return false;
-  }
-
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #03\n");
-  }
-
-  if(tokens[right_index].type != TK_RIGHT_PARENTHESES)
-  {
-    // Check Type II
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #04\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type II Fail, Right side is not parenthese\n", right_index);
-    }
-    return false;
-  }
-
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #05\n");
-  }
-
-  for(int current_index = left_index; current_index <= right_index; current_index = current_index + 1)
-  {
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #06\n");
-    }
-    if(tokens[current_index].type == TK_LEFT_PARENTHESES)
-    {
-      if(expr_print_checkpoint)
-      {
-        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #07\n");
-      }
-      left_right_balance = left_right_balance + 1;
-    }
-    if(tokens[current_index].type == TK_RIGHT_PARENTHESES)
-    {
-      if(expr_print_checkpoint)
-      {
-        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #08\n");
-      }
-      left_right_balance = left_right_balance - 1;
-    }
-    if(current_index != right_index && left_right_balance == 0)
-    {
-      // Check Type III
-      if(expr_print_checkpoint)
-      {
-        printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #09\n");
-      }
-      if(expr_print_debug)
-      {
-        printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type III Fail, Balance before reaching end\n", current_index);
-      }
-      return false;
-    }
-  }
-
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #10\n");
-  }
-
-  if(left_right_balance == 0)
-  {
-    // Check Type IV
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #11\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] Check SUCCESS, parentheses are balanced!\n");
-    }
-    return true;
-  }
-  else
-  {
-    // Check Type IV
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: bool check_parentheses(int left_index, int right_index)] CKPT #12\n");
-    }
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: bool check_parentheses(int left_index, int right_index)] At Tokens Index: %d, get Type IV Fail, Not Balance after reaching end\n", right_index);
-    }
-    return false;
-  }
 }
 
 bool check_parentheses_balance()
