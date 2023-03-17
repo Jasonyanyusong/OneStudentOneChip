@@ -263,11 +263,14 @@ static int cmd_p(char *args){
   }
   bool expression_success;
   expression_success = false;
+  u_int64_t cmd_p_result = 0;
   if(sdb_print_debug)
   {
     printf("[NEMU_SDB_DEBUG: static int cmd_p(char *args)] Received Expression: \"%s\" , evaluating\n", args);
   }
-  expr(args, &expression_success);
+  cmd_p_result = expr(args, &expression_success);
+  printf("%ld\t", cmd_p_result);
+  printf("0x%lx\n", cmd_p_result);
   return 0;
 }
 

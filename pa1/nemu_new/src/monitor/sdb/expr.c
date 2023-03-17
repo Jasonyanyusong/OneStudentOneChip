@@ -2317,6 +2317,7 @@ word_t expr(char *e, bool *success) {
   bool success_expr = true;
   bool finished_expr = false;
   int expr_main_loop_execution_count = 0;
+  u_int64_t expr_answer = 0;
   while(success_expr && !finished_expr)
   {
     e = expr_main_loop(e, &success_expr, &finished_expr);
@@ -2330,5 +2331,5 @@ word_t expr(char *e, bool *success) {
     expr_main_loop_execution_count = expr_main_loop_execution_count + 1;
   }
   *success = success_expr;
-  return 0;
+  return expr_answer;
 }
