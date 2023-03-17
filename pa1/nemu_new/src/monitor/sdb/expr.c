@@ -524,6 +524,15 @@ static bool make_token(char *e) {
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
+            // We convert TK_HEXNUMBER to TK_NUMBER for easy of calculation
+            int convert_to_int;
+            sscanf(tokens[nr_token].str, "%x", &convert_to_int);
+            sprintf(tokens[nr_token].str, "%d", convert_to_int);
+            if(expr_print_debug)
+            {
+              printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] convert_to_int is %d\n", convert_to_int);
+            }
+            tokens[nr_token].type = TK_NUMBER;
             nr_token = nr_token + 1;
             break;
           }
