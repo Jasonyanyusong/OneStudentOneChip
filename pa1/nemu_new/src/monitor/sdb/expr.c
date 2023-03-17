@@ -135,7 +135,7 @@ static struct rule {
   {" +", TK_NOTYPE}, // Spaces
   {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
   {"[0-9]+", TK_NUMBER}, // Dec Numbers
-  {"\\$[a-z]{2,3}", TK_REGISTER}, // Register Names
+  {"\\$[a-z0-9]{1,31}", TK_REGISTER}, // Register Names
   {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
   {"\\)", TK_RIGHT_PARENTHESES}, // Right Parenthesis IS_OPERATOR_TOKEN
   {"\\*", TK_MULTIPLY}, // Multiply IS_OPERATOR_TOKEN
@@ -667,8 +667,7 @@ static bool make_token(char *e) {
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].type is: %d\n", tokens[nr_token].type);
               printf("[NEMU_EXPR_DEBUG: static bool make_token(char *e)] tokens[nr_token].str is: \"%s\"\n", tokens[nr_token].str);
             }
-            nr_token = nr_token + 1;
-            if(tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER)
+            if((tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER) || nr_token == 0)
             {
               if(expr_print_debug)
               {
@@ -676,6 +675,7 @@ static bool make_token(char *e) {
               }
               tokens[nr_token].type = TK_POINTER;
             }
+            nr_token = nr_token + 1;
             break;
           }
           case TK_DIVIDE:
@@ -1790,7 +1790,7 @@ int process_pointer_dereference(int pointer_dereference_index)
     printf("[NEMU_EXPR_DEBUG: int process_pointer_dereference(int pointer_dereference_index)] right token string : \"%s\"\n", tokens[right_token_index].str);
   }
   bool pointer_dereference_success = false;
-  process_pointer_dereference_answer = isa_reg_str2val(tokens[right_token_index].str, &pointer_dereference_success);
+  process_pointer_dereference_answer = isa_reg_str2val(tokens[right_token_index].str + 1, &pointer_dereference_success);
   if(pointer_dereference_success)
   {
     if(expr_print_debug)
@@ -1909,10 +1909,11 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     }
     return NULL;
   }
-  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type != TK_POINTER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
   {
     // Error: Right is not a Dec or Hex number
     // This function will be implemented to double side operator
+    // Will ignore TK_POINTER
     success_calculate_one_round_call = false;
     if(expr_print_debug)
     {
