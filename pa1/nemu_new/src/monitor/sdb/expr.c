@@ -92,6 +92,7 @@ void expr_init();
 void init_tokens();
 void init_operator_tokens();
 void init_operator_tokens_no_parentheses();
+void init_execute_history();
 
 char* calculate_one_round(bool success_calculate_one_round_call);
 
@@ -114,8 +115,18 @@ struct OperatorTokenNoParentheses
   int sub_priority_level;
 } operator_tokens_no_parentheses[32];
 
+struct ExecuteHistory
+{
+  const char *result_token_history;
+  bool success_history;
+  bool finished_history;
+  int that_round_operator_token_no_narentheses_index;
+  int that_round_token_index;
+} execution_histories[32];
+
 int nr_operator_tokens_no_parentheses = 0;
 int nr_operator_token = 0;
+int nr_execution_histories = 0;
 
 static struct rule {
   const char *regex;
@@ -282,6 +293,19 @@ void init_operator_tokens_no_parentheses()
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
   }
   return;
+}
+
+void init_execute_history()
+{
+  nr_execution_histories = 0;
+  for(int init_execute_history_index = 0; init_execute_history_index < 32; init_execute_history_index = init_execute_history_index + 1)
+  {
+    execution_histories[init_execute_history_index].result_token_history = NULL;
+    execution_histories[init_execute_history_index].success_history = false;
+    execution_histories[init_execute_history_index].finished_history = false;
+    execution_histories[init_execute_history_index].that_round_operator_token_no_narentheses_index = -1;
+    execution_histories[init_execute_history_index].that_round_token_index = -1;
+  }
 }
 
 static bool make_token(char *e) {
@@ -1836,6 +1860,8 @@ char* calculate_one_round(bool success_calculate_one_round_call)
       this_round_calculation_operator_token_index = scan_index;
     }
   }
+  execution_histories[nr_execution_histories].that_round_operator_token_no_narentheses_index = this_round_calculation_operator_token_index;
+  execution_histories[nr_execution_histories].that_round_token_index = operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position;
   if(expr_print_debug)
   {
     printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_operator_token_index = %d\n", this_round_calculation_operator_token_index);
@@ -2305,7 +2331,9 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
     give_priority_no_parentheses();
     give_sub_priority();
     *success_main_loop = true;
+    execution_histories[nr_execution_histories].result_token_history = strndup(calculate_one_round(*success_main_loop), strlen(calculate_one_round(*success_main_loop)));
     return calculate_one_round(*success_main_loop);
+    // TODO
   }
   if(expr_print_checkpoint)
   {
@@ -2314,6 +2342,7 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
 }
 
 word_t expr(char *e, bool *success) {
+  init_execute_history();
   bool success_expr = true;
   bool finished_expr = false;
   int expr_main_loop_execution_count = 0;
@@ -2328,8 +2357,20 @@ word_t expr(char *e, bool *success) {
       printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] success_expr = %d\n", success_expr);
       printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] finished_expr = %d\n", finished_expr);
     }
+    execution_histories[nr_execution_histories].finished_history = finished_expr;
+    execution_histories[nr_execution_histories].success_history = success_expr;
+    nr_execution_histories = nr_execution_histories + 1;
     expr_main_loop_execution_count = expr_main_loop_execution_count + 1;
   }
   *success = success_expr;
+  if(expr_print_debug)
+  {
+    printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] nr_execution_histories = %d\n", nr_execution_histories);
+    for(int current_print_history_index = 0; current_print_history_index < nr_execution_histories; current_print_history_index = current_print_history_index + 1)
+    {
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] Record No.%2d, Token No.%2d, Operator Token (No Parentheses) No.%2d, Finish: %d, Success: %d, Result Token: \"%s\"\n", current_print_history_index, execution_histories[current_print_history_index].that_round_token_index, execution_histories[current_print_history_index].that_round_operator_token_no_narentheses_index, execution_histories[current_print_history_index].finished_history, execution_histories[current_print_history_index].success_history, execution_histories[current_print_history_index].result_token_history);
+    }
+  }
+  expr_answer = atoi(execution_histories[nr_execution_histories - 2].result_token_history);
   return expr_answer;
 }
