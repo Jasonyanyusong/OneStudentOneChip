@@ -2801,26 +2801,17 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
   {
     printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #02: expr_init() finished\n");
   }
-  if(!check_parentheses_balance())
+  if(!check_parentheses_valid())
   {
+    // This function have both check inside valid and macro-valid
     *success_main_loop = false;
     *finished = false;
     return NULL;
   }
   if(expr_print_checkpoint)
   {
-    printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #03: check_parentheses_balance() finished\n");
-  }
-  /*if(!check_parentheses_valid())
-  {
-    *success_main_loop = false;
-    *finished = false;
-    return;
-  }
-  if(expr_print_checkpoint)
-  {
     printf("[NEMU_EXPR_CHECKPOINT: void expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)] CKPT #04: check_parentheses_valid() finished\n");
-  }*/
+  }
   // TODO: Fix check_parentheses_valid()'s problems
   if(!make_token(token_input))
   {
@@ -2840,6 +2831,25 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
     printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", atoi(tokens[0].str), atoi(tokens[0].str));
     return NULL;
   }
+  if((nr_token == 2 && tokens[0].type == TK_NEGATIVESIGN) || (nr_token == 2 && tokens[0].type == TK_POSITIVESIGN))
+  {
+    // Treat as nr_token = 1 and finished token
+    *success_main_loop = true;
+    *finished = true;
+    if(tokens[0].type == TK_NEGATIVESIGN)
+    {
+      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", -1 * atoi(tokens[1].str), -1 * atoi(tokens[1].str));
+      return NULL;
+    }
+    if(tokens[0].type == TK_POSITIVESIGN)
+    {
+      printf("Evaluate Success, Ans (Hex): %x, Ans (Dec): %d\n", atoi(tokens[1].str), atoi(tokens[1].str));
+      return NULL;
+    }
+    *success_main_loop = false;
+    printf("Evaluate Failed\n");
+    return NULL;
+  }
   else
   {
     process_operator_token();
@@ -2847,8 +2857,6 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
     give_priority_no_parentheses();
     give_sub_priority();
     *success_main_loop = true;
-    *finished = false;
-    //token_input = calculate_one_round(*success_main_loop);
     return calculate_one_round(*success_main_loop);
   }
   if(expr_print_checkpoint)
@@ -2858,70 +2866,21 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
 }
 
 word_t expr(char *e, bool *success) {
-  /*expr_init();
-  //eval();
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #01: Enter function word_t expr(char *e, bool *success)\n");
-  }
-  
-  if(!check_parentheses_balance())
-  {
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #02: check_parentheses_balance() = false\n");
-    }
-    *success = false;
-    valid_call = false;
-    if(expr_print_debug)
-    {
-      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] expr() exited because check_parentheses_balance() returned FALSE\n");
-    }
-    return 0;
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #03\n");
-  }
-
-  if (!make_token(e)) {
-    if(expr_print_checkpoint)
-    {
-      printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #04\n");
-    }
-    *success = false;
-    valid_call = false;
-    return 0;
-  }
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #05\n");
-  }
-  valid_call = true; // Prob: if this line is not annotated, it will cause Segmentation fault
-
-  *success = true;
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #06\n");
-  }
-  //u_int64_t expr_ans = eval(0, nr_token - 1);
-  if(expr_print_checkpoint)
-  {
-    printf("[NEMU_EXPR_CHECKPOINT: word_t expr(char *e, bool *success)] CKPT #07\n");
-  }
-  process_operator_token();
-  give_priority();
-  give_priority_no_parentheses();
-  give_sub_priority();
-  calculate_one_round(success);
-
-  //printf("Evaluate Success, Ans (Hex): %lx, Ans (Dec): %ld, Ans (Oct): %lo\n", expr_ans, expr_ans, expr_ans);
-  return 0;*/
   bool success_expr = true;
   bool finished_expr = false;
+  int expr_main_loop_execution_count = 0;
   while(success_expr && !finished_expr)
   {
     e = expr_main_loop(e, &success_expr, &finished_expr);
+    if(expr_print_debug)
+    {
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] expr_main_loop_execution_count = %d\n", expr_main_loop_execution_count);
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] e = \"%s\"\n", e);
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] success_expr = %d\n", success_expr);
+      printf("[NEMU_EXPR_DEBUG: word_t expr(char *e, bool *success)] finished_expr = %d\n", finished_expr);
+    }
+    expr_main_loop_execution_count = expr_main_loop_execution_count + 1;
   }
+  *success = success_expr;
   return 0;
 }
