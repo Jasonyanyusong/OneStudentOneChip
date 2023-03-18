@@ -267,3 +267,20 @@ void delete_WP(int WP_number)
     }
   }
 }
+
+void print_WP()
+{
+  // TODO
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void print_WP(int WP_number)] CKPT #01: Enter function\n");
+  }
+  printf("**********************************************************************************************************************\n");
+  printf("| Watchpoint Number | Watchpoint Expression | Watchpoint Expression Last Value | Watchpoint Expression Current Value |\n");
+  for(WP *current_print_watchpoint = head; current_print_watchpoint != NULL; current_print_watchpoint = current_print_watchpoint -> next)
+  {
+    printf("| %17d | %21s | %32lx | %35lx |\n", current_print_watchpoint -> NO, current_print_watchpoint -> watchpoint_expression, current_print_watchpoint -> watchpoint_last_value, current_print_watchpoint -> watchpoint_current_value);
+  }
+  printf("**********************************************************************************************************************\n");
+  return;
+}

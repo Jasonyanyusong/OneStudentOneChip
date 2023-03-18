@@ -200,7 +200,7 @@ static int cmd_info(char *args){
       {
         printf("[NEMU_SDB_DEBUG: static int cmd_info(char *args)] Received Subcommand “w”: print the information of watch point(s)\n");
       }
-      // Implement Later
+      print_WP();
     }
   else
     {
