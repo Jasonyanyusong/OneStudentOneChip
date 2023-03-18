@@ -275,12 +275,28 @@ void print_WP()
   {
     printf("[NEMU_WATCHPOINT_CHECKPOINT: void print_WP(int WP_number)] CKPT #01: Enter function\n");
   }
-  printf("**********************************************************************************************************************\n");
-  printf("| Watchpoint Number | Watchpoint Expression | Watchpoint Expression Last Value | Watchpoint Expression Current Value |\n");
+  printf("**************************************************************************************(Oct)***************************************************************************************\n");
+  printf("| Watchpoint Number |                               Watchpoint Expression                               | Watchpoint Expression Last Value | Watchpoint Expression Current Value |\n");
   for(WP *current_print_watchpoint = head; current_print_watchpoint != NULL; current_print_watchpoint = current_print_watchpoint -> next)
   {
-    printf("| %17d | %21s | %32lx | %35lx |\n", current_print_watchpoint -> NO, current_print_watchpoint -> watchpoint_expression, current_print_watchpoint -> watchpoint_last_value, current_print_watchpoint -> watchpoint_current_value);
+    printf("| %17d | \"%79s\" | %32lo | %35lo |\n", current_print_watchpoint -> NO, current_print_watchpoint -> watchpoint_expression, current_print_watchpoint -> watchpoint_last_value, current_print_watchpoint -> watchpoint_current_value);
   }
-  printf("**********************************************************************************************************************\n");
+  printf("**************************************************************************************(Oct)***************************************************************************************\n");
+  printf("\n");
+  printf("**************************************************************************************(Dec)***************************************************************************************\n");
+  printf("| Watchpoint Number |                               Watchpoint Expression                               | Watchpoint Expression Last Value | Watchpoint Expression Current Value |\n");
+  for(WP *current_print_watchpoint = head; current_print_watchpoint != NULL; current_print_watchpoint = current_print_watchpoint -> next)
+  {
+    printf("| %17d | \"%79s\" | %32ld | %35ld |\n", current_print_watchpoint -> NO, current_print_watchpoint -> watchpoint_expression, current_print_watchpoint -> watchpoint_last_value, current_print_watchpoint -> watchpoint_current_value);
+  }
+  printf("**************************************************************************************(Dec)***************************************************************************************\n");
+  printf("\n");
+  printf("**************************************************************************************(Hex)***************************************************************************************\n");
+  printf("| Watchpoint Number |                               Watchpoint Expression                               | Watchpoint Expression Last Value | Watchpoint Expression Current Value |\n");
+  for(WP *current_print_watchpoint = head; current_print_watchpoint != NULL; current_print_watchpoint = current_print_watchpoint -> next)
+  {
+    printf("| %17d | \"%79s\" | %32lx | %35lx |\n", current_print_watchpoint -> NO, current_print_watchpoint -> watchpoint_expression, current_print_watchpoint -> watchpoint_last_value, current_print_watchpoint -> watchpoint_current_value);
+  }
+  printf("**************************************************************************************(Hex)***************************************************************************************\n");
   return;
 }
