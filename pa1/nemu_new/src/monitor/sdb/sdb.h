@@ -50,4 +50,7 @@ bool get_watchpoint_print_debug();
 bool get_watchpoint_print_checkpoint();
 bool get_watchpoint_print_assertpoint();
 
+// Functions in watchpoint.c
+void record_WP(char* expression);
+
 #endif

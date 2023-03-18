@@ -14,6 +14,7 @@
 ***************************************************************************************/
 
 #include "sdb.h"
+#include <string.h>
 
 #define NR_WP 32
 
@@ -139,7 +140,7 @@ WP* new_wp()
   {
     if(watchpoint_print_debug)
     {
-      printf("[NEMU_WATCHPOINT_DEBUG: WP* new_wp()] No free watchpoint space available\n");
+      printf("[NEMU_WATCHPOINT_DEBUG: WP* new_wp()] free_ == NULL\n");
     }
     if(watchpoint_print_assertpoint)
     {
@@ -184,3 +185,40 @@ void free_wp(WP *wp)
   }
   return;
 }
+
+void record_WP(char* expression)
+{
+  bool expr_success = false;
+  u_int64_t expr_answer = expr(expression, &expr_success);
+  if(watchpoint_print_debug)
+  {
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] expr_answer (Dec) = 00%ld\n", expr_answer);
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] expr_answer (Hex) = 0x%lx\n", expr_answer);
+  }
+  if(!expr_success)
+  {
+    if(watchpoint_print_debug)
+    {
+      printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] !expr_success\n");
+    }
+    if(watchpoint_print_assertpoint)
+    {
+      printf("[NEMU_WATCHPOINT_ASSERTPOINT: void record_WP(char* expression)] expression evaluate failed\n");
+    }
+    assert(0);
+  }
+  WP *watchpoint_new = new_wp();
+  watchpoint_new -> watchpoint_expression = strndup(expression, strlen(expression));
+  watchpoint_new -> watchpoint_last_value = expr_answer;
+  if(watchpoint_print_debug)
+  {
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] Information about new watchpoint\n");
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] watchpoint_new -> watchpoint_expression = \"%s\"\n", watchpoint_new -> watchpoint_expression);
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] watchpoint_new -> watchpoint_last_value = 00%ld\n", watchpoint_new -> watchpoint_last_value);
+    printf("[NEMU_WATCHPOINT_DEBUG: void record_WP(char* expression)] watchpoint_new -> watchpoint_last_value = 0x%lx\n", watchpoint_new -> watchpoint_last_value);
+  }
+  watchpoint_new -> next = head;
+  head = watchpoint_new;
+  return;
+}
+

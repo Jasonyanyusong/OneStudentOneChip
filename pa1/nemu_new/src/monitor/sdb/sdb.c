@@ -280,6 +280,18 @@ static int cmd_w(char *args){
     printf("[NEMU_SDB_INSTRUCTION: static int cmd_w(char *args)] cmd_w command\n");
     printf("[NEMU_SDB_INSTRUCTION: static int cmd_w(char *args)] When the value of EXPR changes, suspend the program\n");
   }
+  if(args == NULL)
+  {
+    if(sdb_print_debug)
+    {
+      printf("[NEMU_SDB_DEBUG: static int cmd_w(char *args)] No args\n");
+    }
+    return -1;
+  }
+  else
+  {
+    record_WP(args);
+  }
   return 0;
 }
 
