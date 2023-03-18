@@ -162,7 +162,7 @@ WP* new_wp()
   return new_watch_point;
 }
 
-void free_wp(WP *wp)
+void free_WP(WP *wp)
 {
   if(watchpoint_print_checkpoint)
   {
@@ -188,6 +188,10 @@ void free_wp(WP *wp)
 
 void record_WP(char* expression)
 {
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void record_WP(char* expression)] CKPT #01: Enter function\n");
+  }
   bool expr_success = false;
   u_int64_t expr_answer = expr(expression, &expr_success);
   if(watchpoint_print_debug)
@@ -222,3 +226,44 @@ void record_WP(char* expression)
   return;
 }
 
+void delete_WP(int WP_number)
+{
+  // TODO
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void delete_WP(int WP_number)] CKPT #01: Enter function\n");
+  }
+  WP *current_watchpoint = NULL;
+  WP *previous_watchpoint = NULL;
+  for(current_watchpoint = head; current_watchpoint != NULL; previous_watchpoint = current_watchpoint, current_watchpoint = current_watchpoint -> next)
+  {
+    // If the code enter this loop without finish means that the watchpoint we need to remove is not the first one
+    if(watchpoint_print_checkpoint)
+    {
+      printf("[NEMU_WATCHPOINT_CHECKPOINT: void delete_WP(int WP_number)] CKPT #02: Enter loop, current_watchpoint -> NO = %d\n", current_watchpoint -> NO);
+    }
+    if(current_watchpoint -> NO == WP_number)
+    {
+      if(previous_watchpoint == NULL)
+      {
+        // Find the watchpoint that NO is WP_number, with NO previous watchpoint
+        if(watchpoint_print_debug)
+        {
+          printf("[NEMU_WATCHPOINT_DEBUG: void delete_WP(int WP_number)] Find the watchpoint that NO is WP_number, with NO previous watchpoint\n");
+        }
+        head = current_watchpoint -> next;
+      }
+      else
+      {
+        // Find the watchpoint that NO is WP_number, with previous watchpoint
+        if(watchpoint_print_debug)
+        {
+          printf("[NEMU_WATCHPOINT_DEBUG: void delete_WP(int WP_number)] Find the watchpoint that NO is WP_number, with previous watchpoint\n");
+        }
+        previous_watchpoint -> next = current_watchpoint -> next;
+      }
+      delete_WP(WP_number);
+      return;
+    }
+  }
+}

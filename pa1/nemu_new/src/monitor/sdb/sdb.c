@@ -301,6 +301,18 @@ static int cmd_d(char *args){
     printf("[NEMU_SDB_INSTRUCTION: static int cmd_d(char *args)] cmd_d command\n");
     printf("[NEMU_SDB_INSTRUCTION: static int cmd_d(char *args)] Delete the watch point with number N\n");
   }
+  if(args == NULL)
+  {
+    if(sdb_print_debug)
+    {
+      printf("[NEMU_SDB_DEBUG: static int cmd_w(char *args)] No args\n");
+    }
+    return -1;
+  }
+  else
+  {
+    delete_WP(atoi(args));
+  }
   return 0;
 }
 
