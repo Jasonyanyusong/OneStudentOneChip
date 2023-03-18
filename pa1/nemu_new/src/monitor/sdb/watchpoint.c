@@ -20,6 +20,9 @@
 typedef struct watchpoint {
   int NO;
   struct watchpoint *next;
+  char* watchpoint_expression;
+  u_int64_t watchpoint_last_value;
+  u_int64_t watchpoint_current_value;
 
   /* TODO: Add more members if necessary */
 
@@ -111,10 +114,17 @@ bool get_watchpoint_print_assertpoint()
 }
 
 void init_wp_pool() {
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void init_wp_pool()] CKPT #01: Enter function\n");
+  }
   int i;
   for (i = 0; i < NR_WP; i ++) {
     wp_pool[i].NO = i;
     wp_pool[i].next = (i == NR_WP - 1 ? NULL : &wp_pool[i + 1]);
+    wp_pool[i].watchpoint_expression = NULL;
+    wp_pool[i].watchpoint_last_value = 0;
+    wp_pool[i].watchpoint_current_value = 0;
   }
 
   head = NULL;
@@ -123,3 +133,54 @@ void init_wp_pool() {
 
 /* TODO: Implement the functionality of watchpoint */
 
+WP* new_wp()
+{
+  if(free_ == NULL)
+  {
+    if(watchpoint_print_debug)
+    {
+      printf("[NEMU_WATCHPOINT_DEBUG: WP* new_wp()] No free watchpoint space available\n");
+    }
+    if(watchpoint_print_assertpoint)
+    {
+      printf("[NEMU_WATCHPOINT_ASSERTPOINT: WP* new_wp()] No free watchpoint space availablen\n");
+    }
+    assert(0);
+    return NULL;
+  }
+  WP *new_watch_point = free_;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: WP* new_wp()] CKPT #01: set the new watchpoint\n");
+  }
+  free_ = free_ -> next;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: WP* new_wp()] CKPT #02: move free_ to the next free_\n");
+  }
+  return new_watch_point;
+}
+
+void free_wp(WP *wp)
+{
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void free_wp(WP *wp)] CKPT #01: Enter function\n");
+  }
+  wp -> watchpoint_expression = NULL;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void free_wp(WP *wp)] CKPT #02: Execute \"wp -> watchpoint_expression = NULL;\" Finished\n");
+  }
+  wp -> next = free_;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void free_wp(WP *wp)] CKPT #03: Execute \"wp -> next = free_;\" Finished\n");
+  }
+  free_ = wp;
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void free_wp(WP *wp)] CKPT #04: Execute \"free_ = wp;\" Finished, End function\n");
+  }
+  return;
+}
