@@ -1983,6 +1983,10 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   {
     this_round_calculation_answer = process_negative_sign(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
   }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_POSITIVESIGN)
+  {
+    this_round_calculation_answer = process_positive_sign(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
   if(expr_print_debug)
   {
     printf("[NEMU_EXPR_DEBUG: void calculate_one_round(bool success_calculate_one_round_call)] this_round_calculation_answer (Dec) = %ld\n", this_round_calculation_answer);
@@ -2344,6 +2348,8 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
 
 word_t expr(char *e, bool *success) {
   init_execute_history();
+  execution_histories[nr_execution_histories].result_token_history = strndup(e, strlen(e));
+  nr_execution_histories = nr_execution_histories + 1;
   bool success_expr = true;
   bool finished_expr = false;
   int expr_main_loop_execution_count = 0;
