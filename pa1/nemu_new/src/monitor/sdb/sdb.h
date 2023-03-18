@@ -54,5 +54,6 @@ bool get_watchpoint_print_assertpoint();
 void record_WP(char* expression);
 void delete_WP(int WP_number);
 void print_WP();
+void check_WP();
 
 #endif

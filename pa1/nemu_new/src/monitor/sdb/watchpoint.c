@@ -300,3 +300,44 @@ void print_WP()
   printf("**************************************************************************************(Hex)***************************************************************************************\n");
   return;
 }
+
+void check_WP()
+{
+  // TODO
+  if(watchpoint_print_checkpoint)
+  {
+    printf("[NEMU_WATCHPOINT_CHECKPOINT: void check_WP()] CKPT #01: Enter function\n");
+  }
+  for(WP *current_checking_watchpoint = head; current_checking_watchpoint != NULL; current_checking_watchpoint = current_checking_watchpoint -> next)
+  {
+    bool expr_success = false;
+    current_checking_watchpoint -> watchpoint_current_value = expr(current_checking_watchpoint -> watchpoint_expression, &expr_success);
+    if(!expr_success)
+    {
+      if(watchpoint_print_assertpoint)
+      {
+        printf("[NEMU_WATCHPOINT_ASSERTPOINT: void check_WP()] Expression evaluation FAILED\n");
+      }
+      assert(0);
+    }
+  }
+  print_WP();
+  for(WP *current_checking_watchpoint = head; current_checking_watchpoint != NULL; current_checking_watchpoint = current_checking_watchpoint -> next)
+  {
+    if(current_checking_watchpoint -> watchpoint_last_value != current_checking_watchpoint -> watchpoint_current_value)
+    {
+      if(watchpoint_print_debug)
+      {
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] At watchpoint No.%2d, find different in expression answer\n", current_checking_watchpoint -> NO);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] previous(Oct) = %lo\n", current_checking_watchpoint -> watchpoint_last_value);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] current (Oct) = %lo\n", current_checking_watchpoint -> watchpoint_current_value);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] previous(Dec) = %ld\n", current_checking_watchpoint -> watchpoint_last_value);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] current (Dec) = %ld\n", current_checking_watchpoint -> watchpoint_current_value);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] previous(Hex) = %lx\n", current_checking_watchpoint -> watchpoint_last_value);
+        printf("[NEMU_WATCHPOINT_DEBUG: void check_WP()] current (Hex) = %lx\n", current_checking_watchpoint -> watchpoint_current_value);
+      }
+      nemu_state.state = NEMU_STOP;
+    }
+  }
+  return;
+}
