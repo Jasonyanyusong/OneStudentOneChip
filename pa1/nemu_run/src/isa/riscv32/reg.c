@@ -24,8 +24,24 @@ const char *regs[] = {
 };
 
 void isa_reg_display() {
+  printf("*********************************************************\n");
+  printf("| Name |      Hex       |     Dec      |      Oct       |\n");
+  for (int i = 0; i < 32; i = i + 1)
+  {
+    printf("| %4s | 0x%12x | %12d | 0o%12o |\n", regs[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i]);
+  }
+  printf("*********************************************************\n");
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
+  *success = true;
+  for(int current_string_compare_index = 0; current_string_compare_index < 32; current_string_compare_index = current_string_compare_index + 1)
+  {
+    if(strcmp(regs[current_string_compare_index], s) == 0)
+    {
+      return cpu.gpr[current_string_compare_index];
+    }
+  }
+  *success = false;
   return 0;
 }

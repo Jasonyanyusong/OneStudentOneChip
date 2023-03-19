@@ -15,9 +15,19 @@
 
 #include <isa.h>
 #include "sdb.h"
+
+/* We use the POSIX regex functions to process regular expressions.
+ * Type 'man regex' for more information about POSIX regex functions.
+ */
 #include <regex.h>
 #include <string.h>
 #include <stdlib.h>
+
+// Tesk Token #1: p 0x8000 + 123 - 6 * (5 + 4)
+// Test Token #2: p 123 + 456 + 789
+// Test Token #3: p 123+456+789
+// Test Token #4: p 0x8000 + 123
+// Test Token #5: p 0x8fff + 0x1234
 
 enum {
  TK_NOTYPE = 256,
@@ -43,8 +53,8 @@ enum {
  TK_MOD = 236, 
 };
 
-bool check_parentheses_balance();
-bool check_parentheses_valid();
+bool check_parentheses_balance(); // Used in expr()
+bool check_parentheses_valid(); // Used in give_priority_no_parentheses()
 bool check_left_token_is_number_or_bool(int check_index);
 bool check_right_token_is_number_or_bool(int check_index);
 void process_operator_token();
@@ -53,15 +63,6 @@ void give_priority_no_parentheses();
 void give_sub_priority();
 int bool_to_int(bool bool_value);
 bool valid_call;
-
-bool expr_print_instruction = true;
-bool expr_print_debug = true;
-bool expr_print_checkpoint = true;
-bool expr_print_assertpoint = true;
-void set_expr_print_instruction(bool target_expr_print_instruction);
-void set_expr_print_debug(bool target_expr_print_debug);
-void set_expr_print_checkpoint(bool target_expr_print_checkpoint);
-void set_expr_print_assertpoint(bool target_expr_print_assertpoint);
 
 int process_add(int add_operator_index);
 int process_minus(int minus_operator_index);
@@ -82,6 +83,7 @@ void expr_init();
 void init_tokens();
 void init_operator_tokens();
 void init_operator_tokens_no_parentheses();
+void init_execute_history();
 
 char* calculate_one_round(bool success_calculate_one_round_call);
 
@@ -104,36 +106,49 @@ struct OperatorTokenNoParentheses
   int sub_priority_level;
 } operator_tokens_no_parentheses[32];
 
+struct ExecuteHistory
+{
+  const char *result_token_history;
+  bool success_history;
+  bool finished_history;
+  int that_round_operator_token_no_narentheses_index;
+  int that_round_token_index;
+} execution_histories[32];
+
 int nr_operator_tokens_no_parentheses = 0;
 int nr_operator_token = 0;
+int nr_execution_histories = 0;
 
 static struct rule {
   const char *regex;
   int token_type;
 } rules[] = {
-  {" +", TK_NOTYPE},
-  {"0x[0-9,a-f]+", TK_HEXNUMBER},
-  {"[0-9]+", TK_NUMBER},
-  {"\\$[a-z]{2,3}", TK_REGISTER},
-  {"\\(", TK_LEFT_PARENTHESES},
-  {"\\)", TK_RIGHT_PARENTHESES},
-  {"\\*", TK_MULTIPLY},
-  {"\\/", TK_DIVIDE},
-  {"\\+", TK_PLUS},
-  {"\\-", TK_MINUS},
-  {"\\//", TK_MOD},
-  {"==", TK_EQ},
-  {"!=", TK_NEQ},
-  {"&&", TK_AND},
-  {"\\|\\|", TK_OR},
-  {"!", TK_NOT},
-  {"\\^", TK_EXOR},
+  {" +", TK_NOTYPE}, // Spaces
+  {"0x[0-9,a-f]+", TK_HEXNUMBER}, // Hex Numbers
+  {"[0-9]+", TK_NUMBER}, // Dec Numbers
+  {"\\$[a-z0-9]{1,31}", TK_REGISTER}, // Register Names
+  {"\\(", TK_LEFT_PARENTHESES}, // Left Parenthesis IS_OPERATOR_TOKEN
+  {"\\)", TK_RIGHT_PARENTHESES}, // Right Parenthesis IS_OPERATOR_TOKEN
+  {"\\*", TK_MULTIPLY}, // Multiply IS_OPERATOR_TOKEN
+  {"\\/", TK_DIVIDE}, // Devide IS_OPERATOR_TOKEN
+  {"\\+", TK_PLUS}, // Plus IS_OPERATOR_TOKEN
+  {"\\-", TK_MINUS}, // Minus IS_OPERATOR_TOKEN
+  {"\\//", TK_MOD}, // Mod IS_OPERATOR_TOKEN
+  {"==", TK_EQ}, // Equal IS_OPERATOR_TOKEN
+  {"!=", TK_NEQ}, // Not Equal IS_OPERATOR_TOKEN
+  {"&&", TK_AND}, // And IS_OPERATOR_TOKEN
+  {"\\|\\|", TK_OR}, // Or IS_OPERATOR_TOKEN
+  {"!", TK_NOT}, // Not IS_OPERATOR_TOKEN
+  {"\\^", TK_EXOR}, // Exor IS_OPERATOR_TOKEN
 };
 
 #define NR_REGEX ARRLEN(rules)
 
 static regex_t re[NR_REGEX] = {};
 
+/* Rules are used for many times.
+ * Therefore we compile them only once before any usage.
+ */
 void init_regex() {
   int i;
   char error_msg[128];
@@ -200,6 +215,19 @@ void init_operator_tokens_no_parentheses()
     operator_tokens_no_parentheses[init_operator_tokens_no_parentheses_index].sub_priority_level = -1;
   }
   return;
+}
+
+void init_execute_history()
+{
+  nr_execution_histories = 0;
+  for(int init_execute_history_index = 0; init_execute_history_index < 32; init_execute_history_index = init_execute_history_index + 1)
+  {
+    execution_histories[init_execute_history_index].result_token_history = NULL;
+    execution_histories[init_execute_history_index].success_history = false;
+    execution_histories[init_execute_history_index].finished_history = false;
+    execution_histories[init_execute_history_index].that_round_operator_token_no_narentheses_index = -1;
+    execution_histories[init_execute_history_index].that_round_token_index = -1;
+  }
 }
 
 static bool make_token(char *e) {
@@ -305,6 +333,11 @@ static bool make_token(char *e) {
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_HEXNUMBER;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
+            // We convert TK_HEXNUMBER to TK_NUMBER for easy of calculation
+            int convert_to_int;
+            sscanf(tokens[nr_token].str, "%x", &convert_to_int);
+            sprintf(tokens[nr_token].str, "%d", convert_to_int);
+            tokens[nr_token].type = TK_NUMBER;
             nr_token = nr_token + 1;
             break;
           }
@@ -350,11 +383,11 @@ static bool make_token(char *e) {
             memset(tokens[nr_token].str,0,sizeof(tokens[nr_token].str));
             tokens[nr_token].type = TK_MULTIPLY;
             strncpy(tokens[nr_token].str, substr_start, substr_len);
-            nr_token = nr_token + 1;
-            if(tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER)
+            if((tokens[nr_token - 1].type != TK_NUMBER && tokens[nr_token - 1].type != TK_HEXNUMBER) || nr_token == 0)
             {
               tokens[nr_token].type = TK_POINTER;
             }
+            nr_token = nr_token + 1;
             break;
           }
           case TK_DIVIDE:
@@ -814,7 +847,7 @@ int process_pointer_dereference(int pointer_dereference_index)
   int process_pointer_dereference_answer = 0;
   int right_token_index = pointer_dereference_index + 1;
   bool pointer_dereference_success = false;
-  process_pointer_dereference_answer = isa_reg_str2val(tokens[right_token_index].str, &pointer_dereference_success);
+  process_pointer_dereference_answer = isa_reg_str2val(tokens[right_token_index].str + 1, &pointer_dereference_success);
   if(pointer_dereference_success)
   {
     return process_pointer_dereference_answer;
@@ -855,6 +888,8 @@ char* calculate_one_round(bool success_calculate_one_round_call)
       this_round_calculation_operator_token_index = scan_index;
     }
   }
+  execution_histories[nr_execution_histories].that_round_operator_token_no_narentheses_index = this_round_calculation_operator_token_index;
+  execution_histories[nr_execution_histories].that_round_token_index = operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position;
   // Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_DIVIDE && atoi(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].str) == 0)
   {
@@ -870,10 +905,11 @@ char* calculate_one_round(bool success_calculate_one_round_call)
     success_calculate_one_round_call = false;
     return NULL;
   }
-  if(tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type != TK_POINTER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_HEXNUMBER && tokens[operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position + 1].type != TK_NUMBER)
   {
     // Error: Right is not a Dec or Hex number
     // This function will be implemented to double side operator
+    // Will ignore TK_POINTER
     success_calculate_one_round_call = false;
     return NULL;
   }
@@ -918,6 +954,10 @@ char* calculate_one_round(bool success_calculate_one_round_call)
   if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_NEGATIVESIGN)
   {
     this_round_calculation_answer = process_negative_sign(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
+  }
+  if(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].token_type == TK_POSITIVESIGN)
+  {
+    this_round_calculation_answer = process_positive_sign(operator_tokens_no_parentheses[this_round_calculation_operator_token_index].position);
   }
   // Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it
   bool left_and_right_is_paired_parentheses = false;
@@ -1101,19 +1141,28 @@ char* expr_main_loop(char* token_input, bool *success_main_loop, bool *finished)
     give_priority_no_parentheses();
     give_sub_priority();
     *success_main_loop = true;
+    execution_histories[nr_execution_histories].result_token_history = strndup(calculate_one_round(*success_main_loop), strlen(calculate_one_round(*success_main_loop)));
     return calculate_one_round(*success_main_loop);
   }
 }
 
 word_t expr(char *e, bool *success) {
+  init_execute_history();
+  execution_histories[nr_execution_histories].result_token_history = strndup(e, strlen(e));
+  nr_execution_histories = nr_execution_histories + 1;
   bool success_expr = true;
   bool finished_expr = false;
-  //int expr_main_loop_execution_count = 0;
+  int expr_main_loop_execution_count = 0;
+  u_int64_t expr_answer = 0;
   while(success_expr && !finished_expr)
   {
     e = expr_main_loop(e, &success_expr, &finished_expr);
-    //expr_main_loop_execution_count = expr_main_loop_execution_count + 1;
+    execution_histories[nr_execution_histories].finished_history = finished_expr;
+    execution_histories[nr_execution_histories].success_history = success_expr;
+    nr_execution_histories = nr_execution_histories + 1;
+    expr_main_loop_execution_count = expr_main_loop_execution_count + 1;
   }
   *success = success_expr;
-  return 0;
+  expr_answer = atoi(execution_histories[nr_execution_histories - 2].result_token_history);
+  return expr_answer;
 }

@@ -83,7 +83,7 @@ static int cmd_info(char *args){
     }
   else if (strcmp(args, "w") == 0)
     {
-      // NOTHING
+      print_WP();
     }
   else
     {
@@ -119,20 +119,42 @@ static int cmd_x(char *args){
 static int cmd_p(char *args){
   bool expression_success;
   expression_success = false;
-  expr(args, &expression_success);
+  u_int64_t cmd_p_result = 0;
+  cmd_p_result = expr(args, &expression_success);
+  printf("%ld\t", cmd_p_result);
+  printf("0x%lx\n", cmd_p_result);
   return 0;
 }
 
 static int cmd_w(char *args){
+  if(args == NULL)
+  {
+    return -1;
+  }
+  else
+  {
+    record_WP(args);
+  }
   return 0;
 }
 
 static int cmd_d(char *args){
+  if(args == NULL)
+  {
+    return -1;
+  }
+  else
+  {
+    delete_WP(atoi(args));
+  }
   return 0;
 }
 
 static int cmd_q(char *args) {
   nemu_state.state = NEMU_QUIT;
+  // Refined the function for quiting NEMU, so the system will not report bug.
+  // Principle: this is the function that calls the quit of NEMU, bu defalt, the function will not change the NEMU state when quiting.
+  // If we add "nemu_state.state = NEMU_QUIT;" the system will know that NEMU quit with status "NEMU_QUIT", there will no bug generated.
   return -1;
 }
 
