@@ -24,13 +24,13 @@ const char *regs[] = {
 };
 
 void isa_reg_display() {
-  printf("*****************************************************\n");
-  printf("| Name |     Hex      |     Dec      |     Out      |\n");
+  printf("*********************************************************\n");
+  printf("| Name |      Hex       |     Dec      |      Oct       |\n");
   for (int i = 0; i < 32; i = i + 1)
   {
-    printf("| %4s | %12x | %12d | %12o |\n", regs[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i]);
+    printf("| %4s | 0x%12x | %12d | 0o%12o |\n", regs[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i]);
   }
-  printf("*****************************************************\n");
+  printf("*********************************************************\n");
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
