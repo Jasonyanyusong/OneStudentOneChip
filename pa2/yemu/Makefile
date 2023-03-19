@@ -9,7 +9,7 @@ CC   = gcc
 
 # 规则
 prog/hello.elf: prog/hello.c
-	riscv64-linux-gnu-gcc $(RV_CFLAGS) -o $@ $^  # 自动变量
+	riscv64-linux-gnu-gcc $(RV_CFLAGS) -o $@ $^
 
 $(USER_BIN): prog/hello.elf
 	llvm-objcopy -j .text -O binary $^ $@
