@@ -8,9 +8,37 @@ I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enroll
 
 我是烟雨松（一生一芯学号ysyx_22041384），来自北京一零一中学（高中国际部&英才学院），正在“一生一芯”项目中进行学习，本GitHub仓库将记录我的项目代码变化。（近期创建了4个GitHub仓库，用于一生一芯每个阶段的代码打包保存[预学习](https://github.com/Jasonyanyusong/ysyx_Preview); [基础](https://github.com/Jasonyanyusong/ysyx_Basic); [进阶](https://github.com/Jasonyanyusong/ysyx_Advanced); [专家](https://github.com/Jasonyanyusong/ysyx_Super)）
 
-Progress report: (Chinese Chart)
+* 文件结构:
+* * .vscode/ -> 编辑工具Visual Studio Code的相关配置
+* * DigitalCircuitsExperiments/ -> 南京大学[《数字电路基础实验》](https://nju-projectn.github.io/dlco-lecture-note/index.html)
+* * LabReport/ -> 数字电路基础实验和PA实验以及后期其他实验的实验报告
+* * npc/ -> New Processor Core (新处理器核)
+* * pa0/ -> 南京大学计算机系统基础课程实验 PA0的相关代码保存
+* * pa1/ -> 南京大学计算机系统基础课程实验 PA1的相关代码保存
+* * * nemu_run -> 用于编译运行的NEMU（实现简易调试器、表达式求值、监视点）
+* * * nemu_new -> 用于调试运行的NEMU（实现简易调试器、表达式求值、监视点），支持打印各种程序运行中的调试信息
+* * pa2/ -> 南京大学计算机系统基础课程实验 PA2的相关代码保存
+* * * nemu_run -> 用于编译运行的NEMU（基于PA1的NEMU）
+* * * nemu_dev -> 用于调试运行的NEMU（基于PA1的NEMU），支持打印各种程序运行中的调试信息
+* * pa3/ -> 南京大学计算机系统基础课程实验 PA3的相关代码保存
+* * pa4/ -> 南京大学计算机系统基础课程实验 PA4的相关代码保存
+* * PreLearnActivities/ -> “一生一芯”讲义中，预学习部分的编程活动
+* * ProgressReport/ -> 用于记录进展，记录实验日志
+* * resources/ -> 一些实验的资源
+* * * nes/ -> 模拟红白机的一些游戏（通过STFW获得）
+* * tools/ -> 一些“一生一芯”学习过程中手动创建的工具，可以加速实验进度
+* * * gate_tools/ -> Verilog HDL写好的门电路
+* * * testbench_tools/ -> 使用Python实现的数字电路中，自动生成测试数据的脚本
+* * ustc_verilogoj/ -> 中国科技大学的Verilog OJ练习题以及我的答案
 
-* 注：1、学习阶段相关任务类型：C/++（C/C++语言相关学习）V（Verilog/Verilator/IVerilog相关学习）G（GTKWave相关学习）S（计算机组成原理相关学习）D（数字电路相关学习）A（模拟电路相关学习）L（Linux/相关工具学习）N（科学方法/素养）2、部分内容跟我我的个人代码仓库git log记录并生成
+* 联系方式：
+* * 微信：jasonyanys（请备注来意）
+* * 邮箱：jasonyanyusong@outlook.com
+
+* Progress report: (Chinese Chart)
+
+* * 注1：学习阶段相关任务类型：C/++（C/C++语言相关学习）V（Verilog/Verilator/IVerilog相关学习）G（GTKWave相关学习）S（计算机组成原理相关学习）D（数字电路相关学习）A（模拟电路相关学习）L（Linux/相关工具学习）N（科学方法/素养）
+* * 注2：部分内容跟我我的个人代码仓库git log记录并生成
 
 |日期|任务类型|计划任务|总时长|任务完成情况|卡了一段时间的bug|备注|记录故事/心情|
 |----|----|----|----|----|----|----|----|
@@ -28,3 +56,16 @@ Progress report: (Chinese Chart)
 |2022/12/14|V/G|设计加减法运算器与ALU|2h|设计了更多的测试用例进行测试模块正确性| | | |
 |2022/12/17|V/G|设计加减法运算器与ALU|2h|继续增加测试样例| | | |
 |2022/12/19|V/G|整理总结完成数字电路基础实验4|2h|debug| | | |
+|2023/1/1|V/G|寄存器的学习|2h|完成了一位寄存器和多位寄存器的设计，并且通过了Verilator进行仿真测试，掌握了一些时序逻辑电路的设计方法| | | |
+|2023/1/7|V/G|加法计数器、减法计数器|2h|设计了多种加法计数器和减法计数器，并通过verilator进行仿真，通过gtkwave进行结果检验| | | |
+|2023/1/8|V/G|加法计数器、减法计数器|2h|设计了多种加法计数器和减法计数器，并通过verilator进行仿真，通过gtkwave进行结果检验| | | |
+|2023/1/9|V/G|桶形移位寄存器|2h|阅读了8位桶形移位寄存器的设计图，并通过Verilog结构化建模实现了这个模块| | | |
+|2023/1/11|V/G|桶形移位寄存器|2h|阅读了8位桶形移位寄存器的设计图，并通过Verilog结构化建模实现了这个模块| | | |
+|2023/1/14|环境|设计了自动安装相关环境依赖的脚本|2h|因为我电脑设备来回换，懒得敲太多命令行，整了一个这个| | | |
+|2023/1/17|V/G|循环移位设计|2h|设计了正跳变沿河负跳变沿的循环左移位寄存器和循环右移位寄存器| | | |
+|2023/1/18|V/G|算数移位设计+逻辑移位设计|2h|设计了正跳变沿河负跳变沿的算数左移位寄存器和算数右移位寄存器，设计了正跳变沿河负跳变沿的逻辑左移位寄存器和逻辑右移位寄存器| | | |
+|2023/1/24|V/G|阅读数字电路基础实验7讲义|2h|完成阅读，学习了有限状态机的定义| | | |
+|2023/1/25|V/G|FSM设计|2h|理解了有限状态机的工作原理，并完成了一个检测四个连续相同输入的有限状态机| | | |
+|2023/1/26|V/G|PS/2设计|2h|阅读了有关PS/2相关的讲义，并编写仿真文件仿真了键盘F1-F2的按键| | | |
+|2023/1/30|C/L|NEMU|2h|修改了一进入就出发assertion的bug；让其可以实现优雅的退出；添加了w、si、info r功能| | | |
+|2023/1/31|C/L|NEMU|2h|添加了x功能| | | |
