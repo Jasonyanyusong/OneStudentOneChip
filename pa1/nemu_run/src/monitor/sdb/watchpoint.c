@@ -103,7 +103,7 @@ void delete_WP(int WP_number)
         // Find the watchpoint that NO is WP_number, with previous watchpoint
         previous_watchpoint -> next = current_watchpoint -> next;
       }
-      delete_WP(WP_number);
+      free_WP(current_watchpoint);
       return;
     }
   }
