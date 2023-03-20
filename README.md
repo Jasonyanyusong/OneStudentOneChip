@@ -9,36 +9,35 @@ I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enroll
 我是烟雨松（一生一芯学号ysyx_22041384），来自北京一零一中学（高中国际部&英才学院），正在“一生一芯”项目中进行学习，本GitHub仓库将记录我的项目代码变化。（近期创建了4个GitHub仓库，用于一生一芯每个阶段的代码打包保存[预学习](https://github.com/Jasonyanyusong/ysyx_Preview); [基础](https://github.com/Jasonyanyusong/ysyx_Basic); [进阶](https://github.com/Jasonyanyusong/ysyx_Advanced); [专家](https://github.com/Jasonyanyusong/ysyx_Super)）
 
 * 文件结构:
-* * .vscode/ -> 编辑工具Visual Studio Code的相关配置
-* * DigitalCircuitsExperiments/ -> 南京大学[《数字电路基础实验》](https://nju-projectn.github.io/dlco-lecture-note/index.html)
-* * LabReport/ -> 数字电路基础实验和PA实验以及后期其他实验的实验报告
-* * npc/ -> New Processor Core (新处理器核)
-* * pa0/ -> 南京大学计算机系统基础课程实验 PA0的相关代码保存
-* * pa1/ -> 南京大学计算机系统基础课程实验 PA1的相关代码保存
-* * * nemu_run -> 用于编译运行的NEMU（实现简易调试器、表达式求值、监视点）
-* * * nemu_new -> 用于调试运行的NEMU（实现简易调试器、表达式求值、监视点），支持打印各种程序运行中的调试信息
-* * pa2/ -> 南京大学计算机系统基础课程实验 PA2的相关代码保存
-* * * nemu_run -> 用于编译运行的NEMU（基于PA1的NEMU）
-* * * nemu_dev -> 用于调试运行的NEMU（基于PA1的NEMU），支持打印各种程序运行中的调试信息
-* * pa3/ -> 南京大学计算机系统基础课程实验 PA3的相关代码保存
-* * pa4/ -> 南京大学计算机系统基础课程实验 PA4的相关代码保存
-* * PreLearnActivities/ -> “一生一芯”讲义中，预学习部分的编程活动
-* * ProgressReport/ -> 用于记录进展，记录实验日志
-* * resources/ -> 一些实验的资源
-* * * nes/ -> 模拟红白机的一些游戏（通过STFW获得）
-* * tools/ -> 一些“一生一芯”学习过程中手动创建的工具，可以加速实验进度
-* * * gate_tools/ -> Verilog HDL写好的门电路
-* * * testbench_tools/ -> 使用Python实现的数字电路中，自动生成测试数据的脚本
-* * ustc_verilogoj/ -> 中国科技大学的Verilog OJ练习题以及我的答案
+    * .vscode/ -> 编辑工具Visual Studio Code的相关配置
+    * DigitalCircuitsExperiments/ -> 南京大学[《数字电路基础实验》](https://nju-projectn.github.io/dlco-lecture-note/index.html)
+    * LabReport/ -> 数字电路基础实验和PA实验以及后期其他实验的实验报告
+    * npc/ -> New Processor Core (新处理器核)
+    * pa0/ -> 南京大学计算机系统基础课程实验 PA0的相关代码保存
+    * pa1/ -> 南京大学计算机系统基础课程实验 PA1的相关代码保存
+        * nemu_run -> 用于编译运行的NEMU（实现简易调试器、表达式求值、监视点）
+        * nemu_new -> 用于调试运行的NEMU（实现简易调试器、表达式求值、监视点），支持打印各种程序运行中的调试信息
+    * pa2/ -> 南京大学计算机系统基础课程实验 PA2的相关代码保存
+        * nemu_run -> 用于编译运行的NEMU（基于PA1的NEMU）
+        * nemu_dev -> 用于调试运行的NEMU（基于PA1的NEMU），支持打印各种程序运行中的调试信息
+    * pa3/ -> 南京大学计算机系统基础课程实验 PA3的相关代码保存
+    * pa4/ -> 南京大学计算机系统基础课程实验 PA4的相关代码保存
+    * PreLearnActivities/ -> “一生一芯”讲义中，预学习部分的编程活动
+    * ProgressReport/ -> 用于记录进展，记录实验日志
+    * resources/ -> 一些实验的资源
+        * nes/ -> 模拟红白机的一些游戏（通过STFW获得）
+    * tools/ -> 一些“一生一芯”学习过程中手动创建的工具，可以加速实验进度
+        * gate_tools/ -> Verilog HDL写好的门电路
+        * testbench_tools/ -> 使用Python实现的数字电路中，自动生成测试数据的脚本
+    * ustc_verilogoj/ -> 中国科技大学的Verilog OJ练习题以及我的答案
 
 * 联系方式：
-* * 微信：jasonyanys（请备注来意）
-* * 邮箱：jasonyanyusong@outlook.com
+    * 微信：jasonyanys（请备注来意）
+    * 邮箱：jasonyanyusong@outlook.com
 
 * Progress report: (Chinese Chart)
-
-* * 注1：学习阶段相关任务类型：C/++（C/C++语言相关学习）V（Verilog/Verilator/IVerilog相关学习）G（GTKWave相关学习）S（计算机组成原理相关学习）D（数字电路相关学习）A（模拟电路相关学习）L（Linux/相关工具学习）N（科学方法/素养）
-* * 注2：部分内容跟我我的个人代码仓库git log记录并生成
+    * 注1：学习阶段相关任务类型：C/++（C/C++语言相关学习）V（Verilog/Verilator/IVerilog相关学习）G（GTKWave相关学习）S（计算机组成原理相关学习）D（数字电路相关学习）A（模拟电路相关学习）L（Linux/相关工具学习）N（科学方法/素养）
+    * 注2：部分内容跟我我的个人代码仓库git log记录并生成
 
 |日期|任务类型|计划任务|总时长|任务完成情况|卡了一段时间的bug|备注|记录故事/心情|
 |----|----|----|----|----|----|----|----|
