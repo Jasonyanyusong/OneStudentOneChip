@@ -4,9 +4,9 @@ One Student One Chip (YSYX) is started by University of Chinese Academy of Scien
 
 “一生一芯”计划是由中国科学院大学（UCAS）和中国科学院计算技术研究所（ICT-CAS）以及其他的研究机构和企业共同发起的项目。其目的是让学生设计出自己的RISC-V芯片并进行流片。
 
-I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enrolling in this project, and this GitHub repo is for storing my code and tracing my course works.（Recently, I created 4 GitHub repositories to store my code for each phase of this project[Preview](https://github.com/Jasonyanyusong/ysyx_Preview)[Basic](https://github.com/Jasonyanyusong/ysyx_Basic)[Advanced](https://github.com/Jasonyanyusong/ysyx_Advanced)[Super](https://github.com/Jasonyanyusong/ysyx_Super)）
+I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enrolling in this project, and this GitHub repo is for storing my code and tracing my course works.（Recently, I created 4 GitHub repositories to store my code for each phase of this project[Preview](https://github.com/Jasonyanyusong/ysyx_Preview); [Basic](https://github.com/Jasonyanyusong/ysyx_Basic); [Advanced](https://github.com/Jasonyanyusong/ysyx_Advanced); [Super](https://github.com/Jasonyanyusong/ysyx_Super)）
 
-我是烟雨松（一生一芯学号ysyx_22041384），来自北京一零一中学（高中国际部&英才学院），正在“一生一芯”项目中进行学习，本GitHub仓库将记录我的项目代码变化。（近期创建了4个GitHub仓库，用于一生一芯每个阶段的代码打包保存[预学习](https://github.com/Jasonyanyusong/ysyx_Preview)[基础](https://github.com/Jasonyanyusong/ysyx_Basic)[进阶](https://github.com/Jasonyanyusong/ysyx_Advanced)[专家](https://github.com/Jasonyanyusong/ysyx_Super)）
+我是烟雨松（一生一芯学号ysyx_22041384），来自北京一零一中学（高中国际部&英才学院），正在“一生一芯”项目中进行学习，本GitHub仓库将记录我的项目代码变化。（近期创建了4个GitHub仓库，用于一生一芯每个阶段的代码打包保存[预学习](https://github.com/Jasonyanyusong/ysyx_Preview); [基础](https://github.com/Jasonyanyusong/ysyx_Basic); [进阶](https://github.com/Jasonyanyusong/ysyx_Advanced); [专家](https://github.com/Jasonyanyusong/ysyx_Super)）
 
 Progress report: (Chinese Chart)
 
