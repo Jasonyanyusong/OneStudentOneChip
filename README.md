@@ -68,3 +68,29 @@ I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enroll
 |2023/1/26|V/G|PS/2设计|2h|阅读了有关PS/2相关的讲义，并编写仿真文件仿真了键盘F1-F2的按键| | | |
 |2023/1/30|C/L|NEMU|2h|修改了一进入就出发assertion的bug；让其可以实现优雅的退出；添加了w、si、info r功能| | | |
 |2023/1/31|C/L|NEMU|2h|添加了x功能| | | |
+|2023/2/3|V/G|数字电路基础实验改错|2h|修改数字电路基础实验3中的bug| | | |
+|2023/2/4|V/G|数字电路基础实验改错|2h|修改数字电路基础实验6中的bug| | | |
+|2023/2/13|C/L|NEMU|2h|1）修改了NEMU扫描内存和打印机寄存器的功能2）表达式求值部分完成了增加Token的任务| | | |
+|2023/2/14|C/L|NEMU|2h|将PA1中编译完成的NEMU存入工作目录| | | |
+|2023/2/15|C/L|NEMU|2h|打印内存函数增加了更多位，且更新了函数的结构| | | |
+|2023/2/16|C/L|NEMU|2h|1）对于RISCV64指令集，更新了扫描内存的函数 2）在sdb中优化了打印内存的代码，使得nemuconfig更换ISA后不必修改代码 3）优化了扫描寄存器和扫描内存的函数输出 4）删除了冗余的代码 5）编译结果保存| | | |
+|2023/2/17|C/L|NEMU|0.5h|给程序中的调试信息增加了开关| | | |
+|2023/2/18|C/L|NEMU|0.5h|更新了源代码（可以根据git log查看更新的位置）| | | |
+|2023/2/19|C/L|NEMU|0.5h|更新了NEMU，表达式求值部分可以输出token| | | |
+|2023/2/25|活动|参与RISCV年会|6h|听报告、学习、记笔记| | | |
+|2023/2/26|C/L|NEMU|2h|表达式求值部分添加二进制，增加了查看括号是否balance的函数，创建operator token来记录没有数字的token，正则表达式识别二进制、八进制、十进制、十六进制数| | | |
+|2023/2/27|C/L|NEMU|2h|1）给 !, +, -, *, /, (, ) 分配了TOKENID 2）给SDB/EXPR/WATCHPOINT添加了调试信息输入输出的开关| | | |
+|2023/2/28|C/L|NEMU|2h|1）在SDB中实现了管理调试信息的集中开关 2）删除了SDB中version debug instruction函数 3）打印调试信息状态 4）删除冗余代码 5）调整SDB函数代码结构| | | |
+|2023/3/2|C/L|NEMU|0.5h|更新了SDB的UI| | | |
+|2023/3/3|C/L|NEMU|2h|1）修复了expr中strncpy函数的bug 2）记录了debug结果| | | |
+|2023/3/5|C/L|NEMU|2h|1）完成了process_operator_token的函数 2）添加了void give_priority(): just set priority according to precidency rule 、void give_priority_no_parentheses(): update priority matching parentheses 连个用来给运算符提供优先级的函数 3）添加了int process_add(int add_operator_index): Add、int process_minus(int minus_operator_index): Minus、int process_multiply(int multiply_operator_index): Multiply、int process_devide(int devide_operator_index): Devide、int process_equal(int equal_operator_index): Equal、int process_not_equal(int not_equal_operator_index): Not Equal、int process_and(int and_operator_index): And、int process_or(int or_operator_index): Or、int process_not(int not_operator_index): Not 用来计算表达式数值的函数 4）添加了检查左右侧是否为数字的函数 5）优化了给运算符优先级的函数 6）修正了运行中的若干bug 7）完成了寻找全局最高优先级的函数 8）在make token函数中移除了括号检验 9）准备了一个新的nemu目录，会定期同步正在开发的nemu，新的nemu没有printf输出，运行起来更流畅且代码阅读体验更好| | | |
+|2023/3/6|C/L|NEMU|2h|1）优化了检查括号的算法 2）完成了void give_priority_no_parentheses() 3）修复了expr中的一处typo| | | |
+|2023/3/7|C/L|NEMU|2h|1）设计了一个表达式求值的初始化函数，每次调用表达式求值单元都会执行这个函数，会清空上一次计算结果 2）修改了一些命名错误，可以编译通过并执行| | | |
+|2023/3/8|C/L|NEMU|0.5h|删除了表达式求值中的二进制和八进制输入（可以通过十六进制替换）| | | |
+|2023/3/11|C/L|NEMU|2h|1）删除了表达式求值单元中没有被使用的find_dominant_operator函数 2）更新了除法函数，对除0情况进行报错 3）删除了多余的代码和TODO 4）删除了一些不必要的printf| | | |
+|2023/3/12|C/L|NEMU|4h|1）修复了若干bug 2）完成了give_sub_priority 3）更新了表达式求值初始化函数 4）优化了give_sub_priority函数实现的逻辑 5）计划了函数calculate_one_round的逻辑 6）实现了calculate_one_round的第一步：First, find the highest priority and sub_priority, then get the index in tokens[32] 7）修复了第一步的逻辑漏洞 8）实现了calculate_one_round的第二步：Scend, check the condition to make a success call, if not success, set success_calculate_one_round_call to false 9）修复了第二步的逻辑漏洞 10）实现了calculate_one_round的第三步：Third, implement specific calls to evaluate the result 11）实现了calculate_one_round的第四步：Fourth, store the new result to a token, check if the token's left and right is a pair of parentheses, if so, remove it 12）修复了第三步引起的括号处理问题 13）添加了char* calculate(bool* success_calculate_call)函数 14）经过测试，表达式求值功能正常且结果符合预期 15）将commit 6ea3a38的nemu同步到没有打印调试信息的版本，进行保存| | | |
+|2023/3/14|C/L|NEMU|0.5h|优化了message输出，可以保证后期多个工具相互调用也可以很好的定位问题的工具名、功能单元名以及message的种类| | | |
+|2023/3/16|C/L|NEMU|1h|1）对于所有ISA，实现了word_t isa_reg_str2val 2）在表达式求值单元中添加了指针token和负号token| | | |
+|2023/3/17|C/L|NEMU|2h|1）给expr增加了一些函数功能 2）修复了负数计算时表达式求值单元进入死循环的问题 3）删除了一些冗余的代码，并再次检查括号匹配函数 4）在两个nemu中删除了表达式求值单元没有使用的函数 5）在make token中，直接将16进制数转换成10进制数存储在token中 6）实现了正确的expr返回值 7）修复了一些指针解引用的bug| | | |
+|2023/3/18|C/L|NEMU|6h|1）修复了正号（不是加法）token在识别中的bug 2）完成了监视点单元WP* new_wp() 和 void free_wp(WP *wp)函数 3）在简易调试器单元和监视点单元中添加了 record_WP 4）在简易调试器单元和监视点单元中添加了 delete_WP 5）在简易调试器单元和监视点单元中添加了 print_WP 6）优化了打印监视点信息的输出 7）在监视点单元中添加了 check_WP 8）复习Verilog：在中科大的Verilog OJ平台完成了1-10题| | | |
+|2023/3/19|C/L|NEMU|0.5h|1）修复了reg.c中我的printf中的一些拼写错误，更新了运行读代码版nemu，吧两个nemu、abstract-machine、am-kernels复制到了工作目录下pa2文件夹| | | |
