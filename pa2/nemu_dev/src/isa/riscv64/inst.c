@@ -50,7 +50,49 @@ static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_
     case TYPE_S: src1R(); src2R(); immS(); break;
   }
 }
-// word_t src1 = 0, src2 = 0, imm = 0;
+
+void rv64i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 01101 11", lui  , U, R(rd) = imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64i_LUI(int get_rd, Decode* get_s)] CKPT #01: Enter LUI Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] RV64 Instruction LUI (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 1 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] LUI (load upper immediate) is used to build 32-bit constants and uses the U-type format. \n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64i_LUI(int get_rd, Decode* get_s)] LUI places the 32-bit U-immediate value into the destination register rd, filling in the lowest 12 bits with zeros.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64i_LUI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) =get_imm;
+}
+
 void rv64i_AUIPC(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
   //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
@@ -91,27 +133,6 @@ void rv64i_AUIPC(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wo
     printf("[NEMU_RISCV64_instC DEBUG: void rv64i_AUIPC(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
   R(get_rd) = get_s->pc + get_imm;
-  // TODO
-}
-
-void riscv64_ld()
-{
-  // TODO
-}
-
-void riscv64_sd()
-{
-  // TODO
-}
-
-void riscv64_ebreak()
-{
-  // TODO
-}
-
-void riscv64_inv()
-{
-  // TODO
 }
 
 static int decode_exec(Decode *s) {
@@ -126,6 +147,7 @@ static int decode_exec(Decode *s) {
 }
 
   INSTPAT_START();
+  INSTPAT("??????? ????? ????? ??? ????? 01101 11", lui  , U, rv64i_LUI(s, rd, src1, src2, imm));
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, rv64i_AUIPC(s, rd, src1, src2, imm));
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(rd) = Mr(src1 + imm, 8));
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, Mw(src1 + imm, 8, src2));
