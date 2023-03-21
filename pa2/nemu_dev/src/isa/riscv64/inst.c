@@ -13,6 +13,8 @@
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
 
+#include <stdio.h>
+
 #include "local-include/reg.h"
 #include <cpu/cpu.h>
 #include <cpu/ifetch.h>
@@ -26,6 +28,9 @@ enum {
   TYPE_I, TYPE_U, TYPE_S,
   TYPE_N, // none
 };
+
+bool riscv64_instC_Print_Debug = true;
+bool riscv64_instC_Print_ChecKPoinT = true;
 
 #define src1R() do { *src1 = R(rs1); } while (0)
 #define src2R() do { *src2 = R(rs2); } while (0)
@@ -43,6 +48,39 @@ static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_
     case TYPE_U:                   immU(); break;
     case TYPE_S: src1R(); src2R(); immS(); break;
   }
+}
+
+void riscv64_auipc(int get_rd, Decode* get_s)
+{
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void riscv64_auipc(int get_rd, Decode* get_s)] CKPT #01: Enter AUIPC Process Function\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    printf("[NEMU_RISCV64_instC DEBUG: void riscv64_auipc(int get_rd, Decode* get_s)] \n");
+  }
+  // TODO
+}
+
+void riscv64_ld()
+{
+  // TODO
+}
+
+void riscv64_sd()
+{
+  // TODO
+}
+
+void riscv64_ebreak()
+{
+  // TODO
+}
+
+void riscv64_inv()
+{
+  // TODO
 }
 
 static int decode_exec(Decode *s) {

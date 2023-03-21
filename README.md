@@ -39,6 +39,11 @@ I am Yan Yusong (Jason), a student from Beijing No. 101 High School, I am enroll
     * 注1：学习阶段相关任务类型：C/++（C/C++语言相关学习）V（Verilog/Verilator/IVerilog相关学习）G（GTKWave相关学习）S（计算机组成原理相关学习）D（数字电路相关学习）A（模拟电路相关学习）L（Linux/相关工具学习）N（科学方法/素养）
     * 注2：部分内容跟我我的个人代码仓库git log记录并生成
 
+* 关键节点记录：
+    * commit 06d95c2e6c3848b52ef06eecb922adbfde6d9d17 为Initial commit（PA0和数电实验的起点）
+    * commit 7f4e773b36ab453106ac75731eb6047931761066 为PA1的起点
+    * commit a87ecf6dd53d1ed90dcd335ead028858b6c9aca1 为RISCV64的PA2起点
+
 |日期|任务类型|计划任务|总时长|任务完成情况|卡了一段时间的bug|备注|记录故事/心情|
 |----|----|----|----|----|----|----|----|
 |2022/11/21|L|重新配置Ubuntu Linux开发环境，并部署相关工具（APT源相关工具）|2h|大致完成了任务，并且写出了[实验报告](https://docs.qq.com/doc/DSVplS2dNRWVxUXZG)|NEMU在ARM处理器的Ubuntu Linux中无法正常的运行，会出现core dump的问题（此问题后期我会在x86-64）的Ubuntu Linux中再次尝试，若x86的系统中可运行，则有可能是兼容性问题，后期会反馈。|ARM的Ubuntu系统是在基于M1的Mac上开的虚拟机，但是其他工具都能够正常工作|个人现在感觉还是x86平台进行开发比较靠谱，我的Mac经常会有一些工具不兼容或者效率低，但是应该可以通过优化等方式进行解决|
