@@ -234,6 +234,16 @@ RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRWI", "CSRRWI"))
 RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRSI", "CSRRSI"))
 RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRCI", "CSRRCI"))
 
+RV32M = []
+RV32M.append(instructions("rv32m", "MUL", "MUL"))
+RV32M.append(instructions("rv32m", "MULH", "MULH"))
+RV32M.append(instructions("rv32m", "MULHSU", "MULHSU"))
+RV32M.append(instructions("rv32m", "MULHU", "MULHU"))
+RV32M.append(instructions("rv32m", "DIV", "DIV"))
+RV32M.append(instructions("rv32m", "DIVU", "DIVU"))
+RV32M.append(instructions("rv32m", "REM", "REM"))
+RV32M.append(instructions("rv32m", "REMU", "REMU"))
+
 for i in range (0, len(RV64I) - 1, 1):
-    RV3264Zicsr[i].print_c()
+    RV32M[i].print_c()
     print("")
