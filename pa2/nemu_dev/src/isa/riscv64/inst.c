@@ -67,7 +67,7 @@ void rv32i_ANDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
 void rv32i_SLLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SRLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SRAI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed
 void rv32i_SUB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
@@ -1560,23 +1560,24 @@ void rv32i_SRAI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
 
 void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
-  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  // Completed
+  //INSTPAT("0000000 ????? ????? 000 ????? 01100 11", auipc  , U, R(rd) = rs1 + rs2);
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_ADD(int get_rd, Decode* get_s)] CKPT #01: Enter ADD Process Function\n");
   }
   if(riscv64_instC_Print_Instruction)
   {
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] RV32I Instruction ADD (R-type), Pattern:\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] *****************************************************************\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2|2 2 2 2 2|1 1 1 1 1|1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5|4 3 2 1 0|9 8 7 6 5|4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |0 0 0 0 0 0 0|? ? ? ? ?|? ? ? ? ?|0 0 0|? ? ? ? ?|0 1 1 0 0 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |----opcode---|---rs2---|---rs1---|-OPC-|----rd---|----opcode---|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] *****************************************************************\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format. \n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] ADD performs the addition of rs1 and rs2.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] Overflows are ignored and the low XLEN bits of results are written to the destination rd.\n");
   }
   if(riscv64_instC_Print_Debug)
   {
@@ -1597,7 +1598,7 @@ void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADD(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADD(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
-  R(get_rd) = get_s->pc + get_imm;
+  R(get_rd) = get_src1 + get_src2;
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_ADD(int get_rd, Decode* get_s)] CKPT #02: End ADD Process Function\n");
