@@ -7718,6 +7718,1478 @@ void rv64d_FMV_D_X(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, 
   }
 }
 
+void rv32q_FLQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLQ(int get_rd, Decode* get_s)] CKPT #01: Enter FLQ Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLQ(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLQ(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLQ(int get_rd, Decode* get_s)] CKPT #01: End FLQ Process Function\n");
+  }
+}
+
+void rv32q_FSQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSQ(int get_rd, Decode* get_s)] CKPT #01: Enter FSQ Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQ(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQ(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSQ(int get_rd, Decode* get_s)] CKPT #01: End FSQ Process Function\n");
+  }
+}
+
+void rv32q_FMADD_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FMADD.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMADD_Q(int get_rd, Decode* get_s)] CKPT #01: End FMADD.Q Process Function\n");
+  }
+}
+
+void rv32q_FMSUB_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FMSUB.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMSUB_Q(int get_rd, Decode* get_s)] CKPT #01: End FMSUB.Q Process Function\n");
+  }
+}
+
+void rv32q_FNMSUB_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FNMSUB.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FNMSUB_Q(int get_rd, Decode* get_s)] CKPT #01: End FNMSUB.Q Process Function\n");
+  }
+}
+
+void rv32q_FNMADD_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FNMADD.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FNMADD_Q(int get_rd, Decode* get_s)] CKPT #01: End FNMADD.Q Process Function\n");
+  }
+}
+
+void rv32q_FADD_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FADD_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FADD.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FADD_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FADD_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FADD_Q(int get_rd, Decode* get_s)] CKPT #01: End FADD.Q Process Function\n");
+  }
+}
+
+void rv32q_FSUB_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FSUB.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSUB_Q(int get_rd, Decode* get_s)] CKPT #01: End FSUB.Q Process Function\n");
+  }
+}
+
+void rv32q_FMUL_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FMUL.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMUL_Q(int get_rd, Decode* get_s)] CKPT #01: End FMUL.Q Process Function\n");
+  }
+}
+
+void rv32q_FDIV_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FDIV.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FDIV_Q(int get_rd, Decode* get_s)] CKPT #01: End FDIV.Q Process Function\n");
+  }
+}
+
+void rv32q_FSQRT_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FSQRT_Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSQRT_Q(int get_rd, Decode* get_s)] CKPT #01: End FSQRT_Q Process Function\n");
+  }
+}
+
+void rv32q_FSGNJ_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FSGNJ.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJ_Q(int get_rd, Decode* get_s)] CKPT #01: End FSGNJ.Q Process Function\n");
+  }
+}
+
+void rv32q_FSGNJN_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FSGNJN.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJN_Q(int get_rd, Decode* get_s)] CKPT #01: End FSGNJN.Q Process Function\n");
+  }
+}
+
+void rv32q_FSGNJX_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FSGNJX.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FSGNJX_Q(int get_rd, Decode* get_s)] CKPT #01: End FSGNJX.Q Process Function\n");
+  }
+}
+
+void rv32q_FMIN_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FMIN.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMIN_Q(int get_rd, Decode* get_s)] CKPT #01: End FMIN.Q Process Function\n");
+  }
+}
+
+void rv32q_FMAX_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FMAX.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FMAX_Q(int get_rd, Decode* get_s)] CKPT #01: End FMAX.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_S_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.S.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_S_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.S.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_Q_S(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.S Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_S(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.S Process Function\n");
+  }
+}
+
+void rv32q_FCVT_D_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.D.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_D_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.D.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_Q_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.D Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_D(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.D Process Function\n");
+  }
+}
+
+void rv32q_FEQ_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FEQ.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FEQ_Q(int get_rd, Decode* get_s)] CKPT #01: End FEQ.Q Process Function\n");
+  }
+}
+
+void rv32q_FLT_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLT_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FLT.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLT_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLT_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLT_Q(int get_rd, Decode* get_s)] CKPT #01: End FLT.Q Process Function\n");
+  }
+}
+
+void rv32q_FLE_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLE_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FLE.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FLE_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FLE_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FLE_Q(int get_rd, Decode* get_s)] CKPT #01: End FLE.Q Process Function\n");
+  }
+}
+
+void rv32q_FCLASS_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCLASS.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCLASS_Q(int get_rd, Decode* get_s)] CKPT #01: End FCLASS.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_W_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.W.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_W_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.W.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_WU_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.WU.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_WU_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.WU.Q Process Function\n");
+  }
+}
+
+void rv32q_FCVT_Q_W(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.W Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_W(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.W Process Function\n");
+  }
+}
+
+void rv32q_FCVT_Q_WU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.WU Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32q_FCVT_Q_WU(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.WU Process Function\n");
+  }
+}
+
+void rv64q_FCVT_L_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.L.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_L_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.L.Q Process Function\n");
+  }
+}
+
+void rv64q_FCVT_LU_Q(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.LU.Q Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_LU_Q(int get_rd, Decode* get_s)] CKPT #01: End FCVT.LU.Q Process Function\n");
+  }
+}
+
+void rv64q_FCVT_Q_L(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.L Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_Q_L(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.L Process Function\n");
+  }
+}
+
+void rv64q_FCVT_Q_LU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
+{
+  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] CKPT #01: Enter FCVT.Q.LU Process Function\n");
+  }
+  if(riscv64_instC_Print_Instruction)
+  {
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 1 0 1 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] |---------------imm[31:12]--------------|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] *****************************************************************\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type format.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros, adds this offset to the address of the AUIPC instruction, then places the result in register rd.\n");
+  }
+  if(riscv64_instC_Print_Debug)
+  {
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
+  R(get_rd) = get_s->pc + get_imm;
+  if(riscv64_instC_Print_ChecKPoinT)
+  {
+    printf("[NEMU_RISCV64_instC CHECKPOINT: void rv64q_FCVT_Q_LU(int get_rd, Decode* get_s)] CKPT #01: End FCVT.Q.LU Process Function\n");
+  }
+}
+
 static int decode_exec(Decode *s) {
   int rd = 0;
   word_t src1 = 0, src2 = 0, imm = 0;
