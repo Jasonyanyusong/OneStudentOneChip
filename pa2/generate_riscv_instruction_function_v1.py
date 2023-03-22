@@ -264,6 +264,19 @@ RV32A.append(instructions("rv32a", "AMOMAX_W", "AMOMAX.W"))
 RV32A.append(instructions("rv32a", "AMOMINU_W", "AMOMINU.W"))
 RV32A.append(instructions("rv32a", "AMOMAXU_W", "AMOMAXU.W"))
 
-for i in range (0, len(RV64I) - 1, 1):
-    RV32A[i].print_c()
+RV64A = []
+RV64A.append(instructions("rv64a", "LR_D", "LR.D"))
+RV64A.append(instructions("rv64a", "SC_D", "SC.D"))
+RV64A.append(instructions("rv64a", "AMOSWAP_D", "AMOSWAP.D"))
+RV64A.append(instructions("rv64a", "AMOADD_D", "AMOADD.D"))
+RV64A.append(instructions("rv64a", "AMOXOR_D", "AMOXOR.D"))
+RV64A.append(instructions("rv64a", "AMOAND_D", "AMOAND.D"))
+RV64A.append(instructions("rv64a", "AMOOR_D", "AMOOR.D"))
+RV64A.append(instructions("rv64a", "AMOMIN_D", "AMOMIN.D"))
+RV64A.append(instructions("rv64a", "AMOMAX_D", "AMOMAX.D"))
+RV64A.append(instructions("rv64a", "AMOMINU_D", "AMOMINU.D"))
+RV64A.append(instructions("rv64a", "AMOMAXU_D", "AMOMAXU.D"))
+
+for i in range (0, len(RV64A), 1):
+    RV64A[i].print_c()
     print("")
