@@ -311,10 +311,46 @@ RV64F.append(instructions("rv64f", "FCVT_LU_S", "FCVT.LU.S"))
 RV64F.append(instructions("rv64f", "FCVT_S_L", "FCVT.S.L"))
 RV64F.append(instructions("rv64f", "FCVT_S_LU", "FCVT.S.LU"))
 
-for i in range (0, len(RV32F), 1):
-    RV32F[i].print_c()
+RV32D = []
+RV32D.append(instructions("rv32d", "FLD", "FLD"))
+RV32D.append(instructions("rv32d", "FSD", "FSD"))
+RV32D.append(instructions("rv32d", "FMADD_D", "FMADD.D"))
+RV32D.append(instructions("rv32d", "FMSUB_D", "FMSUB.D"))
+RV32D.append(instructions("rv32d", "FNMSUB_D", "FNMSUB.D"))
+RV32D.append(instructions("rv32d", "FNMADD_D", "FNMADD.D"))
+RV32D.append(instructions("rv32d", "FADD_D", "FADD.D"))
+RV32D.append(instructions("rv32d", "FSUB_D", "FSUB.D"))
+RV32D.append(instructions("rv32d", "FMUL_D", "FMUL.D"))
+RV32D.append(instructions("rv32d", "FDIV_D", "FDIV.D"))
+RV32D.append(instructions("rv32d", "FSQRT_D", "FSQRT.D"))
+RV32D.append(instructions("rv32d", "FSGNJ_D", "FSGNJ.D"))
+RV32D.append(instructions("rv32d", "FSGNJN_D", "FSGNJN.D"))
+RV32D.append(instructions("rv32d", "FSGNJX_D", "FSGNJX.D"))
+RV32D.append(instructions("rv32d", "FMIN_D", "FMIN.D"))
+RV32D.append(instructions("rv32d", "FMAX_D", "FMAX.D"))
+RV32D.append(instructions("rv32d", "FCVT_S_D", "FCVT.S.D"))
+RV32D.append(instructions("rv32d", "FCVT_D_S", "FCVT.D.S"))
+RV32D.append(instructions("rv32d", "FEQ_D", "FEQ.D"))
+RV32D.append(instructions("rv32d", "FLT_D", "FLT.D"))
+RV32D.append(instructions("rv32d", "FLE_D", "FLE.D"))
+RV32D.append(instructions("rv32d", "FCLASS_D", "FCLASS.D"))
+RV32D.append(instructions("rv32d", "FCVT_W_D", "FCVT.W.D"))
+RV32D.append(instructions("rv32d", "FCVT_WU_D", "FCVT.WU.D"))
+RV32D.append(instructions("rv32d", "FCVT_D_W", "FCVT.D.W"))
+RV32D.append(instructions("rv32d", "FCVT_D_WU", "FCVT.D.WU"))
+
+RV64D = []
+RV64D.append(instructions("rv64d", "FCVT_L_D", "FCVT.L.D"))
+RV64D.append(instructions("rv64d", "FCVT_LU_D", "FCVT.LU.D"))
+RV64D.append(instructions("rv64d", "FMV_X_D", "FMV.X.D"))
+RV64D.append(instructions("rv64d", "FCVT_D_L", "FCVT.D.L"))
+RV64D.append(instructions("rv64d", "FCVT_D_LU", "FCVT.D.LU"))
+RV64D.append(instructions("rv64d", "FMV_D_X", "FMV.D.X"))
+
+for i in range (0, len(RV32D), 1):
+    RV32D[i].print_c()
     print("")
 
-for i in range (0, len(RV64F), 1):
-    RV64F[i].print_c()
+for i in range (0, len(RV64D), 1):
+    RV64D[i].print_c()
     print("")
