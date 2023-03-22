@@ -244,6 +244,13 @@ RV32M.append(instructions("rv32m", "DIVU", "DIVU"))
 RV32M.append(instructions("rv32m", "REM", "REM"))
 RV32M.append(instructions("rv32m", "REMU", "REMU"))
 
+RV64M = []
+RV64M.append(instructions("rv64m", "MULW", "MULW"))
+RV64M.append(instructions("rv64m", "DIVW", "DIVW"))
+RV64M.append(instructions("rv64m", "DIVUW", "DIVUW"))
+RV64M.append(instructions("rv64m", "REMW", "REMW"))
+RV64M.append(instructions("rv64m", "REMUW", "REMUW"))
+
 for i in range (0, len(RV64I) - 1, 1):
-    RV32M[i].print_c()
+    RV64M[i].print_c()
     print("")
