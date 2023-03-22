@@ -277,6 +277,44 @@ RV64A.append(instructions("rv64a", "AMOMAX_D", "AMOMAX.D"))
 RV64A.append(instructions("rv64a", "AMOMINU_D", "AMOMINU.D"))
 RV64A.append(instructions("rv64a", "AMOMAXU_D", "AMOMAXU.D"))
 
-for i in range (0, len(RV64A), 1):
-    RV64A[i].print_c()
+RV32F = []
+RV32F.append(instructions("rv32f", "FLW", "FLW"))
+RV32F.append(instructions("rv32f", "FSW", "FSW"))
+RV32F.append(instructions("rv32f", "FMADD_S", "FMADD.S"))
+RV32F.append(instructions("rv32f", "FMSUB_S", "FMSUB.S"))
+RV32F.append(instructions("rv32f", "FNMSUB_S", "FNMSUB.S"))
+RV32F.append(instructions("rv32f", "FNMADD_S", "FNMADD.S"))
+RV32F.append(instructions("rv32f", "FADD_S", "FADD.S"))
+RV32F.append(instructions("rv32f", "FSUB_S", "FSUB.S"))
+RV32F.append(instructions("rv32f", "FMUL_S", "FMUL.S"))
+RV32F.append(instructions("rv32f", "FDIV_S", "FDIV.S"))
+RV32F.append(instructions("rv32f", "FSQRT_S", "FSQRT.S"))
+RV32F.append(instructions("rv32f", "FSGNJ_S", "FSGNJ.S"))
+RV32F.append(instructions("rv32f", "FSGNJN_S", "FSGNJN.S"))
+RV32F.append(instructions("rv32f", "FSGNJX_S", "FSGNJX.S"))
+RV32F.append(instructions("rv32f", "FMIN_S", "FMIN.S"))
+RV32F.append(instructions("rv32f", "FMAX_S", "FMAX.S"))
+RV32F.append(instructions("rv32f", "FCVT_W_S", "FCVT.W.S"))
+RV32F.append(instructions("rv32f", "FCVT_WU_S", "FCVT.WU.S"))
+RV32F.append(instructions("rv32f", "FMV_X_W", "FMV.X.W"))
+RV32F.append(instructions("rv32f", "FEQ_S", "FEQ.S"))
+RV32F.append(instructions("rv32f", "FLT_S", "FLT.S"))
+RV32F.append(instructions("rv32f", "FLE_S", "FLE.S"))
+RV32F.append(instructions("rv32f", "FCLASS_S", "FCLASS.S"))
+RV32F.append(instructions("rv32f", "FCVT_S_W", "FCVT.S.W"))
+RV32F.append(instructions("rv32f", "FCVT_S_WU", "FCVT.S.WU"))
+RV32F.append(instructions("rv32f", "FMV_W_X", "FMV.W.X"))
+
+RV64F = []
+RV64F.append(instructions("rv64f", "FCVT_L_S", "FCVT.L.S"))
+RV64F.append(instructions("rv64f", "FCVT_LU_S", "FCVT.LU.S"))
+RV64F.append(instructions("rv64f", "FCVT_S_L", "FCVT.S.L"))
+RV64F.append(instructions("rv64f", "FCVT_S_LU", "FCVT.S.LU"))
+
+for i in range (0, len(RV32F), 1):
+    RV32F[i].print_c()
+    print("")
+
+for i in range (0, len(RV64F), 1):
+    RV64F[i].print_c()
     print("")
