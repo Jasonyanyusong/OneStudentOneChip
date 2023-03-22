@@ -226,6 +226,14 @@ RV64I.append(instructions("rv64i", "SRAW", "SRAW"))
 RV3264Zifencei = []
 RV3264Zifencei.append(instructions("rv3264zifencei", "FENCE_I", "FENCE.I"))
 
-for i in range (0, len(RV64I), 1):
-    RV3264Zifencei[i].print_c()
+RV3264Zicsr = []
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRW", "CSRRW"))
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRS", "CSRRS"))
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRC", "CSRRC"))
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRWI", "CSRRWI"))
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRSI", "CSRRSI"))
+RV3264Zicsr.append(instructions("rv3264zicsr", "CSRRCI", "CSRRCI"))
+
+for i in range (0, len(RV64I) - 1, 1):
+    RV3264Zicsr[i].print_c()
     print("")
