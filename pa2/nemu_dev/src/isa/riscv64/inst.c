@@ -471,7 +471,7 @@ void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
 void rv32i_JALR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
   // Completed
-  //INSTPAT("??????? ????? ????? ??? ????? 11001 11", jalr   , U, s->pc = (rs1 + imm) & ~1; R(rd) = s -> pc + 4);
+  //INSTPAT("??????? ????? ????? ??? ????? 11001 11", jalr   , I, s->pc = (rs1 + imm) & ~1; R(rd) = s -> pc + 4);
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_JALR(int get_rd, Decode* get_s)] CKPT #01: Enter JALR Process Function\n");
@@ -521,14 +521,14 @@ void rv32i_JALR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
 
 void rv32i_BEQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
-  //INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, R(rd) = s->pc + imm);
+  //INSTPAT("??????? ????? ????? 000 ????? 11001 11", beq    , B, R(rd) = s->pc + imm);
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_BEQ(int get_rd, Decode* get_s)] CKPT #01: Enter BEQ Process Function\n");
   }
   if(riscv64_instC_Print_Instruction)
   {
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BEQ(int get_rd, Decode* get_s)] RV64 Instruction AUIPC (U-type), Pattern:\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BEQ(int get_rd, Decode* get_s)] RV32I Instruction BEQ (B-type), Pattern:\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BEQ(int get_rd, Decode* get_s)] *****************************************************************\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BEQ(int get_rd, Decode* get_s)] |3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1|1 1 0 0 0|0 0 0 0 0 0 0|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BEQ(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2|1 0 9 8 7|6 5 4 3 2 1 0|\n");
@@ -10892,7 +10892,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 111 ????? 01100 11", and    , R, rv32i_AND(s, rd, src1, src2, imm));
   INSTPAT("??????? ????? ????? 111 ????? 00100 11", andi   , I, rv32i_ANDI(s, rd, src1, src2, imm));
   INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , J, rv32i_JAL(s, rd, src1, src2, imm));
-  INSTPAT("??????? ????? ????? ??? ????? 11001 11", jalr   , U, rv32i_JALR(s, rd, src1, src2, imm));
+  INSTPAT("??????? ????? ????? ??? ????? 11001 11", jalr   , I, rv32i_JALR(s, rd, src1, src2, imm));
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(rd) = Mr(src1 + imm, 8));
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, Mw(src1 + imm, 8, src2));
 
