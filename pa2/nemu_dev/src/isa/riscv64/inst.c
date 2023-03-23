@@ -439,6 +439,7 @@ void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] JAL stores the address of the instruction that follows the JAL (pc+4) into register rd.\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] The standard software calling convention uses x1 as the return address register and x5 as an alternate link register.\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] Plain unconditional jumps (assembler pseudoinstruction J) are encoded as a JAL with rd=x0.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] The JAL and JALR instructions will generate an instruction-address-misaligned exception if the target address is not aligned to an IALIGN-bit boundary.\n");
   }
   if(riscv64_instC_Print_Debug)
   {
