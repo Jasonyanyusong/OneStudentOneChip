@@ -83,7 +83,7 @@ void rv32i_AND(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
 void rv32i_FENCE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_FENCE_TSO(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_PAUSE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_ECALL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ECALL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed
 void rv32i_EBREAK(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed
 
 // RV64I Instructions
@@ -2168,6 +2168,7 @@ void rv32i_PAUSE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wo
 
 void rv32i_ECALL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
+  // Completed
   //INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , N, NEMUTRAP(s->pc, R(10))); // R(10) is $a0
   if(riscv64_instC_Print_ChecKPoinT)
   {
@@ -10881,8 +10882,9 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, R(rd) = Mr(src1 + imm, 8));
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, Mw(src1 + imm, 8, src2));
 
-  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , N, rv32i_ECALL(s, rd, src1, src2, imm)); // R(10) is $a0
-  INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , N, rv32i_EBREAK(s, rd, src1, src2, imm)); // R(10) is $a0
+  // Changed to I, original N (ECALL and EBREAK)
+  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, rv32i_ECALL(s, rd, src1, src2, imm)); // R(10) is $a0
+  INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , I, rv32i_EBREAK(s, rd, src1, src2, imm)); // R(10) is $a0
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc));
   INSTPAT_END();
 
