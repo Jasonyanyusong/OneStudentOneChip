@@ -433,7 +433,12 @@ void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|1 1 0 1 1 1 1|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] |---------imm[20|10:1|11|19:12]---------|----rd---|----opcode---|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] *****************************************************************\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] \n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] The jump and link (JAL) instruction uses the J-type format, where the J-immediate encodes a signed offset in multiples of 2 bytes.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] The offset is sign-extended and added to the address of the jump instruction to form the jump target address.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] Jumps can therefore target a +/-1 MiB range.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] JAL stores the address of the instruction that follows the JAL (pc+4) into register rd.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] The standard software calling convention uses x1 as the return address register and x5 as an alternate link register.\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_JAL(int get_rd, Decode* get_s)] Plain unconditional jumps (assembler pseudoinstruction J) are encoded as a JAL with rd=x0.\n");
   }
   if(riscv64_instC_Print_Debug)
   {
