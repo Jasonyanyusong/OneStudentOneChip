@@ -20,6 +20,8 @@
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
 
+#include "rv32i.h"
+
 #define R(i) gpr(i)
 #define Mr vaddr_read
 #define Mw vaddr_write
