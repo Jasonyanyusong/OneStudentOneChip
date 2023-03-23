@@ -643,7 +643,7 @@ void rv32i_BEQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BEQ(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BEQ(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
-  get_s->dnpc = get_src1 == get_src2 ? s->dnpc + get_imm, s->dnpc + 4;
+  get_s->dnpc = get_src1 == get_src2 ? get_s->dnpc + get_imm : get_s->dnpc + 4;
   if(riscv64_instC_Print_Debug)
   {
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BEQ(int get_rd, Decode* get_s)] After Execute:\n");
@@ -710,7 +710,7 @@ void rv32i_BNE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BNE(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BNE(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
-  get_s->dnpc = get_src1 != get_src2 ? s->dnpc + get_imm, s->dnpc + 4;
+  get_s->dnpc = get_src1 != get_src2 ? get_s->dnpc + get_imm: get_s->dnpc + 4;
   if(riscv64_instC_Print_Debug)
   {
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BNE(int get_rd, Decode* get_s)] After Execute:\n");
@@ -778,7 +778,7 @@ void rv32i_BLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BLT(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BLT(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
-  s->dnpc = (get_src1 < get_src2 ? s->dnpc + get_imm, s->dnpc + 4);
+  get_s->dnpc = (get_src1 < get_src2 ? get_s->dnpc + get_imm: get_s->dnpc + 4);
   if(riscv64_instC_Print_Debug)
   {
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_BLT(int get_rd, Decode* get_s)] After Execute:\n");
