@@ -485,7 +485,7 @@ void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
   }
   if(riscv64_instC_Print_Debug)
   {
-    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] Before Execute");
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] Before Execute:\n");
     // Decimal debug information
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
@@ -507,7 +507,7 @@ void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
   get_s -> dnpc = get_s -> dnpc + get_imm;
   if(riscv64_instC_Print_Debug)
   {
-    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] After Execute");
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] After Execute:\n");
     // Decimal debug information
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_JAL(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
