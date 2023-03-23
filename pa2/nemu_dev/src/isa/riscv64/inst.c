@@ -25,7 +25,7 @@
 #define Mw vaddr_write
 
 enum {
-  TYPE_I, TYPE_U, TYPE_S,
+  TYPE_R, TYPE_I, TYPE_S, TYPE_B, TYPE_U, TYPE_J, TYPE_R4, 
   TYPE_N, // none
 };
 
@@ -33,11 +33,14 @@ bool riscv64_instC_Print_Debug = true;
 bool riscv64_instC_Print_ChecKPoinT = true;
 bool riscv64_instC_Print_Instruction = true;
 
-#define src1R() do { *src1 = R(rs1); } while (0)
-#define src2R() do { *src2 = R(rs2); } while (0)
-#define immI() do { *imm = SEXT(BITS(i, 31, 20), 12); } while(0)
-#define immU() do { *imm = SEXT(BITS(i, 31, 12), 20) << 12; } while(0)
-#define immS() do { *imm = (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); } while(0)
+#define src1R() do { *src1 = R(rs1); } while (0) // Skeleton Code
+#define src2R() do { *src2 = R(rs2); } while (0) // Skeleton Code
+#define immI() do { *imm = SEXT(BITS(i, 31, 20), 12); } while(0) // Skeleton Code
+#define immU() do { *imm = SEXT(BITS(i, 31, 12), 20) << 12; } while(0) // Skeleton Code
+#define immS() do { *imm = (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); } while(0) // Skeleton Code
+// My codes (Have confusions about SEXT and BITS)
+#define immB() do { *imm = BITS(i, 31, 31) << 12 | BITS(i, 7, 7) << 11 | BITS(i, 30, 25) << 5 | BITS(i, 11, 8) << 1;} while(0)
+#define immJ() do { *imm = BITS(i, 31, 31) << 20 | BITS(i, 19, 12) << 12 | BITS(i, 20, 20) << 11 | BITS(i, 30, 21) << 1;} while(0)
 
 // RV32I Instructions
 void rv32i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed
@@ -304,11 +307,17 @@ static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_
   uint32_t i = s->isa.inst.val;
   int rs1 = BITS(i, 19, 15);
   int rs2 = BITS(i, 24, 20);
+  // Below is rs3's implementation, rs3 appears in RV32(64)F, RV32(64)D, RV32(64)Q and RV32(64)Zfh 
+  // int rs3 = BITS(i, 31, 27);
   *rd     = BITS(i, 11, 7);
   switch (type) {
-    case TYPE_I: src1R();          immI(); break;
-    case TYPE_U:                   immU(); break;
-    case TYPE_S: src1R(); src2R(); immS(); break;
+    case TYPE_R : src1R(); src2R();         break;
+    case TYPE_R4: /*TODO*/                  break;
+    case TYPE_I : src1R();          immI(); break;
+    case TYPE_S : src1R(); src2R(); immS(); break;
+    case TYPE_B : src1R(); src2R(); immB(); break;
+    case TYPE_U :                   immU(); break;
+    case TYPE_J :                   immJ(); break;
   }
 }
 
@@ -2242,7 +2251,7 @@ void rv32i_EBREAK(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, w
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_EBREAK(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_EBREAK(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
-  NEMUTRAP(s->pc, R(10));
+  NEMUTRAP(get_s->pc, R(10));
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_EBREAK(int get_rd, Decode* get_s)] CKPT #02: End EBREAK Process Function\n");
