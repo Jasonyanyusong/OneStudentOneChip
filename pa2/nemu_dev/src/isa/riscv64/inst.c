@@ -61,7 +61,7 @@ void rv32i_LHU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
 void rv32i_SB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SH(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SW(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed
+void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_SLTI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLTIU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_XORI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
@@ -1313,6 +1313,7 @@ void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
   }
   if(riscv64_instC_Print_Debug)
   {
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] Before Execute:\n");
     // Decimal debug information
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
@@ -1331,6 +1332,26 @@ void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
   }
   R(get_rd) = get_src1 + get_imm;
+  if(riscv64_instC_Print_Debug)
+  {
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] After Execute:\n");
+    // Decimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_rd (Dec) = %d\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_src1 (Dec) = %ld\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_src2 (Dec) = %ld\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_imm (Dec) = %ld\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Dec) = %ld\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Dec) = %ld\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Dec) = %ld\n", get_s -> dnpc);
+    // Hexadecimal debug information
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_rd (Hex) = 0x%x\n", get_rd);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_ADDI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
+  }
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_ADDI(int get_rd, Decode* get_s)] CKPT #02: End ADDI Process Function\n");
