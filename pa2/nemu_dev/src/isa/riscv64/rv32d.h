@@ -1,0 +1,27 @@
+// RV32D Instructions
+void rv32d_FLD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FMADD_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FMSUB_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FNMSUB_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FNMADD_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FADD_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSUB_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FMUL_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FDIV_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSQRT_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSGNJ_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSGNJN_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FSGNJX_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FMIN_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FMAX_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_S_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_D_S(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FEQ_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FLT_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FLE_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCLASS_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_W_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_WU_D(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_D_W(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32d_FCVT_D_WU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);

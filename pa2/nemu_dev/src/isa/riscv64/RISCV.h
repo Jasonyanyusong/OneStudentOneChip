@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "local-include/reg.h"
 #include <cpu/cpu.h>
 #include <cpu/ifetch.h>
@@ -9,22 +8,6 @@
 #define Mr vaddr_read
 #define Mw vaddr_write
 
-#include "rv3264zicsr.h"
-#include "rv3264zifencei.h"
-#include "rv32a.h"
-#include "rv32d.h"
-#include "rv32f.h"
-#include "rv32i.h"
-#include "rv32m.h"
-#include "rv32q.h"
-#include "rv32zfh.h"
-#include "rv64a.h"
-#include "rv64d.h"
-#include "rv64f.h"
-#include "rv64i.h"
-#include "rv64m.h"
-#include "rv64q.h"
-#include "rv64zfh.h"
 
 enum {
   TYPE_R, TYPE_I, TYPE_S, TYPE_B, TYPE_U, TYPE_J, TYPE_R4, 
@@ -43,3 +26,20 @@ bool riscv64_instC_Print_Instruction = true;
 // My codes (Have confusions about SEXT and BITS)
 #define immB() do { *imm = BITS(i, 31, 31) << 12 | BITS(i, 7, 7) << 11 | BITS(i, 30, 25) << 5 | BITS(i, 11, 8) << 1;} while(0)
 #define immJ() do { *imm = BITS(i, 31, 31) << 20 | BITS(i, 19, 12) << 12 | BITS(i, 20, 20) << 11 | BITS(i, 30, 21) << 1;} while(0)
+
+#include "rv3264zicsr.h"
+#include "rv3264zifencei.h"
+#include "rv32a.h"
+#include "rv32d.h"
+#include "rv32f.h"
+#include "rv32i.h"
+#include "rv32m.h"
+#include "rv32q.h"
+#include "rv32zfh.h"
+#include "rv64a.h"
+#include "rv64d.h"
+#include "rv64f.h"
+#include "rv64i.h"
+#include "rv64m.h"
+#include "rv64q.h"
+#include "rv64zfh.h"
