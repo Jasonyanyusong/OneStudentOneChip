@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
   // Completed
