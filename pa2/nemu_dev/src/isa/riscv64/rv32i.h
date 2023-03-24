@@ -1,5 +1,6 @@
+#include "lui.h"
+
 // RV32I Instructions
-void rv32i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_AUIPC(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_JALR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
