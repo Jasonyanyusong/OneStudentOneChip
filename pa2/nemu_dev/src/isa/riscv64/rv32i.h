@@ -2,9 +2,9 @@
 #include "auipc.h"
 #include "jal.h"
 #include "jalr.h"
+#include "beq.h"
 
 // RV32I Instructions
-void rv32i_BEQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_BNE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_BLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
