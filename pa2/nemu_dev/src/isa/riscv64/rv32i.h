@@ -4,9 +4,9 @@
 #include "jalr.h"
 #include "beq.h"
 #include "bne.h"
+#include "blt.h"
 
 // RV32I Instructions
-void rv32i_BLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_BLTU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_BGEU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
