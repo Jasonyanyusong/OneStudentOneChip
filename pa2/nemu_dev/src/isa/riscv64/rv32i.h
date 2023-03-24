@@ -1,0 +1,43 @@
+// RV32I Instructions
+void rv32i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_AUIPC(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_JAL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_JALR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_BEQ(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_BNE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_BLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_BLTU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_BGEU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_LB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_LH(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_LW(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_LBU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_LHU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SH(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SW(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_SLTI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SLTIU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_XORI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ORI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ANDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_SLLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SRLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SRAI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_SUB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SLL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SLTU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_XOR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SRL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_SRA(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_OR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_AND(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_FENCE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_FENCE_TSO(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_PAUSE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
+void rv32i_ECALL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
+void rv32i_EBREAK(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
