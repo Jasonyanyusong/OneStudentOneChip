@@ -9,6 +9,7 @@
 #include "andi.h"
 #include "add.h"
 #include "and.h"
+#include "ecall.h"
 
 // RV32I Instructions
 void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
@@ -40,5 +41,4 @@ void rv32i_OR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_
 void rv32i_FENCE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_FENCE_TSO(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_PAUSE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_ECALL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_EBREAK(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
