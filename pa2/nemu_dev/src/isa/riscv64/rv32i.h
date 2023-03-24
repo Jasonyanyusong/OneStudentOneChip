@@ -8,6 +8,7 @@
 #include "addi.h"
 #include "andi.h"
 #include "add.h"
+#include "and.h"
 
 // RV32I Instructions
 void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
@@ -36,7 +37,6 @@ void rv32i_XOR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
 void rv32i_SRL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SRA(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_OR(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_AND(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm); // Completed, Optimized
 void rv32i_FENCE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_FENCE_TSO(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_PAUSE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
