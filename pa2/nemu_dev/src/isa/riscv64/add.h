@@ -46,7 +46,7 @@ void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |%s|\n",instruction_string_bin);
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |0 0 0 0 0 0 0|? ? ? ? ?|? ? ? ? ?|0 0 0|? ? ? ? ?|0 1 1 0 0 1 1|\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |----opcode---|---rs2---|---rs1---|-OPC-|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] |----funct7---|---rs2---|---rs1---|func3|----rd---|----opcode---|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] *****************************************************************\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] ADD performs the addition of rs1 and rs2.\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADD(int get_rd, Decode* get_s)] Overflows are ignored and the low XLEN bits of results are written to the destination rd.\n");

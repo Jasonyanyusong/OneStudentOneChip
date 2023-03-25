@@ -46,7 +46,7 @@ void rv32i_ADDI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wor
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] |---------------------------------------------------------------|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] |%s|\n",instruction_string_bin);
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] |? ? ? ? ? ? ? ? ? ? ? ?|? ? ? ? ?|0 0 0|? ? ? ? ?|0 0 1 0 0 1 1|\n");
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] |-------imm[11:0]-------|---rs1---|-OPC-|----rd---|----opcode---|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] |-------imm[11:0]-------|---rs1---|func3|----rd---|----opcode---|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] *****************************************************************\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] ADDI adds the sign-extended 12-bit immediate to register rs1.\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_ADDI(int get_rd, Decode* get_s)] Arithmetic overflow is ignored and the result is simply the low XLEN bits of the result.\n");
