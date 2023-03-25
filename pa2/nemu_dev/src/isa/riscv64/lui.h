@@ -68,7 +68,7 @@ void rv32i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
-    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] R(get_rd) (Dec) = %lx\n", R(get_rd));
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] R(get_rd) (Hex) = 0x%lx\n", R(get_rd));
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
@@ -91,7 +91,7 @@ void rv32i_LUI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_src1 (Hex) = 0x%lx\n", get_src1);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_src2 (Hex) = 0x%lx\n", get_src2);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_imm (Hex) = 0x%lx\n", get_imm);
-    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] R(get_rd) (Dec) = %lx\n", R(get_rd));
+    printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] R(get_rd) (Hex) = 0x%lx\n", R(get_rd));
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> pc (Program Counter) (Hex) = 0x%lx\n", get_s -> pc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> snpc (Static Next Program Counter) (Hex) = 0x%lx\n", get_s -> snpc);
     printf("[NEMU_RISCV64_instC DEBUG: void rv32i_LUI(int get_rd, Decode* get_s)] get_s -> dnpc (Dynamic Next Program Counter) (Hex) = 0x%lx\n", get_s -> dnpc);
