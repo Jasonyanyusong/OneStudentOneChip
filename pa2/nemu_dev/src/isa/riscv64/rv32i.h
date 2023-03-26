@@ -20,6 +20,7 @@
 #include "or.h"
 #include "xor.h"
 #include "sll.h"
+#include "sra.h"
 
 // RV32I Instructions
 void rv32i_LB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
