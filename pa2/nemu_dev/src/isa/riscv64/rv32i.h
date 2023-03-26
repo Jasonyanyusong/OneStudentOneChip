@@ -13,9 +13,9 @@
 #include "ebreak.h"
 #include "bge.h"
 #include "bltu.h"
+#include "bgeu.h"
 
 // RV32I Instructions
-void rv32i_BGEU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_LB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_LH(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_LW(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);

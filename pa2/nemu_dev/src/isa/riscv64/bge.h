@@ -44,7 +44,7 @@ void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2| 1 0 9 8 7 |6 5 4 3 2 1 0|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |-------------|---------|---------|-----|-----------|-------------|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |%s|\n",instruction_string_bin);
-    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |? ? ? ? ? ? ?|? ? ? ? ?|? ? ? ? ?|1 0 0| ? ? ? ? ? |1 1 0 0 0 1 1|\n");
+    printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |? ? ? ? ? ? ?|? ? ? ? ?|? ? ? ? ?|1 0 1| ? ? ? ? ? |1 1 0 0 0 1 1|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] |-imm[12|10:5]|---rs2---|---rs1---|func3|imm[4:1|11]|----opcode---|\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] *******************************************************************\n");
     printf("[NEMU_RISCV64_instC INSTRUCTION: void rv32i_BGE(int get_rd, Decode* get_s)] BGE and BGEU take the branch if rs1 is greater than or equal to rs2, using signed and unsigned comparison respectively.\n");
