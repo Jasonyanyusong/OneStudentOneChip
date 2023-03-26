@@ -1,7 +1,7 @@
 void rv32i_ADD(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm)
 {
   // Completed
-  //INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add    , U, R(rd) = rs1 + rs2);
+  //INSTPAT("0000000 ????? ????? 000 ????? 01100 11", add    , R, R(rd) = rs1 + rs2);
   if(riscv64_instC_Print_ChecKPoinT)
   {
     printf("[NEMU_RISCV64_instC CHECKPOINT: void rv32i_ADD(int get_rd, Decode* get_s)] CKPT #01: Enter ADD Process Function\n");

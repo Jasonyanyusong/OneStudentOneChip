@@ -16,6 +16,7 @@
 #include "bgeu.h"
 #include "xori.h"
 #include "ori.h"
+#include "sub.h"
 
 // RV32I Instructions
 void rv32i_LB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
@@ -31,7 +32,6 @@ void rv32i_SLTIU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, wo
 void rv32i_SLLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SRLI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SRAI(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
-void rv32i_SUB(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLL(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLT(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
 void rv32i_SLTU(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
