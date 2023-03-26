@@ -11,6 +11,7 @@
 #include "and.h"
 #include "ecall.h"
 #include "ebreak.h"
+#include "bge.h"
 
 // RV32I Instructions
 void rv32i_BGE(Decode* get_s, int get_rd, word_t get_src1, word_t get_src2, word_t get_imm);
