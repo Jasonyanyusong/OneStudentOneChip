@@ -64,10 +64,10 @@ void give_sub_priority();
 int bool_to_int(bool bool_value);
 bool valid_call;
 
-bool expr_print_instruction = true;
-bool expr_print_debug = true;
-bool expr_print_checkpoint = true;
-bool expr_print_assertpoint = true;
+bool expr_print_instruction = false;
+bool expr_print_debug = false;
+bool expr_print_checkpoint = false;
+bool expr_print_assertpoint = false;
 void set_expr_print_instruction(bool target_expr_print_instruction);
 void set_expr_print_debug(bool target_expr_print_debug);
 void set_expr_print_checkpoint(bool target_expr_print_checkpoint);

@@ -26,10 +26,10 @@
 
 static int is_batch_mode = false;
 
-bool sdb_print_instruction = true;
-bool sdb_print_debug = true;
-bool sdb_print_checkpoint = true;
-bool sdb_print_assertpoint = true;
+bool sdb_print_instruction = false;
+bool sdb_print_debug = false;
+bool sdb_print_checkpoint = false;
+bool sdb_print_assertpoint = false;
 
 
 void init_regex();

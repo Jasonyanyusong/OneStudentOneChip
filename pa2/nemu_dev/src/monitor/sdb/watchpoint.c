@@ -32,10 +32,10 @@ typedef struct watchpoint {
 static WP wp_pool[NR_WP] = {};
 static WP *head = NULL, *free_ = NULL;
 
-bool watchpoint_print_instruction = true;
-bool watchpoint_print_debug = true;
-bool watchpoint_print_checkpoint = true;
-bool watchpoint_print_assertpoint = true;
+bool watchpoint_print_instruction = false;
+bool watchpoint_print_debug = false;
+bool watchpoint_print_checkpoint = false;
+bool watchpoint_print_assertpoint = false;
 void set_watchpoint_print_instruction(bool target_watchpoint_print_instruction);
 void set_watchpoint_print_debug(bool target_watchpoint_print_debug);
 void set_watchpoint_print_checkpoint(bool target_watchpoint_print_checkpoint);
