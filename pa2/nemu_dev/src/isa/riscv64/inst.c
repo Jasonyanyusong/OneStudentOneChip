@@ -68,7 +68,24 @@ static int decode_exec(Decode *s) {
   word_t src1 = 0, src2 = 0, src3 = 0, imm = 0;
   s->dnpc = s->snpc;
 
-  printf("Before Execute: rd=0x%x, R(rd)=0x%lx, src1=0x%lx, src2=0x%lx, src3=0x%lx, imm=0x%lx, pc=0x%lx, dnpc=0x%lx, snpc=0x%lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
+  char instruction_bin_string[33] = {0};
+  u_int32_t get_instruction = s->isa.inst.val;
+  for(int i = 0; i <= 31; i = i + 1)
+  {
+    if(get_instruction >= pow(2, 31 - i))
+    {
+      instruction_bin_string[i] = '1';
+      get_instruction = get_instruction - pow(2, 31 - i);
+    }
+    else
+    {
+      instruction_bin_string[i] = '0';
+    }
+  }
+  instruction_bin_string[32] = '\0';
+
+  printf("Instruction (Bin): 0b%s, Instruction (Oct): 0o%11o, Instruction (Dec): 0d%10d, Instruction (Hex):0x%8x \n", instruction_bin_string, s->isa.inst.val, s->isa.inst.val, s->isa.inst.val);
+  printf("Before Execute: rd=0x%4x, R(rd)=0x%8lx, src1=0x%8lx, src2=0x%8lx, src3=0x%8lx, imm=0x%16lx, pc=0x%8lx, dnpc=0x%8lx, snpc=0x%8lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
 
 #define INSTPAT_INST(s) ((s)->isa.inst.val)
 #define INSTPAT_MATCH(s, name, type, ... /* execute body */ ) { \
@@ -148,7 +165,7 @@ static int decode_exec(Decode *s) {
 
   R(0) = 0; // reset $zero to 0
 
-  printf("After  Execute: rd=0x%x, R(rd)=0x%lx, src1=0x%lx, src2=0x%lx, src3=0x%lx, imm=0x%lx, pc=0x%lx, dnpc=0x%lx, snpc=0x%lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
+  printf("After  Execute: rd=0x%4x, R(rd)=0x%8lx, src1=0x%8lx, src2=0x%8lx, src3=0x%8lx, imm=0x%16lx, pc=0x%8lx, dnpc=0x%8lx, snpc=0x%8lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
 
   return 0;
 }
