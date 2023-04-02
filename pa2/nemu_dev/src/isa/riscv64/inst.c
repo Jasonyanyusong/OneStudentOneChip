@@ -84,7 +84,7 @@ static int decode_exec(Decode *s) {
   }
   instruction_bin_string[32] = '\0';
 
-  printf("Instruction (Bin): 0b%s, Instruction (Oct): 0o%11o, Instruction (Dec): 0d%10d, Instruction (Hex):0x%8x \n", instruction_bin_string, s->isa.inst.val, s->isa.inst.val, s->isa.inst.val);
+  printf("\nInstruction (Bin): 0b%s, Instruction (Oct): 0o%11o, Instruction (Dec): 0d%10d, Instruction (Hex):0x%8x \n", instruction_bin_string, s->isa.inst.val, s->isa.inst.val, s->isa.inst.val);
   printf("Before Execute: rd=0x%4x, R(rd)=0x%8lx, src1=0x%8lx, src2=0x%8lx, src3=0x%8lx, imm=0x%16lx, pc=0x%8lx, dnpc=0x%8lx, snpc=0x%8lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
 
 #define INSTPAT_INST(s) ((s)->isa.inst.val)
@@ -100,8 +100,8 @@ static int decode_exec(Decode *s) {
   // RV64I Instructions
   // INSTPAT("??????? ????? ????? ??? ????? 01101 11", lui    , U, R(rd) = imm);
   INSTPAT("??????? ????? ????? ??? ????? 00101 11", auipc  , U, printf("RV32I AUIPC\n"), R(rd) = s -> pc + imm); // OK
-  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , J, printf("RV32I JAL\n"), R(rd) = s -> pc + 4, s -> pc = s -> pc + SEXT(imm << 1, 21)); // Need Fix?
-  INSTPAT("??????? ????? ????? 000 ????? 11001 11", jalr   , I, printf("RV32I JALR\n"), s -> pc = (src1 + imm) & ~ 1, R(rd) = s -> pc + 4); // Seem OK?
+  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , J, printf("RV32I JAL\n"), R(rd) = s -> pc + 4, s -> dnpc = s -> pc + /*SEXT(*/imm /*<< 1, 21)*/); // Need Fix?
+  INSTPAT("??????? ????? ????? 000 ????? 11001 11", jalr   , I, printf("RV32I JALR\n"), s -> dnpc = (src1 + imm) & ~ 1, R(rd) = s -> pc + 4); // Seem OK?
   // INSTPAT("??????? ????? ????? 000 ????? 11000 11", beq    , B, s -> pc = src1 == src2 ? s -> pc + imm : s -> pc + 4);
   // INSTPAT("??????? ????? ????? 001 ????? 11000 11", bne    , B, s -> pc = src1 != src2 ? s -> pc + imm : s -> pc + 4);
   // INSTPAT("??????? ????? ????? 100 ????? 11000 11", blt    , B, s -> pc = src1 <  src2 ? s -> pc + imm : s -> pc + 4);
@@ -188,7 +188,6 @@ static int decode_exec(Decode *s) {
   R(0) = 0; // reset $zero to 0
 
   printf("After  Execute: rd=0x%4x, R(rd)=0x%8lx, src1=0x%8lx, src2=0x%8lx, src3=0x%8lx, imm=0x%16lx, pc=0x%8lx, dnpc=0x%8lx, snpc=0x%8lx\n", rd, R(rd), src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
-  printf("\n");
 
   return 0;
 }
