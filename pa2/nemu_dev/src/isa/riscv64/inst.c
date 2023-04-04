@@ -38,7 +38,7 @@ bool riscv64_instC_Print_Instruction = true;
 
 #define src1R() do { *src1 = R(rs1); } while (0) // Skeleton Code
 #define src2R() do { *src2 = R(rs2); } while (0) // Skeleton Code
-#define src3R() do { *src3 = R(rs3); } while (0) // Referenced from src1R and src2R
+//#define src3R() do { *src3 = R(rs3); } while (0) // Referenced from src1R and src2R
 #define immI() do { *imm = SEXT(BITS(i, 31, 20), 12); } while(0) // Skeleton Code
 #define immU() do { *imm = SEXT(BITS(i, 31, 12), 20) << 12; } while(0) // Skeleton Code
 #define immS() do { *imm = (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); } while(0) // Skeleton Code
@@ -46,12 +46,12 @@ bool riscv64_instC_Print_Instruction = true;
 #define immB() do { *imm = (SEXT(BITS(i, 31, 31), 1) << 12) | BITS(i, 7, 7) << 11 | BITS(i, 30, 25) << 5 | BITS(i, 11, 8) << 1;} while(0)
 #define immJ() do { *imm = (SEXT(BITS(i, 31, 31), 1) << 20) | BITS(i, 19, 12) << 12 | BITS(i, 20, 20) << 11 | BITS(i, 30, 21) << 1;} while(0)
 
-static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_t *src3, word_t *imm, int type) {
+static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_t *imm, int type) {
   uint32_t i = s->isa.inst.val;
   int rs1 = BITS(i, 19, 15);
   int rs2 = BITS(i, 24, 20);
   // Below is rs3's implementation, rs3 appears in RV32(64)F, RV32(64)D, RV32(64)Q and RV32(64)Zfh 
-  int rs3 = BITS(i, 31, 27);
+  //int rs3 = BITS(i, 31, 27);
   *rd     = BITS(i, 11, 7);
   switch (type) {
     case TYPE_R : src1R(); src2R();         break;
@@ -62,12 +62,12 @@ static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_
     case TYPE_U :                   immU(); break;
     case TYPE_J :                   immJ(); break;
   }
-  printf("Before Execute: rd = %ls, rs1 = %x, rs2 = %x, rs3 = %x, src1 = %ln, src2 = %ln, src3 = %ln, imm = %ln, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
+  //printf("Before Execute: rd = %ls, rs1 = %x, rs2 = %x, src1 = %ln, src2 = %ln, imm = %ln, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, rs1, rs2, src1, src2, imm, s -> pc, s -> dnpc, s -> snpc);
 }
 
 static int decode_exec(Decode *s) {
   int rd = 0;
-  word_t src1 = 0, src2 = 0, src3 = 0, imm = 0;
+  word_t src1 = 0, src2 = 0, imm = 0;
   s->dnpc = s->snpc;
 
   char instruction_bin_string[33] = {0};
@@ -88,11 +88,11 @@ static int decode_exec(Decode *s) {
 
 #define INSTPAT_INST(s) ((s)->isa.inst.val)
 #define INSTPAT_MATCH(s, name, type, ... /* execute body */ ) { \
-  decode_operand(s, &rd, &src1, &src2, &src3, &imm, concat(TYPE_, type)); \
+  decode_operand(s, &rd, &src1, &src2, &imm, concat(TYPE_, type)); \
   __VA_ARGS__ ; \
 }
 
-  printf("Inst: %s\t%o\t%d\t%x\n", instruction_bin_string, s->isa.inst.val, s->isa.inst.val, s->isa.inst.val);
+  printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
 
   // For INSPAT Part, we use "assert(0)" if the instruction is not implemented
   // R(10) is $a0
@@ -177,7 +177,7 @@ static int decode_exec(Decode *s) {
   INSTPAT_END();
 
   R(0) = 0; // reset $zero to 0
-  printf("After  Execute: src1 = %lx, src2 = %lx, src3 = %lx, imm = %lx, pc = %lx, dnpc = %lx, snpc = %lx\n", src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
+  //printf("After  Execute: rd = %x, src1 = %lx, src2 = %lx, imm = %lx, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, src1, src2, imm, s -> pc, s -> dnpc, s -> snpc);
 
   // printf("rd = 0x%x, rs1 = 0x%x, rs2 = 0x%x, rs3 = 0x%x, src1 = 0x%lx, src2 = 0x%lx, src3 = 0x%lx, imm = 0x%lx, pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
   // printf("rd = 0d%d, rs1 = 0d%d, rs2 = 0d%d, rs3 = 0d%d, src1 = 0d%ld, src2 = 0d%ld, src3 = 0d%ld, imm = 0d%ld, pc = 0d%ld, dnpc = 0d%ld, snpc = 0d%ld\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
