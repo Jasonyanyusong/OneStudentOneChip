@@ -94,7 +94,7 @@ static int decode_exec(Decode *s) {
 }
 
   printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
-  printf("src1 = 0x%8lx, src2 = 0x%8lx, R(rd) = 0x%8lx, imm = 0x%8lx\n", src1, src2, R(rd), imm);
+  printf("src1 = 0x%8lx (%ld), src2 = 0x%8lx (%ld), R(rd) = 0x%8lx (%ld), imm = 0x%8lx (%ld)\n", src1, src1, src2, src2, R(rd), R(rd), imm, imm);
   printf("pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", s -> pc, s -> dnpc, s -> snpc);
 
   // For INSPAT Part, we use "assert(0)" if the instruction is not implemented
@@ -103,6 +103,7 @@ static int decode_exec(Decode *s) {
   // Test DUMMY Passed
   // Test SUM Passed
   // Test LEAP_YEAR Passed
+  // Test FACT Passed
 
   INSTPAT_START();
   // RV64I Instructions
@@ -170,7 +171,7 @@ static int decode_exec(Decode *s) {
   // INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu   , R, assert(0));
   // INSTPAT("0000001 ????? ????? 110 ????? 01100 11", rem    , R, assert(0));
   // INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu   , R, assert(0));
-  INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw   , R, printf("RV64M MULW\n"), R(rd) = src1 * src2);
+  INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw   , R, printf("RV64M MULW\n"), R(rd) = SEXT(BITS(src1 * src2, 31, 0), 32) & 0xFFFF); // Tested OK (FACT)
   // INSTPAT("0000001 ????? ????? 100 ????? 01110 11", divw   , R, assert(0));
   // INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw  , R, assert(0));
   INSTPAT("0000001 ????? ????? 110 ????? 01110 11", remw   , R, printf("RV64M REMW\n"), R(rd) = src1 - (src1 / src2) * src2); // Tested OK (LEAP_YEAR)
@@ -182,7 +183,7 @@ static int decode_exec(Decode *s) {
   R(0) = 0; // reset $zero to 0
   //printf("After  Execute: rd = %x, src1 = %lx, src2 = %lx, imm = %lx, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, src1, src2, imm, s -> pc, s -> dnpc, s -> snpc);
   printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
-  printf("src1 = 0x%8lx, src2 = 0x%8lx, R(rd) = 0x%8lx, imm = 0x%8lx\n", src1, src2, R(rd), imm);
+  printf("src1 = 0x%8lx (%ld), src2 = 0x%8lx (%ld), R(rd) = 0x%8lx (%ld), imm = 0x%8lx (%ld)\n", src1, src1, src2, src2, R(rd), R(rd), imm, imm);
   printf("pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", s -> pc, s -> dnpc, s -> snpc);
 
   // printf("rd = 0x%x, rs1 = 0x%x, rs2 = 0x%x, rs3 = 0x%x, src1 = 0x%lx, src2 = 0x%lx, src3 = 0x%lx, imm = 0x%lx, pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
@@ -191,6 +192,7 @@ static int decode_exec(Decode *s) {
 }
 
 int isa_exec_once(Decode *s) {
+  printf("********************************\n");
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
   return decode_exec(s);
 }
