@@ -63,7 +63,6 @@ static void decode_operand(Decode *s, int *rd, word_t *src1, word_t *src2, word_
     case TYPE_J :                   immJ(); break;
   }
   printf("rs1 = 0x%x, rs2 = 0x%x\n", rs1, rs2);
-  //printf("Before Execute: rd = %ls, rs1 = %x, rs2 = %x, src1 = %ln, src2 = %ln, imm = %ln, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, rs1, rs2, src1, src2, imm, s -> pc, s -> dnpc, s -> snpc);
 }
 
 static int decode_exec(Decode *s) {
@@ -182,13 +181,10 @@ static int decode_exec(Decode *s) {
   INSTPAT_END();
 
   R(0) = 0; // reset $zero to 0
-  //printf("After  Execute: rd = %x, src1 = %lx, src2 = %lx, imm = %lx, pc = %lx, dnpc = %lx, snpc = %lx\n", rd, src1, src2, imm, s -> pc, s -> dnpc, s -> snpc);
   printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
   printf("src1 = 0x%8lx (%ld), src2 = 0x%8lx (%ld), R(rd) = 0x%8lx (%ld), imm = 0x%8lx (%ld)\n", src1, src1, src2, src2, R(rd), R(rd), imm, imm);
   printf("pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", s -> pc, s -> dnpc, s -> snpc);
 
-  // printf("rd = 0x%x, rs1 = 0x%x, rs2 = 0x%x, rs3 = 0x%x, src1 = 0x%lx, src2 = 0x%lx, src3 = 0x%lx, imm = 0x%lx, pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
-  // printf("rd = 0d%d, rs1 = 0d%d, rs2 = 0d%d, rs3 = 0d%d, src1 = 0d%ld, src2 = 0d%ld, src3 = 0d%ld, imm = 0d%ld, pc = 0d%ld, dnpc = 0d%ld, snpc = 0d%ld\n", rd, rs1, rs2, rs3, src1, src2, src3, imm, s -> pc, s -> dnpc, s -> snpc);
   return 0;
 }
 
