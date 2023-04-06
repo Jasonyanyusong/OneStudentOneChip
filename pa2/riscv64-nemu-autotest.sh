@@ -66,7 +66,7 @@ cd $NEMU_HOME
 make clean
 
 cd $AM_KERNELS_HOME/tests/cpu-tests
-echo "TESTING hello-srt"
+echo "TESTING hello-str"
 make ARCH=riscv64-nemu ALL=hello-str run
 make clean
 cd $NEMU_HOME
