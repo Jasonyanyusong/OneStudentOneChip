@@ -1,0 +1,95 @@
+
+/home/ysyx/OneStudentOneChip/pa2/am-kernels_dev/tests/cpu-tests/build/mov-c-riscv64-nemu.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000080000000 <_start>:
+    80000000:	00000413          	addi	s0,zero,0
+    80000004:	00009117          	auipc	sp,0x9
+    80000008:	ffc10113          	addi	sp,sp,-4 # 80009000 <_end>
+    8000000c:	114000ef          	jal	ra,80000120 <_trm_init>
+
+0000000080000010 <check>:
+    80000010:	00050463          	beq	a0,zero,80000018 <check+0x8>
+    80000014:	00008067          	jalr	zero,0(ra)
+    80000018:	ff010113          	addi	sp,sp,-16
+    8000001c:	00100513          	addi	a0,zero,1
+    80000020:	00113423          	sd	ra,8(sp)
+    80000024:	0f0000ef          	jal	ra,80000114 <halt>
+
+0000000080000028 <main>:
+    80000028:	ff010113          	addi	sp,sp,-16
+    8000002c:	00813023          	sd	s0,0(sp)
+    80000030:	00000417          	auipc	s0,0x0
+    80000034:	11840413          	addi	s0,s0,280 # 80000148 <A>
+    80000038:	00042023          	sw	zero,0(s0)
+    8000003c:	00100793          	addi	a5,zero,1
+    80000040:	00f42223          	sw	a5,4(s0)
+    80000044:	00200793          	addi	a5,zero,2
+    80000048:	00f42423          	sw	a5,8(s0)
+    8000004c:	00300793          	addi	a5,zero,3
+    80000050:	00f42623          	sw	a5,12(s0)
+    80000054:	00400793          	addi	a5,zero,4
+    80000058:	00f42823          	sw	a5,16(s0)
+    8000005c:	00c42783          	lw	a5,12(s0)
+    80000060:	00113423          	sd	ra,8(sp)
+    80000064:	00000717          	auipc	a4,0x0
+    80000068:	10f72623          	sw	a5,268(a4) # 80000170 <b>
+    8000006c:	00000797          	auipc	a5,0x0
+    80000070:	1047a783          	lw	a5,260(a5) # 80000170 <b>
+    80000074:	00f42a23          	sw	a5,20(s0)
+    80000078:	00042503          	lw	a0,0(s0)
+    8000007c:	0005051b          	addiw	a0,a0,0
+    80000080:	00153513          	sltiu	a0,a0,1
+    80000084:	f8dff0ef          	jal	ra,80000010 <check>
+    80000088:	00442503          	lw	a0,4(s0)
+    8000008c:	0005051b          	addiw	a0,a0,0
+    80000090:	fff50513          	addi	a0,a0,-1
+    80000094:	00153513          	sltiu	a0,a0,1
+    80000098:	f79ff0ef          	jal	ra,80000010 <check>
+    8000009c:	00842503          	lw	a0,8(s0)
+    800000a0:	0005051b          	addiw	a0,a0,0
+    800000a4:	ffe50513          	addi	a0,a0,-2
+    800000a8:	00153513          	sltiu	a0,a0,1
+    800000ac:	f65ff0ef          	jal	ra,80000010 <check>
+    800000b0:	00c42503          	lw	a0,12(s0)
+    800000b4:	0005051b          	addiw	a0,a0,0
+    800000b8:	ffd50513          	addi	a0,a0,-3
+    800000bc:	00153513          	sltiu	a0,a0,1
+    800000c0:	f51ff0ef          	jal	ra,80000010 <check>
+    800000c4:	01042503          	lw	a0,16(s0)
+    800000c8:	0005051b          	addiw	a0,a0,0
+    800000cc:	ffc50513          	addi	a0,a0,-4
+    800000d0:	00153513          	sltiu	a0,a0,1
+    800000d4:	f3dff0ef          	jal	ra,80000010 <check>
+    800000d8:	00000517          	auipc	a0,0x0
+    800000dc:	09852503          	lw	a0,152(a0) # 80000170 <b>
+    800000e0:	ffd50513          	addi	a0,a0,-3
+    800000e4:	00153513          	sltiu	a0,a0,1
+    800000e8:	f29ff0ef          	jal	ra,80000010 <check>
+    800000ec:	01442503          	lw	a0,20(s0)
+    800000f0:	0005051b          	addiw	a0,a0,0
+    800000f4:	ffd50513          	addi	a0,a0,-3
+    800000f8:	00153513          	sltiu	a0,a0,1
+    800000fc:	f15ff0ef          	jal	ra,80000010 <check>
+    80000100:	00813083          	ld	ra,8(sp)
+    80000104:	00013403          	ld	s0,0(sp)
+    80000108:	00000513          	addi	a0,zero,0
+    8000010c:	01010113          	addi	sp,sp,16
+    80000110:	00008067          	jalr	zero,0(ra)
+
+0000000080000114 <halt>:
+    80000114:	00050513          	addi	a0,a0,0
+    80000118:	00100073          	ebreak
+    8000011c:	0000006f          	jal	zero,8000011c <halt+0x8>
+
+0000000080000120 <_trm_init>:
+    80000120:	ff010113          	addi	sp,sp,-16
+    80000124:	00000517          	auipc	a0,0x0
+    80000128:	01c50513          	addi	a0,a0,28 # 80000140 <_etext>
+    8000012c:	00113423          	sd	ra,8(sp)
+    80000130:	ef9ff0ef          	jal	ra,80000028 <main>
+    80000134:	00050513          	addi	a0,a0,0
+    80000138:	00100073          	ebreak
+    8000013c:	0000006f          	jal	zero,8000013c <_trm_init+0x1c>

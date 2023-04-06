@@ -1,0 +1,74 @@
+
+/home/ysyx/OneStudentOneChip/pa2/am-kernels_dev/tests/cpu-tests/build/leap-year-riscv64-nemu.elf:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000080000000 <_start>:
+    80000000:	00000413          	addi	s0,zero,0
+    80000004:	00009117          	auipc	sp,0x9
+    80000008:	ffc10113          	addi	sp,sp,-4 # 80009000 <_end>
+    8000000c:	0c0000ef          	jal	ra,800000cc <_trm_init>
+
+0000000080000010 <check>:
+    80000010:	00050463          	beq	a0,zero,80000018 <check+0x8>
+    80000014:	00008067          	jalr	zero,0(ra)
+    80000018:	ff010113          	addi	sp,sp,-16
+    8000001c:	00100513          	addi	a0,zero,1
+    80000020:	00113423          	sd	ra,8(sp)
+    80000024:	09c000ef          	jal	ra,800000c0 <halt>
+
+0000000080000028 <main>:
+    80000028:	fd010113          	addi	sp,sp,-48
+    8000002c:	02813023          	sd	s0,32(sp)
+    80000030:	00913c23          	sd	s1,24(sp)
+    80000034:	01213823          	sd	s2,16(sp)
+    80000038:	01313423          	sd	s3,8(sp)
+    8000003c:	01413023          	sd	s4,0(sp)
+    80000040:	02113423          	sd	ra,40(sp)
+    80000044:	00000497          	auipc	s1,0x0
+    80000048:	0b448493          	addi	s1,s1,180 # 800000f8 <ans>
+    8000004c:	00000917          	auipc	s2,0x0
+    80000050:	2a090913          	addi	s2,s2,672 # 800002ec <_bss_start>
+    80000054:	76200413          	addi	s0,zero,1890
+    80000058:	19000993          	addi	s3,zero,400
+    8000005c:	06400a13          	addi	s4,zero,100
+    80000060:	00347793          	andi	a5,s0,3
+    80000064:	0004071b          	addiw	a4,s0,0
+    80000068:	00079863          	bne	a5,zero,80000078 <main+0x50>
+    8000006c:	034766bb          	remw	a3,a4,s4
+    80000070:	00100793          	addi	a5,zero,1
+    80000074:	00069663          	bne	a3,zero,80000080 <main+0x58>
+    80000078:	0337673b          	remw	a4,a4,s3
+    8000007c:	00173793          	sltiu	a5,a4,1
+    80000080:	0004a503          	lw	a0,0(s1)
+    80000084:	00448493          	addi	s1,s1,4
+    80000088:	0014041b          	addiw	s0,s0,1
+    8000008c:	40f50533          	sub	a0,a0,a5
+    80000090:	00153513          	sltiu	a0,a0,1
+    80000094:	f7dff0ef          	jal	ra,80000010 <check>
+    80000098:	fd2494e3          	bne	s1,s2,80000060 <main+0x38>
+    8000009c:	02813083          	ld	ra,40(sp)
+    800000a0:	02013403          	ld	s0,32(sp)
+    800000a4:	01813483          	ld	s1,24(sp)
+    800000a8:	01013903          	ld	s2,16(sp)
+    800000ac:	00813983          	ld	s3,8(sp)
+    800000b0:	00013a03          	ld	s4,0(sp)
+    800000b4:	00000513          	addi	a0,zero,0
+    800000b8:	03010113          	addi	sp,sp,48
+    800000bc:	00008067          	jalr	zero,0(ra)
+
+00000000800000c0 <halt>:
+    800000c0:	00050513          	addi	a0,a0,0
+    800000c4:	00100073          	ebreak
+    800000c8:	0000006f          	jal	zero,800000c8 <halt+0x8>
+
+00000000800000cc <_trm_init>:
+    800000cc:	ff010113          	addi	sp,sp,-16
+    800000d0:	00000517          	auipc	a0,0x0
+    800000d4:	02050513          	addi	a0,a0,32 # 800000f0 <mainargs>
+    800000d8:	00113423          	sd	ra,8(sp)
+    800000dc:	f4dff0ef          	jal	ra,80000028 <main>
+    800000e0:	00050513          	addi	a0,a0,0
+    800000e4:	00100073          	ebreak
+    800000e8:	0000006f          	jal	zero,800000e8 <_trm_init+0x1c>
