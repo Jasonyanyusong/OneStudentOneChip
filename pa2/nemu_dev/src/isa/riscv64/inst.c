@@ -91,8 +91,11 @@ static int decode_exec(Decode *s) {
   decode_operand(s, &rd, &src1, &src2, &imm, concat(TYPE_, type)); \
   __VA_ARGS__ ; \
 }
+  int rs1 = BITS(s->isa.inst.val, 19, 15);
+  int rs2 = BITS(s->isa.inst.val, 24, 20);
 
   printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
+  printf("rs1 = 0x%x (%d), rs2 = 0x%x (%d), rd = 0x%x (%d)\n", rs1, rs1, rs2, rs2, rd, rd);
   printf("src1 = 0x%8lx (%ld), src2 = 0x%8lx (%ld), R(rd) = 0x%8lx (%ld), imm = 0x%8lx (%ld)\n", src1, src1, src2, src2, R(rd), R(rd), imm, imm);
   printf("pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", s -> pc, s -> dnpc, s -> snpc);
 
@@ -152,14 +155,14 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 011 ????? 00000 11", ld     , I, printf("RV64I LD\n"), R(rd) = Mr(src1 + imm, 8)); // Tested OK (GIVEN INSTRUCTION)
   INSTPAT("??????? ????? ????? 011 ????? 01000 11", sd     , S, printf("RV64I SD\n"), Mw(src1 + imm, 8, src2)); // Tested OK (GIVEN INSTRUCTION)
   INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw  , I, printf("RV64I ADDIW\n"), R(rd) = src1 + imm); // Tested OK (SUM) (May need changes)
-  INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw  , R, assert(0));
-  INSTPAT("0000000 ????? ????? 101 ????? 00110 11", srliw  , R, assert(0));
-  INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw  , R, assert(0));
+  INSTPAT("0000000 ????? ????? 001 ????? 00110 11", slliw  , R, printf("RV64I SLLIW\n"), R(rd) = SEXT(BITS(src1, 31, 0) << BITS(imm, 4, 0), 64));
+  INSTPAT("0000000 ????? ????? 101 ????? 00110 11", srliw  , R, printf("RV64I SRLIW\n"), R(rd) = SEXT(BITS(src1, 31, 0) >> BITS(imm, 4, 0), 64));
+  INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw  , R, printf("RV64I SRAIW\n"), R(rd) = SEXT(BITS(src1, 31, 31) << 31 | (BITS(src1, 31, 0) >> BITS(imm, 4, 0)), 64));
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw   , R, printf("RV64I ADDW\n"), R(rd) = SEXT(BITS(src1 + src2, 31, 0), 32) & 0xFFFF); // Tested OK (SUM) (May need changes) (FIB) (This time is confident)
   INSTPAT("0100000 ????? ????? 000 ????? 01110 11", subw   , R, printf("RV64I SUBW\n"), R(rd) = SEXT(BITS(src1 - src2, 31, 0), 32) & 0xFFFF);
-  INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw   , R, assert(0));
-  INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw   , R, assert(0));
-  INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw   , R, assert(0));
+  INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw   , R, printf("RV64I SLLW\n"), R(rd) = SEXT(BITS(src1, 31, 0) << rs2, 64));
+  INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw   , R, printf("RV64I SRLW\n"), R(rd) = SEXT(BITS(src1, 31, 0) >> rs2, 64));
+  INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw   , R, printf("RV64I SRAW\n"), R(rd) = SEXT(BITS(src1, 31, 31) << 31 | (BITS(src1, 31, 0) >> rs2), 64));
 
   // RV64M Instructions
   INSTPAT("0000001 ????? ????? 000 ????? 01100 11", mul    , R, printf("RV64M MUL\n"), R(rd) = BITS(src1 * src2, 31, 0));
@@ -181,6 +184,7 @@ static int decode_exec(Decode *s) {
 
   R(0) = 0; // reset $zero to 0
   printf("Inst: %s (0x%8x)\n", instruction_bin_string, s->isa.inst.val);
+  printf("rs1 = 0x%x (%d), rs2 = 0x%x (%d), rd = 0x%x (%d)\n", rs1, rs1, rs2, rs2, rd, rd);
   printf("src1 = 0x%8lx (%ld), src2 = 0x%8lx (%ld), R(rd) = 0x%8lx (%ld), imm = 0x%8lx (%ld)\n", src1, src1, src2, src2, R(rd), R(rd), imm, imm);
   printf("pc = 0x%lx, dnpc = 0x%lx, snpc = 0x%lx\n", s -> pc, s -> dnpc, s -> snpc);
 
