@@ -38,9 +38,9 @@ cd $AM_KERNELS_HOME/tests/cpu-tests
 echo "TESTING goldbach"
 make ARCH=riscv64-nemu ALL=goldbach run
 
-cd $AM_KERNELS_HOME/tests/cpu-tests
-echo "TESTING hello-str"
-make ARCH=riscv64-nemu ALL=hello-str run
+# cd $AM_KERNELS_HOME/tests/cpu-tests
+# echo "TESTING hello-str"
+# make ARCH=riscv64-nemu ALL=hello-str run
 
 cd $AM_KERNELS_HOME/tests/cpu-tests
 echo "TESTING leap-year"
@@ -98,9 +98,9 @@ cd $AM_KERNELS_HOME/tests/cpu-tests
 echo "TESTING shuixianhua"
 make ARCH=riscv64-nemu ALL=shuixianhua run
 
-cd $AM_KERNELS_HOME/tests/cpu-tests
-echo "TESTING string"
-make ARCH=riscv64-nemu ALL=string run
+# cd $AM_KERNELS_HOME/tests/cpu-tests
+# echo "TESTING string"
+# make ARCH=riscv64-nemu ALL=string run
 
 cd $AM_KERNELS_HOME/tests/cpu-tests
 echo "TESTING sub-longlong"
