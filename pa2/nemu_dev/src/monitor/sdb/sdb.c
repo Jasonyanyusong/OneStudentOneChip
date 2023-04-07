@@ -171,6 +171,41 @@ static int cmd_si(char *args){
   return 0;
 }
 
+static int cmd_reglog(char *args){
+  if (sdb_print_instruction)
+  {
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_reglog(char *args)] cmd_reglog command\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_reglog(char *args)] Show the log of registers, default 1, can add a number between 0 and 31 to show specified register\n");
+    printf("[NEMU_SDB_INSTRUCTION: static int cmd_reglog(char *args)] Subcommnd Received: \"%s\"\n", args);
+  }
+  if (args == NULL){
+    if (sdb_print_debug)
+    {
+      printf("[NEMU_SDB_DEBUG: static int cmd_reglog(char *args)] No Subcommand received, default all\n");
+    }
+    reglog_print_all();
+  }
+  else{
+    int cmd_reglog_n;
+    cmd_reglog_n = atoi(args);
+    if(cmd_reglog_n < 0 || cmd_reglog_n > 31)
+    {
+      printf("Invalid input\n");
+      return 0;
+    }
+    if (sdb_print_debug)
+    {
+      printf("[NEMU_SDB_DEBUG: static int cmd_reglog(char *args)] Will execute cpu_exec %d times\n", cmd_reglog_n);
+    }
+    reglog_print(cmd_reglog_n);
+  }
+  if (sdb_print_debug)
+  {
+    printf("[NEMU_SDB_DEBUG: static int cmd_reglog(char *args)] Execution finished\n");
+  }
+  return 0;
+}
+
 static int cmd_info(char *args){
   if (sdb_print_instruction)
   {
@@ -638,6 +673,7 @@ static struct {
   { "w", "When the value of EXPR changes, suspend the program", cmd_w},
   { "d", "Delete the watch point with number N", cmd_d},
   { "message", "Modify mode of different types(instruction, debug, checkopint, assertpoint) of message output in different areas(sdb, expr, watchpoint)", cmd_message},
+  { "reglog", "Show the log of registers, default 1, can add a number between 0 and 31 to show specified register", cmd_reglog}
 };
 
 #define NR_CMD ARRLEN(cmd_table)
@@ -713,6 +749,9 @@ void sdb_mainloop() {
 }
 
 void init_sdb() {
+  /* Initialize the register log*/
+  init_reglog();
+
   /* Compile the regular expressions. */
   init_regex();
 

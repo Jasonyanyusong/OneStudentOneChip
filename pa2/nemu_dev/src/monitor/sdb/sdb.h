@@ -56,4 +56,10 @@ void delete_WP(int WP_number);
 void print_WP();
 void check_WP();
 
+// Functions in reglog.c
+void init_reglog();
+void reglog_print(int register_number);
+void reglog_print_all();
+void reglog_record(word_t register_values[], word_t pc);
+
 #endif
