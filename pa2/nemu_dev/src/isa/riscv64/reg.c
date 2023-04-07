@@ -16,6 +16,7 @@
 #include <isa.h>
 #include "local-include/reg.h"
 #include <string.h>
+#include <math.h>
 
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -24,14 +25,52 @@ const char *regs[] = {
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
 
+const char *regs_alias[] = {
+  "x0", "x1", "x2", "x3", "x4", "x5", "x6", "x7",
+  "x8", "x9", "x10", "x11", "x12", "x13", "x14", "x15",
+  "x16", "x17", "x18", "x19", "x20", "x21", "x22", "x23",
+  "x24", "x25", "x26", "x27", "x28", "x29", "x30", "x31"
+};
+
 void isa_reg_display() {
-  printf("*********************************************************\n");
-  printf("| Name |      Hex       |     Dec      |      Oct       |\n");
+  printf("******************************************************************RV64 Integer Registers******************************************************************\n");
+  printf("|    Name     |       Hex       |       Dec       |       Oct       |                                        Bin                                         |\n");
   for (int i = 0; i < 32; i = i + 1)
   {
-    printf("| %4s | 0x%12lx | %12ld | 0o%12lo |\n", regs[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i]);
+    char reg_value_bin_string[65] = {0};
+    u_int64_t get_reg_value = cpu.gpr[i];
+    for(int i = 0; i <= 63; i = i + 1)
+    {
+      if(get_reg_value >= pow(2, 63 - i))
+      {
+        reg_value_bin_string[i] = '1';
+        get_reg_value = get_reg_value - pow(2, 63 - i);
+      }
+      else
+      {
+        reg_value_bin_string[i] = '0';
+      }
+    }
+    reg_value_bin_string[64] = '\0';
+    char display_reg_string[79] = {0};
+    for(int parts_number = 0; parts_number < 16; parts_number = parts_number + 1)
+    {
+      for(int secter_number = 0; secter_number <= 4; secter_number = secter_number + 1)
+      {
+        if(secter_number != 4)
+        {
+          display_reg_string[5 * parts_number + secter_number] = reg_value_bin_string[4 * parts_number + secter_number];
+        }
+        else
+        {
+          display_reg_string[5 * parts_number + secter_number] = ' ';
+        }
+      }
+    }
+    display_reg_string[79] = '\0';
+    printf("| %4s (%4s) | 0x %12lx | 0d %12ld | 0o %12lo | 0b %s |\n", regs[i], regs_alias[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i], display_reg_string);
   }
-  printf("*********************************************************\n");
+  printf("******************************************************************RV64 Integer Registers******************************************************************\n");
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
