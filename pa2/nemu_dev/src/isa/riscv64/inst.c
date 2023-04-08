@@ -175,7 +175,7 @@ static int decode_exec(Decode *s) {
   // INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu   , R, printf("RV64M DIVU\n")    , R(rd) = (unsigned)(src1 / src2));
   // INSTPAT("0000001 ????? ????? 110 ????? 01100 11", rem    , R, printf("RV64M REM\n")     , R(rd) = src1 - (src1 / src2) * src2);
   // INSTPAT("0000001 ????? ????? 111 ????? 01100 11", remu   , R, printf("RV64M REMU\n")    , R(rd) = (unsigned)(src1 - (src1 / src2) * src2));
-  // INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw   , R, printf("RV64M MULW\n")    , R(rd) = SEXT(BITS(src1 * src2, 31, 0), 32) & 0xFFFF);
+  INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw   , R, printf("RV64M MULW\n")    , R(rd) = SEXT(BITS(src1 * src2, 31, 0), 32) & 0xFFFF);
   // INSTPAT("0000001 ????? ????? 100 ????? 01110 11", divw   , R, printf("RV64M DIVW\n")    , R(rd) = SEXT(BITS(src1 / src2, 31, 0), 32) & 0xFFFF);
   // INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw  , R, printf("RV64M DIVUW\n")   , R(rd) = SEXT(BITS((unsigned)src1 / (unsigned)src2, 31, 0), 32) & 0xFFFF);
   // INSTPAT("0000001 ????? ????? 110 ????? 01110 11", remw   , R, printf("RV64M REMW\n")    , R(rd) = src1 - (src1 / src2) * src2);
