@@ -80,6 +80,7 @@ static void execute(uint64_t n) {
     if (nemu_state.state != NEMU_RUNNING) break;
     IFDEF(CONFIG_DEVICE, device_update());
   }
+  reglog_record(isa_reg2val_all(), s.pc);
 }
 
 static void statistic() {
