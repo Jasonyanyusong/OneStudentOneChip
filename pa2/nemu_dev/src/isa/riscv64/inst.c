@@ -19,7 +19,7 @@
 #include <cpu/ifetch.h>
 #include <cpu/decode.h>
 #include "math.h"
-#include "sdb.h"
+// #include "sdb.h"
 // #include <stdlib.h>
 
 #define R(i) gpr(i)
