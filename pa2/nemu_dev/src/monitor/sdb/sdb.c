@@ -195,7 +195,7 @@ static int cmd_reglog(char *args){
     }
     if (sdb_print_debug)
     {
-      printf("[NEMU_SDB_DEBUG: static int cmd_reglog(char *args)] Will execute cpu_exec %d times\n", cmd_reglog_n);
+      printf("[NEMU_SDB_DEBUG: static int cmd_reglog(char *args)] Will show reglog of register No.%d\n", cmd_reglog_n);
     }
     reglog_print(cmd_reglog_n);
   }
@@ -750,7 +750,8 @@ void sdb_mainloop() {
 
 void init_sdb() {
   /* Initialize the register log*/
-  init_reglog();
+  IFDEF(CONFIG_REGLOG, init_reglog());
+  IFNDEF(CONFIG_REGLOG, Log("reglog is not enabled, to enable it, run \"make menuconfig\"!"));
 
   /* Compile the regular expressions. */
   init_regex();
