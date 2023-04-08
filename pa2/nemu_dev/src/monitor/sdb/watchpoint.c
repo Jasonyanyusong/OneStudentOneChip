@@ -228,7 +228,6 @@ void record_WP(char* expression)
 
 void delete_WP(int WP_number)
 {
-  // TODO
   if(watchpoint_print_checkpoint)
   {
     printf("[NEMU_WATCHPOINT_CHECKPOINT: void delete_WP(int WP_number)] CKPT #01: Enter function\n");
@@ -270,7 +269,6 @@ void delete_WP(int WP_number)
 
 void print_WP()
 {
-  // TODO
   if(watchpoint_print_checkpoint)
   {
     printf("[NEMU_WATCHPOINT_CHECKPOINT: void print_WP(int WP_number)] CKPT #01: Enter function\n");
@@ -303,7 +301,6 @@ void print_WP()
 
 void check_WP()
 {
-  // TODO
   if(watchpoint_print_checkpoint)
   {
     printf("[NEMU_WATCHPOINT_CHECKPOINT: void check_WP()] CKPT #01: Enter function\n");

@@ -32,6 +32,8 @@ const char *regs_alias[] = {
   "x24", "x25", "x26", "x27", "x28", "x29", "x30", "x31"
 };
 
+word_t ans[32] = {0};
+
 void isa_reg_display() {
   printf("******************************************************************RV64 Integer Registers******************************************************************\n");
   printf("|    Name     |       Hex       |       Dec       |       Oct       |                                        Bin                                         |\n");
@@ -84,4 +86,18 @@ word_t isa_reg_str2val(const char *s, bool *success) {
   }
   *success = false;
   return 0;
+}
+
+word_t isa_reg2val(int regNo)
+{
+  return cpu.gpr[regNo];
+}
+
+word_t* isa_reg2val_all()
+{
+  for(int i = 0; i < 32; i = i + 1)
+  {
+    ans[i] = isa_reg2val(i);
+  }
+  return ans;
 }
