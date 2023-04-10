@@ -17,6 +17,7 @@
 #include "mmu.h"
 #include "../../include/common.h"
 #include <difftest-def.h>
+#include <optional>
 
 #ifdef CONFIG_ISA_riscv32
 #undef DEFAULT_ISA
