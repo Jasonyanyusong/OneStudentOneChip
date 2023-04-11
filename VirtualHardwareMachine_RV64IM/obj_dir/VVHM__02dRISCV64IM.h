@@ -25,6 +25,7 @@ class VVHM__02dRISCV64IM VL_NOT_FINAL : public VerilatedModel {
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clk,0,0);
+    VL_OUT8(&vhm_status,0,0);
     VL_IN(&riscv_32bits_instruction,31,0);
 
     // CELLS

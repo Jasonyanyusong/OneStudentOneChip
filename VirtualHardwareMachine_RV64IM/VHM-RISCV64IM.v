@@ -1,7 +1,9 @@
-module RV64IM_VHM(riscv_32bits_instruction, clk);
+module RV64IM_VHM(riscv_32bits_instruction, clk, vhm_status);
     input clk; // This is the clock of the VHM.
 
     input [31:0] riscv_32bits_instruction; // This is the only input of RV64IM_VHM, this is the port that the processor receive instruction from simulation and simulator.
+
+    output reg vhm_status; // This is a signal indicating invalid instructions/operations. If this reg is high, it means that some invalid instructions are implemented.
 
     reg [6:0] opcode; // This is used for storing the opcode, the last 7 digit of instruction.
 
@@ -24,7 +26,7 @@ module RV64IM_VHM(riscv_32bits_instruction, clk);
     reg [63:0] intreg_x16, intreg_x17, intreg_x18, intreg_x19, intreg_x20, intreg_x21, intreg_x22, intreg_x23;    // Register x16 to x23, XLEN = 64.
     reg [63:0] intreg_x24, intreg_x25, intreg_x26, intreg_x27, intreg_x28, intreg_x29, intreg_x30, intreg_x31;    // Register x24 to x31, XLEN = 64.
 
-    reg [63:0] sim_integer_register[0:31]; // Registers with XLEN = 64, After executiion, copy sim_integer_register to intreg.
+    reg [63:0] sim_integer_register[31:0]; // Registers with XLEN = 64, After executiion, copy sim_integer_register to intreg.
 
     reg [7:0] sim_memory[0:268435455]; // Memory size is 0x10000000.
 
@@ -46,44 +48,51 @@ module RV64IM_VHM(riscv_32bits_instruction, clk);
 
 
         case (opcode)
+
+            7'b0110111: // LUI(U-type)
+            begin
+                // LUI (load upper immediate) is used to build 32-bit constants and uses the U-type format. LUI
+                // places the 32-bit U-immediate value into the destination register rd, filling in the lowest 12 bits
+                // with zeros.
+
+                /* verilator lint_off WIDTH */
+                sim_integer_register[rd] = imm_U;
+                /* verilator lint_on WIDTH */
+                vhm_status = 1'b0;
+            end
+
+            7'b0010111: // AUIPC(U-type)
+            begin
+                // AUIPC (add upper immediate to pc) is used to build pc-relative addresses and uses the U-type
+                // format. AUIPC forms a 32-bit offset from the U-immediate, filling in the lowest 12 bits with zeros,
+                // adds this offset to the address of the AUIPC instruction, then places the result in register rd.
+
+                /* verilator lint_off WIDTH */
+                sim_integer_register[rd] = vhm_pc + imm_U;
+                /* verilator lint_on WIDTH */
+                vhm_status = 1'b0;
+            end
+
             // TODO: the opcode is initialized, for some opcode, we may need another case structure.
+            default:
+            begin
+                // Raise Error (Here, we raise error by puting output signal vhm_status to high)
+                vhm_status = 1'b1;
+            end
+            
         endcase
 
         sim_integer_register[0] = 64'b0000000000000000000000000000000000000000000000000000000000000000; // Register x0($0) is always 0.
         
         // Copy each register's value from sim_integer_register to intreg (This can make later observation easier)
-        intreg_x00 = sim_integer_register[0];
-        intreg_x01 = sim_integer_register[1];
-        intreg_x02 = sim_integer_register[2];
-        intreg_x03 = sim_integer_register[3];
-        intreg_x04 = sim_integer_register[4];
-        intreg_x05 = sim_integer_register[5];
-        intreg_x06 = sim_integer_register[6];
-        intreg_x07 = sim_integer_register[7];
-        intreg_x08 = sim_integer_register[8];
-        intreg_x09 = sim_integer_register[9];
-        intreg_x10 = sim_integer_register[10];
-        intreg_x11 = sim_integer_register[11];
-        intreg_x12 = sim_integer_register[12];
-        intreg_x13 = sim_integer_register[13];
-        intreg_x14 = sim_integer_register[14];
-        intreg_x15 = sim_integer_register[15];
-        intreg_x16 = sim_integer_register[16];
-        intreg_x17 = sim_integer_register[17];
-        intreg_x18 = sim_integer_register[18];
-        intreg_x19 = sim_integer_register[19];
-        intreg_x20 = sim_integer_register[20];
-        intreg_x21 = sim_integer_register[21];
-        intreg_x22 = sim_integer_register[22];
-        intreg_x23 = sim_integer_register[23];
-        intreg_x24 = sim_integer_register[24];
-        intreg_x25 = sim_integer_register[25];
-        intreg_x26 = sim_integer_register[26];
-        intreg_x27 = sim_integer_register[27];
-        intreg_x28 = sim_integer_register[28];
-        intreg_x29 = sim_integer_register[29];
-        intreg_x30 = sim_integer_register[30];
-        intreg_x31 = sim_integer_register[31];
+        intreg_x00 = sim_integer_register[0];  intreg_x01 = sim_integer_register[1];  intreg_x02 = sim_integer_register[2];  intreg_x03 = sim_integer_register[3];
+        intreg_x04 = sim_integer_register[4];  intreg_x05 = sim_integer_register[5];  intreg_x06 = sim_integer_register[6];  intreg_x07 = sim_integer_register[7];
+        intreg_x08 = sim_integer_register[8];  intreg_x09 = sim_integer_register[9];  intreg_x10 = sim_integer_register[10]; intreg_x11 = sim_integer_register[11];
+        intreg_x12 = sim_integer_register[12]; intreg_x13 = sim_integer_register[13]; intreg_x14 = sim_integer_register[14]; intreg_x15 = sim_integer_register[15];
+        intreg_x16 = sim_integer_register[16]; intreg_x17 = sim_integer_register[17]; intreg_x18 = sim_integer_register[18]; intreg_x19 = sim_integer_register[19];
+        intreg_x20 = sim_integer_register[20]; intreg_x21 = sim_integer_register[21]; intreg_x22 = sim_integer_register[22]; intreg_x23 = sim_integer_register[23];
+        intreg_x24 = sim_integer_register[24]; intreg_x25 = sim_integer_register[25]; intreg_x26 = sim_integer_register[26]; intreg_x27 = sim_integer_register[27];
+        intreg_x28 = sim_integer_register[28]; intreg_x29 = sim_integer_register[29]; intreg_x30 = sim_integer_register[30]; intreg_x31 = sim_integer_register[31];
     end
 
 endmodule

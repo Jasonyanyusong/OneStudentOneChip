@@ -11,6 +11,7 @@ VVHM__02dRISCV64IM::VVHM__02dRISCV64IM(VerilatedContext* _vcontextp__, const cha
     : VerilatedModel{*_vcontextp__}
     , vlSymsp{new VVHM__02dRISCV64IM__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
+    , vhm_status{vlSymsp->TOP.vhm_status}
     , riscv_32bits_instruction{vlSymsp->TOP.riscv_32bits_instruction}
     , rootp{&(vlSymsp->TOP)}
 {

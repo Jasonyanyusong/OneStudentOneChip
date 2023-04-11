@@ -14,11 +14,14 @@ class VVHM__02dRISCV64IM___024root final : public VerilatedModule {
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
+    VL_OUT8(vhm_status,0,0);
+    CData/*0:0*/ __Vtrigrprev__TOP__clk;
     CData/*0:0*/ __VactContinue;
     VL_IN(riscv_32bits_instruction,31,0);
     IData/*31:0*/ __VactIterCount;
-    VlTriggerVec<0> __VactTriggered;
-    VlTriggerVec<0> __VnbaTriggered;
+    QData/*63:0*/ RV64IM_VHM__DOT__vhm_pc;
+    VlTriggerVec<1> __VactTriggered;
+    VlTriggerVec<1> __VnbaTriggered;
 
     // INTERNAL VARIABLES
     VVHM__02dRISCV64IM__Syms* const vlSymsp;
