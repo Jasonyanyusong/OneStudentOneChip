@@ -165,7 +165,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0100000 ????? ????? 101 ????? 00110 11", sraiw  , R, printf("RV64I SRAIW\n")   , R(rd) = SEXT((signed)BITS(src1, 31, 31) << 31 | (BITS(src1, 31, 0) >> BITS(imm, 4, 0)), 64));
   INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw   , R, printf("RV64I ADDW\n")    , R(rd) = SEXT(BITS((signed)(src1 + src2), 31, 0), 64));
   INSTPAT("0100000 ????? ????? 000 ????? 01110 11", subw   , R, printf("RV64I SUBW\n")    , R(rd) = SEXT(BITS((signed)(src1 - src2), 31, 0), 64));
-  INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw   , R, printf("RV64I SLLW\n")    , R(rd) = SEXT((unsigned)BITS(src1, 31, 0) << rs2, 64));
+  INSTPAT("0000000 ????? ????? 001 ????? 01110 11", sllw   , R, printf("RV64I SLLW\n")    , R(rd) = SEXT(BITS((unsigned)BITS(src1, 31, 0) << src2, 31, 0), 64));
   INSTPAT("0000000 ????? ????? 101 ????? 01110 11", srlw   , R, printf("RV64I SRLW\n")    , R(rd) = SEXT((unsigned)BITS(src1, 31, 0) >> rs2, 64));
   INSTPAT("0100000 ????? ????? 101 ????? 01110 11", sraw   , R, printf("RV64I SRAW\n")    , R(rd) = SEXT((signed)BITS(src1, 31, 0) >> rs2, 64));
 
