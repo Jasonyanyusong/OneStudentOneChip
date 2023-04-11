@@ -36,6 +36,9 @@ module RV64IM_VHM(riscv_32bits_instruction, clk, vhm_status);
     begin
         // Before the execution of the instruction, we first get the opcode, then we get the register indicators and last we get the immediate values.
         opcode = riscv_32bits_instruction[6:0];
+        funct2 = riscv_32bits_instruction[26:25];
+        funct3 = riscv_32bits_instruction[14:12];
+        funct7 = riscv_32bits_instruction[31:25];
         rd = riscv_32bits_instruction[11:7];
         rs1 = riscv_32bits_instruction[19:15];
         rs2 = riscv_32bits_instruction[24:20];
@@ -73,13 +76,55 @@ module RV64IM_VHM(riscv_32bits_instruction, clk, vhm_status);
                 vhm_status = 1'b0;
             end
 
+            7'b1101111: // JAL(J-type)
+            begin
+                // The jump and link (JAL) instruction uses the J-type format, where the J-immediate encodes a
+                // signed offset in multiples of 2 bytes. The offset is sign-extended and added to the address of the
+                // jump instruction to form the jump target address. Jumps can therefore target a ±1 MiB range.
+                // JAL stores the address of the instruction that follows the JAL (pc+4) into register rd. The standard
+                // software calling convention uses x1 as the return address register and x5 as an alternate link register.
+
+                sim_integer_register[rd] = vhm_pc + 4;
+                /* verilator lint_off WIDTH */
+                vhm_dnpc = vhm_pc + imm_J;
+                /* verilator lint_on WIDTH */
+                vhm_status = 1'b0;
+            end
+
+            7'b1100111:
+            begin
+                case(funct3)
+
+                    3'b000: // JALR(I-type)
+                    begin
+                        // The indirect jump instruction JALR (jump and link register) uses the I-type encoding. The target
+                        // address is obtained by adding the sign-extended 12-bit I-immediate to the register rs1, then setting
+                        // the least-significant bit of the result to zero. The address of the instruction following the jump
+                        // (pc+4) is written to register rd. Register x0 can be used as the destination if the result is not
+                        // required.
+
+                        /* verilator lint_off WIDTH */
+                        vhm_dnpc = (sim_integer_register[rs1] + imm_I) & ~ 1;
+                        /* verilator lint_on WIDTH */
+                        sim_integer_register[rd] = vhm_pc + 4;
+                        vhm_status = 1'b0;
+                    end
+
+                    default:
+                    begin
+                        // Raise Error (Here, we raise error by puting output signal vhm_status to high)
+                        vhm_status = 1'b1;
+                    end
+                endcase
+            end
+
             // TODO: the opcode is initialized, for some opcode, we may need another case structure.
             default:
             begin
                 // Raise Error (Here, we raise error by puting output signal vhm_status to high)
                 vhm_status = 1'b1;
             end
-            
+
         endcase
 
         sim_integer_register[0] = 64'b0000000000000000000000000000000000000000000000000000000000000000; // Register x0($0) is always 0.

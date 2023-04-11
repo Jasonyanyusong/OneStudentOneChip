@@ -19,21 +19,109 @@ VL_INLINE_OPT void VVHM__02dRISCV64IM___024root___nba_sequent__TOP__0(VVHM__02dR
     // Init
     CData/*6:0*/ RV64IM_VHM__DOT__opcode;
     CData/*4:0*/ RV64IM_VHM__DOT__rd;
+    CData/*2:0*/ RV64IM_VHM__DOT__funct3;
     IData/*31:0*/ RV64IM_VHM__DOT__imm_U;
+    IData/*20:0*/ RV64IM_VHM__DOT__imm_J;
     VlUnpacked<QData/*63:0*/, 32> RV64IM_VHM__DOT__sim_integer_register;
     // Body
     RV64IM_VHM__DOT__opcode = (0x7fU & vlSelf->riscv_32bits_instruction);
+    RV64IM_VHM__DOT__funct3 = (7U & (vlSelf->riscv_32bits_instruction 
+                                     >> 0xcU));
+    RV64IM_VHM__DOT__imm_J = ((0x7ffU & RV64IM_VHM__DOT__imm_J) 
+                              | ((0x100000U & (vlSelf->riscv_32bits_instruction 
+                                               >> 0xbU)) 
+                                 | ((0xff000U & vlSelf->riscv_32bits_instruction) 
+                                    | (0x800U & (vlSelf->riscv_32bits_instruction 
+                                                 >> 9U)))));
     RV64IM_VHM__DOT__rd = (0x1fU & (vlSelf->riscv_32bits_instruction 
                                     >> 7U));
+    RV64IM_VHM__DOT__imm_J = ((0x1ff800U & RV64IM_VHM__DOT__imm_J) 
+                              | (0x7feU & (vlSelf->riscv_32bits_instruction 
+                                           >> 0x14U)));
     RV64IM_VHM__DOT__imm_U = (0xfffff000U & vlSelf->riscv_32bits_instruction);
-    if ((0x37U == (IData)(RV64IM_VHM__DOT__opcode))) {
-        RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
-            = (QData)((IData)(RV64IM_VHM__DOT__imm_U));
-        vlSelf->vhm_status = 0U;
-    } else if ((0x17U == (IData)(RV64IM_VHM__DOT__opcode))) {
-        RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
-            = (vlSelf->RV64IM_VHM__DOT__vhm_pc + (QData)((IData)(RV64IM_VHM__DOT__imm_U)));
-        vlSelf->vhm_status = 0U;
+    if ((0x40U & (IData)(RV64IM_VHM__DOT__opcode))) {
+        if ((0x20U & (IData)(RV64IM_VHM__DOT__opcode))) {
+            if ((0x10U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                vlSelf->vhm_status = 1U;
+            } else if ((8U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                if ((4U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                    if ((2U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                        if ((1U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                            RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
+                                = (4ULL + vlSelf->RV64IM_VHM__DOT__vhm_pc);
+                            vlSelf->vhm_status = 0U;
+                        } else {
+                            vlSelf->vhm_status = 1U;
+                        }
+                    } else {
+                        vlSelf->vhm_status = 1U;
+                    }
+                } else {
+                    vlSelf->vhm_status = 1U;
+                }
+            } else if ((4U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                if ((2U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                    if ((1U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                        if ((0U == (IData)(RV64IM_VHM__DOT__funct3))) {
+                            RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
+                                = (4ULL + vlSelf->RV64IM_VHM__DOT__vhm_pc);
+                            vlSelf->vhm_status = 0U;
+                        } else {
+                            vlSelf->vhm_status = 1U;
+                        }
+                    } else {
+                        vlSelf->vhm_status = 1U;
+                    }
+                } else {
+                    vlSelf->vhm_status = 1U;
+                }
+            } else {
+                vlSelf->vhm_status = 1U;
+            }
+        } else {
+            vlSelf->vhm_status = 1U;
+        }
+    } else if ((0x20U & (IData)(RV64IM_VHM__DOT__opcode))) {
+        if ((0x10U & (IData)(RV64IM_VHM__DOT__opcode))) {
+            if ((8U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                vlSelf->vhm_status = 1U;
+            } else if ((4U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                if ((2U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                    if ((1U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                        RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
+                            = (QData)((IData)(RV64IM_VHM__DOT__imm_U));
+                        vlSelf->vhm_status = 0U;
+                    } else {
+                        vlSelf->vhm_status = 1U;
+                    }
+                } else {
+                    vlSelf->vhm_status = 1U;
+                }
+            } else {
+                vlSelf->vhm_status = 1U;
+            }
+        } else {
+            vlSelf->vhm_status = 1U;
+        }
+    } else if ((0x10U & (IData)(RV64IM_VHM__DOT__opcode))) {
+        if ((8U & (IData)(RV64IM_VHM__DOT__opcode))) {
+            vlSelf->vhm_status = 1U;
+        } else if ((4U & (IData)(RV64IM_VHM__DOT__opcode))) {
+            if ((2U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                if ((1U & (IData)(RV64IM_VHM__DOT__opcode))) {
+                    RV64IM_VHM__DOT__sim_integer_register[RV64IM_VHM__DOT__rd] 
+                        = (vlSelf->RV64IM_VHM__DOT__vhm_pc 
+                           + (QData)((IData)(RV64IM_VHM__DOT__imm_U)));
+                    vlSelf->vhm_status = 0U;
+                } else {
+                    vlSelf->vhm_status = 1U;
+                }
+            } else {
+                vlSelf->vhm_status = 1U;
+            }
+        } else {
+            vlSelf->vhm_status = 1U;
+        }
     } else {
         vlSelf->vhm_status = 1U;
     }
