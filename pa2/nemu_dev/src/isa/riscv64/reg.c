@@ -35,8 +35,8 @@ const char *regs_alias[] = {
 word_t ans[32] = {0};
 
 void isa_reg_display() {
-  printf("******************************************************************RV64 Integer Registers******************************************************************\n");
-  printf("|    Name     |       Hex       |       Dec       |       Oct       |                                        Bin                                         |\n");
+  printf("**************************************************************************NEMU-RV64 Integer Registers***************************************************************************\n");
+  printf("|    Name     |         Hex         |           Dec           |            Oct            |                                        Bin                                         |\n");
   for (int i = 0; i < 32; i = i + 1)
   {
     char reg_value_bin_string[65] = {0};
@@ -70,9 +70,9 @@ void isa_reg_display() {
       }
     }
     display_reg_string[79] = '\0';
-    printf("| %4s (%4s) | 0x %12lx | 0d %12ld | 0o %12lo | 0b %s |\n", regs[i], regs_alias[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i], display_reg_string);
+    printf("| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\n", regs[i], regs_alias[i], cpu.gpr[i], cpu.gpr[i], cpu.gpr[i], display_reg_string);
   }
-  printf("******************************************************************RV64 Integer Registers******************************************************************\n");
+  printf("**************************************************************************NEMU-RV64 Integer Registers***************************************************************************\n");
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
