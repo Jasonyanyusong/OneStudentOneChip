@@ -48,7 +48,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
 
 void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_register_number)
 {
-  printf("\nAt pc = 0x%lx\n", pc);
+  printf("\n\033[1;31;43mAt pc = 0x%lx, register x%d(%s) failed DiffTest!\033[0m\n", pc, error_integer_register_number, rvint_regs[error_integer_register_number]);
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
   printf("|    Name     |         Hex         |           Dec           |            Oct            |                                        Bin                                         |\n");
 
@@ -130,8 +130,10 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
     {
       // "\033[1;44;31m" Means Print using highlight, red text and blue highlight
       // "\033[1;44;32m" Means Print using highlight, green text and blue highlight
-      printf("\033[1;44;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu_display_cpu_reg_string);
-      printf("\033[1;44;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_display_ref_reg_string);
+      // Format: \033[ (Display Mode); (Background Color); (Text Color)m
+      // After finishing printf, we use "\033[0m" to change printf style to default
+      printf("\033[1;;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;31m <- NEMU's Result (Incorrect)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu_display_cpu_reg_string);
+      printf("\033[1;;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;32m <- DiffTest's Result (Correct)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_display_ref_reg_string);
     }
   }
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
