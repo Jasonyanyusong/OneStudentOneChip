@@ -35,6 +35,8 @@ const char *regs_alias[] = {
 word_t ans[32] = {0};
 
 void isa_reg_display() {
+  return;
+  
   printf("**************************************************************************NEMU-RV64 Integer Registers***************************************************************************\n");
   printf("|    Name     |         Hex         |           Dec           |            Oct            |                                        Bin                                         |\n");
   for (int i = 0; i < 32; i = i + 1)
