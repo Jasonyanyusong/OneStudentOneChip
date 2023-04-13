@@ -56,13 +56,13 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
   {
     // Codes for processing reference register binary string
     char ref_reg_value_bin_string[65] = {0};
-    u_int64_t ref_get_reg_value = (unsigned long)ref_r.gpr[print_integer_register];
+    u_int64_t ref_get_reg_value = abs(ref_r.gpr[print_integer_register]);
     for(int i = 0; i <= 63; i = i + 1)
     {
-      if((unsigned long)ref_get_reg_value >= (unsigned long)pow(2, 63 - i))
+      if(ref_get_reg_value >= pow(2, 63 - i))
       {
         ref_reg_value_bin_string[i] = '1';
-        ref_get_reg_value = ref_get_reg_value - (unsigned long)pow(2, 63 - i);
+        ref_get_reg_value = ref_get_reg_value - pow(2, 63 - i);
       }
       else
       {
@@ -89,7 +89,7 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
 
     // Codes for processing cpu register binary string
     char cpu_reg_value_bin_string[65] = {0};
-    u_int64_t cpu_get_reg_value = (unsigned long)cpu.gpr[print_integer_register];
+    u_int64_t cpu_get_reg_value = abs(cpu.gpr[print_integer_register]) - 1;
     for(int i = 0; i <= 63; i = i + 1)
     {
       if(cpu_get_reg_value >= pow(2, 63 - i))
