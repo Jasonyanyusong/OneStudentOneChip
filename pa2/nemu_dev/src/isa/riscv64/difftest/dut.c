@@ -54,77 +54,45 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
 
   for(int print_integer_register = 0; print_integer_register < 32; print_integer_register = print_integer_register + 1)
   {
-    // Codes for processing reference register binary string
-    char ref_reg_value_bin_string[65] = {0};
-    u_int64_t ref_get_reg_value = abs(ref_r.gpr[print_integer_register]);
-    for(int i = 0; i <= 63; i = i + 1)
+    char nemu_register[79] = {0};
+    char difftest_register[79] = {0};
+    for(int group_index = 0; group_index < 16; group_index = group_index + 1)
     {
-      if(ref_get_reg_value >= pow(2, 63 - i))
+      for(int bit_index = 0; bit_index <= 4; bit_index = bit_index + 1)
       {
-        ref_reg_value_bin_string[i] = '1';
-        ref_get_reg_value = ref_get_reg_value - pow(2, 63 - i);
-      }
-      else
-      {
-        ref_reg_value_bin_string[i] = '0';
-      }
-    }
-    ref_reg_value_bin_string[64] = '\0';
-    char ref_display_ref_reg_string[79] = {0};
-    for(int parts_number = 0; parts_number < 16; parts_number = parts_number + 1)
-    {
-      for(int secter_number = 0; secter_number <= 4; secter_number = secter_number + 1)
-      {
-        if(secter_number != 4)
+        if(bit_index != 4)
         {
-          ref_display_ref_reg_string[5 * parts_number + secter_number] = ref_reg_value_bin_string[4 * parts_number + secter_number];
+          if(BITS(cpu.gpr[print_integer_register], 4 * group_index + bit_index, 4 * group_index + bit_index) == 1)
+          {
+            nemu_register[5 * group_index + bit_index] = '1';
+          }
+          else
+          {
+            nemu_register[5 * group_index + bit_index] = '0';
+          }
+
+          if(BITS(ref_r.gpr[print_integer_register], 4 * group_index + bit_index, 4 * group_index + bit_index) == 1)
+          {
+            difftest_register[5 * group_index + bit_index] = '1';
+          }
+          else
+          {
+            difftest_register[5 * group_index + bit_index] = '0';
+          }
         }
         else
         {
-          ref_display_ref_reg_string[5 * parts_number + secter_number] = ' ';
+          nemu_register[5 * group_index + bit_index] = ' ';
+          difftest_register[5 * group_index + bit_index] = ' ';
         }
       }
     }
-    ref_display_ref_reg_string[79] = '\0';
-
-    // Codes for processing cpu register binary string
-    char cpu_reg_value_bin_string[65] = {0};
-    u_int64_t cpu_get_reg_value = abs(cpu.gpr[print_integer_register]) - 1;
-    for(int i = 0; i <= 63; i = i + 1)
-    {
-      if(cpu_get_reg_value >= pow(2, 63 - i))
-      {
-        cpu_reg_value_bin_string[i] = '1';
-        cpu_get_reg_value = cpu_get_reg_value - pow(2, 63 - i);
-      }
-      else
-      {
-        cpu_reg_value_bin_string[i] = '0';
-      }
-    }
-    cpu_reg_value_bin_string[64] = '\0';
-    char cpu_display_cpu_reg_string[79] = {0};
-    for(int parts_number = 0; parts_number < 16; parts_number = parts_number + 1)
-    {
-      for(int secter_number = 0; secter_number <= 4; secter_number = secter_number + 1)
-      {
-        if(secter_number != 4)
-        {
-          cpu_display_cpu_reg_string[5 * parts_number + secter_number] = cpu_reg_value_bin_string[4 * parts_number + secter_number];
-        }
-        else
-        {
-          cpu_display_cpu_reg_string[5 * parts_number + secter_number] = ' ';
-        }
-      }
-    }
-    cpu_display_cpu_reg_string[79] = '\0';
-
-
+    nemu_register[79] = '\0';
+    difftest_register[79] = '\0';
     // Codes for display register informations
     if(print_integer_register != error_integer_register_number)
     {
-      printf("| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu_display_cpu_reg_string);
+      printf("| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], nemu_register);
     }
     else
     {
@@ -132,8 +100,8 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
       // "\033[1;44;32m" Means Print using highlight, green text and blue highlight
       // Format: \033[ (Display Mode); (Background Color); (Text Color)m
       // After finishing printf, we use "\033[0m" to change printf style to default
-      printf("\033[1;;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;31m <- NEMU's Result (Incorrect)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu_display_cpu_reg_string);
-      printf("\033[1;;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;32m <- DiffTest's Result (Correct)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_display_ref_reg_string);
+      printf("\033[1;;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;31m <- NEMU's Result (Incorrect)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], nemu_register);
+      printf("\033[1;;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;32m <- DiffTest's Result (Correct)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], difftest_register);
     }
   }
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
