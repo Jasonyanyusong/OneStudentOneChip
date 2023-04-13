@@ -89,10 +89,22 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
     }
     nemu_register[79] = '\0';
     difftest_register[79] = '\0';
+
+    // We find that codes above will print register inversely, now we find ways to print it in the correct order.
+    char inverse_nemu_register[79] = {0};
+    char inverse_difftest_register[79] = {0};
+    for(int i = 0; i < 79; i = i + 1)
+    {
+      inverse_nemu_register[i] = nemu_register[78 - i];
+      inverse_difftest_register[i] = difftest_register[78 - i];
+    }
+    inverse_nemu_register[79] = '\0';
+    inverse_difftest_register[79] = '\0';
+    
     // Codes for display register informations
     if(print_integer_register != error_integer_register_number)
     {
-      printf("| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], nemu_register);
+      printf("| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], inverse_nemu_register);
     }
     else
     {
@@ -100,8 +112,8 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
       // "\033[1;44;32m" Means Print using highlight, green text and blue highlight
       // Format: \033[ (Display Mode); (Background Color); (Text Color)m
       // After finishing printf, we use "\033[0m" to change printf style to default
-      printf("\033[1;;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;31m <- NEMU's Result (Incorrect)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], nemu_register);
-      printf("\033[1;;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;32m <- DiffTest's Result (Correct)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], difftest_register);
+      printf("\033[1;;31m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;31m <- NEMU's Result (Incorrect)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], cpu.gpr[print_integer_register], inverse_nemu_register);
+      printf("\033[1;;32m| %4s (%4s) | 0x %16lx | 0d %20ld | 0o %22lo | 0b %s |\033[1;;32m <- DiffTest's Result (Correct)\033[0m\n", rvint_regs[print_integer_register], rvint_regs_alias[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], ref_r.gpr[print_integer_register], inverse_difftest_register);
     }
   }
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
