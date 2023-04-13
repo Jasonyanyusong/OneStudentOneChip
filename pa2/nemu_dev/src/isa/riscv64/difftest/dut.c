@@ -37,7 +37,7 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
 bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   for(int integer_register_index = 0; integer_register_index < 32; integer_register_index = integer_register_index + 1)
   {
-    if(cpu.gpr[integer_register_index] != ref_r -> gpr[integer_register_index])
+    if((unsigned)cpu.gpr[integer_register_index] != (unsigned)ref_r -> gpr[integer_register_index])
     {
       isa_print_regcompare(*ref_r, pc, integer_register_index);
       return false;
