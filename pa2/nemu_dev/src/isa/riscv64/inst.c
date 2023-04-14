@@ -171,9 +171,9 @@ static int decode_exec(Decode *s) {
 
   // RV64M Instructions
   INSTPAT("0000001 ????? ????? 000 ????? 01100 11", mul    , R, printf("RV64M MUL\n")     , R(rd) = BITS(src1 * src2, 63, 0));
-  // INSTPAT("0000001 ????? ????? 001 ????? 01100 11", mulh   , R, printf("RV64M MULH\n")    , R(rd) = BITS(SEXT((signed)src1 * (signed)src2, 128), 127, 64));
-  // INSTPAT("0000001 ????? ????? 010 ????? 01100 11", mulhsu , R, printf("RV64M MULHSU\n")  , R(rd) = BITS(SEXT((signed)src1 * (unsigned)src2, 128), 127, 64));
-  // INSTPAT("0000001 ????? ????? 011 ????? 01100 11", mulhu  , R, printf("RV64M MULHU\n")   , R(rd) = BITS(SEXT((unsigned)src1 * (unsigned)src2, 128), 127, 64));
+  INSTPAT("0000001 ????? ????? 001 ????? 01100 11", mulh   , R, printf("RV64M MULH\n")    , R(rd) = BITS((signed)src1 * (signed)src2, 127, 64));
+  INSTPAT("0000001 ????? ????? 010 ????? 01100 11", mulhsu , R, printf("RV64M MULHSU\n")  , R(rd) = BITS((signed)src1 * (unsigned)src2, 127, 64));
+  INSTPAT("0000001 ????? ????? 011 ????? 01100 11", mulhu  , R, printf("RV64M MULHU\n")   , R(rd) = BITS((unsigned)src1 * (unsigned)src2, 127, 64));
   INSTPAT("0000001 ????? ????? 100 ????? 01100 11", div    , R, printf("RV64M DIV\n")     , R(rd) = (signed)src1 / (signed)src2);
   INSTPAT("0000001 ????? ????? 101 ????? 01100 11", divu   , R, printf("RV64M DIVU\n")    , R(rd) = (unsigned)src1 / (unsigned)src2);
   INSTPAT("0000001 ????? ????? 110 ????? 01100 11", rem    , R, printf("RV64M REM\n")     , R(rd) = (signed)src1 % (signed)src2);
