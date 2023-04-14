@@ -87,8 +87,8 @@ echo "TESTING recursion"
 make ARCH=riscv64-nemu ALL=recursion run
 
 cd $AM_KERNELS_HOME/tests/cpu-tests
-echo "TESTING selection-sort"
-make ARCH=riscv64-nemu ALL=selection-sort run
+echo "TESTING select-sort"
+make ARCH=riscv64-nemu ALL=select-sort run
 
 cd $AM_KERNELS_HOME/tests/cpu-tests
 echo "TESTING shift"
