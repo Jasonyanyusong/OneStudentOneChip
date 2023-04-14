@@ -44,13 +44,13 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
       return false;
     }
   }
-  isa_print_reg();
+  isa_print_reg(pc);
   return true;
 }
 
 void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_register_number)
 {
-  printf("\n\033[1;31;43mAt pc = 0x%lx, register x%d(%s) failed DiffTest!\033[0m\n", pc, error_integer_register_number, rvint_regs[error_integer_register_number]);
+  printf("\n\033[1;31;43mAt pc = 0x%lx, register x%d(%s) FAILED DiffTest!\033[0m\n", pc, error_integer_register_number, rvint_regs[error_integer_register_number]);
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
   printf("|    Name     |         Hex         |           Dec           |            Oct            |                                        Bin                                         |\n");
 
@@ -121,8 +121,9 @@ void isa_print_regcompare(CPU_state ref_r, vaddr_t pc, int error_integer_registe
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
 }
 
-void isa_print_reg()
+void isa_print_reg(vaddr_t pc)
 {
+  printf("\n\033[1;32;43mAt pc = 0x%lx, all registers PASSED DiffTest!\033[0m\n", pc);
   // Preserved function, if we need to print the value of all register even if DiffTest is CORRECT, we can implement this function.
   printf("*****************************************************************************RV64 Integer Registers*****************************************************************************\n");
   printf("|    Name     |         Hex         |           Dec           |            Oct            |                                        Bin                                         |\n");
