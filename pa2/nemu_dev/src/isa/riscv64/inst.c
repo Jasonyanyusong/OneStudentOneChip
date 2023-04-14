@@ -201,13 +201,3 @@ int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
   return decode_exec(s);
 }
-
-
-  // // INSTPAT("000000? ????? ????? 001 ????? 00100 11", slli   , R, printf("RV64I SLLI\n")    , R(rd) = src1 << BITS(imm, 5, 0));
-  // // INSTPAT("000000? ????? ????? 101 ????? 00100 11", srli   , R, printf("RV64I SRLI\n")    , R(rd) = src1 >> BITS(imm, 5, 0));
-  // // INSTPAT("010000? ????? ????? 101 ????? 00100 11", srai   , R, printf("RV64I SRAI\n")    , R(rd) = BITS(src1, 63, 63) << 63 | src1 >> BITS(imm, 5, 0));
-  // // INSTPAT("0100000 ????? ????? 101 ????? 00100 11", srai   , I, printf("RV32I SRAI\n")    , R(rd) = BITS(0xFFFFFFFF, 63, BITS(imm, 5, 0) << 63 - BITS(imm, 5, 0)) | src1 >> BITS(imm, 5, 0));
-
-  // // INSTPAT("0000000 ????? ????? 000 ????? 01110 11", addw   , R, printf("RV64I ADDW\n")    , R(rd) = SEXT(BITS(src1 + src2, 31, 0), 32) & 0xFFFF);
-  // // INSTPAT("??????? ????? ????? 000 ????? 00110 11", addiw  , I, printf("RV64I ADDIW\n")   , R(rd) = SEXT(src1 + imm, 32));
-  // // INSTPAT("0000001 ????? ????? 000 ????? 01110 11", mulw   , R, printf("RV64M MULW\n")    , R(rd) = SEXT(BITS(src1 * src2, 31, 0), 32) & 0xFFFF);
