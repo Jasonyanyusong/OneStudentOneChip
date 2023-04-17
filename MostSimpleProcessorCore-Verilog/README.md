@@ -6,6 +6,7 @@ In MSPC_V_ALU, We will have 5 ports, 3 input and 2 outputs, they are:
 * numoutp: A XLEN bit output port, will send the result of computing
 
 * Specifically, the Operate Code and its operation will be list below, they are:
+
 |Operate Code|Type|Function|Status|
 |----|----|----|----|
 |0000|Compute|Doing|DOING|
