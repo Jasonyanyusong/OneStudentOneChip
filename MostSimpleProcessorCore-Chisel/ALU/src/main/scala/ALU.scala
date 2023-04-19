@@ -52,6 +52,60 @@ class ALU extends Module{
                     // 1111 TODO
                     ,
                     // 1110 TODO
+                ),
+                Mux(
+                    OperateCode(0),
+                    // 1101 TODO
+                    ,
+                    // 1100 TODO
+                )
+            ),
+            Mux(
+                OperateCode(1),
+                Mux(
+                    OperateCode(0),
+                    // 1011 TODO
+                    ,
+                    // 1010 TODO
+                ),
+                Mux(
+                    OperateCode(0),
+                    // 1001 TODO
+                    ,
+                    // 1000 TODO
+                )
+            )
+        ),
+        Mux(
+            OperateCode(2),
+            Mux(
+                OperateCode(1),
+                Mux(
+                    OperateCode(0),
+                    // 0111 TODO
+                    ,
+                    // 0110 TODO
+                ),
+                Mux(
+                    OperateCode(0),
+                    // 0101 TODO
+                    ,
+                    // 0100 TODO
+                )
+            ),
+            Mux(
+                OperateCode(1),
+                Mux(
+                    OperateCode(0),
+                    // 0011 TODO
+                    ,
+                    // 0010 TODO
+                ),
+                Mux(
+                    OperateCode(0),
+                    // 0001 TODO
+                    ,
+                    // 0000 TODO
                 )
             )
         )
