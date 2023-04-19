@@ -4,7 +4,7 @@ import chisel3.experimental._
 
 /*
 The Operate Code has 4 digits.
-The highest digit is used for distinguishing Computing / Shifting.
+The highest digit is used for distinguishing Computing(0) / Shifting(1).
 The last 3 digits are used for specifing what should the ALU do.
 */
 
@@ -41,22 +41,21 @@ class ALU extends Module{
         val CompareResult = Output(Bool(1.W))
     }) // Define ALU's IO
 
-    // Define Operate-Code for Computing Part
-    val ALU_C_ADD = "b0_000".U
-    val ALU_C_SUB = "b0_001".U
-    val ALU_C_NOT = "b0_010".U
-    val ALU_C_AND = "b0_011".U
-    val ALU_C_OR  = "b0_100".U
-    val ALU_C_XOR = "b0_101".U
-    val ALU_C_CMP = "b0_110".U
-    val ALU_C_BEQ = "b0_111".U
+    io.ComputeResult := Mux(
+        OperateCode(3),
+        Mux(
+            OperateCode(2),
+            Mux(
+                OperateCode(1),
+                Mux(
+                    OperateCode(0),
+                    // 1111 TODO
+                    ,
+                    // 1110 TODO
+                )
+            )
+        )
+    )
 
-    // Define Operate-Code for Shifting Part
-    val ALU_S_SLR = "b0_010".U
-    val ALU_S_SLL = "b0_011".U
-    val ALU_S_SRA = "b0_100".U
-    val ALU_S_SRC = "b0_110".U
-    val ALU_S_SLC = "b0_111".U
-
-    
+    io.CompareResult := Mux()
 }
