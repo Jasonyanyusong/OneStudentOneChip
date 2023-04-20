@@ -1,0 +1,26 @@
+`begin_keywords "1800-2017"
+`line 1 "ALU.v" 1
+module ALU(
+  input         clock,
+  input         reset,
+  input  [63:0] io_DataInA,
+  input  [63:0] io_DataInB,
+  input  [3:0]  io_OperateCode,
+  output [63:0] io_ALUResult
+);
+  wire [63:0] _io_ALUResult_T_3 = io_DataInA + io_DataInB;  
+  wire [3:0] _io_ALUResult_T_4 = {{1'd0}, io_OperateCode[3:1]};  
+  wire [63:0] _io_ALUResult_T_7 = io_DataInA - io_DataInB;  
+  wire [3:0] _io_ALUResult_T_8 = {{2'd0}, io_OperateCode[3:2]};  
+  wire [63:0] _io_ALUResult_T_10 = ~io_DataInA;  
+  wire [3:0] _io_ALUResult_T_11 = {{3'd0}, io_OperateCode[3]};  
+  wire [63:0] _io_ALUResult_T_13 = io_DataInA & io_DataInB;  
+  wire [126:0] _io_ALUResult_T_55 = {{63'd0}, io_DataInB};  
+  wire [126:0] _io_ALUResult_T_63 = _io_ALUResult_T_11[0] ? {{63'd0}, _io_ALUResult_T_13} : _io_ALUResult_T_55;  
+  wire [126:0] _io_ALUResult_T_64 = _io_ALUResult_T_8[0] ? {{63'd0}, _io_ALUResult_T_10} : _io_ALUResult_T_63;  
+  wire [126:0] _io_ALUResult_T_65 = _io_ALUResult_T_4[0] ? {{63'd0}, _io_ALUResult_T_7} : _io_ALUResult_T_64;  
+  wire [126:0] _io_ALUResult_T_66 = io_OperateCode[0] ? {{63'd0}, _io_ALUResult_T_3} : _io_ALUResult_T_65;  
+  assign io_ALUResult = _io_ALUResult_T_66[63:0];  
+endmodule
+
+`line 24 "ALU.v" 2

@@ -1,0 +1,252 @@
+Verilator Tree Dump (format 0x3900) from <e960> to <e1139>
+     NETLIST 0xaaaaab8e73a0 <e1> {a0aa}  $root [1ps/1ps]
+    1: MODULE 0xaaaaab8f4c90 <e960#> {c1ai}  ALU  L0 [1ps]
+    1:2: VAR 0xaaaaab8f6400 <e961#> {c2ar} @dt=0@  clock INPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8f6330 <e13> {c2ar} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0xaaaaab8f6890 <e966#> {c3ar} @dt=0@  reset INPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8f67c0 <e19> {c3ar} @dt=this@(nw0)  LOGIC_IMPLICIT kwd=LOGIC_IMPLICIT
+    1:2: VAR 0xaaaaab8f83e0 <e971#> {c4ar} @dt=0@  io_DataInA INPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8f8030 <e43> {c4ak} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab8f8100 <e41> {c4ak}
+    1:2:1:1:1: CONST 0xaaaaab8f81c0 <e32> {c4al} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab8f82d0 <e33> {c4ao} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0xaaaaab8f9320 <e976#> {c5ar} @dt=0@  io_DataInB INPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8f8f70 <e75> {c5ak} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab8f9040 <e73> {c5ak}
+    1:2:1:1:1: CONST 0xaaaaab8f9100 <e64> {c5al} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab8f9210 <e65> {c5ao} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8f9f30 <e106> {c6ak} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab8fa000 <e104> {c6ak}
+    1:2:1:1:1: CONST 0xaaaaab8fa0c0 <e95> {c6al} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2: CONST 0xaaaaab8fa1d0 <e96> {c6an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0xaaaaab8fb220 <e986#> {c7ar} @dt=0@  io_ALUResult OUTPUT [VSTATIC]  PORT
+    1:2:1: BASICDTYPE 0xaaaaab8fae70 <e138> {c7ak} @dt=this@(w0)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab8faf40 <e136> {c7ak}
+    1:2:1:1:1: CONST 0xaaaaab8fb000 <e127> {c7al} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab8fb110 <e128> {c7ao} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: VAR 0xaaaaab9032a0 <e954> {c9ap} @dt=0@  _io_ALUResult_T_3 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab902ef0 <e170> {c9ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab902fc0 <e163> {c9ai}
+    1:2:1:1:1: CONST 0xaaaaab903080 <e159> {c9aj} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab903190 <e160> {c9am} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab903530 <e175> {c9bh} @dt=0@
+    1:2:1: ADD 0xaaaaab902e30 <e173> {c9bu} @dt=0@
+    1:2:1:1: VARREF 0xaaaaab901b50 <e993#> {c9bj} @dt=0@  io_DataInA [RV] <- VAR 0xaaaaab8f83e0 <e971#> {c4ar} @dt=0@  io_DataInA INPUT [VSTATIC]  PORT
+    1:2:1:2: VARREF 0xaaaaab901c60 <e996#> {c9bw} @dt=0@  io_DataInB [RV] <- VAR 0xaaaaab8f9320 <e976#> {c5ar} @dt=0@  io_DataInB INPUT [VSTATIC]  PORT
+    1:2:2: VARREF 0xaaaaab903420 <e174> {c9ap} @dt=0@  _io_ALUResult_T_3 [LV] => VAR 0xaaaaab9032a0 <e954> {c9ap} @dt=0@  _io_ALUResult_T_3 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab905530 <e257> {c10ao} @dt=0@  _io_ALUResult_T_4 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab905180 <e251> {c10ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab905250 <e198> {c10ai}
+    1:2:1:1:1: CONST 0xaaaaab905310 <e194> {c10aj} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2: CONST 0xaaaaab905420 <e195> {c10al} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab9057e0 <e256> {c10bg} @dt=0@
+    1:2:1: REPLICATE 0xaaaaab904dc0 <e254> {c10bi} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: CONCAT 0xaaaaab904cd0 <e244> {c10bp} @dt=0@
+    1:2:1:1:1: REPLICATE 0xaaaaab904170 <e235> {c10bj} @dt=0xaaaaab903ff0@(G/w1)
+    1:2:1:1:1:1: CONST 0xaaaaab903ee0 <e210> {c10bk} @dt=0xaaaaab903ff0@(G/w1)  1'h0
+    1:2:1:1:1:2: CONST 0xaaaaab904230 <e211> {c10bj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:1:2: SELEXTRACT 0xaaaaab904be0 <e236> {c10cf} @dt=0@
+    1:2:1:1:2:1: VARREF 0xaaaaab901d70 <e999#> {c10br} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:1:2:2: CONST 0xaaaaab904730 <e232> {c10cg} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2:3: CONST 0xaaaaab9049d0 <e233> {c10ci} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh1
+    1:2:1:1:2:4: ATTROF 0xaaaaab8fd1b0 <e1118#> {c10cf} @dt=0@ [VAR_BASE]
+    1:2:1:1:2:4:1: VARREF 0xaaaaab8fcf50 <e1117#> {c10br} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:2: CONST 0xaaaaab904e80 <e245> {c10bi} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:2: VARREF 0xaaaaab9056b0 <e255> {c10ao} @dt=0@  _io_ALUResult_T_4 [LV] => VAR 0xaaaaab905530 <e257> {c10ao} @dt=0@  _io_ALUResult_T_4 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab906810 <e293> {c11ap} @dt=0@  _io_ALUResult_T_7 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab906460 <e287> {c11ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab906530 <e280> {c11ai}
+    1:2:1:1:1: CONST 0xaaaaab9065f0 <e276> {c11aj} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab906700 <e277> {c11am} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab906ac0 <e292> {c11bh} @dt=0@
+    1:2:1: SUB 0xaaaaab9063a0 <e290> {c11bu} @dt=0@
+    1:2:1:1: VARREF 0xaaaaab901e80 <e1002#> {c11bj} @dt=0@  io_DataInA [RV] <- VAR 0xaaaaab8f83e0 <e971#> {c4ar} @dt=0@  io_DataInA INPUT [VSTATIC]  PORT
+    1:2:1:2: VARREF 0xaaaaab901f90 <e1005#> {c11bw} @dt=0@  io_DataInB [RV] <- VAR 0xaaaaab8f9320 <e976#> {c5ar} @dt=0@  io_DataInB INPUT [VSTATIC]  PORT
+    1:2:2: VARREF 0xaaaaab906990 <e291> {c11ap} @dt=0@  _io_ALUResult_T_7 [LV] => VAR 0xaaaaab906810 <e293> {c11ap} @dt=0@  _io_ALUResult_T_7 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab908a40 <e377> {c12ao} @dt=0@  _io_ALUResult_T_8 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab908690 <e371> {c12ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab908760 <e316> {c12ai}
+    1:2:1:1:1: CONST 0xaaaaab908820 <e312> {c12aj} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2: CONST 0xaaaaab908930 <e313> {c12al} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab908cf0 <e376> {c12bg} @dt=0@
+    1:2:1: REPLICATE 0xaaaaab908320 <e374> {c12bi} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: CONCAT 0xaaaaab908230 <e363> {c12bp} @dt=0@
+    1:2:1:1:1: REPLICATE 0xaaaaab907720 <e354> {c12bj} @dt=0xaaaaab9075a0@(G/w2)
+    1:2:1:1:1:1: CONST 0xaaaaab907490 <e329> {c12bk} @dt=0xaaaaab9075a0@(G/w2)  2'h0
+    1:2:1:1:1:2: CONST 0xaaaaab9077e0 <e330> {c12bj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:1:2: SELEXTRACT 0xaaaaab908140 <e355> {c12cf} @dt=0@
+    1:2:1:1:2:1: VARREF 0xaaaaab9020f0 <e1008#> {c12br} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:1:2:2: CONST 0xaaaaab907c90 <e351> {c12cg} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2:3: CONST 0xaaaaab907f30 <e352> {c12ci} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh2
+    1:2:1:1:2:4: ATTROF 0xaaaaab902750 <e1121#> {c12cf} @dt=0@ [VAR_BASE]
+    1:2:1:1:2:4:1: VARREF 0xaaaaab918ed0 <e1120#> {c12br} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:2: CONST 0xaaaaab9083e0 <e364> {c12bi} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:2: VARREF 0xaaaaab908bc0 <e375> {c12ao} @dt=0@  _io_ALUResult_T_8 [LV] => VAR 0xaaaaab908a40 <e377> {c12ao} @dt=0@  _io_ALUResult_T_8 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab909be0 <e411> {c13ap} @dt=0@  _io_ALUResult_T_10 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab909830 <e405> {c13ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab909900 <e400> {c13ai}
+    1:2:1:1:1: CONST 0xaaaaab9099c0 <e396> {c13aj} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab909ad0 <e397> {c13am} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab909e90 <e410> {c13bi} @dt=0@
+    1:2:1: NOT 0xaaaaab909770 <e408> {c13bk} @dt=0@
+    1:2:1:1: VARREF 0xaaaaab902200 <e1011#> {c13bl} @dt=0@  io_DataInA [RV] <- VAR 0xaaaaab8f83e0 <e971#> {c4ar} @dt=0@  io_DataInA INPUT [VSTATIC]  PORT
+    1:2:2: VARREF 0xaaaaab909d60 <e409> {c13ap} @dt=0@  _io_ALUResult_T_10 [LV] => VAR 0xaaaaab909be0 <e411> {c13ap} @dt=0@  _io_ALUResult_T_10 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab90bb70 <e488> {c14ao} @dt=0@  _io_ALUResult_T_11 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab90b7c0 <e482> {c14ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab90b890 <e434> {c14ai}
+    1:2:1:1:1: CONST 0xaaaaab90b950 <e430> {c14aj} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2: CONST 0xaaaaab90ba60 <e431> {c14al} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab90be20 <e487> {c14bh} @dt=0@
+    1:2:1: REPLICATE 0xaaaaab90b450 <e485> {c14bj} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: CONCAT 0xaaaaab90b360 <e474> {c14bq} @dt=0@
+    1:2:1:1:1: REPLICATE 0xaaaaab90aaf0 <e465> {c14bk} @dt=0xaaaaab90a970@(G/w3)
+    1:2:1:1:1:1: CONST 0xaaaaab90a860 <e447> {c14bl} @dt=0xaaaaab90a970@(G/w3)  3'h0
+    1:2:1:1:1:2: CONST 0xaaaaab90abb0 <e448> {c14bk} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:1:2: SELBIT 0xaaaaab90b270 <e466> {c14cg} @dt=0@
+    1:2:1:1:2:1: VARREF 0xaaaaab902310 <e1014#> {c14bs} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:1:2:2: CONST 0xaaaaab90b060 <e463> {c14ch} @dt=0xaaaaab8f96a0@(G/swu32/2)  ?32?sh3
+    1:2:1:1:2:4: ATTROF 0xaaaaab919c40 <e1124#> {c14cg} @dt=0@ [VAR_BASE]
+    1:2:1:1:2:4:1: VARREF 0xaaaaab919b30 <e1123#> {c14bs} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:2: CONST 0xaaaaab90b510 <e475> {c14bj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:2: VARREF 0xaaaaab90bcf0 <e486> {c14ao} @dt=0@  _io_ALUResult_T_11 [LV] => VAR 0xaaaaab90bb70 <e488> {c14ao} @dt=0@  _io_ALUResult_T_11 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab90ce50 <e524> {c15ap} @dt=0@  _io_ALUResult_T_13 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab90caa0 <e518> {c15ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab90cb70 <e511> {c15ai}
+    1:2:1:1:1: CONST 0xaaaaab90cc30 <e507> {c15aj} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:1:2: CONST 0xaaaaab90cd40 <e508> {c15am} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab90d100 <e523> {c15bi} @dt=0@
+    1:2:1: AND 0xaaaaab90c9e0 <e521> {c15bv} @dt=0@
+    1:2:1:1: VARREF 0xaaaaab902420 <e1017#> {c15bk} @dt=0@  io_DataInA [RV] <- VAR 0xaaaaab8f83e0 <e971#> {c4ar} @dt=0@  io_DataInA INPUT [VSTATIC]  PORT
+    1:2:1:2: VARREF 0xaaaaab902530 <e1020#> {c15bx} @dt=0@  io_DataInB [RV] <- VAR 0xaaaaab8f9320 <e976#> {c5ar} @dt=0@  io_DataInB INPUT [VSTATIC]  PORT
+    1:2:2: VARREF 0xaaaaab90cfd0 <e522> {c15ap} @dt=0@  _io_ALUResult_T_13 [LV] => VAR 0xaaaaab90ce50 <e524> {c15ap} @dt=0@  _io_ALUResult_T_13 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab90eaa0 <e591> {c16aq} @dt=0@  _io_ALUResult_T_55 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab90e6f0 <e585> {c16ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab90e7c0 <e546> {c16ai}
+    1:2:1:1:1: CONST 0xaaaaab90e880 <e542> {c16aj} @dt=0xaaaaab90d3c0@(G/swu32/7)  ?32?sh7e
+    1:2:1:1:2: CONST 0xaaaaab90e990 <e543> {c16an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab90ed50 <e590> {c16bj} @dt=0@
+    1:2:1: REPLICATE 0xaaaaab90e380 <e588> {c16bl} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: CONCAT 0xaaaaab90e290 <e577> {c16bt} @dt=0@
+    1:2:1:1:1: REPLICATE 0xaaaaab90ddb0 <e568> {c16bm} @dt=0xaaaaab90dc30@(G/w63)
+    1:2:1:1:1:1: CONST 0xaaaaab90db20 <e559> {c16bn} @dt=0xaaaaab90dc30@(G/w63)  63'h0
+    1:2:1:1:1:2: CONST 0xaaaaab90de70 <e560> {c16bm} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:1:2: VARREF 0xaaaaab902640 <e1023#> {c16bv} @dt=0@  io_DataInB [RV] <- VAR 0xaaaaab8f9320 <e976#> {c5ar} @dt=0@  io_DataInB INPUT [VSTATIC]  PORT
+    1:2:1:2: CONST 0xaaaaab90e440 <e578> {c16bl} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:2: VARREF 0xaaaaab90ec20 <e589> {c16aq} @dt=0@  _io_ALUResult_T_55 [LV] => VAR 0xaaaaab90eaa0 <e591> {c16aq} @dt=0@  _io_ALUResult_T_55 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab910e20 <e676> {c17aq} @dt=0@  _io_ALUResult_T_63 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab910a70 <e670> {c17ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab910b40 <e614> {c17ai}
+    1:2:1:1:1: CONST 0xaaaaab910c00 <e610> {c17aj} @dt=0xaaaaab90d3c0@(G/swu32/7)  ?32?sh7e
+    1:2:1:1:2: CONST 0xaaaaab910d10 <e611> {c17an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab9110f0 <e675> {c17bj} @dt=0@
+    1:2:1: COND 0xaaaaab9109b0 <e673> {c17ch} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: SELBIT 0xaaaaab90fa60 <e665> {c17cd} @dt=0@
+    1:2:1:1:1: VARREF 0xaaaaab918870 <e1026#> {c17bl} @dt=0@  _io_ALUResult_T_11 [RV] <- VAR 0xaaaaab90bb70 <e488> {c14ao} @dt=0@  _io_ALUResult_T_11 [VSTATIC]  WIRE
+    1:2:1:1:2: CONST 0xaaaaab90f850 <e624> {c17ce} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2:1:1:4: ATTROF 0xaaaaab919e10 <e1127#> {c17cd} @dt=0@ [VAR_BASE]
+    1:2:1:1:4:1: VARREF 0xaaaaab919d00 <e1126#> {c17bl} @dt=0@  _io_ALUResult_T_11 [RV] <- VAR 0xaaaaab90bb70 <e488> {c14ao} @dt=0@  _io_ALUResult_T_11 [VSTATIC]  WIRE
+    1:2:1:2: REPLICATE 0xaaaaab910560 <e666> {c17cj} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:2:1: CONCAT 0xaaaaab9103a0 <e656> {c17cr} @dt=0@
+    1:2:1:2:1:1: REPLICATE 0xaaaaab90fe80 <e647> {c17ck} @dt=0xaaaaab90dc30@(G/w63)
+    1:2:1:2:1:1:1: CONST 0xaaaaab90fc40 <e638> {c17cl} @dt=0xaaaaab90dc30@(G/w63)  63'h0
+    1:2:1:2:1:1:2: CONST 0xaaaaab90ff40 <e639> {c17ck} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:2:1:2: VARREF 0xaaaaab918980 <e1029#> {c17ct} @dt=0@  _io_ALUResult_T_13 [RV] <- VAR 0xaaaaab90ce50 <e524> {c15ap} @dt=0@  _io_ALUResult_T_13 [VSTATIC]  WIRE
+    1:2:1:2:2: CONST 0xaaaaab910620 <e657> {c17cj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:3: VARREF 0xaaaaab918a90 <e1032#> {c17dp} @dt=0@  _io_ALUResult_T_55 [RV] <- VAR 0xaaaaab90eaa0 <e591> {c16aq} @dt=0@  _io_ALUResult_T_55 [VSTATIC]  WIRE
+    1:2:2: VARREF 0xaaaaab910fc0 <e674> {c17aq} @dt=0@  _io_ALUResult_T_63 [LV] => VAR 0xaaaaab910e20 <e676> {c17aq} @dt=0@  _io_ALUResult_T_63 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab9131c0 <e761> {c18aq} @dt=0@  _io_ALUResult_T_64 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab912e10 <e755> {c18ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab912ee0 <e699> {c18ai}
+    1:2:1:1:1: CONST 0xaaaaab912fa0 <e695> {c18aj} @dt=0xaaaaab90d3c0@(G/swu32/7)  ?32?sh7e
+    1:2:1:1:2: CONST 0xaaaaab9130b0 <e696> {c18an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab913490 <e760> {c18bj} @dt=0@
+    1:2:1: COND 0xaaaaab912d50 <e758> {c18cg} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: SELBIT 0xaaaaab911e00 <e750> {c18cc} @dt=0@
+    1:2:1:1:1: VARREF 0xaaaaab918ba0 <e1035#> {c18bl} @dt=0@  _io_ALUResult_T_8 [RV] <- VAR 0xaaaaab908a40 <e377> {c12ao} @dt=0@  _io_ALUResult_T_8 [VSTATIC]  WIRE
+    1:2:1:1:2: CONST 0xaaaaab911bf0 <e709> {c18cd} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2:1:1:4: ATTROF 0xaaaaab919fe0 <e1130#> {c18cc} @dt=0@ [VAR_BASE]
+    1:2:1:1:4:1: VARREF 0xaaaaab919ed0 <e1129#> {c18bl} @dt=0@  _io_ALUResult_T_8 [RV] <- VAR 0xaaaaab908a40 <e377> {c12ao} @dt=0@  _io_ALUResult_T_8 [VSTATIC]  WIRE
+    1:2:1:2: REPLICATE 0xaaaaab912900 <e751> {c18ci} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:2:1: CONCAT 0xaaaaab912740 <e741> {c18cq} @dt=0@
+    1:2:1:2:1:1: REPLICATE 0xaaaaab912220 <e732> {c18cj} @dt=0xaaaaab90dc30@(G/w63)
+    1:2:1:2:1:1:1: CONST 0xaaaaab911fe0 <e723> {c18ck} @dt=0xaaaaab90dc30@(G/w63)  63'h0
+    1:2:1:2:1:1:2: CONST 0xaaaaab9122e0 <e724> {c18cj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:2:1:2: VARREF 0xaaaaab918cb0 <e1038#> {c18cs} @dt=0@  _io_ALUResult_T_10 [RV] <- VAR 0xaaaaab909be0 <e411> {c13ap} @dt=0@  _io_ALUResult_T_10 [VSTATIC]  WIRE
+    1:2:1:2:2: CONST 0xaaaaab9129c0 <e742> {c18ci} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:3: VARREF 0xaaaaab918dc0 <e1041#> {c18do} @dt=0@  _io_ALUResult_T_63 [RV] <- VAR 0xaaaaab910e20 <e676> {c17aq} @dt=0@  _io_ALUResult_T_63 [VSTATIC]  WIRE
+    1:2:2: VARREF 0xaaaaab913360 <e759> {c18aq} @dt=0@  _io_ALUResult_T_64 [LV] => VAR 0xaaaaab9131c0 <e761> {c18aq} @dt=0@  _io_ALUResult_T_64 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab915560 <e846> {c19aq} @dt=0@  _io_ALUResult_T_65 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab9151b0 <e840> {c19ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab915280 <e784> {c19ai}
+    1:2:1:1:1: CONST 0xaaaaab915340 <e780> {c19aj} @dt=0xaaaaab90d3c0@(G/swu32/7)  ?32?sh7e
+    1:2:1:1:2: CONST 0xaaaaab915450 <e781> {c19an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab915830 <e845> {c19bj} @dt=0@
+    1:2:1: COND 0xaaaaab9150f0 <e843> {c19cg} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: SELBIT 0xaaaaab9141a0 <e835> {c19cc} @dt=0@
+    1:2:1:1:1: VARREF 0xaaaaab918fe0 <e1044#> {c19bl} @dt=0@  _io_ALUResult_T_4 [RV] <- VAR 0xaaaaab905530 <e257> {c10ao} @dt=0@  _io_ALUResult_T_4 [VSTATIC]  WIRE
+    1:2:1:1:2: CONST 0xaaaaab913f90 <e794> {c19cd} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2:1:1:4: ATTROF 0xaaaaab91a1b0 <e1133#> {c19cc} @dt=0@ [VAR_BASE]
+    1:2:1:1:4:1: VARREF 0xaaaaab91a0a0 <e1132#> {c19bl} @dt=0@  _io_ALUResult_T_4 [RV] <- VAR 0xaaaaab905530 <e257> {c10ao} @dt=0@  _io_ALUResult_T_4 [VSTATIC]  WIRE
+    1:2:1:2: REPLICATE 0xaaaaab914ca0 <e836> {c19ci} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:2:1: CONCAT 0xaaaaab914ae0 <e826> {c19cq} @dt=0@
+    1:2:1:2:1:1: REPLICATE 0xaaaaab9145c0 <e817> {c19cj} @dt=0xaaaaab90dc30@(G/w63)
+    1:2:1:2:1:1:1: CONST 0xaaaaab914380 <e808> {c19ck} @dt=0xaaaaab90dc30@(G/w63)  63'h0
+    1:2:1:2:1:1:2: CONST 0xaaaaab914680 <e809> {c19cj} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:2:1:2: VARREF 0xaaaaab9190f0 <e1047#> {c19cs} @dt=0@  _io_ALUResult_T_7 [RV] <- VAR 0xaaaaab906810 <e293> {c11ap} @dt=0@  _io_ALUResult_T_7 [VSTATIC]  WIRE
+    1:2:1:2:2: CONST 0xaaaaab914d60 <e827> {c19ci} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:3: VARREF 0xaaaaab919200 <e1050#> {c19dn} @dt=0@  _io_ALUResult_T_64 [RV] <- VAR 0xaaaaab9131c0 <e761> {c18aq} @dt=0@  _io_ALUResult_T_64 [VSTATIC]  WIRE
+    1:2:2: VARREF 0xaaaaab915700 <e844> {c19aq} @dt=0@  _io_ALUResult_T_65 [LV] => VAR 0xaaaaab915560 <e846> {c19aq} @dt=0@  _io_ALUResult_T_65 [VSTATIC]  WIRE
+    1:2: VAR 0xaaaaab9178c0 <e931> {c20aq} @dt=0@  _io_ALUResult_T_66 [VSTATIC]  WIRE
+    1:2:1: BASICDTYPE 0xaaaaab917510 <e925> {c20ai} @dt=this@(w1)  logic kwd=logic
+    1:2:1:1: RANGE 0xaaaaab9175e0 <e869> {c20ai}
+    1:2:1:1:1: CONST 0xaaaaab9176a0 <e865> {c20aj} @dt=0xaaaaab90d3c0@(G/swu32/7)  ?32?sh7e
+    1:2:1:1:2: CONST 0xaaaaab9177b0 <e866> {c20an} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2: ASSIGNW 0xaaaaab917b90 <e930> {c20bj} @dt=0@
+    1:2:1: COND 0xaaaaab917450 <e928> {c20cd} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:1: SELBIT 0xaaaaab916520 <e920> {c20bz} @dt=0@
+    1:2:1:1:1: VARREF 0xaaaaab919310 <e1053#> {c20bl} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:1:2: CONST 0xaaaaab916310 <e879> {c20ca} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2:1:1:4: ATTROF 0xaaaaab91a380 <e1136#> {c20bz} @dt=0@ [VAR_BASE]
+    1:2:1:1:4:1: VARREF 0xaaaaab91a270 <e1135#> {c20bl} @dt=0@  io_OperateCode [RV] <- VAR 0xaaaaab8fa2e0 <e981#> {c6ar} @dt=0@  io_OperateCode INPUT [VSTATIC]  PORT
+    1:2:1:2: REPLICATE 0xaaaaab917000 <e921> {c20cf} @dt=0xaaaaab905060@(G/w0)
+    1:2:1:2:1: CONCAT 0xaaaaab916e40 <e911> {c20cn} @dt=0@
+    1:2:1:2:1:1: REPLICATE 0xaaaaab916940 <e902> {c20cg} @dt=0xaaaaab90dc30@(G/w63)
+    1:2:1:2:1:1:1: CONST 0xaaaaab916700 <e893> {c20ch} @dt=0xaaaaab90dc30@(G/w63)  63'h0
+    1:2:1:2:1:1:2: CONST 0xaaaaab916a00 <e894> {c20cg} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:2:1:2: VARREF 0xaaaaab919420 <e1056#> {c20cp} @dt=0@  _io_ALUResult_T_3 [RV] <- VAR 0xaaaaab9032a0 <e954> {c9ap} @dt=0@  _io_ALUResult_T_3 [VSTATIC]  WIRE
+    1:2:1:2:2: CONST 0xaaaaab9170c0 <e912> {c20cf} @dt=0xaaaaab904340@(G/w32)  32'h1
+    1:2:1:3: VARREF 0xaaaaab919530 <e1059#> {c20dk} @dt=0@  _io_ALUResult_T_65 [RV] <- VAR 0xaaaaab915560 <e846> {c19aq} @dt=0@  _io_ALUResult_T_65 [VSTATIC]  WIRE
+    1:2:2: VARREF 0xaaaaab917a60 <e929> {c20aq} @dt=0@  _io_ALUResult_T_66 [LV] => VAR 0xaaaaab9178c0 <e931> {c20aq} @dt=0@  _io_ALUResult_T_66 [VSTATIC]  WIRE
+    1:2: ASSIGNW 0xaaaaab9185f0 <e953> {c21ax} @dt=0@
+    1:2:1: SELEXTRACT 0xaaaaab918500 <e951> {c21br} @dt=0@
+    1:2:1:1: VARREF 0xaaaaab919640 <e1062#> {c21az} @dt=0@  _io_ALUResult_T_66 [RV] <- VAR 0xaaaaab9178c0 <e931> {c20aq} @dt=0@  _io_ALUResult_T_66 [VSTATIC]  WIRE
+    1:2:1:2: CONST 0xaaaaab918050 <e948> {c21bs} @dt=0xaaaaab8f7820@(G/swu32/6)  ?32?sh3f
+    1:2:1:3: CONST 0xaaaaab9182f0 <e949> {c21bv} @dt=0xaaaaab8f7ac0@(G/swu32/1)  ?32?sh0
+    1:2:1:4: ATTROF 0xaaaaab91a550 <e1139#> {c21br} @dt=0@ [VAR_BASE]
+    1:2:1:4:1: VARREF 0xaaaaab91a440 <e1138#> {c21az} @dt=0@  _io_ALUResult_T_66 [RV] <- VAR 0xaaaaab9178c0 <e931> {c20aq} @dt=0@  _io_ALUResult_T_66 [VSTATIC]  WIRE
+    1:2:2: VARREF 0xaaaaab919750 <e1065#> {c21ak} @dt=0@  io_ALUResult [LV] => VAR 0xaaaaab8fb220 <e986#> {c7ar} @dt=0@  io_ALUResult OUTPUT [VSTATIC]  PORT
+    3: TYPETABLE 0xaaaaab8e7b00 <e2> {a0aa}
+		detailed  ->  BASICDTYPE 0xaaaaab905060 <e248> {c10bi} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab903ff0 <e202> {c10bk} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+		detailed  ->  BASICDTYPE 0xaaaaab9075a0 <e320> {c12bk} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+		detailed  ->  BASICDTYPE 0xaaaaab90a970 <e438> {c14bl} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+		detailed  ->  BASICDTYPE 0xaaaaab8f7ac0 <e29> {c4ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab8f96a0 <e86> {c6al} @dt=this@(G/swu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab8f7820 <e24> {c4al} @dt=this@(G/swu32/6)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab90d3c0 <e533> {c16aj} @dt=this@(G/swu32/7)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab904340 <e207> {c10bj} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+		detailed  ->  BASICDTYPE 0xaaaaab90dc30 <e550> {c16bn} @dt=this@(G/w63)  logic [GENERIC] kwd=logic range=[62:0]
+    3:1: BASICDTYPE 0xaaaaab8f7820 <e24> {c4al} @dt=this@(G/swu32/6)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab8f7ac0 <e29> {c4ao} @dt=this@(G/swu32/1)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab8f96a0 <e86> {c6al} @dt=this@(G/swu32/2)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab903ff0 <e202> {c10bk} @dt=this@(G/w1)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0xaaaaab904340 <e207> {c10bj} @dt=this@(G/w32)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab905060 <e248> {c10bi} @dt=this@(G/w0)  logic [GENERIC] kwd=logic
+    3:1: BASICDTYPE 0xaaaaab9075a0 <e320> {c12bk} @dt=this@(G/w2)  logic [GENERIC] kwd=logic range=[1:0]
+    3:1: BASICDTYPE 0xaaaaab90a970 <e438> {c14bl} @dt=this@(G/w3)  logic [GENERIC] kwd=logic range=[2:0]
+    3:1: BASICDTYPE 0xaaaaab90d3c0 <e533> {c16aj} @dt=this@(G/swu32/7)  logic [GENERIC] kwd=logic range=[31:0]
+    3:1: BASICDTYPE 0xaaaaab90dc30 <e550> {c16bn} @dt=this@(G/w63)  logic [GENERIC] kwd=logic range=[62:0]
+    3: CONSTPOOL 0xaaaaab8e7ce0 <e7> {a0aa}
+    3:1: MODULE 0xaaaaab8e7e70 <e6> {a0aa}  @CONST-POOL@  L0 [NONE]
+    3:1:2: SCOPE 0xaaaaab8e7fa0 <e5> {a0aa}  @CONST-POOL@ [abovep=0] [cellp=0] [modp=0xaaaaab8e7e70]
