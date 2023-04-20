@@ -1,4 +1,27 @@
-[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:18:62: value S is not a member of chisel3.UInt[0m
-[0m[[0m[31merror[0m] [0m[0m                Mux(io.OperateCode(0), 0.U(64.W), io.DataInA.S >> io.DataInB)),[0m
-[0m[[0m[31merror[0m] [0m[0m                                                             ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:14:54: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : chisel3.UInt[0m
+[0m[[0m[31merror[0m] [0m[0m required: String[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b0000".U) -> io.DataInA + io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:15:49: value - is not a member of (chisel3.Bool, chisel3.UInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b0001".U) -> io.DataInA - io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:17:49: value & is not a member of (chisel3.Bool, chisel3.UInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b0011".U) -> io.DataInA & io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:18:49: value | is not a member of (chisel3.Bool, chisel3.UInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b0100".U) -> io.DataInA | io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:19:49: value ^ is not a member of (chisel3.Bool, chisel3.UInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b0101".U) -> io.DataInA ^ io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:25:56: value >> is not a member of (chisel3.Bool, chisel3.UInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b1010".U) -> io.DataInA.asUInt >> io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:26:56: value << is not a member of (chisel3.Bool, chisel3.SInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b1011".U) -> io.DataInA.asSInt << io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/ysyx/OneStudentOneChip/MostSimpleProcessorCore-Chisel/ALU/src/main/scala/ALU.scala:27:56: value >> is not a member of (chisel3.Bool, chisel3.SInt)[0m
+[0m[[0m[31merror[0m] [0m[0m        io.OperateCode("b1100".U) -> io.DataInA.asSInt >> io.DataInB,[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m8 errors found[0m

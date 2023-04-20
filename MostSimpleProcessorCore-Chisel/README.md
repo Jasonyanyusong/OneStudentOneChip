@@ -21,11 +21,11 @@ For Computing part of ALU, we set the OperateCode as:
     0111, Beq, A===B
 
 For Shifting part of ALU, we set the OperateCode as:
-    1000, Preserved
-    1001, Preserved
+    1000, Preserved (In the latest version of ALU, will send back A)
+    1001, Preserved (In the latest version of ALU, will send back B)
     1010, Shift Right Logic
     1011, Shift Left Logic
     1100, Shift Right Arithmetic
-    1101, Preserved
-    1110, Shift Right Cycle (Not Implemented Yet)
-    1111, Shift Left Cycle (Not Implemented Yet)
+    1101, Preserved (In the latest version of ALU, will send back 0)
+    1110, Shift Right Cycle (Not Implemented Yet) (In the latest version of ALU, will send back A)
+    1111, Shift Left Cycle (Not Implemented Yet) (In the latest version of ALU, will send back B)
